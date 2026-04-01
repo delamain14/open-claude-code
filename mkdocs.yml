@@ -1,0 +1,94 @@
+site_name: Open Claude Code
+site_description: A comprehensive documentation system for Open Claude Code
+repo_url: https://github.com/delamain14/open-claude-code
+repo_name: open-claude-code
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: light
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: dark
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search:
+      lang: en
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Configuration: getting-started/configuration.md
+  - The Agent Loop:
+    - Architecture & Execution: core/agent-loop.md
+    - Architecture Overview: architecture/overview.md
+    - Entrypoints: architecture/entrypoints.md
+  - Tool Use:
+    - Tool System: core/tool-use.md
+    - Tools API: api/tools.md
+  - TodoWrite:
+    - V2 Task System: core/todowrite.md
+    - Commands API: api/commands.md
+  - Subagents:
+    - Spawning & Isolation: concepts/subagents.md
+  - Skills:
+    - Skill System: concepts/skills.md
+  - Context Compact:
+    - Compression & Budgeting: concepts/context-compact.md
+  - Tasks:
+    - Task Management: core/todowrite.md
+  - Background Tasks:
+    - Async Execution: tasks/background-tasks.md
+  - Agent Teams:
+    - Team Structure & Coordination: agents/agent-teams.md
+  - Team Protocols:
+    - Communication Standards: agents/team-protocols.md
+  - Autonomous Agents:
+    - Self-Directed Execution: agents/autonomous-agents.md
+  - Worktree + Task Isolation:
+    - Git Isolation: advanced/worktree-isolation.md
+  - Architecture:
+    - Services: architecture/services.md
+    - Tools System: architecture/tools.md
+    - Commands System: architecture/commands.md
+    - UI Layer: architecture/ui.md
+    - Types: architecture/types.md
+    - Utils: architecture/utils.md
+  - Development:
+    - Setup: development/setup.md
+    - Contributing: development/contributing.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: true
+  - tables
+  - attr_list

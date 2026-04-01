@@ -1,0 +1,7 @@
+preload = ["./src/restoration/preload.ts"]
+
+[run]
+preload = ["./src/restoration/preload.ts"]
+
+[test]
+preload = ["./src/restoration/preload.ts"]
