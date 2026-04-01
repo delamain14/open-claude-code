@@ -1,0 +1,3657 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation system for Open Claude Code">
+      
+      
+      
+      
+        <link rel="prev" href="../team-protocols/">
+      
+      
+        <link rel="next" href="../../advanced/worktree-isolation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Self-Directed Execution - Open Claude Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#autonomous-agents-self-directed-operation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Claude Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Self-Directed Execution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/agent-loop/" class="md-tabs__link">
+          
+  
+  
+  The Agent Loop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/tool-use/" class="md-tabs__link">
+          
+  
+  
+  Tool Use
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  TodoWrite
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/subagents/" class="md-tabs__link">
+          
+  
+  
+  Subagents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/skills/" class="md-tabs__link">
+          
+  
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/context-compact/" class="md-tabs__link">
+          
+  
+  
+  Context Compact
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tasks/background-tasks/" class="md-tabs__link">
+          
+  
+  
+  Background Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../agent-teams/" class="md-tabs__link">
+          
+  
+  
+  Agent Teams
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../team-protocols/" class="md-tabs__link">
+          
+  
+  
+  Team Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Autonomous Agents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/worktree-isolation/" class="md-tabs__link">
+          
+  
+  
+  Worktree + Task Isolation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/services/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Open Claude Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Agent Loop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Agent Loop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/agent-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/entrypoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrypoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Use
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Use
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TodoWrite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TodoWrite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subagents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Subagents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/subagents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spawning & Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compact
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context Compact
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/context-compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression & Budgeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/background-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Structure & Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Team Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../team-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Directed Execution
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Directed Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-coordinator-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Coordinator Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission Automation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ml-classifier-yolo-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ML Classifier (YOLO Mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-plan-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Plan Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-autonomous-decision-making" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Autonomous Decision Making
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-feature-implementation-coordinator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Feature Implementation (Coordinator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bug-investigation-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bug Investigation (Autonomy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-specialist-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Multi-Specialist Swarm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coordinator-system-prompt-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinator System Prompt Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-approval-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Approval Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinator-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinator Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Safety Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scope-limitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Scope Limitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-human-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Human Override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Audit Trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-coordinator-for-complex-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use Coordinator for Complex Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-plan-mode-for-major-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Enable Plan Mode for Major Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-clear-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set Clear Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree + Task Isolation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Worktree + Task Isolation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/worktree-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-coordinator-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Coordinator Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission Automation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ml-classifier-yolo-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ML Classifier (YOLO Mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-plan-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Plan Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-autonomous-decision-making" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Autonomous Decision Making
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-feature-implementation-coordinator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Feature Implementation (Coordinator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bug-investigation-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bug Investigation (Autonomy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-specialist-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Multi-Specialist Swarm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coordinator-system-prompt-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinator System Prompt Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-approval-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Approval Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinator-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinator Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Safety Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scope-limitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Scope Limitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-human-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Human Override
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Audit Trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-coordinator-for-complex-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use Coordinator for Complex Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-plan-mode-for-major-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Enable Plan Mode for Major Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-clear-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set Clear Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/agents/autonomous-agents.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="autonomous-agents-self-directed-operation">Autonomous Agents: Self-Directed Operation<a class="headerlink" href="#autonomous-agents-self-directed-operation" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Autonomous Agents operate with minimal human intervention by making decisions automatically through:</p>
+<ul>
+<li><strong>Coordinator Pattern</strong> - One agent coordinates multiple workers</li>
+<li><strong>Permission Automation</strong> - Rules automatically approve/deny safe operations</li>
+<li><strong>Plan Mode</strong> - Agents create and execute their own plans</li>
+<li><strong>Classifier-Based Safety</strong> - ML evaluates safety of operations</li>
+<li><strong>Swarm Execution</strong> - Multiple agents work in parallel toward a goal</li>
+</ul>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────────┐
+│      Main User Prompt: &quot;Build feature X&quot;    │
+└──────────────────────┬───────────────────────┘
+                       ↓
+        ┌──────────────────────────────┐
+        │  Coordinator Agent (Lead)    │
+        │                              │
+        │  Strategy:                   │
+        │  1. Research problem         │
+        │  2. Design solution          │
+        │  3. Delegate implementation  │
+        │  4. Verify results           │
+        └──────────────────┬───────────┘
+                           ↓
+        ┌──────────────────────────────────────┐
+        │  Spawn Worker Agents (Parallel)     │
+        │  ├─ Researcher (explore)            │
+        │  ├─ Implementer (code)              │
+        │  └─ Tester (verify)                 │
+        └──────────────────┬───────────────────┘
+                           ↓
+        ┌─────────────────────────────────────┐
+        │  Each Agent Autonomously:           │
+        │  • Makes decisions (classifier)     │
+        │  • Gets auto-approved permissions   │
+        │  • Executes tools                   │
+        │  • Reports back                     │
+        └──────────────────┬──────────────────┘
+                           ↓
+        ┌──────────────────────────────┐
+        │  Coordinator Synthesizes     │
+        │  All findings &amp; decisions    │
+        │  Returns final result        │
+        └──────────────────────────────┘
+</code></pre></div>
+<h2 id="autonomy-mechanisms">Autonomy Mechanisms<a class="headerlink" href="#autonomy-mechanisms" title="Permanent link">&para;</a></h2>
+<h3 id="1-coordinator-pattern">1. Coordinator Pattern<a class="headerlink" href="#1-coordinator-pattern" title="Permanent link">&para;</a></h3>
+<p>One agent coordinates multiple specialist agents:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Coordinator System Prompt</span>
+<span class="nx">You</span><span class="w"> </span><span class="nx">are</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="nx">coordinator</span><span class="p">.</span><span class="w"> </span><span class="nx">Your</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span>
+
+<span class="kt">1.</span><span class="w"> </span><span class="nx">Understand</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">user</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">goal</span>
+<span class="mf">2.</span><span class="w"> </span><span class="nx">Break</span><span class="w"> </span><span class="nx">it</span><span class="w"> </span><span class="nx">into</span><span class="w"> </span><span class="nx">subtasks</span>
+<span class="mf">3.</span><span class="w"> </span><span class="nx">Spawn</span><span class="w"> </span><span class="nx">specialist</span><span class="w"> </span><span class="nx">agents</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">each</span><span class="w"> </span><span class="nx">subtask</span>
+<span class="mf">4.</span><span class="w"> </span><span class="nx">Coordinate</span><span class="w"> </span><span class="nx">their</span><span class="w"> </span><span class="nx">work</span>
+<span class="mf">5.</span><span class="w"> </span><span class="nx">Integrate</span><span class="w"> </span><span class="nx">their</span><span class="w"> </span><span class="nx">results</span>
+<span class="mf">6.</span><span class="w"> </span><span class="nx">Present</span><span class="w"> </span><span class="kr">final</span><span class="w"> </span><span class="nx">solution</span>
+
+<span class="nx">Tools</span><span class="w"> </span><span class="nx">available</span><span class="o">:</span>
+<span class="o">-</span><span class="w"> </span><span class="nx">Agent</span><span class="o">:</span><span class="w"> </span><span class="kt">Spawn</span><span class="w"> </span><span class="nx">subagents</span><span class="w"> </span><span class="p">(</span><span class="nx">researcher</span><span class="p">,</span><span class="w"> </span><span class="nx">coder</span><span class="p">,</span><span class="w"> </span><span class="nx">tester</span><span class="p">,</span><span class="w"> </span><span class="nx">etc</span><span class="p">.)</span>
+<span class="o">-</span><span class="w"> </span><span class="nx">SendMessage</span><span class="o">:</span><span class="w"> </span><span class="kt">Check</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="nx">subagents</span><span class="p">,</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">updates</span>
+<span class="o">-</span><span class="w"> </span><span class="nx">Task</span><span class="o">*:</span><span class="w"> </span><span class="nx">Create</span><span class="o">/</span><span class="nx">track</span><span class="w"> </span><span class="nx">work</span><span class="w"> </span><span class="nx">items</span>
+
+<span class="nx">Process</span><span class="o">:</span>
+<span class="kt">1.</span><span class="w"> </span><span class="nx">Research</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find current implementation patterns&quot;</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Spawn</span><span class="w"> </span><span class="nx">researcher</span><span class="w"> </span><span class="nx">agent</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Let</span><span class="w"> </span><span class="nx">it</span><span class="w"> </span><span class="nx">explore</span><span class="w"> </span><span class="nx">codebase</span>
+
+<span class="mf">2.</span><span class="w"> </span><span class="nx">Plan</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Create implementation plan&quot;</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Get</span><span class="w"> </span><span class="nx">researcher</span><span class="w"> </span><span class="nx">findings</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Create</span><span class="w"> </span><span class="nx">detailed</span><span class="w"> </span><span class="nx">plan</span>
+
+<span class="mf">3.</span><span class="w"> </span><span class="nx">Implement</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Build the feature&quot;</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Spawn</span><span class="w"> </span><span class="nx">implementer</span><span class="w"> </span><span class="nx">agent</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Monitor</span><span class="w"> </span><span class="nx">progress</span>
+
+<span class="mf">4.</span><span class="w"> </span><span class="nx">Test</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Verify functionality&quot;</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Spawn</span><span class="w"> </span><span class="nx">tester</span><span class="w"> </span><span class="nx">agent</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Get</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="nx">results</span>
+
+<span class="mf">5.</span><span class="w"> </span><span class="nx">Integration</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ensure components work together&quot;</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Review</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">results</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Make</span><span class="w"> </span><span class="nx">integration</span><span class="w"> </span><span class="nx">decisions</span>
+
+<span class="mf">6.</span><span class="w"> </span><span class="nx">Deliver</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Present solution&quot;</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Summarize</span><span class="w"> </span><span class="nx">work</span><span class="w"> </span><span class="nx">done</span>
+<span class="w">   </span><span class="err">→</span><span class="w"> </span><span class="nx">Return</span><span class="w"> </span><span class="nx">solution</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">user</span>
+</code></pre></div>
+<h3 id="2-permission-automation">2. Permission Automation<a class="headerlink" href="#2-permission-automation" title="Permanent link">&para;</a></h3>
+<p>Permissions automatically approve/deny without user intervention:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Permission Rules (defined once)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// Auto-allow safe operations</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w">              </span><span class="c1">// Always allow reads</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">operation</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;view&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">pattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ls, cat, grep&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w">              </span><span class="c1">// Safe read-only bash</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// Deny dangerous operations</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">operation</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;execute&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">pattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rm, kill, reboot&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w">               </span><span class="c1">// Never run destructive</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// Auto-allow for specific safe contexts</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Edit&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">pathPattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;src/**&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">fileSize</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">maxBytes</span><span class="o">:</span><span class="w"> </span><span class="kt">100000</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Only small files</span>
+<span class="w">      </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w">               </span><span class="c1">// Safe edits</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// Use classifier for uncertain cases</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Edit&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">pathPattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tests/**&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;classify&quot;</span><span class="w">            </span><span class="c1">// ML decides</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">// When tool is called:</span>
+<span class="c1">// 1. Check rules in order</span>
+<span class="c1">// 2. First match → apply behavior</span>
+<span class="c1">// 3. allow → execute</span>
+<span class="c1">// 4. deny → reject</span>
+<span class="c1">// 5. classify → use ML classifier</span>
+</code></pre></div>
+<h3 id="3-ml-classifier-yolo-mode">3. ML Classifier (YOLO Mode)<a class="headerlink" href="#3-ml-classifier-yolo-mode" title="Permanent link">&para;</a></h3>
+<p>ML-based safety classifier for uncertain operations:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// YOLO Classifier evaluates:</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">classifyToolCall</span><span class="p">(</span><span class="nx">tool</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">signals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Low-risk signals</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">isReadOnlyOperation</span><span class="o">:</span><span class="w"> </span><span class="kt">input.tool</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">isKnownSafeOperation</span><span class="o">:</span><span class="w"> </span><span class="kt">input.operation</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;grep&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">hasValidationChecks</span><span class="o">:</span><span class="w"> </span><span class="kt">schema.validateInput</span><span class="p">(</span><span class="nx">input</span><span class="p">),</span>
+
+<span class="w">    </span><span class="c1">// High-risk signals</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">isDestructiveOperation</span><span class="o">:</span><span class="w"> </span><span class="kt">input.command</span><span class="w"> </span><span class="nx">includes</span><span class="w"> </span><span class="s2">&quot;rm&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">modifiesSystemFiles</span><span class="o">:</span><span class="w"> </span><span class="kt">input.path.startsWith</span><span class="p">(</span><span class="s2">&quot;/etc/&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">executesWithElevation</span><span class="o">:</span><span class="w"> </span><span class="kt">input.sudo</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">accessesSecrets</span><span class="o">:</span><span class="w"> </span><span class="kt">input.path.includes</span><span class="p">(</span><span class="s2">&quot;secret&quot;</span><span class="p">),</span>
+
+<span class="w">    </span><span class="c1">// Context signals</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">hasBeenAllowedBefore</span><span class="o">:</span><span class="w"> </span><span class="kt">input.path</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">approvedPaths</span><span class="p">,</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">isInTestContext</span><span class="o">:</span><span class="w"> </span><span class="kt">context.isRunningTests</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">isFirstTime</span><span class="o">:</span><span class="w"> </span><span class="kt">newOperation</span><span class="p">,</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">userWarningLevel</span><span class="o">:</span><span class="w"> </span><span class="kt">isHighRisk</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Score: sum of signals</span>
+<span class="w">  </span><span class="nx">confidence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculateConfidence</span><span class="p">(</span><span class="nx">signals</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">// Threshold</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confidence</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.85</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w">     </span><span class="c1">// High confidence: auto-approve</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confidence</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.35</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w">      </span><span class="c1">// Low confidence: auto-reject</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;ask_user&quot;</span><span class="w">  </span><span class="c1">// Mid confidence: prompt user</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-plan-mode">4. Plan Mode<a class="headerlink" href="#4-plan-mode" title="Permanent link">&para;</a></h3>
+<p>Agents create detailed plans before implementation:</p>
+<div class="highlight"><pre><span></span><code>User: &quot;Implement user authentication&quot;
+
+Agent in Plan Mode:
+  1. Analyze requirements
+  2. Research existing code
+  3. Design solution
+  4. Create step-by-step plan:
+     ```
+     ## Implementation Plan
+
+     ### Phase 1: Infrastructure
+     Step 1.1: Create User table
+       File: migrations/001_create_users.sql
+       Details: schema with email, password_hash, created_at
+
+     Step 1.2: Create JWT middleware
+       File: src/middleware/auth.ts
+       Details: verify tokens, attach to request
+
+     ### Phase 2: API Endpoints
+     Step 2.1: POST /auth/signup
+       File: src/routes/auth.ts
+       Endpoint: accept email/password, hash, store
+     ...
+     ```
+
+  4. Submit plan to user for review:
+     [Approve] [Request Changes] [Cancel]
+
+  5. User approves
+
+  6. Execute plan step-by-step:
+     - For each step: create task
+     - Spawn worker agents
+     - Integrate results
+     - Verify completeness
+</code></pre></div>
+<h3 id="5-autonomous-decision-making">5. Autonomous Decision Making<a class="headerlink" href="#5-autonomous-decision-making" title="Permanent link">&para;</a></h3>
+<p>Agents make decisions without user input:</p>
+<div class="highlight"><pre><span></span><code>Query Execution Loop:
+  Iteration 1:
+    Tool call: Read file
+    Check permission: allowed (auto-rule)
+    Execute immediately
+    No user prompt
+
+  Iteration 2:
+    Tool call: Edit file
+    Check permission: classify needed
+    ML classifier scores: 0.92 (high confidence)
+    Execute immediately
+    No user prompt
+
+  Iteration 3:
+    Analyze results
+    Plan next step
+    Spawn subagent
+    Continue autonomously
+
+  Iteration N:
+    Final synthesis
+    Return results to user
+</code></pre></div>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="1-feature-implementation-coordinator">1. Feature Implementation (Coordinator)<a class="headerlink" href="#1-feature-implementation-coordinator" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User: &quot;Add dark mode support&quot;
+
+Coordinator Agent:
+  1. Spawn researcher:
+     &quot;Analyze current theming system&quot;
+     → Find: CSS variables, Tailwind config, etc.
+
+  2. Spawn designer:
+     &quot;Design dark mode implementation&quot;
+     → Create: plan for dark colors, icons, etc.
+
+  3. Spawn implementer:
+     &quot;Implement dark mode from design&quot;
+     → Create: CSS, toggle button, localStorage
+
+  4. Spawn tester:
+     &quot;Test dark mode across browsers&quot;
+     → Verify: contrast, performance, UX
+
+  5. Integrate all results:
+     → Merge code
+     → Run tests
+     → Generate summary
+
+Result: Complete dark mode feature, implemented autonomously
+</code></pre></div>
+<h3 id="2-bug-investigation-autonomy">2. Bug Investigation (Autonomy)<a class="headerlink" href="#2-bug-investigation-autonomy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User: &quot;App crashes on login&quot;
+
+Autonomous Agent:
+  1. Gather reproduction info
+     (Auto-allowed: Read logs, check configs)
+
+  2. Analyze error signature
+     (Auto-allowed: Grep for error patterns)
+
+  3. Examine relevant code
+     (Auto-allowed: Read source files)
+
+  4. Identify root cause
+     (Decision made by classifier)
+
+  5. Propose fix
+     (Auto-allowed: Create fix in isolated test file)
+
+  6. Verify fix
+     (Auto-allowed: Run tests)
+
+Result: Bug fixed, all autonomously (user just sees result)
+</code></pre></div>
+<h3 id="3-multi-specialist-swarm">3. Multi-Specialist Swarm<a class="headerlink" href="#3-multi-specialist-swarm" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User: &quot;Build REST API for user management&quot;
+
+Coordinator spawns team:
+  - Database Specialist: Design schema
+  - Backend Specialist: Implement endpoints
+  - Test Specialist: Write tests
+  - Documentation Specialist: Write API docs
+
+Each works autonomously:
+  - Makes decisions within their domain
+  - Follows auto-approval rules
+  - Reports progress
+  - Integrates with others
+
+Coordinator monitors:
+  - Tracks task completion
+  - Resolves cross-team conflicts
+  - Merges all results
+</code></pre></div>
+<h2 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="coordinator-system-prompt-injection">Coordinator System Prompt Injection<a class="headerlink" href="#coordinator-system-prompt-injection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// In parent agent execution:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">coordinatorPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">You are a project coordinator agent. Your role is to:</span>
+
+<span class="sb">1. **Understand**: Parse user request</span>
+<span class="sb">2. **Plan**: Break into subtasks</span>
+<span class="sb">3. **Delegate**: Spawn specialist agents</span>
+<span class="sb">4. **Monitor**: Track progress</span>
+<span class="sb">5. **Integrate**: Combine results</span>
+<span class="sb">6. **Deliver**: Present solution</span>
+
+<span class="sb">Available agents:</span>
+<span class="sb">- general-purpose: For generic tasks</span>
+<span class="sb">- explorer: For code research</span>
+<span class="sb">- verifier: For testing</span>
+<span class="sb">- plan-agent: For planning</span>
+
+<span class="sb">Your workflow:</span>
+<span class="sb">Step 1: Analyze the task</span>
+<span class="sb">  → Read relevant files</span>
+<span class="sb">  → Understand constraints</span>
+<span class="sb">  → Identify specialist needs</span>
+
+<span class="sb">Step 2: Create plan</span>
+<span class="sb">  → List subtasks</span>
+<span class="sb">  → Identify dependencies</span>
+<span class="sb">  → Estimate effort</span>
+
+<span class="sb">Step 3: Spawn agents</span>
+<span class="sb">  For each task:</span>
+<span class="sb">    agent = Agent({</span>
+<span class="sb">      description: &quot;...&quot;,</span>
+<span class="sb">      subagent_type: &quot;appropriate-type&quot;</span>
+<span class="sb">    })</span>
+<span class="sb">    results[task] = agent</span>
+
+<span class="sb">Step 4: Integrate</span>
+<span class="sb">  → Combine all results</span>
+<span class="sb">  → Resolve any conflicts</span>
+<span class="sb">  → Create unified solution</span>
+
+<span class="sb">Step 5: Verify</span>
+<span class="sb">  → Ensure completeness</span>
+<span class="sb">  → Check quality</span>
+<span class="sb">  → Address gaps</span>
+
+<span class="sb">Step 6: Deliver</span>
+<span class="sb">  → Summarize process</span>
+<span class="sb">  → Present final result</span>
+<span class="sb">  → Offer follow-ups</span>
+
+<span class="sb">Remember: Work autonomously, make safe decisions,</span>
+<span class="sb">use tools liberally, spawn agents generously.</span>
+<span class="sb">`</span>
+</code></pre></div>
+<h3 id="auto-approval-rules">Auto-Approval Rules<a class="headerlink" href="#auto-approval-rules" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Permission rules for autonomous agents</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">autonomousRules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="c1">// Reading files - always OK</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Glob&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Grep&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">  </span><span class="c1">// Writing tests - always OK</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Write&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">pathPattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;**/*.test.ts&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="c1">// Bash read-only operations - always OK</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">commandPattern</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;grep&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;git log&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="c1">// Editing known files - OK</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Edit&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">pathPattern</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;src/**&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tests/**&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="c1">// Dangerous operations - always deny</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">commandPattern</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;rm -rf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;reboot&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sudo&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="c1">// Uncertain cases - use classifier</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;classify&quot;</span><span class="w">  </span><span class="c1">// Default fallback</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="enable-autonomy">Enable Autonomy<a class="headerlink" href="#enable-autonomy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Feature flags</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_AUTONOMOUS_AGENTS</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_AUTO_PERMISSION</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CLASSIFIER_MODE</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># Or per-session</span>
+claude-code<span class="w"> </span>--autonomous<span class="w"> </span>--auto-permission
+</code></pre></div>
+<h3 id="coordinator-mode">Coordinator Mode<a class="headerlink" href="#coordinator-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Spawn coordinator agent automatically</span>
+claude-code<span class="w"> </span>--coordinator-mode<span class="w"> </span><span class="s2">&quot;Build feature X&quot;</span>
+
+<span class="c1"># Or manually invoke</span>
+/skill<span class="w"> </span>coordinating-agents
+</code></pre></div>
+<h2 id="safety-considerations">Safety Considerations<a class="headerlink" href="#safety-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="1-scope-limitation">1. Scope Limitation<a class="headerlink" href="#1-scope-limitation" title="Permanent link">&para;</a></h3>
+<p>Autonomous agents operate within defined scope:
+- Specific project directory
+- Specific file patterns (src/<strong>, tests/</strong>)
+- Specific tool whitelist (Read, Bash view, etc.)</p>
+<h3 id="2-permission-boundaries">2. Permission Boundaries<a class="headerlink" href="#2-permission-boundaries" title="Permanent link">&para;</a></h3>
+<p>Even with autonomy, permissions respected:
+- Can't write to /etc/
+- Can't execute rm/reboot
+- Can't access secrets
+- All checked by permission rules</p>
+<h3 id="3-human-override">3. Human Override<a class="headerlink" href="#3-human-override" title="Permanent link">&para;</a></h3>
+<p>Users can:
+- Interrupt agent at any time (Ctrl+C)
+- Review plan before execution (Plan Mode)
+- Set permission rules to be more restrictive
+- Require prompts for any high-risk operation</p>
+<h3 id="4-audit-trail">4. Audit Trail<a class="headerlink" href="#4-audit-trail" title="Permanent link">&para;</a></h3>
+<p>All autonomous decisions logged:
+- Which tool was called
+- What permission rule applied
+- What permission was granted/denied
+- Who/what made the decision</p>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-use-coordinator-for-complex-tasks">1. Use Coordinator for Complex Tasks<a class="headerlink" href="#1-use-coordinator-for-complex-tasks" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code>Complex task: &quot;Refactor API layer with new error handling&quot;
+→ Use coordinator to break into subtasks
+→ Spawn specialists for each part
+→ Each works autonomously
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code>Simple task: &quot;Read this file and tell me what it does&quot;
+→ Single agent, no need for coordinator
+→ Simpler and faster
+</code></pre></div></p>
+<h3 id="2-enable-plan-mode-for-major-changes">2. Enable Plan Mode for Major Changes<a class="headerlink" href="#2-enable-plan-mode-for-major-changes" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code>Major refactor:
+1. Enter Plan Mode
+2. Agent creates plan
+3. Review plan with team
+4. Approve
+5. Agent executes autonomously
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code>Major change without plan
+→ Uncoordinated work
+→ Rework and conflicts
+</code></pre></div></p>
+<h3 id="3-set-clear-permission-boundaries">3. Set Clear Permission Boundaries<a class="headerlink" href="#3-set-clear-permission-boundaries" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code>Autonomous permissions:
+- Can edit: src/**, tests/**
+- Can execute: npm test, npm build
+- Cannot: rm, ssh, sudo
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code>All permissions auto-approve
+→ Risk of accidental damage
+→ No safety checks
+</code></pre></div></p>
+<h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/coordinator/coordinatorMode.ts</code></td>
+<td>Coordinator mode</td>
+</tr>
+<tr>
+<td><code>src/utils/permissions/yoloClassifier.ts</code></td>
+<td>ML classifier</td>
+</tr>
+<tr>
+<td><code>src/tools/EnterPlanModeTool/</code></td>
+<td>Plan mode entry</td>
+</tr>
+<tr>
+<td><code>src/tools/ExitPlanModeTool/</code></td>
+<td>Plan mode exit</td>
+</tr>
+<tr>
+<td><code>src/tools/AgentTool/</code></td>
+<td>Subagent spawning</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../core/agent-loop/">Agent Loop</a> - Basic execution</li>
+<li><a href="../../concepts/subagents/">Subagents</a> - Agent spawning</li>
+<li><a href="../agent-teams/">Agent Teams</a> - Team coordination</li>
+<li><a href="../../architecture/permissions.md">Permissions</a> - Permission system</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

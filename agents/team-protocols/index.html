@@ -1,0 +1,3874 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation system for Open Claude Code">
+      
+      
+      
+      
+        <link rel="prev" href="../agent-teams/">
+      
+      
+        <link rel="next" href="../autonomous-agents/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Communication Standards - Open Claude Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#team-protocols-inter-agent-communication-standards" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Claude Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Communication Standards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/agent-loop/" class="md-tabs__link">
+          
+  
+  
+  The Agent Loop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/tool-use/" class="md-tabs__link">
+          
+  
+  
+  Tool Use
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  TodoWrite
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/subagents/" class="md-tabs__link">
+          
+  
+  
+  Subagents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/skills/" class="md-tabs__link">
+          
+  
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/context-compact/" class="md-tabs__link">
+          
+  
+  
+  Context Compact
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tasks/background-tasks/" class="md-tabs__link">
+          
+  
+  
+  Background Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../agent-teams/" class="md-tabs__link">
+          
+  
+  
+  Agent Teams
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Team Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../autonomous-agents/" class="md-tabs__link">
+          
+  
+  
+  Autonomous Agents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/worktree-isolation/" class="md-tabs__link">
+          
+  
+  
+  Worktree + Task Isolation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/services/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Open Claude Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Agent Loop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Agent Loop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/agent-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/entrypoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrypoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Use
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Use
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TodoWrite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TodoWrite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subagents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Subagents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/subagents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spawning & Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compact
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context Compact
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/context-compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression & Budgeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/background-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Structure & Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Team Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Standards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Protocols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-permission-synchronization-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Permission Synchronization Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Permission Synchronization Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-permission-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow: Permission Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-rule-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Rule Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-task-notification-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Task Notification Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Task Notification Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-task-status-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow: Task Status Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-session-reconnection-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Session Reconnection Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Session Reconnection Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-session-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow: Session Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mailbox-message-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mailbox Message Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mailbox Message Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mailbox-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mailbox Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-execution-synchronization-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Execution Synchronization Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Execution Synchronization Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-constraint-blocked-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequential Constraint: Blocked Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-prevention-file-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conflict Prevention: File Locking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Channels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Channels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mailbox-asynchronous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Mailbox (Asynchronous)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-websocket-synchronous-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. WebSocket (Synchronous, optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-shared-task-list-eventual-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Shared Task List (Eventual Consistency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocol Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocol Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-frontend-and-backend-racing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Frontend and Backend Racing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-permission-boundary-crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Permission Boundary Crossing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-parallel-work-with-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Parallel Work with Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocol Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocol Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guarantees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guarantees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-teammate-permission-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lead-Teammate Permission Bridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-update-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Update Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mailbox-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mailbox Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clear-responsibility-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clear Responsibility Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-explicit-task-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Explicit Task Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-regular-synchronization-check-ins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Regular Synchronization Check-ins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Directed Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree + Task Isolation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Worktree + Task Isolation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/worktree-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Protocols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-permission-synchronization-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Permission Synchronization Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Permission Synchronization Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-permission-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow: Permission Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-rule-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Rule Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-task-notification-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Task Notification Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Task Notification Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-task-status-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow: Task Status Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-session-reconnection-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Session Reconnection Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Session Reconnection Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-session-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow: Session Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mailbox-message-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mailbox Message Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mailbox Message Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mailbox-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mailbox Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-execution-synchronization-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Execution Synchronization Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Execution Synchronization Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-constraint-blocked-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequential Constraint: Blocked Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-prevention-file-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conflict Prevention: File Locking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Channels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Channels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mailbox-asynchronous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Mailbox (Asynchronous)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-websocket-synchronous-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. WebSocket (Synchronous, optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-shared-task-list-eventual-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Shared Task List (Eventual Consistency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocol Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocol Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-frontend-and-backend-racing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Frontend and Backend Racing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-permission-boundary-crossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Permission Boundary Crossing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-parallel-work-with-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Parallel Work with Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocol Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocol Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guarantees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guarantees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lead-teammate-permission-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lead-Teammate Permission Bridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-update-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Update Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mailbox-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mailbox Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clear-responsibility-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clear Responsibility Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-explicit-task-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Explicit Task Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-regular-synchronization-check-ins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Regular Synchronization Check-ins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/agents/team-protocols.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="team-protocols-inter-agent-communication-standards">Team Protocols: Inter-Agent Communication Standards<a class="headerlink" href="#team-protocols-inter-agent-communication-standards" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Team Protocols define the communication, synchronization, and coordination rules between team members. They ensure reliable cooperation even when agents operate in parallel across different processes.</p>
+<h2 id="core-protocols">Core Protocols<a class="headerlink" href="#core-protocols" title="Permanent link">&para;</a></h2>
+<h3 id="1-permission-synchronization-protocol">1. Permission Synchronization Protocol<a class="headerlink" href="#1-permission-synchronization-protocol" title="Permanent link">&para;</a></h3>
+<p>Ensures all teammates respect consistent permission rules set by team lead.</p>
+<h4 id="flow-permission-request">Flow: Permission Request<a class="headerlink" href="#flow-permission-request" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Teammate Query:
+  1. Tool called: Edit(&quot;/forbidden-file.ts&quot;)
+  2. Check: Local permission rules
+  3. Local rules: DENIED
+  4. Check: Team rules (team.json)
+  5. Team rules: NEUTRAL (not specified)
+  6. Action: Send permission request to lead
+
+Message to Lead:
+  {
+    id: &quot;perm-req-123&quot;,
+    from: &quot;frontend-agent&quot;,
+    type: &quot;permission_request&quot;,
+    tool: &quot;Edit&quot;,
+    path: &quot;/forbidden-file.ts&quot;,
+    timestamp: 1712000000000
+  }
+
+Lead Processing:
+  1. Receives mailbox message
+  2. Evaluates: Is this path safe to edit?
+  3. Decision: allow | deny | ask_user
+  4. Response:
+     {
+       id: &quot;perm-req-123&quot;,
+       type: &quot;permission_response&quot;,
+       decision: &quot;allow&quot;,
+       reason: &quot;Required for integration&quot;
+     }
+
+Teammate Resumes:
+  1. Polls mailbox for response
+  2. Receives permission_response
+  3. Decision: allow → proceed with Edit
+  4. Tool execution continues
+</code></pre></div>
+<h4 id="permission-rule-inheritance">Permission Rule Inheritance<a class="headerlink" href="#permission-rule-inheritance" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Lead grants permission:
+  teamAllowedPaths: [
+    {
+      path: &quot;src/**&quot;,
+      toolName: &quot;Edit&quot;,
+      addedBy: &quot;lead-agent&quot;
+    }
+  ]
+
+Teammate inherits:
+  &quot;I can edit src/** per team rules&quot;
+
+Teammate checks permission:
+  1. Edit(&quot;/src/main.ts&quot;)
+  2. Does &quot;src/main.ts&quot; match &quot;src/**&quot;? YES
+  3. Permission: ALLOW (no request needed)
+
+Teammate checks:
+  1. Edit(&quot;/config/secrets.json&quot;)
+  2. Does &quot;config/secrets.json&quot; match &quot;src/**&quot;? NO
+  3. Permission: ASK LEAD
+</code></pre></div>
+<h3 id="2-task-notification-protocol">2. Task Notification Protocol<a class="headerlink" href="#2-task-notification-protocol" title="Permanent link">&para;</a></h3>
+<p>All team members receive notifications when tasks change.</p>
+<h4 id="flow-task-status-change">Flow: Task Status Change<a class="headerlink" href="#flow-task-status-change" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Teammate Updates:
+  TaskUpdate({
+    taskId: &quot;1&quot;,
+    status: &quot;in_progress&quot;,
+    owner: &quot;frontend-agent&quot;
+  })
+
+System Broadcasts:
+  Notification to all teammates:
+  {
+    type: &quot;task_notification&quot;,
+    taskId: &quot;1&quot;,
+    change: {
+      status: { old: &quot;pending&quot;, new: &quot;in_progress&quot; },
+      owner: { old: null, new: &quot;frontend-agent&quot; }
+    },
+    timestamp: 1712000000000
+  }
+
+Teammates Process:
+  1. Receive notification
+  2. Update local task cache
+  3. Check if any of my tasks are now unblocked
+  4. If unblocked: Log message &quot;Task 2 now ready to start&quot;
+  5. Can immediately claim: TaskUpdate(taskId: 2, in_progress)
+
+Example Cascade:
+  Task 1 complete
+    → Task 2 unblocked (was blockedBy 1)
+    → Task 3 unblocked (was blockedBy 1 and 2)
+    → Multiple teammates can now start their work
+</code></pre></div>
+<h3 id="3-session-reconnection-protocol">3. Session Reconnection Protocol<a class="headerlink" href="#3-session-reconnection-protocol" title="Permanent link">&para;</a></h3>
+<p>Allows teammates to recover from disconnection.</p>
+<h4 id="flow-session-recovery">Flow: Session Recovery<a class="headerlink" href="#flow-session-recovery" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Teammate Session Active:
+  Agent running in tmux pane
+  Session: &quot;session-456&quot;
+
+Connection Lost:
+  (Network issue, terminal closed, etc.)
+
+Lead Detection:
+  1. Poll team session status
+  2. Detect: session-456 no longer active
+  3. Mark: teammate &quot;inactive&quot;
+  4. Log: &quot;frontend offline at 2024-04-01 15:32&quot;
+
+Reconnection:
+  1. User reconnects to tmux pane
+  2. System detects: same session resumed
+  3. Process: Still running or crashed?
+     → If crashed: Restart
+     → If running: Resume normal operation
+  4. Mark: teammate &quot;active&quot;
+  5. Replay: Any missed messages (permission updates, task changes)
+</code></pre></div>
+<h3 id="4-mailbox-message-protocol">4. Mailbox Message Protocol<a class="headerlink" href="#4-mailbox-message-protocol" title="Permanent link">&para;</a></h3>
+<p>Generic message passing system between lead and teammates.</p>
+<h4 id="message-structure">Message Structure<a class="headerlink" href="#message-structure" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">TeamMessage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                 </span><span class="c1">// Unique message ID</span>
+<span class="w">  </span><span class="nx">from</span><span class="o">:</span><span class="w"> </span><span class="kt">AgentId</span><span class="w">             </span><span class="c1">// Sender agent ID</span>
+<span class="w">  </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="kt">AgentId</span><span class="w">               </span><span class="c1">// Recipient agent ID</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">MessageType</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="w">          </span><span class="c1">// Message-specific content</span>
+<span class="w">  </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">         </span><span class="c1">// Unix ms</span>
+<span class="w">  </span><span class="nx">acknowledged?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">    </span><span class="c1">// Has recipient processed?</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">MessageType</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;permission_request&quot;</span><span class="w">    </span><span class="c1">// Teammate: ask lead</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;permission_response&quot;</span><span class="w">   </span><span class="c1">// Lead: respond to request</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;task_notification&quot;</span><span class="w">     </span><span class="c1">// Any: task changed</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;status_update&quot;</span><span class="w">         </span><span class="c1">// Teammate: report progress</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;error_report&quot;</span><span class="w">          </span><span class="c1">// Teammate: report failure</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;instruction&quot;</span><span class="w">           </span><span class="c1">// Lead: direct teammate</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;question&quot;</span><span class="w">              </span><span class="c1">// Teammate: ask for guidance</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;acknowledgment&quot;</span><span class="w">        </span><span class="c1">// Any: confirm receipt</span>
+</code></pre></div>
+<h4 id="mailbox-storage">Mailbox Storage<a class="headerlink" href="#mailbox-storage" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>~/.claude/teams/my-team/mailbox/
+
+Frontend mailbox:
+  [
+    {
+      id: &quot;msg-1&quot;,
+      from: &quot;lead&quot;,
+      type: &quot;task_notification&quot;,
+      content: { taskId: &quot;2&quot;, status: &quot;unblocked&quot; }
+    },
+    {
+      id: &quot;msg-2&quot;,
+      from: &quot;lead&quot;,
+      type: &quot;permission_response&quot;,
+      content: { decision: &quot;allow&quot;, reason: &quot;...&quot; }
+    }
+  ]
+
+Backend mailbox:
+  [ ... ]
+
+Lead doesn&#39;t have personal mailbox,
+instead receives messages via polling.
+</code></pre></div>
+<h4 id="message-lifecycle">Message Lifecycle<a class="headerlink" href="#message-lifecycle" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>1. Create
+   Message created and written to recipient mailbox
+
+2. Deliver
+   Recipient polled and reads mailbox
+   → Message loaded into memory
+   → Processed according to type
+
+3. Acknowledge
+   Recipient marks as processed
+   → Removed from mailbox file
+   → Frees disk space
+
+4. Archive (optional)
+   Processed messages can be archived for history
+</code></pre></div>
+<h3 id="5-execution-synchronization-protocol">5. Execution Synchronization Protocol<a class="headerlink" href="#5-execution-synchronization-protocol" title="Permanent link">&para;</a></h3>
+<p>Coordinates parallel work and prevents conflicts.</p>
+<h4 id="sequential-constraint-blocked-tasks">Sequential Constraint: Blocked Tasks<a class="headerlink" href="#sequential-constraint-blocked-tasks" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Task DAG:
+  Database Schema → API Implementation → UI Integration
+
+Execution:
+  Time 0:
+    Frontend: TaskList() → sees Task 3 (blockedBy 2)
+    Backend: TaskList() → sees Task 2 (blockedBy 1)
+    Database: Claims Task 1 → in_progress
+
+  Time 5 minutes:
+    Database: Task 1 complete
+    → Notification sent: Task 1 completed
+    → Task 2 unblocked
+
+    Backend: Receives notification
+    → Updates local TaskList
+    → Task 2 no longer blocked
+    → Claims Task 2 → in_progress
+
+    Frontend: Task 3 still blocked (waiting for Task 2)
+
+  Time 15 minutes:
+    Backend: Task 2 complete
+    → Notification sent: Task 2 completed
+    → Task 3 unblocked
+
+    Frontend: Receives notification
+    → Task 3 now runnable
+    → Claims Task 3 → in_progress
+</code></pre></div>
+<h4 id="conflict-prevention-file-locking">Conflict Prevention: File Locking<a class="headerlink" href="#conflict-prevention-file-locking" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Scenario: Both teammates try to edit same file
+
+Frontend attempts:
+  Edit(&quot;/src/api.ts&quot;)
+  1. Checks: Is file locked?
+  2. Locked by: Backend
+  3. Action: Ask lead
+     &quot;Backend is editing /src/api.ts, should I wait?&quot;
+  4. Lead response: &quot;Wait for backend to complete&quot;
+  5. Frontend: Waits or works on different file
+
+Backend completes:
+  1. Releases lock
+  2. Notification: &quot;/src/api.ts now available&quot;
+
+Frontend resumes:
+  1. Lock acquired
+  2. Edit proceeds
+</code></pre></div>
+<h2 id="communication-channels">Communication Channels<a class="headerlink" href="#communication-channels" title="Permanent link">&para;</a></h2>
+<h3 id="1-mailbox-asynchronous">1. Mailbox (Asynchronous)<a class="headerlink" href="#1-mailbox-asynchronous" title="Permanent link">&para;</a></h3>
+<p>Used for permissions, task changes, status updates:
+- Non-blocking
+- Persistent (survives disconnection)
+- Polled by teammates
+- Good for: decisions, notifications</p>
+<h3 id="2-websocket-synchronous-optional">2. WebSocket (Synchronous, optional)<a class="headerlink" href="#2-websocket-synchronous-optional" title="Permanent link">&para;</a></h3>
+<p>For real-time coordination:
+- Instant delivery
+- Requires connection
+- Used if available
+- Fallback to mailbox if unavailable</p>
+<h3 id="3-shared-task-list-eventual-consistency">3. Shared Task List (Eventual Consistency)<a class="headerlink" href="#3-shared-task-list-eventual-consistency" title="Permanent link">&para;</a></h3>
+<p>All agents see same task state (with slight delay):
+- File system source of truth
+- Locked for consistency
+- Written by: TaskUpdateTool
+- Read by: TaskListTool</p>
+<h2 id="protocol-examples">Protocol Examples<a class="headerlink" href="#protocol-examples" title="Permanent link">&para;</a></h2>
+<h3 id="example-1-frontend-and-backend-racing">Example 1: Frontend and Backend Racing<a class="headerlink" href="#example-1-frontend-and-backend-racing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Scenario: Frontend and backend both want to edit same API response format
+
+Time 0:
+  Frontend: &quot;I&#39;ll modify API response to include user profile&quot;
+  Backend: &quot;I&#39;ll modify API response to add pagination&quot;
+
+Flow:
+  1. Frontend attempts: Edit(&quot;/src/api.ts&quot;)
+     → Checks file lock: not locked
+     → Acquires lock
+     → Edit proceeds
+
+  2. Backend attempts: Edit(&quot;/src/api.ts&quot;)
+     → Checks file lock: locked by Frontend
+     → Sends permission request: &quot;Can I edit?&quot;
+     → Lead responds: &quot;Wait, frontend is editing&quot;
+     → Backend: Works on different file for now
+
+  3. Frontend completes edit, releases lock
+     → Notification sent: &quot;File released&quot;
+
+  4. Backend retries: Edit(&quot;/src/api.ts&quot;)
+     → Checks file lock: not locked
+     → Acquires lock
+     → Edit proceeds
+     → But now conflicts with frontend changes!
+
+  5. Backend detects conflict
+     → Sends to lead: &quot;Merge conflict in /src/api.ts&quot;
+     → Lead: Reviews both changes, decides merge strategy
+     → Lead: Instructs both teammates on resolution
+</code></pre></div>
+<h3 id="example-2-permission-boundary-crossing">Example 2: Permission Boundary Crossing<a class="headerlink" href="#example-2-permission-boundary-crossing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Scenario: Backend wants to edit frontend file (shouldn&#39;t normally happen)
+
+Flow:
+  1. Backend: &quot;I need to fix UI component&quot;
+     → Edit(&quot;/src/components/Header.tsx&quot;)
+
+  2. System checks:
+     → Local rules: Denied (backend can&#39;t edit src/components)
+     → Team rules: Denied (backend not in path allowlist)
+
+  3. Sends permission request to lead:
+     {
+       tool: &quot;Edit&quot;,
+       path: &quot;/src/components/Header.tsx&quot;,
+       reason: &quot;Need to update API integration with UI&quot;
+     }
+
+  4. Lead reviews:
+     → Is backend expertise needed? YES (API integration)
+     → Grant temporary permission for this file
+
+  5. Response to backend:
+     {
+       decision: &quot;allow&quot;,
+       reason: &quot;API integration changes need backend knowledge&quot;,
+       scope: &quot;/src/components/Header.tsx only&quot;
+     }
+
+  6. Backend: Edit proceeds
+     → Makes necessary changes
+     → Notifies frontend: &quot;Updated Header.tsx for API&quot;
+
+  7. Frontend reviews and approves
+     → Integration successful
+</code></pre></div>
+<h3 id="example-3-parallel-work-with-dependencies">Example 3: Parallel Work with Dependencies<a class="headerlink" href="#example-3-parallel-work-with-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Initial Task Setup:
+  Task A: &quot;Database schema&quot; (independent)
+  Task B: &quot;Backend API&quot; (blockedBy: A)
+  Task C: &quot;Frontend UI&quot; (independent)
+  Task D: &quot;Integration tests&quot; (blockedBy: B, C)
+
+Time 0:
+  Database: Claims A → in_progress
+  Frontend: Claims C → in_progress
+  Backend: Task B blocked, waits
+
+Time 5:
+  Database: Task A complete → notification
+  → Backend: Receives notification
+  → Task B unblocked!
+  → Backend: Claims B → in_progress
+
+Time 10:
+  Frontend: Task C complete
+  → Database and Backend both working (not needed)
+
+Time 15:
+  Backend: Task B complete
+  → Tester: Receives notification
+  → Task D unblocked (both A and C done)
+  → Tester: Claims D → in_progress
+
+Time 25:
+  Tester: Task D complete
+  → All work finished!
+</code></pre></div>
+<h2 id="protocol-compliance">Protocol Compliance<a class="headerlink" href="#protocol-compliance" title="Permanent link">&para;</a></h2>
+<h3 id="guarantees">Guarantees<a class="headerlink" href="#guarantees" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>Guaranteed:</strong>
+- All teammates see same task state (eventually)
+- Permission decisions are consistent
+- No concurrent writes to same file
+- Messages are delivered in order</p>
+<p>❌ <strong>Not guaranteed:</strong>
+- Real-time synchronization (async)
+- Instant message delivery (relies on polling)
+- Perfect conflict prevention (must use locks)</p>
+<h3 id="trade-offs">Trade-offs<a class="headerlink" href="#trade-offs" title="Permanent link">&para;</a></h3>
+<p><strong>Resilience over Consistency:</strong>
+- Teammates can work offline
+- Mailbox persists across disconnections
+- Catch up when reconnected</p>
+<p><strong>Simplicity over Efficiency:</strong>
+- File-based storage (no database)
+- Polling (no complex signaling)
+- Human-friendly conflict resolution</p>
+<h2 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="lead-teammate-permission-bridge">Lead-Teammate Permission Bridge<a class="headerlink" href="#lead-teammate-permission-bridge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// leaderPermissionBridge.ts</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">syncPermissionsToTeammate</span><span class="p">(</span><span class="nx">lead</span><span class="p">,</span><span class="w"> </span><span class="nx">teammate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. Teammate makes tool call</span>
+<span class="w">  </span><span class="c1">// 2. Check: Is this permitted?</span>
+<span class="w">  </span><span class="c1">// 3. Local rules: apply first</span>
+<span class="w">  </span><span class="c1">// 4. No match: Query lead via bridge</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">leadDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">askLeadForPermission</span><span class="p">(</span><span class="nx">tool</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">// Bridge queries lead&#39;s permission state</span>
+<span class="w">  </span><span class="c1">// Returns: allow | deny | ask_user</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">leadDecision</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="task-update-notification">Task Update Notification<a class="headerlink" href="#task-update-notification" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// taskNotification.ts</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">notifyTasksUpdated</span><span class="p">(</span><span class="nx">taskId</span><span class="p">,</span><span class="w"> </span><span class="nx">changes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. Task file updated</span>
+<span class="w">  </span><span class="c1">// 2. System detects: task change</span>
+<span class="w">  </span><span class="c1">// 3. Broadcasts to all teammates:</span>
+<span class="w">  </span><span class="c1">//    - Message in each mailbox</span>
+<span class="w">  </span><span class="c1">//    - Local task cache invalidation</span>
+<span class="w">  </span><span class="c1">//    - UI refresh</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="mailbox-polling">Mailbox Polling<a class="headerlink" href="#mailbox-polling" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// teammateMailbox.ts</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">pollMailbox</span><span class="p">(</span><span class="nx">agentId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Every 5 seconds:</span>
+<span class="w">  </span><span class="c1">// 1. Check mailbox file for this agent</span>
+<span class="w">  </span><span class="c1">// 2. Read new messages</span>
+<span class="w">  </span><span class="c1">// 3. Process by type:</span>
+<span class="w">  </span><span class="c1">//    - task_notification → update task list</span>
+<span class="w">  </span><span class="c1">//    - permission_response → unblock waiting tool</span>
+<span class="w">  </span><span class="c1">//    - instruction → execute lead&#39;s direction</span>
+<span class="w">  </span><span class="c1">// 4. Mark processed messages</span>
+<span class="w">  </span><span class="c1">// 5. Remove from mailbox</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-clear-responsibility-boundaries">1. Clear Responsibility Boundaries<a class="headerlink" href="#1-clear-responsibility-boundaries" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;frontend-agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;allowedPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;src/components/**&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/hooks/**&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;cannotEdit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;src/api/**&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/db/**&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;all-agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;allowedPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;**&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;cannotEdit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// No boundaries = conflicts inevitable</span>
+</code></pre></div></p>
+<h3 id="2-explicit-task-dependencies">2. Explicit Task Dependencies<a class="headerlink" href="#2-explicit-task-dependencies" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code>Task 1: &quot;Schema design&quot; (independent)
+Task 2: &quot;API impl&quot; (blockedBy: 1)
+Task 3: &quot;Tests&quot; (blockedBy: 2)
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code>All tasks independent
+// Teammates guess order
+// Risk of rework
+</code></pre></div></p>
+<h3 id="3-regular-synchronization-check-ins">3. Regular Synchronization Check-ins<a class="headerlink" href="#3-regular-synchronization-check-ins" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code>Team lead: Poll team status every iteration
+→ Check for stalled teammates
+→ Resolve permission disputes
+→ Update blockers
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code>Team lead: Set and forget
+// Teammates stuck waiting
+// Problems accumulate
+</code></pre></div></p>
+<h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/utils/swarm/permissionSync.ts</code></td>
+<td>Permission protocol</td>
+</tr>
+<tr>
+<td><code>src/utils/swarm/teamHelpers.ts</code></td>
+<td>Team utilities</td>
+</tr>
+<tr>
+<td><code>src/utils/swarm/leaderPermissionBridge.ts</code></td>
+<td>Lead-teammate bridge</td>
+</tr>
+<tr>
+<td><code>src/utils/swarm/reconnection.ts</code></td>
+<td>Reconnection logic</td>
+</tr>
+<tr>
+<td><code>src/utils/swarm/taskNotification.ts</code></td>
+<td>Task notifications</td>
+</tr>
+<tr>
+<td><code>src/utils/teammateMailbox.ts</code></td>
+<td>Mailbox implementation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../agent-teams/">Agent Teams</a> - Team structure</li>
+<li><a href="../../core/todowrite/">Tasks</a> - Task management</li>
+<li><a href="../../architecture/permissions.md">Permissions</a> - Permission system</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

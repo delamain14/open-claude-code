@@ -1,0 +1,4002 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation system for Open Claude Code">
+      
+      
+      
+      
+        <link rel="prev" href="../../architecture/entrypoints/">
+      
+      
+        <link rel="next" href="../../api/tools/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tool System - Open Claude Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tool-use-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Claude Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tool System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../agent-loop/" class="md-tabs__link">
+          
+  
+  
+  The Agent Loop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Tool Use
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../todowrite/" class="md-tabs__link">
+          
+  
+  
+  TodoWrite
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/subagents/" class="md-tabs__link">
+          
+  
+  
+  Subagents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/skills/" class="md-tabs__link">
+          
+  
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/context-compact/" class="md-tabs__link">
+          
+  
+  
+  Context Compact
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../todowrite/" class="md-tabs__link">
+          
+  
+  
+  Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tasks/background-tasks/" class="md-tabs__link">
+          
+  
+  
+  Background Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/agent-teams/" class="md-tabs__link">
+          
+  
+  
+  Agent Teams
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/team-protocols/" class="md-tabs__link">
+          
+  
+  
+  Team Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/autonomous-agents/" class="md-tabs__link">
+          
+  
+  
+  Autonomous Agents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/worktree-isolation/" class="md-tabs__link">
+          
+  
+  
+  Worktree + Task Isolation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/services/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Open Claude Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Agent Loop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Agent Loop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/entrypoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrypoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Use
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Use
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool System
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-code-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File &amp; Code Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web &amp; API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-task-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent &amp; Task Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team &amp; Collaboration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning &amp; Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System &amp; State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-definitions-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Definitions &amp; Schemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Definitions &amp; Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tool-definition-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Definition Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zod-schema-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zod Schema Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tool-call-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tool Call Parsing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission Checking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Input Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tool-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tool Invocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-result-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Result Formatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrent-tool-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrent Tool Execution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-result-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Result Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-tool-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Tool Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Tool Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool-spawn-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool (Spawn Subagents)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-tool-execute-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Tool (Execute Skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-tools-createlistupdate-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Tools (Create/List/Update Tasks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Permission System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-permission-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Permission Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-development-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Development &amp; Registration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Development &amp; Registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-custom-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Custom Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Registration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Optimizations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-concurrent-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Concurrent Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-input-pre-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Input Pre-validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-output-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Output Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TodoWrite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TodoWrite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subagents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Subagents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/subagents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spawning & Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compact
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context Compact
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/context-compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression & Budgeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/background-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/agent-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Structure & Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Team Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/team-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/autonomous-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Directed Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree + Task Isolation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Worktree + Task Isolation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/worktree-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-code-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File &amp; Code Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web &amp; API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-task-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent &amp; Task Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team &amp; Collaboration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning &amp; Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System &amp; State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-definitions-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Definitions &amp; Schemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Definitions &amp; Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tool-definition-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Definition Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zod-schema-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zod Schema Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tool-call-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tool Call Parsing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission Checking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Input Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tool-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tool Invocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-result-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Result Formatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrent-tool-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrent Tool Execution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-result-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Result Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-tool-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Tool Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Tool Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool-spawn-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool (Spawn Subagents)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-tool-execute-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Tool (Execute Skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-tools-createlistupdate-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Tools (Create/List/Update Tasks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Permission System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-permission-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Permission Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-development-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Development &amp; Registration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Development &amp; Registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-custom-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Custom Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Registration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Optimizations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-concurrent-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Concurrent Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-input-pre-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Input Pre-validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-output-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Output Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/core/tool-use.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="tool-use-system">Tool Use System<a class="headerlink" href="#tool-use-system" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Tool Use System is the mechanism by which Claude Code exposes capabilities and receives instructions from Claude. Tools are the primary interface through which Claude takes actions in the system - executing commands, reading files, calling APIs, spawning agents, and more.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────┐
+│         Claude API Response             │
+│  Contains tool_use blocks               │
+└────────────────┬───────────────────────┘
+                 ↓
+       ┌─────────────────────┐
+       │  Parse Tool Calls   │
+       │  Extract parameters │
+       └────────────┬────────┘
+                    ↓
+       ┌─────────────────────────────────┐
+       │   Permission Check               │
+       │ • User auto-approval rules       │
+       │ • Classifier evaluation          │
+       │ • Interactive prompts            │
+       └────────────┬────────────────────┘
+                    ↓
+       ┌─────────────────────────────────┐
+       │  Input Validation (Zod)         │
+       │  Verify parameters match schema │
+       └────────────┬────────────────────┘
+                    ↓
+       ┌─────────────────────────────────┐
+       │  Tool Execution                 │
+       │ • Call tool.call() method       │
+       │ • Handle errors                 │
+       │ • Capture output                │
+       └────────────┬────────────────────┘
+                    ↓
+       ┌─────────────────────────────────┐
+       │  Result Rendering               │
+       │ • Format output                 │
+       │ • Create tool_result block      │
+       │ • Add to message stream         │
+       └─────────────────────────────────┘
+</code></pre></div>
+<h2 id="tool-interface">Tool Interface<a class="headerlink" href="#tool-interface" title="Permanent link">&para;</a></h2>
+<p>Every tool implements the <code>Tool</code> interface defined in <code>src/Tool.ts</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Tool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Metadata</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                    </span><span class="c1">// Unique identifier (e.g., &quot;Bash&quot;)</span>
+<span class="w">  </span><span class="nx">userFacingName</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">       </span><span class="c1">// Display name for users</span>
+<span class="w">  </span><span class="nx">description</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// Brief description for Claude</span>
+
+<span class="w">  </span><span class="c1">// Schemas</span>
+<span class="w">  </span><span class="nx">inputSchema</span><span class="o">:</span><span class="w"> </span><span class="kt">ZodSchema</span><span class="w">         </span><span class="c1">// Parameter validation</span>
+<span class="w">  </span><span class="nx">outputSchema?</span><span class="o">:</span><span class="w"> </span><span class="kt">ZodSchema</span><span class="w">       </span><span class="c1">// Optional output validation</span>
+
+<span class="w">  </span><span class="c1">// Core Methods</span>
+<span class="w">  </span><span class="nx">call</span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">InputType</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ToolResult</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">checkPermissions</span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">InputType</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="kt">PermissionContext</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">PermissionResult</span><span class="o">&gt;</span>
+
+<span class="w">  </span><span class="c1">// Validation</span>
+<span class="w">  </span><span class="nx">validateInput</span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span>
+
+<span class="w">  </span><span class="c1">// UI Rendering</span>
+<span class="w">  </span><span class="nx">renderToolUseMessage</span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">InputType</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span>
+<span class="w">  </span><span class="nx">renderToolResultMessage</span><span class="p">(</span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="kt">ToolResult</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span>
+<span class="w">  </span><span class="nx">renderToolUseProgressMessage</span><span class="p">(</span><span class="nx">update</span><span class="o">:</span><span class="w"> </span><span class="kt">ProgressUpdate</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">ReactNode</span>
+
+<span class="w">  </span><span class="c1">// Metadata</span>
+<span class="w">  </span><span class="nx">isConcurrencySafe</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">   </span><span class="c1">// Safe to run in parallel?</span>
+<span class="w">  </span><span class="nx">isReadOnly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">          </span><span class="c1">// No side effects?</span>
+<span class="w">  </span><span class="nx">isDestructive</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">       </span><span class="c1">// Irreversible operation?</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="built-in-tools">Built-in Tools<a class="headerlink" href="#built-in-tools" title="Permanent link">&para;</a></h2>
+<p>Claude Code provides 60+ built-in tools organized by category:</p>
+<h3 id="file-code-operations">File &amp; Code Operations<a class="headerlink" href="#file-code-operations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bash</td>
+<td>Execute shell commands</td>
+<td><code>/src/tools/BashTool/</code></td>
+</tr>
+<tr>
+<td>Read</td>
+<td>Read file contents</td>
+<td><code>/src/tools/FileReadTool/</code></td>
+</tr>
+<tr>
+<td>Edit</td>
+<td>Replace text in files</td>
+<td><code>/src/tools/FileEditTool/</code></td>
+</tr>
+<tr>
+<td>Write</td>
+<td>Write new files</td>
+<td><code>/src/tools/FileWriteTool/</code></td>
+</tr>
+<tr>
+<td>Glob</td>
+<td>Find files by pattern</td>
+<td><code>/src/tools/GlobTool/</code></td>
+</tr>
+<tr>
+<td>Grep</td>
+<td>Search file contents</td>
+<td><code>/src/tools/GrepTool/</code></td>
+</tr>
+<tr>
+<td>Notebook Edit</td>
+<td>Edit Jupyter notebook cells</td>
+<td><code>/src/tools/NotebookEditTool/</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-api">Web &amp; API<a class="headerlink" href="#web-api" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebFetch</td>
+<td>Fetch and parse URLs</td>
+</tr>
+<tr>
+<td>WebSearch</td>
+<td>Search the web</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agent-task-management">Agent &amp; Task Management<a class="headerlink" href="#agent-task-management" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent (Task tool)</td>
+<td>Spawn subagents</td>
+</tr>
+<tr>
+<td>Skill</td>
+<td>Execute skills (reusable prompts)</td>
+</tr>
+<tr>
+<td>TaskList</td>
+<td>List tasks</td>
+</tr>
+<tr>
+<td>TaskCreate</td>
+<td>Create new tasks</td>
+</tr>
+<tr>
+<td>TaskGet</td>
+<td>Get single task</td>
+</tr>
+<tr>
+<td>TaskUpdate</td>
+<td>Update task status/metadata</td>
+</tr>
+</tbody>
+</table>
+<h3 id="team-collaboration">Team &amp; Collaboration<a class="headerlink" href="#team-collaboration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TeamCreate</td>
+<td>Create agent teams</td>
+</tr>
+<tr>
+<td>TeamDelete</td>
+<td>Delete teams</td>
+</tr>
+</tbody>
+</table>
+<h3 id="planning-execution">Planning &amp; Execution<a class="headerlink" href="#planning-execution" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EnterPlanMode</td>
+<td>Enter structured planning mode</td>
+</tr>
+<tr>
+<td>ExitPlanMode</td>
+<td>Complete plan and request approval</td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-state">System &amp; State<a class="headerlink" href="#system-state" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KillShell</td>
+<td>Terminate background processes</td>
+</tr>
+<tr>
+<td>TaskOutput</td>
+<td>Get output from background tasks</td>
+</tr>
+<tr>
+<td>Env</td>
+<td>Read environment variables</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tool-definitions-schemas">Tool Definitions &amp; Schemas<a class="headerlink" href="#tool-definitions-schemas" title="Permanent link">&para;</a></h2>
+<p>Tools are exposed to Claude via OpenAI-compatible tool definitions. The system dynamically generates these based on tool configurations:</p>
+<h3 id="tool-definition-structure">Tool Definition Structure<a class="headerlink" href="#tool-definition-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Execute bash commands with optional timeout&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The bash command to execute&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Timeout in milliseconds&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;command&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="zod-schema-validation">Zod Schema Validation<a class="headerlink" href="#zod-schema-validation" title="Permanent link">&para;</a></h3>
+<p>Tools use Zod for runtime validation:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// BashTool example</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">inputSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;The bash command to execute&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="kt">z.number</span><span class="p">().</span><span class="nx">optional</span><span class="p">().</span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Timeout in milliseconds&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;What this command does&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">run_in_background</span><span class="o">:</span><span class="w"> </span><span class="kt">z.boolean</span><span class="p">().</span><span class="nx">optional</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="c1">// Called by: validateInput(input)</span>
+<span class="c1">// Throws ZodError if invalid</span>
+</code></pre></div>
+<h2 id="execution-flow">Execution Flow<a class="headerlink" href="#execution-flow" title="Permanent link">&para;</a></h2>
+<h3 id="1-tool-call-parsing">1. Tool Call Parsing<a class="headerlink" href="#1-tool-call-parsing" title="Permanent link">&para;</a></h3>
+<p>Claude's response contains:
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;tool_use</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;abc123&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Bash&quot;</span><span class="w"> </span><span class="na">input=</span><span class="s">&#39;{&quot;command&quot;:&quot;ls -la&quot;}&#39;</span><span class="nt">&gt;</span>
+</code></pre></div></p>
+<p>The system extracts:
+- Tool name: <code>"Bash"</code>
+- Parameters: <code>{command: "ls -la"}</code>
+- Tool use ID: <code>"abc123"</code> (for result association)</p>
+<h3 id="2-permission-checking">2. Permission Checking<a class="headerlink" href="#2-permission-checking" title="Permanent link">&para;</a></h3>
+<p>For each tool call, <code>checkPermissions()</code> is invoked:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">permission</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tool</span><span class="p">.</span><span class="nx">checkPermissions</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;claude&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sessionId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">operation</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;execute&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;query_loop&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Returns: { behavior: &quot;allow&quot; | &quot;deny&quot; | &quot;ask&quot; }</span>
+</code></pre></div>
+<p><strong>Permission Rules:</strong>
+- <strong>Auto-allow</strong> - Pre-approved operations (read-only files)
+- <strong>Auto-deny</strong> - Blocked operations (destructive without confirmation)
+- <strong>Ask</strong> - Interactive prompts for sensitive operations
+- <strong>Classify</strong> - ML classifier evaluates safety</p>
+<h3 id="3-input-validation">3. Input Validation<a class="headerlink" href="#3-input-validation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">tool</span><span class="p">.</span><span class="nx">validateInput</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Return validation error to Claude</span>
+<span class="w">  </span><span class="c1">// Claude can retry with corrected input</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-tool-invocation">4. Tool Invocation<a class="headerlink" href="#4-tool-invocation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tool</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>
+<span class="c1">// Returns: { stdout?: string, stderr?: string, exitCode?: number }</span>
+<span class="c1">//         or specific format for tool</span>
+</code></pre></div>
+<h3 id="5-result-formatting">5. Result Formatting<a class="headerlink" href="#5-result-formatting" title="Permanent link">&para;</a></h3>
+<p>The tool's <code>renderToolResultMessage()</code> formats output:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Bash tool renders:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;command output...&quot;</span>
+<span class="w">  </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="concurrent-tool-execution">Concurrent Tool Execution<a class="headerlink" href="#concurrent-tool-execution" title="Permanent link">&para;</a></h2>
+<p>When Claude's response contains multiple tool calls, they execute in parallel:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">toolCalls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">file_path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/file1&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Grep&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">pattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/file2&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ls&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="c1">// All three execute simultaneously</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">toolCalls</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">call</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">executeTool</span><span class="p">(</span><span class="nx">call</span><span class="p">))</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>Benefits:</strong>
+- Faster wall-clock execution
+- Better utilization of system resources
+- Reduced latency vs. sequential execution</p>
+<p><strong>Constraints:</strong>
+- Tools must declare <code>isConcurrencySafe() = true</code>
+- Default is <code>false</code> (assume unsafe)
+- Bash, Read, Glob, WebFetch are safe
+- Edit, Write, FileOperations are unsafe</p>
+<h2 id="tool-result-integration">Tool Result Integration<a class="headerlink" href="#tool-result-integration" title="Permanent link">&para;</a></h2>
+<p>Tool results are added back to the message stream as <code>tool_result</code> blocks:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">updatedMessages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">...</span><span class="nx">previousMessages</span><span class="p">,</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&#39;ll check the file...&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_use&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">{...},</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;abc&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;abc&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">          </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;File contents...&quot;</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>The loop continues with Claude seeing these results and deciding next steps.</p>
+<h2 id="special-tool-types">Special Tool Types<a class="headerlink" href="#special-tool-types" title="Permanent link">&para;</a></h2>
+<h3 id="agent-tool-spawn-subagents">Agent Tool (Spawn Subagents)<a class="headerlink" href="#agent-tool-spawn-subagents" title="Permanent link">&para;</a></h3>
+<p>Spawns isolated subagents to handle specialized tasks:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Input</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze code for bugs&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span><span class="p">,</span><span class="w">      </span><span class="c1">// or &quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find the bug in src/main.ts&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// Returns</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Found bug at line 42...&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Key features:</strong>
+- Isolated context via AsyncLocalStorage
+- Own message history
+- Shared prompt cache (cheaper)
+- Can spawn further subagents (unlimited nesting)</p>
+<h3 id="skill-tool-execute-skills">Skill Tool (Execute Skills)<a class="headerlink" href="#skill-tool-execute-skills" title="Permanent link">&para;</a></h3>
+<p>Executes reusable skill prompts:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Input</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">skill</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;write-unit-test&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;src/api.ts&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">testFramework</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jest&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Internally:</span>
+<span class="c1">// 1. Load skill .md file</span>
+<span class="c1">// 2. Parse frontmatter for configuration</span>
+<span class="c1">// 3. Create subagent with skill prompt</span>
+<span class="c1">// 4. Inject args via user message</span>
+<span class="c1">// 5. Execute and return results</span>
+</code></pre></div>
+<h3 id="task-tools-createlistupdate-tasks">Task Tools (Create/List/Update Tasks)<a class="headerlink" href="#task-tools-createlistupdate-tasks" title="Permanent link">&para;</a></h3>
+<p>Manage persistent task lists:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// TaskCreate</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">subject</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Fix authentication bug&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;JWT tokens expire too quickly...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">activeForm</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Fixing auth bug&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// TaskList</span>
+<span class="c1">// Returns all tasks with status, owner, dependencies</span>
+
+<span class="c1">// TaskUpdate</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">taskId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;task-123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;in_progress&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">owner</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent-xyz&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="permission-system">Permission System<a class="headerlink" href="#permission-system" title="Permanent link">&para;</a></h2>
+<h3 id="permission-rules">Permission Rules<a class="headerlink" href="#permission-rules" title="Permanent link">&para;</a></h3>
+<p>Rules are defined in configuration and control tool access:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">PermissionRule</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">              </span><span class="c1">// &quot;Bash&quot;, &quot;Edit&quot;, etc.</span>
+<span class="w">  </span><span class="nx">pathPattern?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// Glob pattern</span>
+<span class="w">  </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;deny&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;ask&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;classify&quot;</span>
+<span class="w">  </span><span class="nx">reason?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">               </span><span class="c1">// Explanation for users</span>
+<span class="p">}</span>
+
+<span class="c1">// Examples:</span>
+<span class="p">{</span><span class="w"> </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w"> </span><span class="p">}</span><span class="w">                    </span><span class="c1">// All reads OK</span>
+<span class="p">{</span><span class="w"> </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Edit&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pathPattern</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;src/**&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ask&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Prompt for code edits</span>
+<span class="p">{</span><span class="w"> </span><span class="nx">toolName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;classify&quot;</span><span class="w"> </span><span class="p">}</span><span class="w">                 </span><span class="c1">// ML classifier decides</span>
+</code></pre></div>
+<h3 id="permission-modes">Permission Modes<a class="headerlink" href="#permission-modes" title="Permanent link">&para;</a></h3>
+<p>Global permission mode affects all tool execution:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default</code></td>
+<td>Prompt user for each decision</td>
+</tr>
+<tr>
+<td><code>bypass</code></td>
+<td>Auto-allow all (dangerous!)</td>
+</tr>
+<tr>
+<td><code>deferToClassifier</code></td>
+<td>Use ML classifier for decisions</td>
+</tr>
+<tr>
+<td><code>delegatedByTeamLead</code></td>
+<td>Accept decisions from team lead</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interactive-permission-prompts">Interactive Permission Prompts<a class="headerlink" href="#interactive-permission-prompts" title="Permanent link">&para;</a></h3>
+<p>When <code>behavior: "ask"</code>, user is prompted:</p>
+<div class="highlight"><pre><span></span><code>BashTool wants to execute: &quot;rm -rf /important&quot;
+
+⚠️  This is a destructive operation that cannot be undone.
+
+[Allow Once] [Allow Always] [Deny] [Cancel]
+</code></pre></div>
+<h2 id="tool-development-registration">Tool Development &amp; Registration<a class="headerlink" href="#tool-development-registration" title="Permanent link">&para;</a></h2>
+<h3 id="creating-custom-tools">Creating Custom Tools<a class="headerlink" href="#creating-custom-tools" title="Permanent link">&para;</a></h3>
+<p>New tools must implement the Tool interface:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">buildTool</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;src/Tool&quot;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;zod&quot;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">MyTool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buildTool</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MyTool&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Does something useful&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nx">inputSchema</span><span class="o">:</span><span class="w"> </span><span class="kt">z.object</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">param1</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Required parameter&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">param2</span><span class="o">:</span><span class="w"> </span><span class="kt">z.number</span><span class="p">().</span><span class="nx">optional</span><span class="p">()</span>
+<span class="w">  </span><span class="p">}),</span>
+
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">call</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Execute tool logic</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w"> </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;result&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">checkPermissions</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Allow if safe, deny if risky</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;allow&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">isConcurrencySafe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1">// Safe to run in parallel</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">renderToolUseMessage</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Executing</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="p">{</span><span class="nx">input</span><span class="p">.</span><span class="nx">param1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">renderToolResultMessage</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;</span><span class="p">{</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/pre&gt;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="tool-registration">Tool Registration<a class="headerlink" href="#tool-registration" title="Permanent link">&para;</a></h3>
+<p>Tools are registered in <code>src/commands.ts</code> and exposed to Claude:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">tools</span><span class="o">:</span><span class="w"> </span><span class="kt">Tool</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nx">BashTool</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">FileReadTool</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">FileEditTool</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">MyTool</span><span class="p">,</span><span class="w">  </span><span class="c1">// New custom tool</span>
+<span class="w">  </span><span class="c1">// ... more tools</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>Tools can signal errors which Claude receives:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// In tool result</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">is_error</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Permission denied: /etc/passwd is protected&quot;</span>
+<span class="w">  </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Claude then:
+- Acknowledges the error
+- Adjusts strategy
+- Retries with different parameters
+- Or terminates if unrecoverable</p>
+<h2 id="performance-optimizations">Performance Optimizations<a class="headerlink" href="#performance-optimizations" title="Permanent link">&para;</a></h2>
+<h3 id="1-concurrent-execution">1. Concurrent Execution<a class="headerlink" href="#1-concurrent-execution" title="Permanent link">&para;</a></h3>
+<p>As discussed above - multiple tools run in parallel when safe.</p>
+<h3 id="2-input-pre-validation">2. Input Pre-validation<a class="headerlink" href="#2-input-pre-validation" title="Permanent link">&para;</a></h3>
+<p>Zod schemas catch invalid parameters before tool execution:
+<div class="highlight"><pre><span></span><code><span class="c1">// Fast failure before expensive operations</span>
+<span class="nx">validateInput</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="kr">throws</span><span class="w"> </span><span class="nx">immediately</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">bad</span><span class="w"> </span><span class="nx">input</span>
+</code></pre></div></p>
+<h3 id="3-output-streaming">3. Output Streaming<a class="headerlink" href="#3-output-streaming" title="Permanent link">&para;</a></h3>
+<p>Some tools (Bash) stream output as available:
+- Don't wait for full completion
+- User sees progress immediately
+- Better interactivity</p>
+<h3 id="4-caching">4. Caching<a class="headerlink" href="#4-caching" title="Permanent link">&para;</a></h3>
+<ul>
+<li>File contents cached (invalidated on edits)</li>
+<li>Glob results cached (invalidated on writes)</li>
+<li>Reduces repeated tool calls</li>
+</ul>
+<h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/Tool.ts</code></td>
+<td>Tool interface and base implementation</td>
+</tr>
+<tr>
+<td><code>src/tools/BashTool/</code></td>
+<td>Shell command execution</td>
+</tr>
+<tr>
+<td><code>src/tools/FileReadTool/</code></td>
+<td>File reading</td>
+</tr>
+<tr>
+<td><code>src/tools/FileEditTool/</code></td>
+<td>Text replacement in files</td>
+</tr>
+<tr>
+<td><code>src/tools/GrepTool/</code></td>
+<td>Content searching</td>
+</tr>
+<tr>
+<td><code>src/tools/AgentTool/</code></td>
+<td>Subagent spawning</td>
+</tr>
+<tr>
+<td><code>src/tools/SkillTool/</code></td>
+<td>Skill execution</td>
+</tr>
+<tr>
+<td><code>src/tools/TaskListTool/</code></td>
+<td>Task management</td>
+</tr>
+<tr>
+<td><code>src/hooks/toolPermission/</code></td>
+<td>Permission checking</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../agent-loop/">Agent Loop</a> - How tools are called in the main loop</li>
+<li><a href="../../concepts/subagents/">Subagents</a> - Agent Tool details</li>
+<li><a href="../../concepts/skills/">Skills</a> - Skill Tool mechanics</li>
+<li><a href="../tasks/tasks.md">Tasks</a> - Task tool ecosystem</li>
+<li><a href="../../architecture/permissions.md">Permissions</a> - Permission system details</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

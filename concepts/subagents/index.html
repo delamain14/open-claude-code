@@ -1,0 +1,3752 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation system for Open Claude Code">
+      
+      
+      
+      
+        <link rel="prev" href="../../api/commands/">
+      
+      
+        <link rel="next" href="../skills/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Spawning & Isolation - Open Claude Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subagents-creating-isolated-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Claude Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spawning & Isolation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/agent-loop/" class="md-tabs__link">
+          
+  
+  
+  The Agent Loop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/tool-use/" class="md-tabs__link">
+          
+  
+  
+  Tool Use
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  TodoWrite
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Subagents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../skills/" class="md-tabs__link">
+          
+  
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../context-compact/" class="md-tabs__link">
+          
+  
+  
+  Context Compact
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tasks/background-tasks/" class="md-tabs__link">
+          
+  
+  
+  Background Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/agent-teams/" class="md-tabs__link">
+          
+  
+  
+  Agent Teams
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/team-protocols/" class="md-tabs__link">
+          
+  
+  
+  Team Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/autonomous-agents/" class="md-tabs__link">
+          
+  
+  
+  Autonomous Agents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/worktree-isolation/" class="md-tabs__link">
+          
+  
+  
+  Worktree + Task Isolation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/services/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Open Claude Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Agent Loop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Agent Loop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/agent-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/entrypoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrypoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Use
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Use
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TodoWrite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TodoWrite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subagents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Subagents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spawning & Isolation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spawning & Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent Contexts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynclocalstorage-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLocalStorage Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-isolation-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Isolation Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spawning-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spawning Subagents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spawning Subagents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool-main-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool (Main Mechanism)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-subagent-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in Subagent Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-subagent-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Subagent Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Completion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-optional-resumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Optional Resumption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Caching (Optimization)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-state-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File State Isolation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-history-sidechain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message History Sidechain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-subagents-unbounded-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Subagents (Unbounded Depth)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-between-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Between Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Between Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagent-to-parent-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent to Parent (Returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resuming-subagents-message-sending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resuming Subagents (Message Sending)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-to-subagent-task-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parent to Subagent (Task Description)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-parallel-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Parallel Research
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-divide-conquer-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Divide &amp; Conquer Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verification-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verification &amp; Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-specialized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Specialized Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming &amp; Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compact
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context Compact
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression & Budgeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tasks/background-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/agent-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Structure & Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Team Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/team-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/autonomous-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Directed Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree + Task Isolation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Worktree + Task Isolation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/worktree-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent Contexts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynclocalstorage-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLocalStorage Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-isolation-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Isolation Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spawning-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spawning Subagents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spawning Subagents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool-main-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool (Main Mechanism)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-subagent-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in Subagent Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-subagent-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Subagent Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Completion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-optional-resumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Optional Resumption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Caching (Optimization)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-state-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File State Isolation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-history-sidechain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message History Sidechain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-subagents-unbounded-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Subagents (Unbounded Depth)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-between-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Between Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Between Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagent-to-parent-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent to Parent (Returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resuming-subagents-message-sending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resuming Subagents (Message Sending)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-to-subagent-task-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parent to Subagent (Task Description)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-parallel-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Parallel Research
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-divide-conquer-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Divide &amp; Conquer Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verification-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verification &amp; Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-specialized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Specialized Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming &amp; Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/concepts/subagents.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="subagents-creating-isolated-agents">Subagents: Creating Isolated Agents<a class="headerlink" href="#subagents-creating-isolated-agents" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Subagents are isolated agents spawned by a parent agent to delegate specialized tasks. Unlike the main agent, subagents:</p>
+<ul>
+<li>Run in the same process (fast, low overhead)</li>
+<li>Have isolated context via <code>AsyncLocalStorage</code></li>
+<li>Execute their own complete agent loop</li>
+<li>Share prompt cache with parent (cheaper tokens)</li>
+<li>Can be resumed via <code>SendMessage</code></li>
+<li>Can spawn further subagents (unbounded nesting)</li>
+</ul>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────┐
+│     Parent Agent (Main Loop)        │
+│                                     │
+│  1. User: &quot;Analyze this bug&quot;       │
+│  2. API: spawn research subagent   │
+│  3. Tool Call: Agent(type=explore) │
+└────────────┬────────────────────────┘
+             │ Create subagent context
+             ↓
+┌─────────────────────────────────────┐
+│  Subagent #1 (Isolated Context)     │
+│                                     │
+│  - Unique agentId                   │
+│  - Own message history              │
+│  - Own token budget (from parent)   │
+│  - Same prompt cache (shared)       │
+│  - Can spawn subagent #2            │
+│                                     │
+│  1. Analyzes code structure         │
+│  2. Calls Grep, Read tools          │
+│  3. Returns findings                │
+└────────────┬────────────────────────┘
+             │ Complete, return results
+             ↓
+┌─────────────────────────────────────┐
+│     Parent Agent (Resumed)          │
+│                                     │
+│  4. Receive task notification       │
+│  5. Synthesize findings             │
+│  6. Generate response               │
+└─────────────────────────────────────┘
+</code></pre></div>
+<h2 id="subagent-contexts">Subagent Contexts<a class="headerlink" href="#subagent-contexts" title="Permanent link">&para;</a></h2>
+<h3 id="asynclocalstorage-isolation">AsyncLocalStorage Isolation<a class="headerlink" href="#asynclocalstorage-isolation" title="Permanent link">&para;</a></h3>
+<p>Subagents use <code>AsyncLocalStorage</code> to maintain isolated context without shared state:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent agent context</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;parent-uuid&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentSessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">undefined</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">agentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagentName</span><span class="o">:</span><span class="w"> </span><span class="kt">undefined</span>
+<span class="p">}</span>
+
+<span class="c1">// Subagent context (automatically set)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-uuid-1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentSessionId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;parent-uuid&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">agentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;subagent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagentName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">invokingRequestId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool-use-id-123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">invocationKind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;spawn&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// Nested subagent context</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-uuid-2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentSessionId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-uuid-1&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Parent is itself a subagent!</span>
+<span class="w">  </span><span class="nx">agentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;subagent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagentName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">invocationKind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;spawn&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="context-isolation-benefits">Context Isolation Benefits<a class="headerlink" href="#context-isolation-benefits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>No shared state</strong>: Each agent has its own message buffer, file caches</li>
+<li><strong>Concurrent safety</strong>: Multiple agents run without interference</li>
+<li><strong>Clean separation</strong>: No cross-contamination of context</li>
+<li><strong>Automatic cleanup</strong>: Context destroyed when agent exits</li>
+</ul>
+<h2 id="spawning-subagents">Spawning Subagents<a class="headerlink" href="#spawning-subagents" title="Permanent link">&para;</a></h2>
+<h3 id="agent-tool-main-mechanism">Agent Tool (Main Mechanism)<a class="headerlink" href="#agent-tool-main-mechanism" title="Permanent link">&para;</a></h3>
+<p>The <code>Agent</code> tool spawns subagents:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Input schema</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">              </span><span class="c1">// What to do</span>
+<span class="w">  </span><span class="nx">subagent_type?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// &#39;general-purpose&#39;, &#39;explorer&#39;, etc.</span>
+<span class="w">  </span><span class="nx">prompt?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                 </span><span class="c1">// Custom system prompt</span>
+<span class="w">  </span><span class="nx">max_turns?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">              </span><span class="c1">// Iteration limit</span>
+<span class="p">}</span>
+
+<span class="c1">// Example</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all database query optimization opportunities&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;You are a performance optimization specialist...&quot;</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="built-in-subagent-types">Built-in Subagent Types<a class="headerlink" href="#built-in-subagent-types" title="Permanent link">&para;</a></h3>
+<p>Claude Code provides 5 specialized subagent types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>general-purpose</code></td>
+<td>Generic task assistant</td>
+<td>Refactoring, writing code, analysis</td>
+</tr>
+<tr>
+<td><code>explorer</code></td>
+<td>Code research specialist</td>
+<td>Find files, understand structure</td>
+</tr>
+<tr>
+<td><code>verifier</code></td>
+<td>Testing &amp; validation</td>
+<td>Run tests, verify implementations</td>
+</tr>
+<tr>
+<td><code>plan-agent</code></td>
+<td>Planning specialist</td>
+<td>Create detailed plans</td>
+</tr>
+<tr>
+<td><code>claude-code-guide</code></td>
+<td>Documentation reference</td>
+<td>Answer Claude Code questions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="custom-subagent-types">Custom Subagent Types<a class="headerlink" href="#custom-subagent-types" title="Permanent link">&para;</a></h3>
+<p>Projects can define custom subagent types:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ~/.claude/agents/my-analyzer.md</span>
+<span class="o">---</span>
+<span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;my-analyzer&quot;</span>
+<span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyzes code for specific patterns&quot;</span>
+<span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;subagent&quot;</span>
+<span class="o">---</span>
+
+<span class="nx">You</span><span class="w"> </span><span class="nx">are</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="nx">pattern</span><span class="w"> </span><span class="nx">analyzer</span><span class="p">.</span><span class="w"> </span><span class="nx">Your</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span>
+<span class="kt">1.</span><span class="w"> </span><span class="nx">Find</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">occurrences</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">pattern</span>
+<span class="mf">2.</span><span class="w"> </span><span class="nx">Analyze</span><span class="w"> </span><span class="nx">their</span><span class="w"> </span><span class="nx">context</span>
+<span class="mf">3.</span><span class="w"> </span><span class="nx">Report</span><span class="w"> </span><span class="nx">findings</span>
+</code></pre></div>
+<p>Then spawn:
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all singleton patterns&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;my-analyzer&quot;</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<h2 id="subagent-lifecycle">Subagent Lifecycle<a class="headerlink" href="#subagent-lifecycle" title="Permanent link">&para;</a></h2>
+<h3 id="1-creation">1. Creation<a class="headerlink" href="#1-creation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent calls Agent tool</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Do something&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Internally:</span>
+<span class="c1">// 1. Generate UUID: &quot;sub-abc123&quot;</span>
+<span class="c1">// 2. Create agentContext (AsyncLocalStorage)</span>
+<span class="c1">// 3. Clone FileStateCache (isolated file state)</span>
+<span class="c1">// 4. Prepare CacheSafeParams (shared safe data)</span>
+</code></pre></div>
+<h3 id="2-initialization">2. Initialization<a class="headerlink" href="#2-initialization" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Subagent starts its own query loop</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">subagentConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">systemPrompt</span><span class="o">:</span><span class="w"> </span><span class="kt">parentPrompt</span><span class="p">,</span><span class="w">           </span><span class="c1">// Inherit parent&#39;s prompt</span>
+<span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">userMessage</span><span class="p">(</span><span class="nx">description</span><span class="p">),</span><span class="w">           </span><span class="c1">// Task description</span>
+<span class="w">    </span><span class="p">...</span><span class="nx">parentSidechain</span><span class="p">.</span><span class="nx">messages</span><span class="w">        </span><span class="c1">// Parent&#39;s conversation so far</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">budget</span><span class="o">:</span><span class="w"> </span><span class="kt">parentBudget</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">          </span><span class="c1">// Get portion of parent&#39;s budget</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="c1">// Start query loop for subagent</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">query</span><span class="p">(</span><span class="nx">subagentConfig</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-execution">3. Execution<a class="headerlink" href="#3-execution" title="Permanent link">&para;</a></h3>
+<p>Subagent runs its own complete agent loop:
+- Builds own system prompt
+- Makes API calls (with parent's prompt cache)
+- Executes tools in own context
+- Manages own token budget
+- Accumulates own message history</p>
+<div class="highlight"><pre><span></span><code>Subagent Query Loop:
+  Iteration 1: API call → tool calls (Read, Grep)
+  Iteration 2: Tool results → synthesis → API call
+  Iteration 3: Final analysis → stop
+</code></pre></div>
+<h3 id="4-completion">4. Completion<a class="headerlink" href="#4-completion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// When subagent stops (end_turn or budget exhausted):</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;findings or error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sidechain</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[...],</span><span class="w">        </span><span class="c1">// Full conversation history</span>
+<span class="w">    </span><span class="nx">tokenUsage</span><span class="o">:</span><span class="w"> </span><span class="p">{...}</span><span class="w">       </span><span class="c1">// Token stats</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Parent receives: &lt;task-notification&gt;</span>
+<span class="c1">// Parent can:</span>
+<span class="c1">// - Synthesize findings</span>
+<span class="c1">// - Spawn more subagents</span>
+<span class="c1">// - Continue main loop</span>
+</code></pre></div>
+<h3 id="5-optional-resumption">5. Optional Resumption<a class="headerlink" href="#5-optional-resumption" title="Permanent link">&para;</a></h3>
+<p>A completed subagent can be resumed:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent can send follow-up message</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">SendMessage</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="kt">subagentId</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Can you investigate X further?&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Subagent resumes execution:</span>
+<span class="c1">// - Retains message history</span>
+<span class="c1">// - Continues from last point</span>
+<span class="c1">// - Uses remaining budget</span>
+<span class="c1">// - Can spawn more agents</span>
+</code></pre></div>
+<h2 id="prompt-caching-optimization">Prompt Caching (Optimization)<a class="headerlink" href="#prompt-caching-optimization" title="Permanent link">&para;</a></h2>
+<p>Subagents share the parent's prompt cache to reduce token costs:</p>
+<div class="highlight"><pre><span></span><code>Parent Agent:
+  1. First API call: sends full system prompt
+     → Creates cache entry
+     → Returns cache_creation_input_tokens (expensive)
+
+Subagent:
+  1. First API call: sends same system prompt
+     → Claude recognizes: &quot;I&#39;ve seen this before&quot;
+     → Uses cache instead
+     → Returns cache_read_input_tokens (90% cheaper!)
+
+Multiple subagents:
+  All share same cache → exponential savings on large trees
+</code></pre></div>
+<p><strong>Token savings example:</strong>
+<div class="highlight"><pre><span></span><code>Without caching:
+  Parent: 2000 tokens (prompt) × 1 = 2000
+  Sub-1:  2000 tokens (prompt) × 1 = 2000
+  Sub-2:  2000 tokens (prompt) × 1 = 2000
+  Total: 6000 tokens
+
+With caching:
+  Parent: 2000 tokens (prompt creation)
+  Sub-1:  200 tokens (cache read)
+  Sub-2:  200 tokens (cache read)
+  Total: 2400 tokens (60% savings!)
+</code></pre></div></p>
+<h2 id="file-state-isolation">File State Isolation<a class="headerlink" href="#file-state-isolation" title="Permanent link">&para;</a></h2>
+<p>Each subagent gets a cloned file state cache:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent&#39;s file cache</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;/src/main.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;file contents&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;/src/utils.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cached&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// When spawning subagent:</span>
+<span class="c1">// Clone to isolated copy</span>
+<span class="nx">subagentFileCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;/src/main.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;file contents&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Same data</span>
+<span class="w">  </span><span class="s2">&quot;/src/utils.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cached&quot;</span><span class="w">          </span><span class="c1">// Same data</span>
+<span class="p">}</span>
+
+<span class="c1">// Operations:</span>
+<span class="c1">// Parent edits: /src/main.ts</span>
+<span class="c1">// Subagent still sees old version (until refreshed)</span>
+<span class="c1">// This is often desired to avoid inconsistent state</span>
+</code></pre></div>
+<h2 id="message-history-sidechain">Message History Sidechain<a class="headerlink" href="#message-history-sidechain" title="Permanent link">&para;</a></h2>
+<p>Each subagent maintains its own message sidechain:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent&#39;s conversation</span>
+<span class="p">[</span>
+<span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze this bug&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">assistant</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&#39;ll spawn a research agent...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use</span><span class="o">:</span><span class="w"> </span><span class="kt">Agent</span><span class="p">(...)</span>
+<span class="p">]</span>
+
+<span class="c1">// Subagent&#39;s sidechain</span>
+<span class="p">[</span>
+<span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all database query optimization opportunities&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">assistant</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Searching for N+1 problems...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use</span><span class="o">:</span><span class="w"> </span><span class="kt">Grep</span><span class="p">(...),</span>
+<span class="w">  </span><span class="nx">tool_result</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Found 5 locations...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">assistant</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyzing patterns...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use</span><span class="o">:</span><span class="w"> </span><span class="kt">Read</span><span class="p">(...),</span>
+<span class="w">  </span><span class="c1">// ... many more messages</span>
+<span class="p">]</span>
+
+<span class="c1">// Subagent result returned to parent as single tool result:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Completed analysis with findings: ...&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="nested-subagents-unbounded-depth">Nested Subagents (Unbounded Depth)<a class="headerlink" href="#nested-subagents-unbounded-depth" title="Permanent link">&para;</a></h2>
+<p>Subagents can spawn other subagents:</p>
+<div class="highlight"><pre><span></span><code>Level 0 (Main Agent)
+  └─ Level 1 (Subagent #1: &quot;explorer&quot;)
+      ├─ Level 2 (Subagent #1.1: &quot;general-purpose&quot;)
+      │   └─ Level 3 (Subagent #1.1.1: &quot;verifier&quot;)
+      │       └─ Level 4 (Subagent #1.1.1.1: custom)
+      │           └─ ... (unlimited nesting)
+      └─ Level 2 (Subagent #1.2: &quot;general-purpose&quot;)
+</code></pre></div>
+<p><strong>Constraints:</strong>
+- Shared parent budget is divided
+- Deeper nesting = less budget per agent
+- No hard limit on depth
+- Practical limit: ~5-7 levels (budget exhaustion)</p>
+<p><strong>Example cascade:</strong>
+<div class="highlight"><pre><span></span><code>Main Agent (100k tokens):
+  1. Spawns researcher (50k)
+     └─ Spawns analyzer (25k)
+        └─ Spawns verifier (12.5k)
+           └─ Uses remaining budget for testing
+</code></pre></div></p>
+<h2 id="communication-between-agents">Communication Between Agents<a class="headerlink" href="#communication-between-agents" title="Permanent link">&para;</a></h2>
+<h3 id="subagent-to-parent-returns">Subagent to Parent (Returns)<a class="headerlink" href="#subagent-to-parent-returns" title="Permanent link">&para;</a></h3>
+<p>Subagent results returned as tool result:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Tool result contains entire subagent output</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent-call-id&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Subagent findings: ... (detailed results)&quot;</span>
+<span class="w">  </span><span class="p">}]</span>
+<span class="p">}</span>
+
+<span class="c1">// Parent sees this in next loop iteration</span>
+<span class="c1">// Can synthesize findings or spawn more agents</span>
+</code></pre></div>
+<h3 id="resuming-subagents-message-sending">Resuming Subagents (Message Sending)<a class="headerlink" href="#resuming-subagents-message-sending" title="Permanent link">&para;</a></h3>
+<p>Send follow-up messages to subagents:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent continues subagent conversation</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">SendMessage</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-abc123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Based on your findings, please investigate X&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Subagent resumes:</span>
+<span class="c1">// - Receives new message</span>
+<span class="c1">// - Adds to its message history</span>
+<span class="c1">// - Continues its agent loop</span>
+<span class="c1">// - Returns new findings</span>
+</code></pre></div>
+<h3 id="parent-to-subagent-task-description">Parent to Subagent (Task Description)<a class="headerlink" href="#parent-to-subagent-task-description" title="Permanent link">&para;</a></h3>
+<p>Initial direction via task description:</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all Python files that import tensorflow&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Subagent receives as user message in its loop</span>
+</code></pre></div>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="1-parallel-research">1. Parallel Research<a class="headerlink" href="#1-parallel-research" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Task: Refactor authentication module</span>
+<span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Research current auth patterns in codebase&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Research industry best practices for JWT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;claude-code-guide&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find similar refactoring PRs in history&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">])</span>
+
+<span class="c1">// All run in parallel, results synthesized</span>
+</code></pre></div>
+<h3 id="2-divide-conquer-implementation">2. Divide &amp; Conquer Implementation<a class="headerlink" href="#2-divide-conquer-implementation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Task: Implement complex feature in 3 components</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Implement API layer (REST endpoints)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Implement database layer (migrations)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Implement UI layer (React components)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">])</span>
+
+<span class="c1">// Combine: components[0] + components[1] + components[2]</span>
+</code></pre></div>
+<h3 id="3-verification-testing">3. Verification &amp; Testing<a class="headerlink" href="#3-verification-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Main agent writes code</span>
+<span class="c1">// Then verify it:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Write the sort function&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Spawn verifier</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Write comprehensive tests for the sort function&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;verifier&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Verify tests pass</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Run the tests and report results&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;verifier&quot;</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="4-specialized-analysis">4. Specialized Analysis<a class="headerlink" href="#4-specialized-analysis" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Create custom subagent for domain-specific task</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze SQL queries for N+1 problems&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;performance-analyzer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="sb">`You are a database performance specialist.</span>
+<span class="sb">           Look for N+1 queries, missing indices, etc.`</span>
+<span class="p">})</span>
+</code></pre></div>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="when-to-use-subagents">When to Use Subagents<a class="headerlink" href="#when-to-use-subagents" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>Good use cases:</strong>
+- Parallel independent tasks
+- Specialized subtasks (explore, verify)
+- Long-running research
+- Isolating risky operations
+- Divide-and-conquer approaches</p>
+<p>❌ <strong>Bad use cases:</strong>
+- Single sequential task (overhead not worth it)
+- Simple one-off tools
+- Tight loops (spawning agents in a loop)</p>
+<h3 id="budget-management">Budget Management<a class="headerlink" href="#budget-management" title="Permanent link">&para;</a></h3>
+<p>Always be aware of budget constraints:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ❌ Bad: Multiple deep trees waste budget</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze file...&quot;</span><span class="w"> </span><span class="p">})</span><span class="w">  </span><span class="c1">// 100 agents!</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ Good: Batch and use careful spawning</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze files 1-10&quot;</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze files 11-20&quot;</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze files 21-30&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="p">])</span>
+</code></pre></div>
+<h3 id="naming-description">Naming &amp; Description<a class="headerlink" href="#naming-description" title="Permanent link">&para;</a></h3>
+<p>Make subagent purposes clear:</p>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all TypeScript files that import React hooks&quot;</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Look at stuff&quot;</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/tools/AgentTool/</code></td>
+<td>Agent tool implementation</td>
+</tr>
+<tr>
+<td><code>src/tools/AgentTool/runAgent.ts</code></td>
+<td>Spawn new subagent</td>
+</tr>
+<tr>
+<td><code>src/tools/AgentTool/resumeAgent.ts</code></td>
+<td>Resume existing subagent</td>
+</tr>
+<tr>
+<td><code>src/utils/agentContext.ts</code></td>
+<td>AsyncLocalStorage setup</td>
+</tr>
+<tr>
+<td><code>src/utils/forkedAgent.ts</code></td>
+<td>Subagent parameter handling</td>
+</tr>
+<tr>
+<td><code>src/tools/SendMessageTool/</code></td>
+<td>Resume subagent communication</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../core/agent-loop/">Agent Loop</a> - Main execution loop</li>
+<li><a href="../skills/">Skills</a> - Reusable skill execution</li>
+<li><a href="../../agents/agent-teams/">Agent Teams</a> - Multi-agent collaboration</li>
+<li><a href="../../agents/autonomous-agents/">Autonomous Agents</a> - Auto-spawning patterns</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3768 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive documentation system for Open Claude Code">
+      
+      
+      
+      
+        <link rel="prev" href="../../core/todowrite/">
+      
+      
+        <link rel="next" href="../../agents/agent-teams/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Async Execution - Open Claude Code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#background-tasks-asynchronous-operation-execution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Claude Code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Async Execution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/agent-loop/" class="md-tabs__link">
+          
+  
+  
+  The Agent Loop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/tool-use/" class="md-tabs__link">
+          
+  
+  
+  Tool Use
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  TodoWrite
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/subagents/" class="md-tabs__link">
+          
+  
+  
+  Subagents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/skills/" class="md-tabs__link">
+          
+  
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/context-compact/" class="md-tabs__link">
+          
+  
+  
+  Context Compact
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/todowrite/" class="md-tabs__link">
+          
+  
+  
+  Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Background Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/agent-teams/" class="md-tabs__link">
+          
+  
+  
+  Agent Teams
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/team-protocols/" class="md-tabs__link">
+          
+  
+  
+  Team Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../agents/autonomous-agents/" class="md-tabs__link">
+          
+  
+  
+  Autonomous Agents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced/worktree-isolation/" class="md-tabs__link">
+          
+  
+  
+  Worktree + Task Isolation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/services/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Open Claude Code
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/delamain14/open-claude-code" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-claude-code
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Agent Loop
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Agent Loop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/agent-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/entrypoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrypoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Use
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Use
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TodoWrite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TodoWrite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subagents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Subagents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/subagents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spawning & Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compact
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context Compact
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/context-compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compression & Budgeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/todowrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V2 Task System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Tasks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Tasks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Execution
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-state-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task State Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-bash-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Bash Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Bash Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-bash-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Bash Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-task-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash Task Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-test-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Test Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-agent-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Agent Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Agent Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-agent-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Agent Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-process-teammate-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Process Teammate Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Streaming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output File Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-vs-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming vs. Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Transitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#killing-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Killing Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-housekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Housekeeping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#long-running-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Running Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Long-Running Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-stuck-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem: Stuck Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-background-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution: Background Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Agent Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worktree-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worktree Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-for-long-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use for Long Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-monitor-important-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Monitor Important Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-clean-up-when-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Clean Up When Done
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-test-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Test Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-long-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Long Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-team-member-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Team Member Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Teams
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent Teams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/agent-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Structure & Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Team Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/team-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communication Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/autonomous-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Directed Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree + Task Isolation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Worktree + Task Isolation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/worktree-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Isolation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-state-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task State Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-bash-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Bash Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Bash Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-bash-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Bash Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-task-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash Task Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-test-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Test Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-agent-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Agent Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Agent Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-agent-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Agent Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-process-teammate-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Process Teammate Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Streaming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output File Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-vs-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming vs. Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Transitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#killing-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Killing Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-housekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Housekeeping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#long-running-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Running Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Long-Running Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-stuck-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem: Stuck Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-background-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution: Background Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Agent Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worktree-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worktree Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-for-long-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use for Long Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-monitor-important-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Monitor Important Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-clean-up-when-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Clean Up When Done
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-test-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Test Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-long-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Long Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-team-member-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Team Member Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/tasks/background-tasks.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="background-tasks-asynchronous-operation-execution">Background Tasks: Asynchronous Operation Execution<a class="headerlink" href="#background-tasks-asynchronous-operation-execution" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Background Tasks allow long-running operations to execute without blocking the main agent. Users can:</p>
+<ul>
+<li>Spawn a task with Ctrl+B</li>
+<li>Continue working in a new session</li>
+<li>Monitor task progress</li>
+<li>Retrieve results when ready</li>
+</ul>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Main Session (Foreground)
+    ↓
+[User spawns task: Ctrl+B]
+    ↓
+┌─────────────────────────────┐
+│ Create Background Task      │
+│ - Generate taskId           │
+│ - Initialize state          │
+│ - Set initial status        │
+└────────┬────────────────────┘
+         ↓
+┌─────────────────────────────────┐
+│ Save Task State                 │
+│ ~/.claude/tasks/{sessionId}/    │
+│ {taskId}.state.json             │
+└────────┬────────────────────────┘
+         ↓
+┌─────────────────────────────────────────┐
+│ Spawn Background Process                │
+│ • Detached session                      │
+│ • Separate terminal (tmux/iTerm2)       │
+│ • Redirected I/O (output file)          │
+└────────┬────────────────────────────────┘
+         ↓
+Main Session Continues
+(User can create new session or work elsewhere)
+         ↓
+┌─────────────────────────────────┐
+│ Background Task Execution       │
+│ • Run bash command              │
+│ • Or spawn subagent             │
+│ • Stream output to file         │
+│ • Update state: pending→running │
+└────────┬───────────────────────┘
+         ↓
+┌─────────────────────────────────────────┐
+│ Task Completion/Failure                 │
+│ • Finalize output file                  │
+│ • Update status: completed/failed       │
+│ • Set endTime                           │
+│ • Store results                         │
+└─────────────────────────────────────────┘
+         ↓
+User can later:
+  • TaskOutput to retrieve results
+  • Kill task if still running
+  • Check status in task list
+</code></pre></div>
+<h2 id="task-types">Task Types<a class="headerlink" href="#task-types" title="Permanent link">&para;</a></h2>
+<p>Background tasks support several execution types:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TaskType</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;local_bash&quot;</span><span class="w">              </span><span class="c1">// Execute bash command</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;local_agent&quot;</span><span class="w">             </span><span class="c1">// Spawn local subagent</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;remote_agent&quot;</span><span class="w">            </span><span class="c1">// SSH to remote, spawn agent</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;in_process_teammate&quot;</span><span class="w">     </span><span class="c1">// Team member in same process</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;local_workflow&quot;</span><span class="w">          </span><span class="c1">// Execute workflow script</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;monitor_mcp&quot;</span><span class="w">             </span><span class="c1">// Monitor MCP server</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;dream&quot;</span><span class="w">                   </span><span class="c1">// Dream mode (special)</span>
+</code></pre></div>
+<h2 id="task-state-model">Task State Model<a class="headerlink" href="#task-state-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                  </span><span class="c1">// b{8chars} format</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskType</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskStatus</span><span class="w">          </span><span class="c1">// pending|running|completed|failed|killed</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">         </span><span class="c1">// Human readable</span>
+
+<span class="w">  </span><span class="nx">toolUseId?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// Tool call that created it</span>
+<span class="w">  </span><span class="nx">startTime</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">           </span><span class="c1">// Unix timestamp (ms)</span>
+<span class="w">  </span><span class="nx">endTime?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">            </span><span class="c1">// Unix timestamp (ms)</span>
+<span class="w">  </span><span class="nx">totalPausedMs?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">      </span><span class="c1">// Pause duration</span>
+
+<span class="w">  </span><span class="c1">// Output handling</span>
+<span class="w">  </span><span class="nx">outputFile</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// Path to output file</span>
+<span class="w">  </span><span class="nx">outputOffset</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// Current read position</span>
+
+<span class="w">  </span><span class="c1">// Notification</span>
+<span class="w">  </span><span class="nx">notified</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">           </span><span class="c1">// User been notified?</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">TaskStatus</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="w">                 </span><span class="c1">// Created, not started</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="w">                 </span><span class="c1">// Active execution</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w">               </span><span class="c1">// Success</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="w">                  </span><span class="c1">// Error</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;killed&quot;</span><span class="w">                  </span><span class="c1">// User killed</span>
+</code></pre></div>
+<h2 id="background-bash-tasks">Background Bash Tasks<a class="headerlink" href="#background-bash-tasks" title="Permanent link">&para;</a></h2>
+<h3 id="creating-a-bash-task">Creating a Bash Task<a class="headerlink" href="#creating-a-bash-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># User presses Ctrl+B during agenent execution</span>
+<span class="c1"># System prompts for command to run in background</span>
+
+Enter<span class="w"> </span>command:<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>tests
+</code></pre></div>
+<h3 id="bash-task-execution">Bash Task Execution<a class="headerlink" href="#bash-task-execution" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">BashTaskState</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;local_bash&quot;</span>
+<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">cwd</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">env?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="c1">// Execution:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">spawn</span><span class="p">(</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">command</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">detached</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w">  </span><span class="c1">// Detach from parent process</span>
+<span class="w">  </span><span class="nx">stdio</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">outputFile</span><span class="p">,</span><span class="w"> </span><span class="nx">outputFile</span><span class="p">],</span><span class="w">  </span><span class="c1">// Redirect to file</span>
+<span class="w">  </span><span class="nx">cwd</span><span class="o">:</span><span class="w"> </span><span class="kt">cwd</span>
+<span class="p">})</span>
+
+<span class="c1">// Child process continues even if parent exits</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">kill</span><span class="p">(</span><span class="o">-</span><span class="nx">child</span><span class="p">.</span><span class="nx">pid</span><span class="p">)</span><span class="w">  </span><span class="c1">// Kill group if needed later</span>
+</code></pre></div>
+<h3 id="example-test-execution">Example: Test Execution<a class="headerlink" href="#example-test-execution" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User is working on code
+Ctrl+B pressed → spawn background task
+
+Command: npm run test
+Output file: ~/.claude/tasks/{sessionId}/b12345678.out
+
+Main session:
+  ↓ Continue working in new session
+
+Background process:
+  → npm run test
+  → Streaming output to file
+  → Status: running
+
+After 30 seconds:
+  → Tests complete
+  → Status: completed
+  → Output available via TaskOutput
+</code></pre></div>
+<h2 id="background-agent-tasks">Background Agent Tasks<a class="headerlink" href="#background-agent-tasks" title="Permanent link">&para;</a></h2>
+<h3 id="creating-an-agent-task">Creating an Agent Task<a class="headerlink" href="#creating-an-agent-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Agent tool can spawn background subagent:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">run_in_background</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Long-running analysis task&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// System:</span>
+<span class="c1">// 1. Creates BashTaskState</span>
+<span class="c1">// 2. Spawns subprocess</span>
+<span class="c1">// 3. Subprocess runs agent loop</span>
+<span class="c1">// 4. Output streamed to file</span>
+<span class="c1">// 5. Returns immediately with taskId</span>
+</code></pre></div>
+<h3 id="in-process-teammate-tasks">In-Process Teammate Tasks<a class="headerlink" href="#in-process-teammate-tasks" title="Permanent link">&para;</a></h3>
+<p>For Agent Teams, teammates run as background tasks:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">InProcessTeammateTask</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;in_process_teammate&quot;</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// Team member ID</span>
+<span class="w">  </span><span class="nx">sessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">           </span><span class="c1">// Team member session</span>
+
+<span class="w">  </span><span class="c1">// Process management</span>
+<span class="w">  </span><span class="nx">subprocess?</span><span class="o">:</span><span class="w"> </span><span class="kt">ChildProcess</span>
+<span class="p">}</span>
+
+<span class="c1">// Execution:</span>
+<span class="c1">// 1. Create subprocess running teammate</span>
+<span class="c1">// 2. Communicate via pipes/sockets</span>
+<span class="c1">// 3. Maintain message queue (mailbox)</span>
+<span class="c1">// 4. Stream output</span>
+<span class="c1">// 5. Track status</span>
+</code></pre></div>
+<h2 id="output-streaming">Output Streaming<a class="headerlink" href="#output-streaming" title="Permanent link">&para;</a></h2>
+<h3 id="output-file-format">Output File Format<a class="headerlink" href="#output-file-format" title="Permanent link">&para;</a></h3>
+<p>Background tasks write to files with specific format:</p>
+<div class="highlight"><pre><span></span><code>~/.claude/tasks/{sessionId}/
+├── b12345678.out            # Raw output
+├── b12345678.state.json     # State metadata
+└── ...
+</code></pre></div>
+<h3 id="reading-output">Reading Output<a class="headerlink" href="#reading-output" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Get task output</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">TaskOutput</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">taskId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b12345678&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">block</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w">               </span><span class="c1">// Wait for completion?</span>
+<span class="w">  </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="kt">30000</span><span class="w">            </span><span class="c1">// Max wait (ms)</span>
+<span class="p">})</span>
+
+<span class="c1">// Returns:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;command output...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">exitCode</span><span class="o">:</span><span class="w"> </span><span class="kt">0</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="streaming-vs-polling">Streaming vs. Polling<a class="headerlink" href="#streaming-vs-polling" title="Permanent link">&para;</a></h3>
+<p>User can monitor in real-time or get results later:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Real-time monitoring</span>
+<span class="c1"># Terminal watches output file and updates UI</span>
+
+<span class="c1"># Later retrieval</span>
+&gt;<span class="w"> </span>TaskOutput<span class="w"> </span>b12345678
+<span class="c1"># Fetches stored output</span>
+</code></pre></div>
+<h2 id="task-lifecycle">Task Lifecycle<a class="headerlink" href="#task-lifecycle" title="Permanent link">&para;</a></h2>
+<h3 id="state-transitions">State Transitions<a class="headerlink" href="#state-transitions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pending → running → completed
+      ↘    ↗
+       failed
+      ↙ ↗
+      killed (terminal state)
+</code></pre></div>
+<h3 id="creating-a-task">Creating a Task<a class="headerlink" href="#creating-a-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createTask</span><span class="p">(</span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskConfig</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateTaskId</span><span class="p">()</span><span class="w">  </span><span class="c1">// &quot;b&quot; + 8 random chars</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="p">,</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="kr">type</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">config.description</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputFile</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">tasksDir</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">.out`</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputOffset</span><span class="o">:</span><span class="w"> </span><span class="kt">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">startTime</span><span class="o">:</span><span class="w"> </span><span class="kt">Date.now</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">notified</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="starting-execution">Starting Execution<a class="headerlink" href="#starting-execution" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">startTask</span><span class="p">(</span><span class="nx">task</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Update state</span>
+<span class="w">  </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;running&quot;</span>
+<span class="w">  </span><span class="nx">task</span><span class="p">.</span><span class="nx">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+
+<span class="w">  </span><span class="c1">// Spawn child process</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">subprocess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">spawn</span><span class="p">(...)</span>
+
+<span class="w">  </span><span class="c1">// Stream output</span>
+<span class="w">  </span><span class="nx">subprocess</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="nx">task</span><span class="p">.</span><span class="nx">outputFile</span><span class="p">))</span>
+
+<span class="w">  </span><span class="c1">// Monitor completion</span>
+<span class="w">  </span><span class="nx">subprocess</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span>
+<span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">notifyUser</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tracking-tasks">Tracking Tasks<a class="headerlink" href="#tracking-tasks" title="Permanent link">&para;</a></h3>
+<p>Active tasks stored in AppState:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">AppState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">taskId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskState</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// UI displays task list:</span>
+<span class="s2">&quot;Background Tasks:</span>
+<span class="s2">  [●] b12345678  npm run tests      (running, 2m30s elapsed)</span>
+<span class="s2">  [✓] b87654321  npm run build      (completed, 1m12s)</span>
+<span class="s2">  [●] b11111111  agent research     (running, 45s elapsed)&quot;</span>
+</code></pre></div>
+<h2 id="killing-tasks">Killing Tasks<a class="headerlink" href="#killing-tasks" title="Permanent link">&para;</a></h2>
+<p>Users can terminate running tasks:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// KillShell tool</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">shell_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b12345678&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// Internally:</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">kill</span><span class="p">(</span><span class="o">-</span><span class="nx">taskProcess</span><span class="p">.</span><span class="nx">pid</span><span class="p">)</span><span class="w">  </span><span class="c1">// Kill process group</span>
+<span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;killed&quot;</span>
+<span class="nx">task</span><span class="p">.</span><span class="nx">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="background-housekeeping">Background Housekeeping<a class="headerlink" href="#background-housekeeping" title="Permanent link">&para;</a></h2>
+<p>System periodically cleans up tasks:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">backgroundHousekeeping</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. Scan AppState for terminal tasks</span>
+<span class="w">  </span><span class="c1">// 2. For each completed/failed task:</span>
+<span class="w">  </span><span class="c1">//    - Finalize output file</span>
+<span class="w">  </span><span class="c1">//    - Keep metadata (for history)</span>
+<span class="w">  </span><span class="c1">//    - Remove from active task list</span>
+<span class="w">  </span><span class="c1">// 3. Clean old completed tasks (&gt; 24 hours)</span>
+<span class="p">}</span>
+
+<span class="c1">// Run frequency: every 30 seconds</span>
+<span class="c1">// Non-blocking (doesn&#39;t interrupt main agent)</span>
+</code></pre></div>
+<h2 id="long-running-operations">Long-Running Operations<a class="headerlink" href="#long-running-operations" title="Permanent link">&para;</a></h2>
+<h3 id="problem-stuck-agents">Problem: Stuck Agents<a class="headerlink" href="#problem-stuck-agents" title="Permanent link">&para;</a></h3>
+<p>Without backgrounding, long operations block user:</p>
+<div class="highlight"><pre><span></span><code>❌ Bad:
+User: &quot;Run full test suite&quot;
+Agent starts: pytest (30 minutes)
+User stuck waiting for 30 minutes
+No feedback or ability to stop
+</code></pre></div>
+<h3 id="solution-background-execution">Solution: Background Execution<a class="headerlink" href="#solution-background-execution" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>✅ Good:
+User: &quot;Run full test suite&quot;
+Agent: &quot;I&#39;ll run tests in background&quot;
+[spawns: pytest in subprocess]
+Returns immediately with taskId: b12345678
+
+User: Continues in new session
+  - Can work on other tasks
+  - Check progress: TaskOutput
+  - Can kill if needed: KillShell
+</code></pre></div>
+<h2 id="integration-with-agent-loop">Integration with Agent Loop<a class="headerlink" href="#integration-with-agent-loop" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Query Loop Iteration:
+  ...
+  Tool: Agent (run_in_background=true)
+  → System creates task
+  → Spawns subprocess
+  → Returns taskId immediately
+  → Loop continues
+
+User can:
+  → Check task list: TaskList
+  → Monitor output: TaskOutput(taskId)
+  → Kill task: KillShell(taskId)
+  → Use new session for new work
+</code></pre></div>
+<h2 id="worktree-integration">Worktree Integration<a class="headerlink" href="#worktree-integration" title="Permanent link">&para;</a></h2>
+<p>Background tasks support worktree isolation:</p>
+<div class="highlight"><pre><span></span><code>Background Task:
+  - Spawned in git worktree
+  - Isolated from main branch
+  - Clean state
+  - Can merge back later
+</code></pre></div>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-use-for-long-operations">1. Use for Long Operations<a class="headerlink" href="#1-use-for-long-operations" title="Permanent link">&para;</a></h3>
+<p>✅ Good:
+<div class="highlight"><pre><span></span><code><span class="c1"># Long running</span>
+npm<span class="w"> </span>run<span class="w"> </span>tests
+npm<span class="w"> </span>run<span class="w"> </span>build
+npm<span class="w"> </span>run<span class="w"> </span>deploy
+agent<span class="w"> </span>research<span class="w"> </span><span class="o">(</span><span class="m">30</span>+<span class="w"> </span>minutes<span class="o">)</span>
+</code></pre></div></p>
+<p>❌ Bad:
+<div class="highlight"><pre><span></span><code><span class="c1"># Quick operations should run inline</span>
+cat<span class="w"> </span>file.txt
+ls<span class="w"> </span>directory
+<span class="nb">echo</span><span class="w"> </span>message
+</code></pre></div></p>
+<h3 id="2-monitor-important-tasks">2. Monitor Important Tasks<a class="headerlink" href="#2-monitor-important-tasks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check critical task status</span>
+TaskOutput<span class="w"> </span>b12345678
+
+<span class="c1"># Monitor in real-time</span>
+<span class="c1"># (UI shows live progress)</span>
+</code></pre></div>
+<h3 id="3-clean-up-when-done">3. Clean Up When Done<a class="headerlink" href="#3-clean-up-when-done" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># After work complete, cleanup old tasks</span>
+<span class="c1"># (Automatic: &gt; 24 hours old)</span>
+</code></pre></div>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="1-test-execution">1. Test Execution<a class="headerlink" href="#1-test-execution" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User: &quot;Run full test suite&quot;
+→ Background task spawned
+→ Tests run for 20 minutes
+→ User continues coding
+→ Results available via TaskOutput
+</code></pre></div>
+<h3 id="2-long-analysis">2. Long Analysis<a class="headerlink" href="#2-long-analysis" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Agent: &quot;Analyze 1000 files for pattern&quot;
+→ Run as background subagent
+→ Stream results as available
+→ User can review incrementally
+</code></pre></div>
+<h3 id="3-deployment">3. Deployment<a class="headerlink" href="#3-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User: &quot;Deploy to production&quot;
+→ Background bash task
+→ Build → test → deploy
+→ Monitor with TaskOutput
+→ User stays responsive
+</code></pre></div>
+<h3 id="4-team-member-tasks">4. Team Member Tasks<a class="headerlink" href="#4-team-member-tasks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Team Lead: Spawn 3 teammates
+→ Each runs as background process
+→ Tasks execute in parallel
+→ Results merged by team lead
+</code></pre></div>
+<h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/Task.ts</code></td>
+<td>Task type definitions</td>
+</tr>
+<tr>
+<td><code>src/utils/task/framework.ts</code></td>
+<td>Task execution framework</td>
+</tr>
+<tr>
+<td><code>src/utils/backgroundHousekeeping.ts</code></td>
+<td>Cleanup/monitoring</td>
+</tr>
+<tr>
+<td><code>src/hooks/useSessionBackgrounding.ts</code></td>
+<td>Session backgrounding</td>
+</tr>
+<tr>
+<td><code>src/tools/TaskOutputTool/</code></td>
+<td>Get task output</td>
+</tr>
+<tr>
+<td><code>src/tools/KillShellTool/</code></td>
+<td>Terminate tasks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../core/todowrite/">Tasks (V2 System)</a> - Task management</li>
+<li><a href="./agent-teams.md">Agent Teams</a> - Background teammate execution</li>
+<li><a href="./worktree-isolation.md">Worktrees</a> - Isolated execution environment</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
