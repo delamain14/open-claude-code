@@ -1,5 +1,6 @@
 site_name: Open Claude Code
 site_description: A comprehensive documentation system for Open Claude Code
+site_url: https://delamain14.github.io/open-claude-code/
 repo_url: https://github.com/delamain14/open-claude-code
 repo_name: open-claude-code
 edit_uri: edit/main/docs/
