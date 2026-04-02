@@ -1,35 +1,35 @@
-# 服务层
+# Service Layer
 
-## 目录结构
+## Directory Structure
 
 ```
 src/services/
-├── api/                  # Anthropic API 客户端
-├── analytics/            # 分析与特性开关
-├── mcp/                  # MCP 协议客户端
-├── oauth/                # OAuth 认证
-├── compact/              # 会话压缩
-├── lsp/                  # LSP 语言服务器
-├── policyLimits/         # 企业策略限制
-├── remoteManagedSettings/ # 远程托管设置
-├── plugins/              # 插件管理
-├── SessionMemory/        # 会话记忆
-├── MagicDocs/            # 文档自动加载
-├── settingsSync/         # 设置同步
-├── skillSearch/          # 技能搜索
-├── tips/                 # 提示系统
-├── voice.ts              # 语音录制
-├── voiceStreamSTT.ts     # 语音转文字
-├── awaySummary.ts        # 离开摘要
-├── claudeAiLimits.ts     # Claude.ai 限速
-├── rateLimitMessages.ts  # 限速消息
-├── tokenEstimation.ts    # Token 估算
-└── vcr.ts                # HTTP 录制/回放（测试）
+├── api/                  # Anthropic API client
+├── analytics/            # Analytics and feature flags
+├── mcp/                  # MCP protocol client
+├── oauth/                # OAuth authentication
+├── compact/              # Session compaction
+├── lsp/                  # LSP language server
+├── policyLimits/         # Enterprise policy limits
+├── remoteManagedSettings/ # Remote managed settings
+├── plugins/              # Plugin management
+├── SessionMemory/        # Session memory
+├── MagicDocs/            # Document auto-loading
+├── settingsSync/         # Settings synchronization
+├── skillSearch/          # Skill search
+├── tips/                 # Tips system
+├── voice.ts              # Voice recording
+├── voiceStreamSTT.ts     # Voice-to-text
+├── awaySummary.ts        # Away summary
+├── claudeAiLimits.ts     # Claude.ai rate limits
+├── rateLimitMessages.ts  # Rate limit messages
+├── tokenEstimation.ts    # Token estimation
+└── vcr.ts                # HTTP record/replay (testing)
 ```
 
-## API 服务 (`services/api/`)
+## API Service (`services/api/`)
 
-### client.ts — API 客户端工厂
+### client.ts — API Client Factory
 
 ```typescript
 export async function getAnthropicClient({
@@ -37,73 +37,73 @@ export async function getAnthropicClient({
 }): Promise<Anthropic>
 ```
 
-**支持的 Provider**:
+**Supported Providers**:
 
-| Provider | 认证方式 | 客户端类型 |
-|----------|---------|-----------|
+| Provider | Authentication | Client Type |
+|----------|---------------|-------------|
 | firstParty | API Key / OAuth | `new Anthropic()` |
 | bedrock | AWS IAM | `new AnthropicBedrock()` |
 | vertex | Google Auth | `new AnthropicVertex()` |
 | foundry | Azure Token | `new AnthropicFoundry()` |
 
-**配置来源**: `ANTHROPIC_API_KEY`、`ANTHROPIC_BASE_URL`、OAuth tokens、AWS/GCP 凭证
+**Configuration Source**: `ANTHROPIC_API_KEY`, `ANTHROPIC_BASE_URL`, OAuth tokens, AWS/GCP credentials
 
-### claude.ts — API 消息处理核心
+### claude.ts — API Message Processing Core
 
 ```typescript
 export function queryModelWithStreaming(config): AsyncGenerator<StreamEvent>
 ```
 
-**核心功能**:
-- 内部消息格式 → API 格式转换
-- 流式响应处理（SSE）
-- 工具调用检测与序列化
-- Prompt caching 支持
-- Token 统计（输入/输出/缓存命中）
-- 重试逻辑（含 fallback 模型）
+**Core Features**:
+- Internal message format → API format conversion
+- Streaming response handling (SSE)
+- Tool call detection and serialization
+- Prompt caching support
+- Token statistics (input/output/cache hits)
+- Retry logic (with fallback model)
 
-**数据流**:
+**Data Flow**:
 ```
-messages → normalizeForAPI() → API 请求 → 流式响应
-  → 解析 content blocks → 工具调用检测
-  → 生成 StreamEvent → 返回给 QueryEngine
+messages → normalizeForAPI() → API request → Streaming response
+  → Parse content blocks → Tool call detection
+  → Generate StreamEvent → Return to QueryEngine
 ```
 
-### errors.ts — API 错误处理
+### errors.ts — API Error Handling
 
 ```typescript
 export function categorizeRetryableAPIError(error): RetryCategory
 ```
 
-**错误分类**:
+**Error Categories**:
 
-| 类别 | 处理方式 |
-|------|---------|
-| `overloaded` | 指数退避重试 |
-| `rate_limited` | 等待 + 重试 |
-| `authentication` | 提示用户检查 key |
-| `invalid_request` | 不重试，报错 |
-| `network` | 重试 |
-| `context_length` | 触发压缩 |
+| Category | Handling |
+|----------|----------|
+| `overloaded` | Exponential backoff retry |
+| `rate_limited` | Wait + retry |
+| `authentication` | Prompt user to check key |
+| `invalid_request` | No retry, report error |
+| `network` | Retry |
+| `context_length` | Trigger compaction |
 
-### logging.ts — API 日志记录
+### logging.ts — API Logging
 
-记录每次 API 调用的详细元数据：模型、Token 使用、缓存命中率、延迟等。
+Records detailed metadata for each API call: model, token usage, cache hit rate, latency, etc.
 
 ---
 
-## 分析服务 (`services/analytics/`)
+## Analytics Service (`services/analytics/`)
 
-### index.ts — 事件队列
+### index.ts — Event Queue
 
 ```typescript
 export function logEvent(name: string, metadata?: Record<string, any>): void
 export function attachAnalyticsSink(sink: AnalyticsSink): void
 ```
 
-**设计**: 事件在 sink 附加前排队，避免导入循环。所有元数据字段需经 `AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS` 类型验证。
+**Design**: Events are queued before sink attachment to avoid import cycles. All metadata fields require `AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS` type validation.
 
-### growthbook.ts — 特性开关
+### growthbook.ts — Feature Flags
 
 ```typescript
 export function getFeatureValue_CACHED_MAY_BE_STALE<T>(feature, default): T
@@ -111,17 +111,17 @@ export async function getFeatureValue_DEPRECATED<T>(feature, default): Promise<T
 export async function getDynamicConfig_BLOCKS_ON_INIT<T>(config, default): Promise<T>
 ```
 
-**机制**:
-- GrowthBook SDK 集成
-- 用户属性：ID、deviceID、订阅类型、API provider
-- 本地磁盘缓存 + 后台刷新（1 小时）
-- 支持环境变量覆盖
+**Mechanism**:
+- GrowthBook SDK integration
+- User attributes: ID, deviceID, subscription type, API provider
+- Local disk cache + background refresh (1 hour)
+- Environment variable override support
 
 ---
 
-## MCP 服务 (`services/mcp/`)
+## MCP Service (`services/mcp/`)
 
-### client.ts — MCP 客户端
+### client.ts — MCP Client
 
 ```typescript
 export function initializeMcpClient(config): Promise<MCPClient>
@@ -129,28 +129,28 @@ export function callMcpTool(client, toolName, args): Promise<ToolResult>
 export function listMcpResources(client): Promise<Resource[]>
 ```
 
-**支持的传输类型**:
+**Supported Transport Types**:
 
-| 类型 | 协议 | 使用场景 |
-|------|------|---------|
-| `stdio` | 子进程 stdin/stdout | 本地 MCP 服务器 |
-| `sse` | Server-Sent Events | 远程 MCP 服务器 |
+| Type | Protocol | Use Case |
+|------|----------|----------|
+| `stdio` | Child process stdin/stdout | Local MCP server |
+| `sse` | Server-Sent Events | Remote MCP server |
 | `http` | HTTP POST | Streamable HTTP |
-| `ws` | WebSocket | 实时双向 |
+| `ws` | WebSocket | Real-time bidirectional |
 
-**OAuth 支持**: XAA（跨应用访问）认证流程
+**OAuth Support**: XAA (Cross-Application Access) authentication flow
 
-**配置范围** (`ConfigScope`):
-- `local` / `user` / `project` — 本地配置
-- `enterprise` / `managed` — 企业管理
-- `claudeai` — Claude.ai 内置连接器
-- `dynamic` — SDK 动态注入
+**Configuration Scope** (`ConfigScope`):
+- `local` / `user` / `project` — Local configuration
+- `enterprise` / `managed` — Enterprise management
+- `claudeai` — Claude.ai built-in connectors
+- `dynamic` — SDK dynamic injection
 
 ---
 
-## OAuth 服务 (`services/oauth/`)
+## OAuth Service (`services/oauth/`)
 
-### client.ts — OAuth 流程
+### client.ts — OAuth Flow
 
 ```typescript
 export function buildAuthUrl(provider): string
@@ -158,14 +158,14 @@ export function exchangeAuthCode(code): Promise<OAuthTokenExchangeResponse>
 export function refreshOAuthToken(refreshToken): Promise<OAuthTokens>
 ```
 
-**支持**:
-- Claude.ai OAuth（Pro/Max/Team/Enterprise）
+**Support**:
+- Claude.ai OAuth (Pro/Max/Team/Enterprise)
 - Console OAuth
-- PKCE 认证码流程
-- 本地回调服务器（`auth-code-listener.ts`）
-- Token 自动刷新
+- PKCE authorization code flow
+- Local callback server (`auth-code-listener.ts`)
+- Automatic token refresh
 
-### 核心类型
+### Core Types
 
 ```typescript
 type OAuthTokens = {
@@ -180,76 +180,76 @@ type RateLimitTier = 'standard' | 'high' | 'unlimited'
 
 ---
 
-## 会话压缩 (`services/compact/`)
+## Session Compaction (`services/compact/`)
 
-### compact.ts — 压缩引擎
+### compact.ts — Compaction Engine
 
 ```typescript
 export function compactMessagesIfNeeded(messages, config): Promise<CompactionResult>
 ```
 
-**压缩策略**:
-- **autoCompact**: Token 超过阈值时自动触发
-- **microCompact**: 轻量级增量压缩
-- **sessionMemoryCompact**: 结合会话记忆的压缩
+**Compaction Strategies**:
+- **autoCompact**: Automatically triggered when tokens exceed threshold
+- **microCompact**: Lightweight incremental compaction
+- **sessionMemoryCompact**: Compaction combined with session memory
 
-**压缩结果**:
+**Compaction Result**:
 ```typescript
 type CompactionResult = {
-  messages: Message[]          // 压缩后的消息
-  compactedCount: number       // 被压缩的消息数
-  summaryTokens: number        // 摘要 token 数
-  savedTokens: number          // 节省的 token 数
+  messages: Message[]          // Compacted messages
+  compactedCount: number       // Number of messages compacted
+  summaryTokens: number        // Summary token count
+  savedTokens: number          // Tokens saved
 }
 ```
 
 ---
 
-## LSP 服务 (`services/lsp/`)
+## LSP Service (`services/lsp/`)
 
-### manager.ts — LSP 服务器管理
+### manager.ts — LSP Server Management
 
 ```typescript
 export function initializeLspServerManager(): void
 export function getLspServerManager(): LSPServerManager | null
 ```
 
-**状态**: `not-started` → `pending` → `success` / `failed`
+**States**: `not-started` → `pending` → `success` / `failed`
 
-**功能**: 管理多个 LSP 服务器连接，聚合诊断信息，支持代码导航
+**Features**: Manages multiple LSP server connections, aggregates diagnostic information, supports code navigation
 
 ---
 
-## 策略限制 (`services/policyLimits/`)
+## Policy Limits (`services/policyLimits/`)
 
 ```typescript
 export function isPolicyAllowed(feature: string): boolean
 export function waitForPolicyLimitsToLoad(): Promise<void>
 ```
 
-**特性**:
-- Console API Key 用户（全部）+ OAuth 用户（Team/Enterprise）
-- 故障打开（non-blocking）
-- ETag 缓存 + 后台轮询（1 小时）
+**Features**:
+- Console API Key users (all) + OAuth users (Team/Enterprise)
+- Fail-open (non-blocking)
+- ETag caching + background polling (1 hour)
 
 ---
 
-## 远程托管设置 (`services/remoteManagedSettings/`)
+## Remote Managed Settings (`services/remoteManagedSettings/`)
 
 ```typescript
 export function waitForRemoteManagedSettingsToLoad(): Promise<void>
 ```
 
-**同步机制**:
-- Checksum 验证最小化网络流量
-- 文件缓存：`~/.claude/managed-settings.json`
-- 支持插件允许列表、设置覆盖、安全检查
+**Sync Mechanism**:
+- Checksum verification minimizes network traffic
+- File cache: `~/.claude/managed-settings.json`
+- Supports plugin allow list, setting overrides, security checks
 
 ---
 
-## 插件服务 (`services/plugins/`)
+## Plugin Service (`services/plugins/`)
 
-### pluginOperations.ts — 纯库函数
+### pluginOperations.ts — Pure Library Functions
 
 ```typescript
 export function installPlugin(spec): Promise<PluginResult>
@@ -259,18 +259,18 @@ export function enablePlugin(name): Promise<PluginResult>
 export function disablePlugin(name): Promise<PluginResult>
 ```
 
-**设计原则**: 不调用 `process.exit()`，不写控制台，返回结果对象。
+**Design Principles**: No `process.exit()` calls, no console writes, returns result objects.
 
 ---
 
-## 其他服务
+## Other Services
 
-| 服务 | 文件 | 功能 |
-|------|------|------|
-| **claudeAiLimits** | claudeAiLimits.ts | Claude.ai 用户限速检查和警告 |
-| **tokenEstimation** | tokenEstimation.ts | 消息 Token 计数估算 |
-| **voice** | voice.ts | 麦克风录音（CPAL / SoX） |
-| **voiceStreamSTT** | voiceStreamSTT.ts | 音频流语音转文字（OpenAI Whisper） |
-| **SessionMemory** | SessionMemory/ | 会话记忆持久化 |
-| **settingsSync** | settingsSync/ | 用户设置云同步 |
-| **vcr** | vcr.ts | HTTP 录制/回放（测试用） |
+| Service | File | Function |
+|---------|------|----------|
+| **claudeAiLimits** | claudeAiLimits.ts | Claude.ai user rate limit checks and warnings |
+| **tokenEstimation** | tokenEstimation.ts | Message token count estimation |
+| **voice** | voice.ts | Microphone recording (CPAL / SoX) |
+| **voiceStreamSTT** | voiceStreamSTT.ts | Audio stream voice-to-text (OpenAI Whisper) |
+| **SessionMemory** | SessionMemory/ | Session memory persistence |
+| **settingsSync** | settingsSync/ | User settings cloud sync |
+| **vcr** | vcr.ts | HTTP record/replay (testing) |

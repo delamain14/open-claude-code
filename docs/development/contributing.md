@@ -1,117 +1,117 @@
-# 贡献指南
+# Contributing Guide
 
-感谢你对 Open Claude Code 的兴趣！本文档说明如何参与项目开发。
+Thank you for your interest in Open Claude Code! This document explains how to participate in project development.
 
-## 行为准则
+## Code of Conduct
 
-我们致力于提供友好、安全和受欢迎的开发环境。所有参与者应该相互尊重和包容。
+We are committed to providing a friendly, safe, and welcoming development environment. All participants should respect and be inclusive of each other.
 
-## 贡献方式
+## Ways to Contribute
 
-### 1. 报告 Bug
+### 1. Reporting Bugs
 
-#### 提交 Issue 前的检查清单
+#### Pre-submission Checklist
 
-- [ ] 搜索现有 Issues，确认 bug 尚未被报告
-- [ ] 检查最新版本是否仍存在该问题
-- [ ] 准备清晰的重现步骤
+- [ ] Search existing Issues to confirm the bug hasn't been reported
+- [ ] Check if the issue still exists in the latest version
+- [ ] Prepare clear reproduction steps
 
-#### Issue 模板
+#### Issue Template
 
 ```markdown
-## 描述
-清楚地描述问题。
+## Description
+Clearly describe the problem.
 
-## 重现步骤
+## Steps to Reproduce
 1. ...
 2. ...
 3. ...
 
-## 预期行为
-应该发生什么。
+## Expected Behavior
+What should happen.
 
-## 实际行为
-实际发生了什么。
+## Actual Behavior
+What actually happened.
 
-## 环境信息
-- 操作系统: [如 Linux, macOS, Windows]
-- Bun 版本: [输出 `bun --version`]
-- 项目版本: [如 v1.0.0]
-- Node.js 版本: [如 20.0.0]
+## Environment Information
+- Operating System: [e.g., Linux, macOS, Windows]
+- Bun Version: [output of `bun --version`]
+- Project Version: [e.g., v1.0.0]
+- Node.js Version: [e.g., 20.0.0]
 
-## 附加信息
-任何其他相关信息。
+## Additional Information
+Any other relevant information.
 ```
 
-### 2. 建议功能
+### 2. Suggesting Features
 
-#### Issue 模板
+#### Issue Template
 
 ```markdown
-## 功能描述
-清楚地描述你想要的功能。
+## Feature Description
+Clearly describe the feature you want.
 
-## 使用场景
-说明这个功能的使用场景和价值。
+## Use Case
+Explain the use case and value of this feature.
 
-## 建议的实现
-（可选）说明你认为应该如何实现。
+## Suggested Implementation
+(Optional) Explain how you think it should be implemented.
 
-## 其他选项
-是否有其他方式可以解决这个问题？
+## Alternative Options
+Are there other ways to solve this problem?
 ```
 
-### 3. 提交代码
+### 3. Submitting Code
 
-#### 开发工作流
+#### Development Workflow
 
-1. **Fork 仓库**
+1. **Fork the repository**
    ```bash
-   # 在 GitHub 上 Fork 项目
+   # Fork the project on GitHub
    ```
 
-2. **克隆你的 Fork**
+2. **Clone your Fork**
    ```bash
    git clone https://github.com/your-username/open-claude-code.git
    cd open-claude-code
    ```
 
-3. **添加上游仓库**
+3. **Add upstream repository**
    ```bash
    git remote add upstream https://github.com/original-owner/open-claude-code.git
    ```
 
-4. **创建分支**
+4. **Create a branch**
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-5. **进行更改**
+5. **Make changes**
    ```bash
-   # 编辑文件
-   # 运行测试
+   # Edit files
+   # Run tests
    bun run test
    ```
 
-6. **提交更改**
+6. **Commit changes**
    ```bash
    git add .
    git commit -m "feat: add your feature"
    ```
 
-7. **推送到你的 Fork**
+7. **Push to your Fork**
    ```bash
    git push origin feature/your-feature-name
    ```
 
-8. **创建 Pull Request**
-   - 在 GitHub 上打开 PR
-   - 填写 PR 模板
-   - 等待审查
+8. **Create Pull Request**
+   - Open PR on GitHub
+   - Fill in PR template
+   - Wait for review
 
-#### 提交消息规范
+#### Commit Message Convention
 
-使用 [Conventional Commits](https://www.conventionalcommits.org/) 格式：
+Use [Conventional Commits](https://www.conventionalcommits.org/) format:
 
 ```
 <type>(<scope>): <subject>
@@ -121,17 +121,17 @@
 <footer>
 ```
 
-**类型** (type):
-- `feat`: 新功能
-- `fix`: 错误修复
-- `docs`: 文档更新
-- `style`: 代码风格（不影响逻辑）
-- `refactor`: 重构（不影响功能）
-- `perf`: 性能优化
-- `test`: 测试相关
-- `chore`: 构建、依赖等其他
+**Types**:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation update
+- `style`: Code style (doesn't affect logic)
+- `refactor`: Refactoring (doesn't affect functionality)
+- `perf`: Performance optimization
+- `test`: Test-related
+- `chore`: Build, dependencies, etc.
 
-**示例**:
+**Example**:
 ```
 feat(commands): add new advisor command
 
@@ -140,72 +140,72 @@ This adds a new advisor command that helps users with code review.
 Fixes #123
 ```
 
-## 代码风格
+## Code Style
 
-### TypeScript 风格指南
+### TypeScript Style Guide
 
-1. **命名约定**
+1. **Naming Conventions**
    ```typescript
-   // 常量: SCREAMING_SNAKE_CASE
+   // Constants: SCREAMING_SNAKE_CASE
    const MAX_RETRIES = 3
 
-   // 函数和变量: camelCase
+   // Functions and variables: camelCase
    function processData() {}
    let isLoading = false
 
-   // 类和类型: PascalCase
+   // Classes and types: PascalCase
    class UserService {}
    type UserConfig = {}
 
-   // 接口: PascalCase，通常以 I 开头
+   // Interfaces: PascalCase, usually prefixed with I
    interface IUserRepository {}
    ```
 
-2. **类型注解**
+2. **Type Annotations**
    ```typescript
-   // 总是明确指定返回类型
+   // Always specify return types explicitly
    function getUserName(id: number): string {
      return "John"
    }
 
-   // 为复杂对象使用接口
+   // Use interfaces for complex objects
    interface User {
      id: number
      name: string
    }
    ```
 
-3. **箭头函数**
+3. **Arrow Functions**
    ```typescript
-   // 简单单行
+   // Simple one-liner
    const add = (a: number, b: number) => a + b
 
-   // 多行需要大括号和返回
+   // Multi-line needs braces and return
    const process = (data: string) => {
      const result = data.trim()
      return result
    }
    ```
 
-### 代码质量工具
+### Code Quality Tools
 
 ```bash
-# ESLint 检查
+# ESLint check
 bun run lint
 
-# 自动修复
+# Auto-fix
 bun run lint --fix
 
-# 代码格式化
+# Code formatting
 bun run format
 
-# 类型检查
+# Type checking
 bun run typecheck
 ```
 
-## 测试
+## Testing
 
-### 编写测试
+### Writing Tests
 
 ```typescript
 import { describe, it, expect } from "bun:test"
@@ -223,47 +223,47 @@ describe("UserService", () => {
 })
 ```
 
-### 测试覆盖率
+### Test Coverage
 
 ```bash
-# 运行带覆盖率的测试
+# Run tests with coverage
 bun run test --coverage
 
-# 最低覆盖率标准
-# 语句: 80%
-# 分支: 75%
-# 函数: 80%
-# 行: 80%
+# Minimum coverage standards
+# Statements: 80%
+# Branches: 75%
+# Functions: 80%
+# Lines: 80%
 ```
 
-### 测试类型
+### Test Types
 
-1. **单元测试** (`tests/unit/`)
-   - 测试单个函数或模块
-   - 应该快速执行
-   - 模拟外部依赖
+1. **Unit Tests** (`tests/unit/`)
+   - Test individual functions or modules
+   - Should execute quickly
+   - Mock external dependencies
 
-2. **集成测试** (`tests/integration/`)
-   - 测试多个组件的交互
-   - 可能涉及真实数据库
+2. **Integration Tests** (`tests/integration/`)
+   - Test interaction between multiple components
+   - May involve real databases
 
-3. **端到端测试** (`tests/e2e/`)
-   - 测试完整用户流程
-   - 模拟真实场景
+3. **End-to-End Tests** (`tests/e2e/`)
+   - Test complete user flows
+   - Simulate real scenarios
 
-## 文档
+## Documentation
 
-### 更新文档
+### Updating Documentation
 
-如果你的更改涉及新功能或 API 变化，请：
+If your changes involve new features or API changes, please:
 
-1. **更新相关文档**
-   - 在 `docs/` 目录中添加或修改文件
-   - 更新 `mkdocs.yml` 导航（如果需要）
+1. **Update relevant documentation**
+   - Add or modify files in the `docs/` directory
+   - Update `mkdocs.yml` navigation (if needed)
 
-2. **添加代码示例**
+2. **Add code examples**
    ```markdown
-   ## 示例
+   ## Example
 
    \`\`\`typescript
    import { MyFeature } from "@open-claude-code/core"
@@ -273,64 +273,64 @@ bun run test --coverage
    \`\`\`
    ```
 
-3. **本地预览**
+3. **Local preview**
    ```bash
    mkdocs serve
    ```
 
-## PR 审查流程
+## PR Review Process
 
-### 审查标准
+### Review Standards
 
-你的 PR 需要：
+Your PR needs:
 
-- [ ] 通过所有 CI/CD 检查
-- [ ] 至少一名维护者批准
-- [ ] 代码覆盖率不低于 80%
-- [ ] 所有测试通过
-- [ ] 代码风格一致
-- [ ] 文档更新完整
+- [ ] Pass all CI/CD checks
+- [ ] At least one maintainer approval
+- [ ] Code coverage not below 80%
+- [ ] All tests passing
+- [ ] Consistent code style
+- [ ] Complete documentation updates
 
-### 常见反馈
+### Common Feedback
 
-| 反馈 | 处理方式 |
-|------|---------|
-| "请添加测试" | 为你的代码编写单元或集成测试 |
-| "类型检查失败" | 运行 `bun run typecheck` 并修复 |
-| "请更新文档" | 在 `docs/` 中添加相关文档 |
-| "性能考虑" | 使用 `bun run test --benchmark` 检查性能 |
+| Feedback | How to Handle |
+|----------|---------------|
+| "Please add tests" | Write unit or integration tests for your code |
+| "Type check failed" | Run `bun run typecheck` and fix |
+| "Please update docs" | Add relevant documentation in `docs/` |
+| "Performance concerns" | Check performance with `bun run test --benchmark` |
 
-## 发布流程
+## Release Process
 
-### 版本号规范
+### Version Number Convention
 
-使用 [语义化版本](https://semver.org/)：
+Use [Semantic Versioning](https://semver.org/):
 
-- **主版本** (MAJOR): 不兼容的 API 变化
-- **次版本** (MINOR): 向后兼容的新功能
-- **补丁** (PATCH): 向后兼容的错误修复
+- **MAJOR**: Incompatible API changes
+- **MINOR**: Backward-compatible new features
+- **PATCH**: Backward-compatible bug fixes
 
-示例: `1.2.3` (主.次.补)
+Example: `1.2.3` (major.minor.patch)
 
-### 发布步骤
+### Release Steps
 
-1. 更新 `CHANGELOG.md`
-2. 更新 `package.json` 中的版本号
-3. 创建 Git tag: `git tag v1.2.3`
-4. 推送到 GitHub
-5. 在 GitHub Releases 中发布
+1. Update `CHANGELOG.md`
+2. Update version number in `package.json`
+3. Create Git tag: `git tag v1.2.3`
+4. Push to GitHub
+5. Publish in GitHub Releases
 
-## 获取帮助
+## Getting Help
 
-- **讨论**: [GitHub Discussions](https://github.com/your-username/open-claude-code/discussions)
-- **问题**: [GitHub Issues](https://github.com/your-username/open-claude-code/issues)
-- **社区**: 关注项目的 Discord/Slack 社区（如果存在）
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/open-claude-code/discussions)
+- **Issues**: [GitHub Issues](https://github.com/your-username/open-claude-code/issues)
+- **Community**: Follow the project's Discord/Slack community (if exists)
 
-## 相关资源
+## Related Resources
 
-- [开发环境设置](setup.md)
-- [架构文档](../architecture/overview.md)
+- [Development Environment Setup](setup.md)
+- [Architecture Documentation](../architecture/overview.md)
 - [Conventional Commits](https://www.conventionalcommits.org/)
 - [Semantic Versioning](https://semver.org/)
 
-感谢你的贡献！
+Thank you for your contribution!

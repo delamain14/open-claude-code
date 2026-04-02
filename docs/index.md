@@ -1,66 +1,66 @@
-# Open Claude Code 文档
+# Open Claude Code Documentation
 
-欢迎来到 Open Claude Code 的官方文档！这是一个完整的 TypeScript/TSX CLI 应用，基于 Bun 运行时，集成了 Anthropic API、MCP 协议、网络搜索和丰富的 TUI 交互界面。
+Welcome to the official documentation for Open Claude Code! This is a complete TypeScript/TSX CLI application built on the Bun runtime, integrated with the Anthropic API, MCP protocol, web search, and rich TUI interaction interface.
 
-## 快速导航
+## Quick Navigation
 
-- **[快速开始](getting-started/installation.md)** - 了解如何安装和配置项目
-- **[架构文档](architecture/overview.md)** - 深入了解项目的整体架构和设计
-- **[开发指南](development/setup.md)** - 本地开发环境设置和贡献指南
+- **[Getting Started](getting-started/installation.md)** - Learn how to install and configure the project
+- **[Architecture Documentation](architecture/overview.md)** - Deep dive into the overall architecture and design
+- **[Development Guide](development/setup.md)** - Local development environment setup and contribution guide
 
-## 项目特性
+## Project Features
 
-- 🚀 **高性能 CLI** - 基于 Bun 运行时的现代化 CLI 应用
-- 🎨 **富交互 UI** - 使用 React 和 Ink 构建的现代化终端界面
-- 🔧 **50+ 工具集合** - 包括文件操作、代码分析、Git 操作等
-- 📚 **88+ 命令支持** - 覆盖各种开发和运维场景
-- 🌐 **API 集成** - Anthropic API 和 MCP 协议支持
-- 🔍 **网络搜索** - 集成 serper.dev 和 Anthropic 原生搜索
-- 🎯 **可扩展架构** - 模块化设计，易于扩展和维护
+- **High-Performance CLI** - Modern CLI application based on Bun runtime
+- **Rich Interactive UI** - Modern terminal interface built with React and Ink
+- **50+ Tool Collection** - Including file operations, code analysis, Git operations, and more
+- **88+ Command Support** - Covering various development and operations scenarios
+- **API Integration** - Anthropic API and MCP protocol support
+- **Web Search** - Integrated with serper.dev and Anthropic native search
+- **Extensible Architecture** - Modular design, easy to extend and maintain
 
-## 项目规模
+## Project Scale
 
-- **代码行数**: ~145,503 行 TypeScript/TSX
-- **源文件数**: 1,951 个 .ts/.tsx 文件
-- **UI 组件**: 140+ React 组件
-- **工具实现**: 50+ 个工具
-- **命令支持**: 88+ 个斜杠命令
+- **Lines of Code**: ~145,503 lines of TypeScript/TSX
+- **Source Files**: 1,951 .ts/.tsx files
+- **UI Components**: 140+ React components
+- **Tool Implementations**: 50+ tools
+- **Command Support**: 88+ slash commands
 
-## 核心技术栈
+## Core Tech Stack
 
-| 技术 | 描述 |
-|------|------|
-| **运行时** | Bun |
-| **语言** | TypeScript + TSX |
-| **UI 框架** | React + Ink |
-| **API 客户端** | Anthropic SDK |
-| **CLI 工具** | Commander.js |
+| Technology | Description |
+|------------|-------------|
+| **Runtime** | Bun |
+| **Language** | TypeScript + TSX |
+| **UI Framework** | React + Ink |
+| **API Client** | Anthropic SDK |
+| **CLI Tool** | Commander.js |
 
-## 文档结构
+## Documentation Structure
 
 ```
 docs/
-├── index.md                    # 主页（你在这里）
-├── getting-started/            # 快速开始
-│   ├── installation.md         # 安装指南
-│   └── configuration.md        # 配置指南
-├── architecture/               # 架构文档
-│   ├── overview.md            # 架构概览
-│   ├── entrypoints.md         # 入口点
-│   ├── services.md            # 服务层
-│   ├── tools.md               # 工具系统
-│   ├── commands.md            # 命令系统
-│   ├── ui.md                  # UI 层
-│   ├── types.md               # 类型定义
-│   └── utils.md               # 工具函数
-└── development/                # 开发指南
-    ├── setup.md               # 环境设置
-    └── contributing.md        # 贡献指南
+├── index.md                    # Home (you are here)
+├── getting-started/            # Getting Started
+│   ├── installation.md         # Installation Guide
+│   └── configuration.md        # Configuration Guide
+├── architecture/               # Architecture Documentation
+│   ├── overview.md            # Architecture Overview
+│   ├── entrypoints.md         # Entry Points
+│   ├── services.md            # Service Layer
+│   ├── tools.md               # Tool System
+│   ├── commands.md            # Command System
+│   ├── ui.md                  # UI Layer
+│   ├── types.md               # Type Definitions
+│   └── utils.md               # Utility Functions
+└── development/                # Development Guide
+    ├── setup.md               # Environment Setup
+    └── contributing.md        # Contribution Guide
 ```
 
-## 开始使用
+## Getting Started
 
-### 安装
+### Installation
 
 ```bash
 git clone <repository-url>
@@ -68,26 +68,26 @@ cd open-claude-code
 bun install
 ```
 
-### 本地预览文档
+### Local Documentation Preview
 
 ```bash
 mkdocs serve
 ```
 
-然后在浏览器中打开 `http://127.0.0.1:8000`
+Then open `http://127.0.0.1:8000` in your browser.
 
-### 构建文档
+### Build Documentation
 
 ```bash
 mkdocs build
 ```
 
-生成的静态网站将在 `site/` 目录中。
+The generated static site will be in the `site/` directory.
 
-## 需要帮助？
+## Need Help?
 
-- 查看 [快速开始](getting-started/installation.md) 了解基础信息
-- 浏览 [架构文档](architecture/overview.md) 深入理解项目结构
-- 阅读 [贡献指南](development/contributing.md) 参与开发
+- Check [Getting Started](getting-started/installation.md) for basic information
+- Browse [Architecture Documentation](architecture/overview.md) to understand the project structure in depth
+- Read [Contribution Guide](development/contributing.md) to participate in development
 
-祝你使用愉快！
+Enjoy using it!

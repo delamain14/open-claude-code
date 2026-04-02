@@ -1,222 +1,222 @@
-# 工具函数库
+# Utility Functions Library
 
-`src/utils/` 包含 33 个子目录、200+ 个文件的工具函数库。
+`src/utils/` contains 33 subdirectories with 200+ utility function files.
 
-## 目录分类索引
+## Directory Classification Index
 
-### 认证与安全
+### Authentication and Security
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `auth.ts` (65KB) | OAuth/API Key 认证、Token 管理、提供者检测 |
-| `authPortable.ts` | 便携式认证函数（API Key 规范化） |
-| `authFileDescriptor.ts` | 文件描述符 Token 读取 |
-| `secureStorage/` | 安全存储（macOS Keychain、明文回退） |
-| `sessionIngressAuth.ts` | 会话入口认证 |
-| `mtls.ts` | mTLS 证书配置 |
-| `caCerts.ts` / `caCertsConfig.ts` | CA 证书管理 |
-| `proxy.ts` | HTTP/HTTPS 代理配置 |
+| `auth.ts` (65KB) | OAuth/API Key authentication, token management, provider detection |
+| `authPortable.ts` | Portable authentication functions (API Key normalization) |
+| `authFileDescriptor.ts` | File descriptor token reading |
+| `secureStorage/` | Secure storage (macOS Keychain, plaintext fallback) |
+| `sessionIngressAuth.ts` | Session ingress authentication |
+| `mtls.ts` | mTLS certificate configuration |
+| `caCerts.ts` / `caCertsConfig.ts` | CA certificate management |
+| `proxy.ts` | HTTP/HTTPS proxy configuration |
 
-### 模型与 API
+### Model and API
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `model/` | 模型选择、能力检测、配置 |
-| `model/model.ts` | 默认模型、用户覆盖、解析 |
-| `model/configs.ts` | 所有模型配置（ID、别名、上下文窗口） |
-| `model/providers.ts` | Provider 检测（firstParty/bedrock/vertex/foundry） |
-| `model/modelSupportOverrides.ts` | 3P 模型能力覆盖 |
-| `modelCost.ts` | 模型成本计算 |
-| `api.ts` | API 调用辅助函数 |
-| `apiPreconnect.ts` | TCP+TLS 预连接 |
-| `betas.ts` | Beta header 管理 |
-| `tokens.ts` | Token 计数与预算 |
-| `tokenBudget.ts` | Token 预算管理 |
+| `model/` | Model selection, capability detection, configuration |
+| `model/model.ts` | Default model, user overrides, parsing |
+| `model/configs.ts` | All model configurations (ID, aliases, context windows) |
+| `model/providers.ts` | Provider detection (firstParty/bedrock/vertex/foundry) |
+| `model/modelSupportOverrides.ts` | 3P model capability overrides |
+| `modelCost.ts` | Model cost calculation |
+| `api.ts` | API call helper functions |
+| `apiPreconnect.ts` | TCP+TLS preconnection |
+| `betas.ts` | Beta header management |
+| `tokens.ts` | Token counting and budget |
+| `tokenBudget.ts` | Token budget management |
 
-### Git 与版本控制
+### Git and Version Control
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `git.ts` (30KB) | Git 操作（分支、状态、日志） |
-| `gitDiff.ts` (16KB) | Diff 生成与处理 |
-| `git/` | Git 子工具（stash、merge、rebase） |
-| `gitSettings.ts` | Git 配置读取 |
-| `commitAttribution.ts` | 提交归因（Co-Authored-By） |
-| `worktree.ts` | Git worktree 管理 |
-| `getWorktreePaths.ts` | Worktree 路径解析 |
-| `detectRepository.ts` | 仓库检测（GitHub/GitLab） |
+| `git.ts` (30KB) | Git operations (branches, status, logs) |
+| `gitDiff.ts` (16KB) | Diff generation and handling |
+| `git/` | Git sub-tools (stash, merge, rebase) |
+| `gitSettings.ts` | Git configuration reading |
+| `commitAttribution.ts` | Commit attribution (Co-Authored-By) |
+| `worktree.ts` | Git worktree management |
+| `getWorktreePaths.ts` | Worktree path resolution |
+| `detectRepository.ts` | Repository detection (GitHub/GitLab) |
 
-### 文件系统操作
+### File System Operations
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `file.ts` (18KB) | 文件读写、类型检测 |
-| `fileHistory.ts` (34KB) | 文件变更历史追踪 |
-| `fileStateCache.ts` | 文件状态缓存 |
-| `fileRead.ts` | 文件读取（编码检测） |
-| `fileReadCache.ts` | 文件读取缓存 |
-| `filePersistence/` | 文件持久化（上传/同步） |
-| `glob.ts` | Glob 模式匹配 |
-| `ripgrep.ts` | ripgrep 集成 |
-| `fsOperations.ts` | 原子文件操作 |
-| `tempfile.ts` | 临时文件管理 |
+| `file.ts` (18KB) | File read/write, type detection |
+| `fileHistory.ts` (34KB) | File change history tracking |
+| `fileStateCache.ts` | File state caching |
+| `fileRead.ts` | File reading (encoding detection) |
+| `fileReadCache.ts` | File read caching |
+| `filePersistence/` | File persistence (upload/sync) |
+| `glob.ts` | Glob pattern matching |
+| `ripgrep.ts` | ripgrep integration |
+| `fsOperations.ts` | Atomic file operations |
+| `tempfile.ts` | Temporary file management |
 
-### Shell 与命令执行
+### Shell and Command Execution
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `bash/` | Bash 解析器、命令分析 |
-| `bash/bashParser.ts` | Bash 语法解析 |
-| `bash/commands.ts` | 命令分类与安全检查 |
-| `Shell.ts` (16KB) | Shell 会话管理 |
-| `ShellCommand.ts` (14KB) | 命令执行封装 |
-| `shell/` | Shell 检测与配置 |
-| `shellConfig.ts` | Shell 配置 |
-| `powershell/` | PowerShell 支持 |
-| `findExecutable.ts` | 可执行文件查找 |
-| `which.ts` | which 命令实现 |
+| `bash/` | Bash parser, command analysis |
+| `bash/bashParser.ts` | Bash syntax parsing |
+| `bash/commands.ts` | Command classification and security checks |
+| `Shell.ts` (16KB) | Shell session management |
+| `ShellCommand.ts` (14KB) | Command execution wrapper |
+| `shell/` | Shell detection and configuration |
+| `shellConfig.ts` | Shell configuration |
+| `powershell/` | PowerShell support |
+| `findExecutable.ts` | Executable file search |
+| `which.ts` | which command implementation |
 
-### 设置与配置
+### Settings and Configuration
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `config.ts` (63KB) | 配置加载/保存（`~/.claude.json`） |
-| `configConstants.ts` | 配置常量 |
-| `settings/` | 分层设置系统 |
-| `settings/settings.ts` | 设置合并（MDM > user > project > local） |
-| `settings/settingsCache.ts` | 设置缓存 |
-| `settings/constants.ts` | 设置源定义 |
-| `settings/types.ts` | 设置类型 |
-| `settings/mdm/` | MDM（移动设备管理）设置 |
-| `managedEnv.ts` | 受管环境变量 |
+| `config.ts` (63KB) | Configuration loading/saving (`~/.claude.json`) |
+| `configConstants.ts` | Configuration constants |
+| `settings/` | Layered settings system |
+| `settings/settings.ts` | Settings merging (MDM > user > project > local) |
+| `settings/settingsCache.ts` | Settings caching |
+| `settings/constants.ts` | Settings source definitions |
+| `settings/types.ts` | Settings types |
+| `settings/mdm/` | MDM (Mobile Device Management) settings |
+| `managedEnv.ts` | Managed environment variables |
 
-### 消息处理
+### Message Processing
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `messages.ts` (193KB) | 消息创建、规范化、过滤、序列化 |
-| `messages/` | 消息类型特定处理 |
-| `messageQueueManager.ts` | 消息队列（命令排队） |
-| `messagePredicates.ts` | 消息类型判断 |
-| `contentArray.ts` | Content block 操作 |
+| `messages.ts` (193KB) | Message creation, normalization, filtering, serialization |
+| `messages/` | Message type-specific handling |
+| `messageQueueManager.ts` | Message queue (command queuing) |
+| `messagePredicates.ts` | Message type predicates |
+| `contentArray.ts` | Content block operations |
 
-### 会话管理
+### Session Management
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `sessionStorage.ts` (180KB) | 会话持久化（JSONL 文件） |
-| `sessionStoragePortable.ts` | 便携式会话存储 |
-| `sessionState.ts` | 会话运行时状态 |
-| `sessionStart.ts` | 会话启动钩子 |
-| `sessionActivity.ts` | 会话活动追踪 |
-| `sessionTitle.ts` | 会话标题管理 |
-| `sessionRestore.ts` | 会话恢复 |
-| `sessionUrl.ts` | 会话 URL |
-| `sessionEnvVars.ts` | 会话环境变量 |
-| `conversationRecovery.ts` | 会话恢复逻辑 |
+| `sessionStorage.ts` (180KB) | Session persistence (JSONL files) |
+| `sessionStoragePortable.ts` | Portable session storage |
+| `sessionState.ts` | Session runtime state |
+| `sessionStart.ts` | Session startup hooks |
+| `sessionActivity.ts` | Session activity tracking |
+| `sessionTitle.ts` | Session title management |
+| `sessionRestore.ts` | Session restoration |
+| `sessionUrl.ts` | Session URL |
+| `sessionEnvVars.ts` | Session environment variables |
+| `conversationRecovery.ts` | Session recovery logic |
 
-### 权限系统
+### Permission System
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `permissions/` | 权限检查框架 |
-| `permissions/filesystem.ts` | 文件系统权限 |
-| `classifierApprovals.ts` | 分类器批准 |
-| `autoModeDenials.ts` | 自动模式拒绝 |
+| `permissions/` | Permission checking framework |
+| `permissions/filesystem.ts` | File system permissions |
+| `classifierApprovals.ts` | Classifier approvals |
+| `autoModeDenials.ts` | Auto mode denials |
 
-### 遥测与诊断
+### Telemetry and Diagnostics
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `telemetry/` | OpenTelemetry 集成 |
-| `telemetry/instrumentation.ts` | OTLP 指标/日志/追踪 |
-| `telemetry/betaSessionTracing.ts` | Beta 会话追踪 |
-| `telemetryAttributes.ts` | 遥测属性 |
-| `stats.ts` (33KB) | 统计数据收集 |
-| `diagLogs.ts` | 诊断日志 |
-| `debug.ts` | 调试日志 |
-| `log.ts` | 错误日志 |
-| `sinks.ts` | 日志 sink 管理 |
+| `telemetry/` | OpenTelemetry integration |
+| `telemetry/instrumentation.ts` | OTLP metrics/logs/tracing |
+| `telemetry/betaSessionTracing.ts` | Beta session tracing |
+| `telemetryAttributes.ts` | Telemetry attributes |
+| `stats.ts` (33KB) | Statistics collection |
+| `diagLogs.ts` | Diagnostic logs |
+| `debug.ts` | Debug logging |
+| `log.ts` | Error logging |
+| `sinks.ts` | Log sink management |
 
-### MCP 支持
+### MCP Support
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `mcp/` | MCP 工具支持函数 |
-| `mcpValidation.ts` | MCP 输入验证 |
-| `mcpOutputStorage.ts` | MCP 输出存储 |
-| `mcpWebSocketTransport.ts` | WebSocket 传输 |
-| `mcpInstructionsDelta.ts` | MCP 指令增量 |
+| `mcp/` | MCP tool support functions |
+| `mcpValidation.ts` | MCP input validation |
+| `mcpOutputStorage.ts` | MCP output storage |
+| `mcpWebSocketTransport.ts` | WebSocket transport |
+| `mcpInstructionsDelta.ts` | MCP instructions delta |
 
-### 技能与插件
+### Skills and Plugins
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `skills/` | 技能发现与加载 |
-| `plugins/` | 插件管理工具函数 |
-| `plugins/loadPluginCommands.ts` | 插件命令加载 |
-| `toolSearch.ts` | 工具搜索（ToolSearch 优化） |
+| `skills/` | Skill discovery and loading |
+| `plugins/` | Plugin management functions |
+| `plugins/loadPluginCommands.ts` | Plugin command loading |
+| `toolSearch.ts` | Tool search (ToolSearch optimization) |
 
-### 记忆系统
+### Memory System
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `memory/` | 自动记忆提取与管理 |
-| `claudemd.ts` | CLAUDE.md 文件解析与加载 |
+| `memory/` | Automatic memory extraction and management |
+| `claudemd.ts` | CLAUDE.md file parsing and loading |
 
-### UI 辅助
+### UI Utilities
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `format.ts` | 文本格式化 |
-| `markdown.ts` | Markdown 处理 |
-| `cliHighlight.ts` | CLI 语法高亮 |
-| `ansiToSvg.ts` / `ansiToPng.ts` | ANSI → 图像转换 |
-| `hyperlink.ts` | 终端超链接（OSC 8） |
-| `theme.ts` | 主题管理 |
-| `terminal.ts` | 终端检测 |
-| `sliceAnsi.ts` | ANSI 字符串切片 |
+| `format.ts` | Text formatting |
+| `markdown.ts` | Markdown processing |
+| `cliHighlight.ts` | CLI syntax highlighting |
+| `ansiToSvg.ts` / `ansiToPng.ts` | ANSI → image conversion |
+| `hyperlink.ts` | Terminal hyperlinks (OSC 8) |
+| `theme.ts` | Theme management |
+| `terminal.ts` | Terminal detection |
+| `sliceAnsi.ts` | ANSI string slicing |
 
-### 其他
+### Other
 
-| 文件/目录 | 功能 |
+| File/Directory | Function |
 |----------|------|
-| `errors.ts` | 错误类型与工具函数 |
-| `envUtils.ts` | 环境变量工具（isBareMode 等） |
-| `sleep.ts` | 延迟函数 |
-| `signal.ts` | 信号/事件系统 |
-| `cleanupRegistry.ts` | 清理注册表 |
-| `gracefulShutdown.ts` | 优雅关闭 |
-| `platform.ts` | 平台检测 |
-| `xdg.ts` | XDG 目录规范 |
-| `uuid.ts` / `crypto.ts` | UUID 生成、加密 |
-| `semver.ts` | 语义化版本比较 |
-| `json.ts` / `yaml.ts` / `xml.ts` | 数据格式解析 |
-| `zodToJsonSchema.ts` | Zod → JSON Schema 转换 |
-| `diff.ts` | Diff 算法 |
-| `treeify.ts` | 树形输出 |
-| `CircularBuffer.ts` | 环形缓冲区 |
-| `LRUCache` | 使用 `lru-cache` 包 |
+| `errors.ts` | Error types and helper functions |
+| `envUtils.ts` | Environment variable tools (isBareMode, etc.) |
+| `sleep.ts` | Delay function |
+| `signal.ts` | Signal/event system |
+| `cleanupRegistry.ts` | Cleanup registry |
+| `gracefulShutdown.ts` | Graceful shutdown |
+| `platform.ts` | Platform detection |
+| `xdg.ts` | XDG directory specification |
+| `uuid.ts` / `crypto.ts` | UUID generation, encryption |
+| `semver.ts` | Semantic version comparison |
+| `json.ts` / `yaml.ts` / `xml.ts` | Data format parsing |
+| `zodToJsonSchema.ts` | Zod → JSON Schema conversion |
+| `diff.ts` | Diff algorithm |
+| `treeify.ts` | Tree output |
+| `CircularBuffer.ts` | Circular buffer |
+| `LRUCache` | Uses `lru-cache` package |
 
-## 其他顶层模块
+## Other Top-Level Modules
 
-| 目录 | 功能 |
+| Directory | Function |
 |------|------|
-| `bridge/` | IDE Bridge 远程连接（115KB bridgeMain.ts） |
-| `buddy/` | AI 伙伴 UI（CompanionSprite） |
-| `coordinator/` | 多 Agent 协调模式 |
-| `memdir/` | 记忆目录管理 |
-| `migrations/` | 配置/数据迁移 |
-| `moreright/` | 权限系统核心 |
-| `native-ts/` | 纯 TS 原生实现（yoga-layout、color-diff、file-index） |
-| `outputStyles/` | 输出样式定义 |
-| `plugins/` | 插件加载器 |
-| `query/` | 查询辅助（transitions） |
-| `remote/` | 远程会话管理 |
-| `restoration/` | 恢复兼容层（本项目添加） |
-| `skills/` | 技能加载与管理 |
-| `ssh/` | SSH 连接管理 |
-| `upstreamproxy/` | 上游代理（CCR） |
-| `vim/` | Vim 模式实现 |
-| `voice/` | 语音输入模式 |
-| `server/` | HTTP 服务器 |
+| `bridge/` | IDE Bridge remote connection (115KB bridgeMain.ts) |
+| `buddy/` | AI companion UI (CompanionSprite) |
+| `coordinator/` | Multi-agent coordination pattern |
+| `memdir/` | Memory directory management |
+| `migrations/` | Configuration/data migrations |
+| `moreright/` | Permission system core |
+| `native-ts/` | Pure TS native implementations (yoga-layout, color-diff, file-index) |
+| `outputStyles/` | Output style definitions |
+| `plugins/` | Plugin loader |
+| `query/` | Query helpers (transitions) |
+| `remote/` | Remote session management |
+| `restoration/` | Recovery compatibility layer (added by this project) |
+| `skills/` | Skill loading and management |
+| `ssh/` | SSH connection management |
+| `upstreamproxy/` | Upstream proxy (CCR) |
+| `vim/` | Vim mode implementation |
+| `voice/` | Voice input mode |
+| `server/` | HTTP server |

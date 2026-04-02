@@ -1,169 +1,169 @@
-# UI 层
+# UI Layer
 
-## 自定义 Ink 渲染器 (`src/ink/`)
+## Custom Ink Renderer (`src/ink/`)
 
-Claude Code 使用自定义的 React-to-Terminal 渲染引擎，**不依赖 npm 的 `ink` 包**。
+Claude Code uses a custom React-to-Terminal rendering engine that **does not depend on npm's `ink` package**.
 
-### 核心架构
+### Core Architecture
 
 ```
-React 组件树
+React Component Tree
   ↓
 React Reconciler (react-reconciler)
   ↓
-虚拟 DOM 树 (dom.ts)
+Virtual DOM Tree (dom.ts)
   ↓
-Yoga 布局计算 (layout/yoga.ts) — 纯 TS 实现
+Yoga Layout Calculation (layout/yoga.ts) — Pure TypeScript implementation
   ↓
-渲染节点到输出 (render-node-to-output.ts)
+Render Nodes to Output (render-node-to-output.ts)
   ↓
-虚拟屏幕 (screen.ts) — 差分渲染
+Virtual Screen (screen.ts) — Differential rendering
   ↓
-ANSI 转义序列 → 终端输出
+ANSI Escape Sequences → Terminal Output
 ```
 
-### 目录结构
+### Directory Structure
 
 ```
 src/ink/
-├── ink.tsx              # 核心 Ink 类（251KB）—— 生命周期、渲染循环
-├── reconciler.ts        # React Reconciler 配置
-├── renderer.ts          # 渲染管道
-├── dom.ts               # 虚拟 DOM 节点管理
-├── screen.ts            # 虚拟屏幕 + 差分渲染
-├── output.ts            # 输出缓冲管理
-├── selection.ts         # 文本选择逻辑
-├── styles.ts            # ANSI 样式处理
-├── render-node-to-output.ts  # 节点→输出转换
-├── Ansi.tsx             # ANSI 代码处理
+├── ink.tsx              # Core Ink class (251KB) — lifecycle, render loop
+├── reconciler.ts        # React Reconciler configuration
+├── renderer.ts          # Rendering pipeline
+├── dom.ts               # Virtual DOM node management
+├── screen.ts            # Virtual screen + differential rendering
+├── output.ts            # Output buffer management
+├── selection.ts         # Text selection logic
+├── styles.ts            # ANSI style handling
+├── render-node-to-output.ts  # Node → output conversion
+├── Ansi.tsx             # ANSI code handling
 │
-├── components/          # 内置组件
-│   ├── App.tsx          # 根组件（98KB）
-│   ├── Box.tsx          # 布局容器（Yoga flexbox）
-│   ├── Text.tsx         # 文本元素
-│   ├── ScrollBox.tsx    # 可滚动容器
-│   ├── Button.tsx       # 交互按钮
-│   ├── Link.tsx         # 超链接（OSC 8）
-│   ├── RawAnsi.tsx      # 原始 ANSI 输出
-│   ├── NoSelect.tsx     # 不可选择区域
-│   └── ErrorOverview.tsx # 错误展示
+├── components/          # Built-in components
+│   ├── App.tsx          # Root component (98KB)
+│   ├── Box.tsx          # Layout container (Yoga flexbox)
+│   ├── Text.tsx         # Text element
+│   ├── ScrollBox.tsx    # Scrollable container
+│   ├── Button.tsx       # Interactive button
+│   ├── Link.tsx         # Hyperlink (OSC 8)
+│   ├── RawAnsi.tsx      # Raw ANSI output
+│   ├── NoSelect.tsx     # Non-selectable area
+│   └── ErrorOverview.tsx # Error display
 │
-├── hooks/               # 自定义 Hooks
-│   ├── use-input.ts     # 键盘输入（支持方向键、修饰键）
-│   ├── use-stdin.ts     # stdin 原始流
-│   ├── use-app.ts       # 应用上下文
-│   ├── use-animation-frame.ts  # 动画帧
-│   ├── use-selection.ts # 文本选择
-│   ├── use-tab-status.ts # Tab 焦点状态
-│   └── use-terminal-viewport.ts # 视口尺寸
+├── hooks/               # Custom Hooks
+│   ├── use-input.ts     # Keyboard input (supports arrow keys, modifiers)
+│   ├── use-stdin.ts     # stdin raw stream
+│   ├── use-app.ts       # App context
+│   ├── use-animation-frame.ts  # Animation frame
+│   ├── use-selection.ts # Text selection
+│   ├── use-tab-status.ts # Tab focus status
+│   └── use-terminal-viewport.ts # Viewport size
 │
-├── layout/              # 布局引擎
-│   ├── yoga.ts          # Yoga 接口适配
-│   ├── engine.ts        # 布局计算引擎
-│   ├── node.ts          # 布局节点
-│   └── geometry.ts      # 几何计算
+├── layout/              # Layout engine
+│   ├── yoga.ts          # Yoga interface adapter
+│   ├── engine.ts        # Layout calculation engine
+│   ├── node.ts          # Layout node
+│   └── geometry.ts      # Geometry calculations
 │
-└── termio/              # 终端 I/O
-    ├── parser.ts        # 输入解析
-    ├── csi.ts           # CSI 控制序列
-    ├── dec.ts           # DEC 私有序列
-    ├── osc.ts           # OSC 操作系统命令
-    └── sgr.ts           # SGR 样式参数
+└── termio/              # Terminal I/O
+    ├── parser.ts        # Input parsing
+    ├── csi.ts           # CSI control sequences
+    ├── dec.ts           # DEC private sequences
+    ├── osc.ts           # OSC operating system commands
+    └── sgr.ts           # SGR style parameters
 ```
 
-### Yoga 布局引擎
+### Yoga Layout Engine
 
-使用 `src/native-ts/yoga-layout/` 的纯 TypeScript 实现（非 C++ 绑定），支持：
-- flex-direction（row/column/reverse）
+Uses pure TypeScript implementation from `src/native-ts/yoga-layout/` (not C++ bindings), supports:
+- flex-direction (row/column/reverse)
 - flex-grow / flex-shrink / flex-basis
 - align-items / justify-content
 - margin / padding / border / gap
-- position（relative/absolute）
-- display（flex/none/contents）
-- flex-wrap（wrap/wrap-reverse）
-- 自定义 measure 函数（文本节点宽度测量）
+- position (relative/absolute)
+- display (flex/none/contents)
+- flex-wrap (wrap/wrap-reverse)
+- Custom measure function (text node width measurement)
 
-## ink.ts — 公共 API
+## ink.ts — Public API
 
 ```typescript
 export async function render(node: ReactNode, options?: RenderOptions): Promise<Instance>
 export async function createRoot(options?: RenderOptions): Promise<Root>
 
-// 主题感知组件（自动继承当前主题）
+// Theme-aware components (auto-inherit current theme)
 export { default as Box }   // ThemedBox
 export { default as Text }  // ThemedText
 
-// 基础组件
+// Base components
 export { BaseBox, Button, Link, Spacer, BaseText, Ansi, RawAnsi, NoSelect }
 
 // Hooks
 export { useInput, useStdin, useApp, useAnimation, useInterval, useSelection }
 export { useTerminalViewport, useTerminalTitle, useTerminalFocus, useTabStatus }
 
-// 事件
+// Events
 export { InputEvent, Event, ClickEvent, FocusManager }
 ```
 
-所有渲染自动包裹 `ThemeProvider`。
+All rendering automatically wraps with `ThemeProvider`.
 
-## React 组件层次 (`src/components/`)
+## React Component Hierarchy (`src/components/`)
 
 ```
-App.tsx                      # 顶层包装器（FPS、Stats、AppState）
-├── REPL.tsx (screens/)      # 主交互屏幕（895KB）
-│   ├── Messages.tsx         # 消息列表容器
-│   │   └── MessageRow.tsx   # 单条消息
-│   │       └── Message.tsx  # 消息内容渲染
+App.tsx                      # Top-level wrapper (FPS, Stats, AppState)
+├── REPL.tsx (screens/)      # Main interaction screen (895KB)
+│   ├── Messages.tsx         # Message list container
+│   │   └── MessageRow.tsx   # Single message
+│   │       └── Message.tsx  # Message content rendering
 │   │           ├── messages/UserTextMessage
 │   │           ├── messages/AssistantTextMessage
 │   │           ├── messages/AssistantThinkingMessage
 │   │           ├── messages/AssistantToolUseMessage
 │   │           ├── messages/SystemTextMessage
-│   │           └── ...（20+ 消息类型组件）
-│   ├── PromptInput/         # 输入框组件
-│   ├── Spinner.tsx          # 加载/思考指示器
-│   ├── StatusLine.tsx       # 底部状态栏
-│   └── StructuredDiff/      # 代码差异渲染
-├── Doctor.tsx (screens/)    # 健康检查屏幕
-└── ResumeConversation.tsx   # 会话恢复屏幕
+│   │           └── ...(20+ message type components)
+│   ├── PromptInput/         # Input box component
+│   ├── Spinner.tsx          # Loading/thinking indicator
+│   ├── StatusLine.tsx       # Bottom status bar
+│   └── StructuredDiff/      # Code diff rendering
+├── Doctor.tsx (screens/)    # Health check screen
+└── ResumeConversation.tsx   # Session recovery screen
 ```
 
-### 关键组件
+### Key Components
 
-| 组件 | 大小 | 功能 |
-|------|------|------|
-| **REPL.tsx** | 895KB | 主循环：输入处理、消息管理、工具调用、MCP、会话持久化 |
-| **App.tsx** | 98KB | Ink 根组件：状态提供、错误边界、全局事件 |
-| **Messages.tsx** | 147KB | 消息列表：虚拟滚动、消息分组、折叠 |
-| **Spinner.tsx** | 87KB | 进度指示：thinking、responding、tool use |
-| **Message.tsx** | 34KB | 消息渲染分发：根据类型选择渲染组件 |
-| **StatusLine.tsx** | 49KB | 状态栏：模型、Token、成本、Vim 模式 |
+| Component | Size | Function |
+|-----------|------|----------|
+| **REPL.tsx** | 895KB | Main loop: input handling, message management, tool invocation, MCP, session persistence |
+| **App.tsx** | 98KB | Ink root component: state provision, error boundary, global events |
+| **Messages.tsx** | 147KB | Message list: virtual scrolling, message grouping, collapsing |
+| **Spinner.tsx** | 87KB | Progress indicator: thinking, responding, tool use |
+| **Message.tsx** | 34KB | Message rendering dispatch: select render component by type |
+| **StatusLine.tsx** | 49KB | Status bar: model, tokens, cost, Vim mode |
 
-### 组件子目录
+### Component Subdirectories
 
 ```
 components/
-├── agents/              # Agent 相关 UI
-├── design-system/       # UI 设计系统
-├── diff/                # Diff 渲染
-├── mcp/                 # MCP 服务器管理 UI
-├── messages/            # 消息类型组件（20+）
-├── permissions/         # 权限对话框（17 个子目录）
-├── settings/            # 设置编辑 UI
-├── tasks/               # 任务列表 UI
-├── PromptInput/         # 输入框
-├── StructuredDiff/      # 结构化差异
-├── FeedbackSurvey/      # 反馈调查
-├── wizard/              # 向导流程
+├── agents/              # Agent-related UI
+├── design-system/       # UI design system
+├── diff/                # Diff rendering
+├── mcp/                 # MCP server management UI
+├── messages/            # Message type components (20+)
+├── permissions/         # Permission dialogs (17 subdirectories)
+├── settings/            # Settings editing UI
+├── tasks/               # Task list UI
+├── PromptInput/         # Input box
+├── StructuredDiff/      # Structured diff
+├── FeedbackSurvey/      # Feedback survey
+├── wizard/              # Wizard flow
 └── ...
 ```
 
-## 状态管理 (`src/state/`)
+## State Management (`src/state/`)
 
-使用 **Zustand** 状态存储 + **React Context**。
+Uses **Zustand** state store + **React Context**.
 
 ```typescript
-// AppState 核心字段
+// AppState core fields
 type AppState = {
   messages: Message[]
   toolPermissionContext: ToolPermissionContext
@@ -172,27 +172,27 @@ type AppState = {
   effortValue: EffortValue
   fastMode: boolean
   thinkingEnabled: boolean
-  // ... 更多字段
+  // ... more fields
 }
 ```
 
-| 文件 | 功能 |
-|------|------|
-| `AppState.tsx` | 状态 Provider + useAppState hook |
-| `AppStateStore.ts` | Zustand store 定义 + 操作函数 |
-| `onChangeAppState.ts` | 状态变更监听 |
-| `selectors.ts` | 选择器函数 |
+| File | Function |
+|------|----------|
+| `AppState.tsx` | State Provider + useAppState hook |
+| `AppStateStore.ts` | Zustand store definition + operation functions |
+| `onChangeAppState.ts` | State change listener |
+| `selectors.ts` | Selector functions |
 
-## 键盘快捷键 (`src/keybindings/`)
+## Keyboard Shortcuts (`src/keybindings/`)
 
-| 文件 | 功能 |
-|------|------|
-| `defaultBindings.ts` | 默认快捷键定义 |
-| `loadUserBindings.ts` | 用户自定义加载（`~/.claude/keybindings.json`） |
-| `KeybindingContext.tsx` | 快捷键上下文 Provider |
-| `resolver.ts` | 快捷键解析器 |
-| `parser.ts` | 按键序列解析 |
-| `match.ts` | 匹配算法 |
-| `validate.ts` | 配置验证 |
+| File | Function |
+|------|----------|
+| `defaultBindings.ts` | Default shortcut definitions |
+| `loadUserBindings.ts` | User custom loading (`~/.claude/keybindings.json`) |
+| `KeybindingContext.tsx` | Shortcut context Provider |
+| `resolver.ts` | Shortcut resolver |
+| `parser.ts` | Key sequence parsing |
+| `match.ts` | Matching algorithm |
+| `validate.ts` | Configuration validation |
 
-支持 chord 快捷键（如 `Ctrl+K Ctrl+S`）和上下文绑定（不同场景不同快捷键）。
+Supports chord shortcuts (e.g., `Ctrl+K Ctrl+S`) and context bindings (different shortcuts in different scenarios).

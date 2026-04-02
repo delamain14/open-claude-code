@@ -1,171 +1,171 @@
-# 整体架构概览
+# Overall Architecture Overview
 
-## 代码规模
+## Code Scale
 
-- **总行数**: ~206,000 行 TypeScript/TSX
-- **核心组件**: 140+ 个 React 组件
-- **工具**: 50+ 个工具实现
-- **命令**: 88+ 个斜杠命令
-- **工具函数**: 200+ 个文件（33 个子目录）
+- **Total Lines**: ~206,000 lines of TypeScript/TSX
+- **Core Components**: 140+ React components
+- **Tools**: 50+ tool implementations
+- **Commands**: 88+ slash commands
+- **Utility Functions**: 200+ files (33 subdirectories)
 
-## 架构层次
+## Architecture Layers
 
 ```
 ┌────────────────────────────────────────────────────┐
-│                    CLI 入口                         │
+│                    CLI Entry                        │
 │           entrypoints/cli.tsx → main.tsx            │
 ├────────────────────────────────────────────────────┤
-│                    命令层                           │
-│       commands.ts (注册表) + commands/ (实现)       │
+│                  Command Layer                      │
+│       commands.ts (registry) + commands/ (impl)     │
 ├────────────────────────────────────────────────────┤
-│                    查询引擎                         │
+│                   Query Engine                      │
 │         query.ts + QueryEngine.ts                  │
-│       消息处理 → API 调用 → 工具执行 → 压缩        │
+│    Message Processing → API Call → Tool Exec → Compact│
 ├────────────────────────────────────────────────────┤
-│                    工具层                           │
-│      Tool.ts (基类) + tools.ts (组装) + tools/     │
+│                    Tool Layer                       │
+│      Tool.ts (base) + tools.ts (assembly) + tools/ │
 │   Bash | Edit | Read | Write | Grep | Agent | ...  │
 ├──────────────────────┬─────────────────────────────┤
-│      UI 层           │        服务层                │
-│  ink/ (自定义渲染器)  │   services/api/ (API 客户端) │
-│  components/ (组件)  │   services/mcp/ (MCP 协议)   │
-│  screens/ (屏幕)     │   services/analytics/ (分析)  │
-│  state/ (状态管理)   │   services/oauth/ (认证)      │
+│      UI Layer        │      Service Layer           │
+│  ink/ (custom render)│   services/api/ (API client) │
+│  components/         │   services/mcp/ (MCP)        │
+│  screens/            │   services/analytics/        │
+│  state/              │   services/oauth/            │
 ├──────────────────────┴─────────────────────────────┤
-│                   基础设施                          │
+│                  Infrastructure                     │
 │  utils/ | constants/ | types/ | bootstrap/         │
-│  skills/ | plugins/ | keybindings/ | hooks/         │
+│  skills/ | plugins/ | keybindings/ | hooks/        │
 └────────────────────────────────────────────────────┘
 ```
 
-## 启动流程
+## Startup Flow
 
 ```
 entrypoints/cli.tsx
   │
-  ├─ --version → 直接输出版本号（零导入）
-  ├─ --help → 加载 main.tsx → Commander 帮助
-  ├─ 特殊模式 → bridge / daemon / bg sessions / templates
+  ├─ --version → Output version directly (zero imports)
+  ├─ --help → Load main.tsx → Commander help
+  ├─ Special modes → bridge / daemon / bg sessions / templates
   │
-  └─ 默认路径
+  └─ Default path
       │
       main.tsx::main()
         │
-        ├─ 并行预取: MDM 设置 + macOS 钥匙链
+        ├─ Parallel prefetch: MDM settings + macOS Keychain
         │
-        ├─ run() → 创建 Commander 程序
+        ├─ run() → Create Commander program
         │   │
-        │   ├─ preAction 钩子:
-        │   │   ├─ 等待 MDM + 钥匙链加载
-        │   │   ├─ init() → 配置、网络、代理、TLS
-        │   │   ├─ 初始化日志 sinks
-        │   │   ├─ 加载远程设置 + 策略限制
-        │   │   └─ 运行迁移
+        │   ├─ preAction hook:
+        │   │   ├─ Wait for MDM + Keychain load
+        │   │   ├─ init() → Config, network, proxy, TLS
+        │   │   ├─ Initialize log sinks
+        │   │   ├─ Load remote settings + policy limits
+        │   │   └─ Run migrations
         │   │
-        │   └─ 注册 100+ 命令行选项和子命令
+        │   └─ Register 100+ CLI options and subcommands
         │
-        ├─ setup() → 会话初始化
-        │   ├─ UDS 消息传递
-        │   ├─ 终端备份恢复
-        │   ├─ Git 仓库初始化
-        │   └─ 文件监视器 + 钩子快照
+        ├─ setup() → Session initialization
+        │   ├─ UDS messaging
+        │   ├─ Terminal backup/restore
+        │   ├─ Git repo initialization
+        │   └─ File watcher + hook snapshot
         │
-        ├─ 加载命令 + 工具 + MCP 配置
+        ├─ Load commands + tools + MCP config
         │
-        └─ 分支:
-            ├─ 非交互 (-p) → print.ts → runHeadless()
-            └─ 交互模式 → showSetupScreens() → launchRepl()
+        └─ Branch:
+            ├─ Non-interactive (-p) → print.ts → runHeadless()
+            └─ Interactive → showSetupScreens() → launchRepl()
                              │
-                             ├─ API Key 确认对话框
-                             ├─ 权限模式确认
-                             └─ 渲染 <App><REPL/></App>
+                             ├─ API Key confirmation dialog
+                             ├─ Permission mode confirmation
+                             └─ Render <App><REPL/></App>
 ```
 
-## 核心数据流
+## Core Data Flow
 
-### 用户查询处理
-
-```
-用户输入
-  ↓
-命令解析（/ 开头 → 命令分发，否则 → 查询）
-  ↓
-QueryEngine 配置
-  ├─ 系统提示构建（context.ts）
-  ├─ 消息历史规范化
-  ├─ 工具列表组装
-  └─ Token 预算计算
-  ↓
-API 调用（services/api/claude.ts）
-  ├─ 流式响应处理
-  ├─ 工具调用检测
-  └─ 成本追踪
-  ↓
-工具执行（如 BashTool、FileEditTool）
-  ├─ 输入验证
-  ├─ 权限检查 → 用户确认（如需）
-  ├─ 执行操作
-  └─ 结果格式化
-  ↓
-结果回传 → 下一轮 API 调用（多轮循环）
-  ↓
-最终响应 → UI 渲染
-  ↓
-可选: 自动压缩（Token 超过阈值时）
-```
-
-### 权限检查流程
+### User Query Processing
 
 ```
-工具调用请求
+User Input
   ↓
-输入 Schema 验证（Zod）
+Command parsing (/ prefix → command dispatch, else → query)
   ↓
-权限规则匹配
-  ├─ alwaysAllowRules → 直接通过
-  ├─ alwaysDenyRules → 直接拒绝
-  └─ 默认 → 询问用户
+QueryEngine configuration
+  ├─ System prompt construction (context.ts)
+  ├─ Message history normalization
+  ├─ Tool list assembly
+  └─ Token budget calculation
   ↓
-权限模式判断
-  ├─ bypassPermissions → 跳过所有检查
-  ├─ plan → 只读操作自动通过
-  ├─ acceptEdits → 编辑自动通过
-  └─ default → 按规则处理
+API call (services/api/claude.ts)
+  ├─ Streaming response handling
+  ├─ Tool call detection
+  └─ Cost tracking
   ↓
-用户确认对话框（如需）
+Tool execution (e.g., BashTool, FileEditTool)
+  ├─ Input validation
+  ├─ Permission check → User confirmation (if needed)
+  ├─ Execute operation
+  └─ Result formatting
   ↓
-执行工具
+Result return → Next API call (multi-turn loop)
+  ↓
+Final response → UI rendering
+  ↓
+Optional: Auto-compact (when tokens exceed threshold)
 ```
 
-### 会话压缩流程
+### Permission Check Flow
 
 ```
-监控 Token 使用量
+Tool call request
   ↓
-达到阈值（~70% 上下文窗口）
+Input Schema validation (Zod)
   ↓
-执行 preCompaction 钩子
+Permission rule matching
+  ├─ alwaysAllowRules → Direct pass
+  ├─ alwaysDenyRules → Direct deny
+  └─ Default → Ask user
   ↓
-分析消息历史 → 选择压缩边界
+Permission mode check
+  ├─ bypassPermissions → Skip all checks
+  ├─ plan → Read-only ops auto-pass
+  ├─ acceptEdits → Edits auto-pass
+  └─ default → Follow rules
   ↓
-创建子查询生成摘要
+User confirmation dialog (if needed)
   ↓
-插入 CompactBoundaryMessage
-  ↓
-替换旧消息 + 保留边界后的消息
-  ↓
-执行 postCompaction 钩子
+Execute tool
 ```
 
-## 关键设计模式
+### Session Compaction Flow
 
-| 模式 | 应用场景 |
-|------|---------|
-| **Memoization** | 命令加载、上下文构建、技能索引 |
-| **Feature Gates** | `feature()` 条件编译（KAIROS、BRIDGE_MODE 等） |
-| **权限上下文** | 工具执行前的多层权限验证 |
-| **流式处理** | API 响应、JSON 输出、工具进度 |
-| **优雅关闭** | 清理注册表、资源释放 |
-| **并行预取** | 启动时并行加载（MDM、钥匙链、API 预连接） |
-| **故障打开** | 策略限制、远程设置获取失败时继续运行 |
-| **延迟导入** | 大模块按需加载（print.ts、REPL.js） |
+```
+Monitor token usage
+  ↓
+Reach threshold (~70% of context window)
+  ↓
+Execute preCompaction hooks
+  ↓
+Analyze message history → Select compaction boundary
+  ↓
+Create sub-query to generate summary
+  ↓
+Insert CompactBoundaryMessage
+  ↓
+Replace old messages + keep messages after boundary
+  ↓
+Execute postCompaction hooks
+```
+
+## Key Design Patterns
+
+| Pattern | Application |
+|---------|-------------|
+| **Memoization** | Command loading, context building, skill indexing |
+| **Feature Gates** | `feature()` conditional compilation (KAIROS, BRIDGE_MODE, etc.) |
+| **Permission Context** | Multi-layer permission validation before tool execution |
+| **Streaming** | API responses, JSON output, tool progress |
+| **Graceful Shutdown** | Cleanup registry, resource release |
+| **Parallel Prefetch** | Parallel loading at startup (MDM, Keychain, API pre-connect) |
+| **Fail Open** | Continue running when policy limits, remote settings fetch fails |
+| **Lazy Import** | Large modules loaded on-demand (print.ts, REPL.js) |

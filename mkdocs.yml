@@ -6,7 +6,6 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  language: en
   features:
     - navigation.tabs
     - navigation.sections
@@ -33,7 +32,65 @@ theme:
 
 plugins:
   - search:
-      lang: en
+      lang:
+        - en
+        - zh
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 简体中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Getting Started: 快速开始
+            Installation: 安装指南
+            Configuration: 配置指南
+            The Agent Loop: Agent 循环
+            Architecture & Execution: 架构与执行
+            Architecture Overview: 架构概览
+            Entrypoints: 入口点
+            Tool Use: 工具使用
+            Tool System: 工具系统
+            Tools API: 工具 API
+            TodoWrite: 任务系统
+            V2 Task System: V2 任务系统
+            Commands API: 命令 API
+            Subagents: 子 Agent
+            Spawning & Isolation: 生成与隔离
+            Skills: 技能
+            Skill System: 技能系统
+            Context Compact: 上下文压缩
+            Compression & Budgeting: 压缩与预算
+            Tasks: 任务
+            Task Management: 任务管理
+            Background Tasks: 后台任务
+            Async Execution: 异步执行
+            Agent Teams: Agent 团队
+            Team Structure & Coordination: 团队结构与协调
+            Team Protocols: 团队协议
+            Communication Standards: 通信标准
+            Autonomous Agents: 自主 Agent
+            Self-Directed Execution: 自主执行
+            Worktree + Task Isolation: 工作树与任务隔离
+            Git Isolation: Git 隔离
+            Architecture: 架构
+            Services: 服务层
+            Tools System: 工具系统
+            Commands System: 命令系统
+            UI Layer: UI 层
+            Types: 类型定义
+            Utils: 工具函数
+            Development: 开发
+            Setup: 环境设置
+            Contributing: 贡献指南
 
 nav:
   - Home: index.md

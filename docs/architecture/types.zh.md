@@ -1,9 +1,9 @@
-# Core Data Structures and Type Definitions
+# 核心数据结构与类型定义
 
-## Message — Message Type System
+## Message — 消息类型体系
 
 ```typescript
-// Top-level union type
+// 顶层联合类型
 type Message =
   | UserMessage
   | AssistantMessage
@@ -11,21 +11,21 @@ type Message =
   | ProgressMessage<any>
   | SystemMessage
 
-// ---------- User Message ----------
+// ---------- 用户消息 ----------
 type UserMessage = {
   type: 'user'
   content: ContentBlockParam[]
   origin?: MessageOrigin        // 'user' | 'tool_result' | 'hook' | ...
   permissionMode?: PermissionMode
   summarizeMetadata?: CompactMetadata
-  isMeta?: boolean              // Visible to model but hidden in UI
+  isMeta?: boolean              // 对模型可见但 UI 隐藏
   isVirtual?: boolean
 }
 
-// ---------- Assistant Message ----------
+// ---------- 助手消息 ----------
 type AssistantMessage = {
   type: 'assistant'
-  message: BetaMessage          // Raw response from Anthropic SDK
+  message: BetaMessage          // Anthropic SDK 原始响应
   requestId?: string
   apiError?: SDKAssistantMessageError
   isVirtual?: boolean
@@ -33,51 +33,51 @@ type AssistantMessage = {
   durationMs?: number
 }
 
-// ---------- System Message (15 subtypes) ----------
+// ---------- 系统消息（15 种子类型）----------
 type SystemMessage = {
   type: 'system'
   subtype:
-    | 'informational'           // General notification
-    | 'permission_retry'        // Permission retry
-    | 'bridge_status'           // Bridge status
-    | 'scheduled_task_fire'     // Scheduled task triggered
-    | 'stop_hook_summary'       // Stop hook summary
-    | 'turn_duration'           // Turn duration
-    | 'away_summary'            // Away summary
-    | 'memory_saved'            // Memory saved
-    | 'agents_killed'           // Agent terminated
-    | 'api_metrics'             // API metrics
-    | 'local_command'           // Local command result
-    | 'compact_boundary'        // Compaction boundary
-    | 'microcompact_boundary'   // Micro compaction boundary
-    | 'api_error'               // API error
-    | 'thinking'                // Thinking message
-    | 'file_snapshot'           // File snapshot
+    | 'informational'           // 一般通知
+    | 'permission_retry'        // 权限重试
+    | 'bridge_status'           // Bridge 状态
+    | 'scheduled_task_fire'     // 定时任务触发
+    | 'stop_hook_summary'       // 停止钩子摘要
+    | 'turn_duration'           // 轮次耗时
+    | 'away_summary'            // 离开摘要
+    | 'memory_saved'            // 记忆保存
+    | 'agents_killed'           // Agent 终止
+    | 'api_metrics'             // API 指标
+    | 'local_command'           // 本地命令结果
+    | 'compact_boundary'        // 压缩边界
+    | 'microcompact_boundary'   // 微压缩边界
+    | 'api_error'               // API 错误
+    | 'thinking'                // 思考消息
+    | 'file_snapshot'           // 文件快照
   level?: 'info' | 'warning' | 'error'
   content: string
 }
 
-// ---------- Attachment Message ----------
+// ---------- 附件消息 ----------
 type AttachmentMessage = {
   type: 'attachment'
-  attachment: Attachment        // Files, directories, hook context, etc.
+  attachment: Attachment        // 文件、目录、钩子上下文等
 }
 
-// ---------- Progress Message ----------
+// ---------- 进度消息 ----------
 type ProgressMessage<P> = {
   type: 'progress'
   toolUseID: string
-  data: P                       // Tool-specific progress data
+  data: P                       // 工具特定的进度数据
 }
 ```
 
-### Normalized Messages (for UI rendering)
+### 规范化消息（UI 渲染用）
 
 ```typescript
-// One message per content block
+// 每个 content block 一个消息
 type NormalizedAssistantMessage<C> = {
   type: 'assistant'
-  content: C                    // Single content block
+  content: C                    // 单个 content block
   message: BetaMessage
   costUSD?: number
 }
@@ -91,7 +91,7 @@ type NormalizedMessage =
   | AttachmentMessage
 ```
 
-## Command — Command Types
+## Command — 命令类型
 
 ```typescript
 type CommandBase = {
@@ -101,21 +101,21 @@ type CommandBase = {
   isHidden?: boolean
   isEnabled?: () => boolean
   availability?: ('claude-ai' | 'console')[]
-  whenToUse?: string            // Description of usage scenarios for models
+  whenToUse?: string            // 模型调用时的场景描述
   disableModelInvocation?: boolean
   userInvocable?: boolean
   loadedFrom?: 'commands_DEPRECATED' | 'skills' | 'plugin' | 'managed' | 'bundled' | 'mcp'
   kind?: 'workflow'
-  immediate?: boolean           // Skip queue, execute immediately
-  isSensitive?: boolean         // Parameter redaction
+  immediate?: boolean           // 跳过排队，立即执行
+  isSensitive?: boolean         // 参数脱敏
 }
 
 type Command = CommandBase & (PromptCommand | LocalCommand | LocalJSXCommand)
 ```
 
-## Tool-Related Types
+## Tool 相关类型
 
-### ToolPermissionContext — Permission Context
+### ToolPermissionContext — 权限上下文
 
 ```typescript
 type ToolPermissionContext = DeepImmutable<{
@@ -131,13 +131,13 @@ type ToolPermissionContext = DeepImmutable<{
 
 type PermissionMode =
   | 'default'
-  | 'plan'              // Read-only operations auto-allow
-  | 'acceptEdits'       // Edit operations auto-allow
-  | 'bypassPermissions' // Skip all permission checks
-  | 'auto'              // Auto mode (classifier decides)
+  | 'plan'              // 只读操作自动通过
+  | 'acceptEdits'       // 编辑操作自动通过
+  | 'bypassPermissions' // 跳过所有权限检查
+  | 'auto'              // 自动模式（分类器判断）
 ```
 
-### ToolProgressData — Tool Progress
+### ToolProgressData — 工具进度
 
 ```typescript
 type ToolProgressData =
@@ -151,7 +151,7 @@ type ToolProgressData =
   | TaskOutputProgress
 ```
 
-## Task — Task Types
+## Task — 任务类型
 
 ```typescript
 type TaskType =
@@ -166,7 +166,7 @@ type TaskType =
 type TaskStatus = 'pending' | 'running' | 'completed' | 'failed' | 'killed'
 
 type TaskStateBase = {
-  id: string               // Prefix + 8 characters (b=bash, a=agent, r=remote...)
+  id: string               // 前缀+8字符（b=bash, a=agent, r=remote...）
   type: TaskType
   status: TaskStatus
   description: string
@@ -178,7 +178,7 @@ type TaskStateBase = {
 }
 ```
 
-## AppState — Application State
+## AppState — 应用状态
 
 ```typescript
 type AppState = {
@@ -195,26 +195,26 @@ type AppState = {
   fastMode: boolean
   thinkingEnabled: boolean
   kairosEnabled?: boolean
-  // ... more fields
+  // ... 更多字段
 }
 ```
 
-## QuerySource — Query Source
+## QuerySource — 查询来源
 
 ```typescript
 type QuerySource =
-  | 'repl_main_thread'       // Main interaction loop
-  | 'compact'                // Compaction query
-  | 'session_memory'         // Session memory
-  | 'sdk'                    // SDK invocation
-  | 'hook_agent'             // Hook agent
-  | 'verification_agent'     // Verification agent
-  | 'web_search_tool'        // Web search
-  | 'dream'                  // Background thinking
-  | (string & {})            // Extensible
+  | 'repl_main_thread'       // 主交互循环
+  | 'compact'                // 压缩查询
+  | 'session_memory'         // 会话记忆
+  | 'sdk'                    // SDK 调用
+  | 'hook_agent'             // 钩子 agent
+  | 'verification_agent'     // 验证 agent
+  | 'web_search_tool'        // 网络搜索
+  | 'dream'                  // 后台思考
+  | (string & {})            // 可扩展
 ```
 
-## OAuth Types
+## OAuth 类型
 
 ```typescript
 type OAuthTokens = {
@@ -228,17 +228,17 @@ type BillingType = 'free' | 'pro' | 'max' | 'team' | 'enterprise'
 type RateLimitTier = 'standard' | 'high' | 'unlimited'
 ```
 
-## MCP Configuration Types
+## MCP 配置类型
 
 ```typescript
 type ScopedMcpServerConfig = {
   type: 'stdio' | 'sse' | 'http' | 'ws'
-  command?: string             // stdio command
+  command?: string             // stdio 命令
   args?: string[]
   url?: string                 // HTTP/SSE/WS URL
   env?: Record<string, string>
   scope: ConfigScope
-  // ... OAuth, headers, etc.
+  // ... OAuth、headers 等
 }
 
 type ConfigScope =
@@ -247,7 +247,7 @@ type ConfigScope =
   | 'dynamic'
 ```
 
-## Hook Types
+## Hook 类型
 
 ```typescript
 type HookEvent =
@@ -264,14 +264,14 @@ type HookResult = {
   stdout: string
   stderr: string
   duration: number
-  // Structured output (JSON)
+  // 结构化输出（JSON）
   decision?: 'approve' | 'deny' | 'skip'
   reason?: string
   additionalContext?: string
 }
 ```
 
-## File-Related Types
+## 文件相关类型
 
 ```typescript
 type FilePersistenceOptions = { path: string; encoding?: BufferEncoding }

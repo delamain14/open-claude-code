@@ -1,15 +1,15 @@
-# 入口点与启动流程
+# Entry Points and Startup Process
 
-## 文件结构
+## File Structure
 
 ```
 src/entrypoints/
-├── cli.tsx          # CLI 主入口（被 bun 直接执行）
-├── init.ts          # 应用初始化（配置、网络、代理）
-├── mcp.ts           # MCP 服务器模式入口
-├── agentSdkTypes.ts # Agent SDK 类型定义
-├── sandboxTypes.ts  # 沙箱类型定义
-└── sdk/             # SDK 相关类型
+├── cli.tsx          # CLI main entry (directly executed by bun)
+├── init.ts          # Application initialization (config, network, proxy)
+├── mcp.ts           # MCP server mode entry
+├── agentSdkTypes.ts # Agent SDK type definitions
+├── sandboxTypes.ts  # Sandbox type definitions
+└── sdk/             # SDK-related types
     ├── controlTypes.ts
     ├── coreSchemas.ts
     ├── coreTypes.generated.ts
@@ -19,148 +19,148 @@ src/entrypoints/
     └── toolTypes.ts
 ```
 
-## cli.tsx — CLI 主入口
+## cli.tsx — CLI Main Entry
 
-被 `bun src/entrypoints/cli.tsx` 直接执行的文件。设计为最小化初始加载——大部分功能通过动态 `import()` 按需加载。
+File directly executed by `bun src/entrypoints/cli.tsx`. Designed to minimize initial load — most functionality loaded on-demand via dynamic `import()`.
 
-### 快速路径（零/最小导入）
+### Fast Paths (Zero/Minimal Imports)
 
-| 路径 | 条件 | 行为 |
-|------|------|------|
-| `--version` | 参数匹配 | 输出 `MACRO.VERSION`，无任何 import |
-| `--dump-system-prompt` | feature gate | 输出系统提示文本 |
-| `--claude-in-chrome-mcp` | 参数匹配 | 启动 Chrome MCP 服务器 |
-| `remote-control` | feature(BRIDGE_MODE) | 启动 Bridge 模式 |
-| `daemon` | feature(DAEMON) | 启动守护进程 |
-| `ps/logs/attach/kill` | feature(BG_SESSIONS) | 后台会话管理 |
-| `--tmux --worktree` | 参数匹配 | exec 进入 tmux 工作树 |
+| Path | Condition | Behavior |
+|------|-----------|----------|
+| `--version` | Parameter match | Output `MACRO.VERSION`, no imports |
+| `--dump-system-prompt` | feature gate | Output system prompt text |
+| `--claude-in-chrome-mcp` | Parameter match | Start Chrome MCP server |
+| `remote-control` | feature(BRIDGE_MODE) | Start Bridge mode |
+| `daemon` | feature(DAEMON) | Start daemon process |
+| `ps/logs/attach/kill` | feature(BG_SESSIONS) | Background session management |
+| `--tmux --worktree` | Parameter match | exec into tmux worktree |
 
-### 默认路径
+### Default Path
 
 ```typescript
 async function main(): Promise<void> {
-  // 1. 环境变量预设（COREPACK、CCR heap size、ablation）
-  // 2. 快速路径检测
-  // 3. 捕获早期输入 → startCapturingEarlyInput()
-  // 4. 动态导入 main.tsx → cliMain()
+  // 1. Environment variable presets (COREPACK, CCR heap size, ablation)
+  // 2. Fast path detection
+  // 3. Capture early input → startCapturingEarlyInput()
+  // 4. Dynamic import main.tsx → cliMain()
 }
 
-void main()  // 顶层执行
+void main()  // Top-level execution
 ```
 
-## init.ts — 应用初始化
+## init.ts — Application Initialization
 
-由 `main.tsx` 的 `preAction` 钩子调用，执行一次性初始化（memoized）。
+Called by `main.tsx`'s `preAction` hook, performs one-time initialization (memoized).
 
-### 初始化顺序
+### Initialization Sequence
 
 ```
-enableConfigs()                    # 配置系统启用
+enableConfigs()                    # Enable config system
   ↓
-applySafeConfigEnvironmentVariables()  # 安全环境变量
+applySafeConfigEnvironmentVariables()  # Safe environment variables
   ↓
-applyExtraCACertsFromConfig()      # TLS CA 证书
+applyExtraCACertsFromConfig()      # TLS CA certificates
   ↓
-setupGracefulShutdown()            # 优雅关闭注册
+setupGracefulShutdown()            # Graceful shutdown registration
   ↓
-initialize1PEventLogging()         # 第一方事件日志（异步）
+initialize1PEventLogging()         # First-party event logging (async)
   ↓
-populateOAuthAccountInfoIfNeeded() # OAuth 信息填充（异步）
+populateOAuthAccountInfoIfNeeded() # OAuth info population (async)
   ↓
-initJetBrainsDetection()           # JetBrains IDE 检测（异步）
+initJetBrainsDetection()           # JetBrains IDE detection (async)
   ↓
-detectCurrentRepository()          # Git 仓库检测（异步）
+detectCurrentRepository()          # Git repository detection (async)
   ↓
-initializeRemoteManagedSettingsLoadingPromise()  # 远程设置
+initializeRemoteManagedSettingsLoadingPromise()  # Remote settings
   ↓
-initializePolicyLimitsLoadingPromise()           # 策略限制
+initializePolicyLimitsLoadingPromise()           # Policy limits
   ↓
-recordFirstStartTime()             # 首次启动时间
+recordFirstStartTime()             # First start time
   ↓
-configureGlobalMTLS()              # mTLS 配置
+configureGlobalMTLS()              # mTLS configuration
   ↓
-configureGlobalAgents()            # HTTP 代理配置
+configureGlobalAgents()            # HTTP proxy configuration
   ↓
-preconnectAnthropicApi()           # API TCP+TLS 预连接（异步）
+preconnectAnthropicApi()           # API TCP+TLS pre-connect (async)
   ↓
-setShellIfWindows()                # Windows shell 设置
+setShellIfWindows()                # Windows shell setup
   ↓
-registerCleanup(...)               # 清理函数注册（LSP、团队）
+registerCleanup(...)               # Cleanup function registration (LSP, teams)
   ↓
-ensureScratchpadDir()              # 沙箱目录（如启用）
+ensureScratchpadDir()              # Sandbox directory (if enabled)
 ```
 
 ### initializeTelemetryAfterTrust()
 
-信任建立后调用，初始化 OpenTelemetry 遥测：
-- 远程设置用户：等待设置加载 → 重新应用环境变量 → 初始化
-- 非远程设置用户：直接初始化
+Called after trust is established, initializes OpenTelemetry telemetry:
+- Remote settings users: Wait for settings load → Reapply env vars → Initialize
+- Non-remote settings users: Initialize directly
 
-## mcp.ts — MCP 服务器模式
+## mcp.ts — MCP Server Mode
 
-将 Claude Code 作为 MCP 服务器运行，向外部 MCP 客户端暴露工具。
+Runs Claude Code as an MCP server, exposing tools to external MCP clients.
 
 ```typescript
 export async function startMCPServer(cwd, debug, verbose): Promise<void>
 ```
 
-### 处理器
+### Handlers
 
-| 请求类型 | 行为 |
-|---------|------|
-| `ListToolsRequest` | 返回所有工具的名称、描述、JSON Schema |
-| `CallToolRequest` | 验证工具 → 验证输入 → 执行 → 返回结果 |
+| Request Type | Behavior |
+|-------------|----------|
+| `ListToolsRequest` | Return all tool names, descriptions, JSON Schema |
+| `CallToolRequest` | Validate tool → Validate input → Execute → Return result |
 
-### 工具 Schema 转换
-
-```
-Zod Schema → zodToJsonSchema() → 过滤不兼容字段 → MCP Tool Schema
-```
-
-## main.tsx — 主应用（4694 行）
-
-应用的核心编排器，包含命令行配置、会话管理、REPL 启动。
-
-### 主要函数
-
-| 函数 | 用途 |
-|------|------|
-| `main()` | 应用入口，处理 URL schema、SSH、子命令 |
-| `run()` | 创建 Commander 程序，注册 100+ 选项 |
-| `getInputPrompt()` | 解析 stdin 输入（text / stream-json） |
-| `startDeferredPrefetches()` | 启动延迟预取（技能索引、MCP、模型成本） |
-| `logSessionTelemetry()` | 记录会话遥测 |
-| `runMigrations()` | 执行模型字符串迁移 |
-
-### 交互模式核心路径
+### Tool Schema Conversion
 
 ```
-run() 的 action handler
+Zod Schema → zodToJsonSchema() → Filter incompatible fields → MCP Tool Schema
+```
+
+## main.tsx — Main Application (4694 lines)
+
+Core application orchestrator, includes CLI configuration, session management, REPL launch.
+
+### Main Functions
+
+| Function | Purpose |
+|----------|---------|
+| `main()` | Application entry, handles URL schema, SSH, subcommands |
+| `run()` | Create Commander program, register 100+ options |
+| `getInputPrompt()` | Parse stdin input (text / stream-json) |
+| `startDeferredPrefetches()` | Start deferred prefetches (skill index, MCP, model cost) |
+| `logSessionTelemetry()` | Record session telemetry |
+| `runMigrations()` | Execute model string migrations |
+
+### Interactive Mode Core Path
+
+```
+run()'s action handler
   ↓
-setup() → 会话初始化
+setup() → Session initialization
   ↓
-加载命令 (commands.ts)
-加载工具 (tools.ts)
-加载 MCP 配置
+Load commands (commands.ts)
+Load tools (tools.ts)
+Load MCP config
   ↓
-createRoot() → Ink 根实例
+createRoot() → Ink root instance
   ↓
 showSetupScreens()
-  ├─ trust 对话框
-  ├─ API key 确认
-  ├─ 权限模式确认
-  └─ 入职引导
+  ├─ trust dialog
+  ├─ API key confirmation
+  ├─ Permission mode confirmation
+  └─ Onboarding
   ↓
 validateForceLoginOrg()
   ↓
 initializeLspServerManager()
   ↓
-initializeVersionedPlugins()（异步）
+initializeVersionedPlugins() (async)
   ↓
-launchRepl() → 渲染 <App><REPL/></App>
+launchRepl() → Render <App><REPL/></App>
 ```
 
-## setup.ts — 会话初始化
+## setup.ts — Session Initialization
 
 ```typescript
 export async function setup(
@@ -170,19 +170,19 @@ export async function setup(
 ): Promise<void>
 ```
 
-### 处理顺序
+### Processing Order
 
-1. Node.js 版本检查（≥ 18）
-2. 自定义会话 ID 设置
-3. UDS 消息传递初始化（agent swarms）
-4. 队友快照捕获
-5. 终端备份恢复（iTerm2 / Terminal.app）
-6. Git 仓库初始化
-7. 文件变更监视器
-8. 钩子配置快照
-9. Worktree 创建 + tmux 会话
+1. Node.js version check (≥ 18)
+2. Custom session ID setup
+3. UDS messaging initialization (agent swarms)
+4. Teammate snapshot capture
+5. Terminal backup/restore (iTerm2 / Terminal.app)
+6. Git repository initialization
+7. File change watcher
+8. Hook configuration snapshot
+9. Worktree creation + tmux session
 
-## replLauncher.tsx — REPL 启动器
+## replLauncher.tsx — REPL Launcher
 
 ```typescript
 export async function launchRepl(
@@ -197,4 +197,4 @@ export async function launchRepl(
 }
 ```
 
-动态导入 App 和 REPL 以减少初始加载时间。`renderAndRun` 由 `interactiveHelpers.tsx` 提供，渲染 UI 并等待用户退出。
+Dynamically imports App and REPL to reduce initial load time. `renderAndRun` provided by `interactiveHelpers.tsx`, renders UI and waits for user exit.

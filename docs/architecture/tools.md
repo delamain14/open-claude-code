@@ -1,10 +1,10 @@
-# 工具系统
+# Tool System
 
-## 工具基础架构
+## Tool Infrastructure
 
-### Tool.ts — 工具接口
+### Tool.ts — Tool Interface
 
-每个工具实现 `ToolDef` 接口：
+Each tool implements the `ToolDef` interface:
 
 ```typescript
 type ToolDef<InputSchema, Output, Progress> = {
@@ -27,7 +27,7 @@ type ToolDef<InputSchema, Output, Progress> = {
 }
 ```
 
-### ToolUseContext — 工具执行上下文
+### ToolUseContext — Tool Execution Context
 
 ```typescript
 type ToolUseContext = {
@@ -49,116 +49,115 @@ type ToolUseContext = {
 }
 ```
 
-### 工具执行流程
+### Tool Execution Flow
 
 ```
-模型返回 tool_use block
+Model returns tool_use block
   ↓
-validateInput() — Zod schema 验证
+validateInput() — Zod schema validation
   ↓
-checkPermissions() — 权限规则匹配
-  ├─ allow → 继续
-  ├─ deny → 返回错误
-  └─ ask → 用户确认对话框
+checkPermissions() — Permission rule matching
+  ├─ allow → Continue
+  ├─ deny → Return error
+  └─ ask → User confirmation dialog
   ↓
-call() — 执行工具逻辑
-  ├─ onProgress() — 进度回调
-  └─ 返回 { data: Output }
+call() — Execute tool logic
+  ├─ onProgress() — Progress callback
+  └─ Return { data: Output }
   ↓
-mapToolResultToToolResultBlockParam() — 格式化为 API 结果
+mapToolResultToToolResultBlockParam() — Format as API result
   ↓
-回传给模型作为 tool_result
+Return to model as tool_result
 ```
 
-## 工具分类
+## Tool Categories
 
-### 文件操作工具
+### File Operation Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
-| **FileReadTool** | 读取文件内容 | `file_path`, `offset?`, `limit?` |
-| **FileWriteTool** | 创建/覆盖文件 | `file_path`, `content` |
-| **FileEditTool** | 精确字符串替换 | `file_path`, `old_string`, `new_string`, `replace_all?` |
-| **GlobTool** | 文件模式匹配搜索 | `pattern`, `path?` |
-| **GrepTool** | 正则表达式内容搜索 | `pattern`, `path?`, `glob?`, `output_mode?` |
-| **NotebookEditTool** | Jupyter 笔记本编辑 | `notebook_path`, `cell_index`, `new_source` |
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
+| **FileReadTool** | Read file content | `file_path`, `offset?`, `limit?` |
+| **FileWriteTool** | Create/overwrite file | `file_path`, `content` |
+| **FileEditTool** | Precise string replacement | `file_path`, `old_string`, `new_string`, `replace_all?` |
+| **GlobTool** | File pattern matching search | `pattern`, `path?` |
+| **GrepTool** | Regular expression content search | `pattern`, `path?`, `glob?`, `output_mode?` |
+| **NotebookEditTool** | Jupyter notebook editing | `notebook_path`, `cell_index`, `new_source` |
 
-### 命令执行工具
+### Command Execution Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
-| **BashTool** | 执行 shell 命令 | `command`, `timeout?`, `description?` |
-| **PowerShellTool** | 执行 PowerShell（Windows） | `command` |
-| **REPLTool** | 运行 REPL（JS/Python/Ruby） | `language`, `code` |
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
+| **BashTool** | Execute shell command | `command`, `timeout?`, `description?` |
+| **PowerShellTool** | Execute PowerShell (Windows) | `command` |
+| **REPLTool** | Run REPL (JS/Python/Ruby) | `language`, `code` |
 
-### AI/Agent 工具
+### AI/Agent Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
-| **AgentTool** | 启动子 agent | `prompt`, `description`, `subagent_type?`, `model?` |
-| **SkillTool** | 调用技能/命令 | `skill`, `args?` |
-| **AskUserQuestionTool** | 向用户提问 | `question` |
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
+| **AgentTool** | Launch sub-agent | `prompt`, `description`, `subagent_type?`, `model?` |
+| **SkillTool** | Invoke skill/command | `skill`, `args?` |
+| **AskUserQuestionTool** | Ask user a question | `question` |
 
-### Web 工具
+### Web Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
 | **WebFetchTool** | HTTP GET + HTML→Markdown | `url` |
-| **WebSearchTool** | 网络搜索（Anthropic 原生 / serper.dev） | `query`, `allowed_domains?`, `blocked_domains?` |
+| **WebSearchTool** | Web search (Anthropic native / serper.dev) | `query`, `allowed_domains?`, `blocked_domains?` |
 
-### MCP 工具
+### MCP Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
-| **MCPTool** | 调用 MCP 服务器工具 | 动态（取决于 MCP 工具定义） |
-| **ListMcpResourcesTool** | 列出 MCP 资源 | `server_name?` |
-| **ReadMcpResourceTool** | 读取 MCP 资源 | `server_name`, `uri` |
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
+| **MCPTool** | Call MCP server tool | Dynamic (depends on MCP tool definition) |
+| **ListMcpResourcesTool** | List MCP resources | `server_name?` |
+| **ReadMcpResourceTool** | Read MCP resource | `server_name`, `uri` |
 
-### 任务管理工具
+### Task Management Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
-| **TaskCreateTool** | 创建任务 | `subject`, `description` |
-| **TaskListTool** | 列出任务 | — |
-| **TaskGetTool** | 获取任务详情 | `taskId` |
-| **TaskUpdateTool** | 更新任务状态 | `taskId`, `status?`, `subject?` |
-| **TaskOutputTool** | 查看后台任务输出 | `taskId` |
-| **TaskStopTool** | 停止后台任务 | `taskId` |
-| **TodoWriteTool** | 写入待办事项列表 | `todos` |
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
+| **TaskCreateTool** | Create task | `subject`, `description` |
+| **TaskListTool** | List tasks | — |
+| **TaskGetTool** | Get task details | `taskId` |
+| **TaskUpdateTool** | Update task status | `taskId`, `status?`, `subject?` |
+| **TaskOutputTool** | View background task output | `taskId` |
+| **TaskStopTool** | Stop background task | `taskId` |
+| **TodoWriteTool** | Write todo list | `todos` |
 
-### 会话管理工具
+### Session Management Tools
 
-| 工具 | 功能 | 输入参数 |
-|------|------|---------|
-| **EnterPlanModeTool** | 进入计划模式 | — |
-| **ExitPlanModeTool** | 退出计划模式 | `plan` |
-| **EnterWorktreeTool** | 创建 Git 工作树 | `name?` |
-| **ExitWorktreeTool** | 退出工作树 | — |
-| **ConfigTool** | 读写配置 | `action`, `key?`, `value?` |
+| Tool | Function | Input Parameters |
+|------|----------|------------------|
+| **EnterPlanModeTool** | Enter plan mode | — |
+| **ExitPlanModeTool** | Exit plan mode | `plan` |
+| **EnterWorktreeTool** | Create Git worktree | `name?` |
+| **ExitWorktreeTool** | Exit worktree | — |
+| **ConfigTool** | Read/write configuration | `action`, `key?`, `value?` |
 
-### 其他工具
+### Other Tools
 
-| 工具 | 功能 | 条件 |
-|------|------|------|
-| **ToolSearchTool** | 搜索可用工具 | 优化模式启用时 |
-| **LSPTool** | 调用语言服务器 | — |
-| **BriefTool** | 会话摘要上传 | feature(KAIROS) |
-| **SleepTool** | 延迟执行 | feature(PROACTIVE/KAIROS) |
-| **RemoteTriggerTool** | 触发远程 agent | feature(AGENT_TRIGGERS_REMOTE) |
-| **CronCreateTool** | 创建定时任务 | feature(AGENT_TRIGGERS) |
-| **CronDeleteTool** | 删除定时任务 | feature(AGENT_TRIGGERS) |
-| **CronListTool** | 列出定时任务 | feature(AGENT_TRIGGERS) |
-| **SendMessageTool** | 团队消息 | 懒加载 |
-| **TeamCreateTool** | 创建团队 | 懒加载 |
-| **TeamDeleteTool** | 删除团队 | 懒加载 |
-| **SyntheticOutputTool** | 结构化输出 | — |
-| **TungstenTool** | 实时监控 | stub（恢复版） |
+| Tool | Function | Condition |
+|------|----------|-----------|
+| **ToolSearchTool** | Search available tools | When optimization mode enabled |
+| **LSPTool** | Call language server | — |
+| **BriefTool** | Session summary upload | feature(KAIROS) |
+| **SleepTool** | Delay execution | feature(PROACTIVE/KAIROS) |
+| **RemoteTriggerTool** | Trigger remote agent | feature(AGENT_TRIGGERS_REMOTE) |
+| **CronCreateTool** | Create scheduled task | feature(AGENT_TRIGGERS) |
+| **CronDeleteTool** | Delete scheduled task | feature(AGENT_TRIGGERS) |
+| **CronListTool** | List scheduled tasks | feature(AGENT_TRIGGERS) |
+| **SendMessageTool** | Team messaging | Lazy load |
+| **TeamCreateTool** | Create team | Lazy load |
+| **TeamDeleteTool** | Delete team | Lazy load |
+| **SyntheticOutputTool** | Structured output | — |
+| **TungstenTool** | Real-time monitoring | stub (restored version) |
 
-### tools.ts — 工具组装
+### tools.ts — Tool Assembly
 
 ```typescript
 export function getTools(permissionContext): Tools
 ```
 
-`--bare` 模式下仅返回：Bash、Read、Edit（+ REPL 如启用）。
-完整模式返回全部 50+ 工具。使用 `uniqBy(tools, 'name')` 去重。
+In `--bare` mode only returns: Bash, Read, Edit (+ REPL if enabled). Full mode returns all 50+ tools. Uses `uniqBy(tools, 'name')` for deduplication.

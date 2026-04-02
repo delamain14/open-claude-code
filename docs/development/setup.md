@@ -1,26 +1,26 @@
-# 开发环境设置
+# Development Environment Setup
 
-## 系统要求
+## System Requirements
 
-### 必需软件
+### Required Software
 
-| 工具 | 最低版本 | 推荐版本 |
+| Tool | Minimum Version | Recommended Version |
 |------|---------|---------|
-| Bun | 1.0.0 | 最新 |
+| Bun | 1.0.0 | Latest |
 | Node.js | 18.0.0 | 20.0.0+ |
-| TypeScript | 5.0.0 | 最新 |
-| Git | 2.0.0 | 最新 |
+| TypeScript | 5.0.0 | Latest |
+| Git | 2.0.0 | Latest |
 | Python | 3.8 | 3.11+ |
 
-### 可选工具
+### Optional Tools
 
-- **Visual Studio Code** - 推荐的代码编辑器
-- **Docker** - 用于容器化部署
-- **PostgreSQL** - 如果需要数据库支持
+- **Visual Studio Code** - Recommended code editor
+- **Docker** - For containerized deployment
+- **PostgreSQL** - For database support if needed
 
-## 快速启动
+## Quick Start
 
-### 1. 克隆并安装
+### 1. Clone and Install
 
 ```bash
 git clone https://github.com/your-username/open-claude-code.git
@@ -28,24 +28,24 @@ cd open-claude-code
 bun install
 ```
 
-### 2. 配置环境
+### 2. Configure Environment
 
 ```bash
 cp .env.example .env
-# 编辑 .env，添加你的 API 密钥
+# Edit .env, add your API keys
 ```
 
-### 3. 启动开发服务器
+### 3. Start Development Server
 
 ```bash
 bun run dev
 ```
 
-## 开发工具设置
+## Development Tools Setup
 
 ### Visual Studio Code
 
-#### 推荐扩展
+#### Recommended Extensions
 
 ```json
 {
@@ -61,9 +61,9 @@ bun run dev
 }
 ```
 
-#### VS Code 设置
+#### VS Code Settings
 
-创建 `.vscode/settings.json`：
+Create `.vscode/settings.json`:
 
 ```json
 {
@@ -81,7 +81,7 @@ bun run dev
 }
 ```
 
-### 代码质量工具
+### Code Quality Tools
 
 #### ESLint
 
@@ -95,183 +95,183 @@ bun run lint
 bun run format
 ```
 
-#### TypeScript 检查
+#### TypeScript Check
 
 ```bash
 bun run typecheck
 ```
 
-## 常用开发命令
+## Common Development Commands
 
-### 构建和运行
+### Build and Run
 
 ```bash
-# 开发模式（带热重载）
+# Development mode (with hot reload)
 bun run dev
 
-# 生产构建
+# Production build
 bun run build
 
-# 运行构建后的代码
+# Run built code
 bun run start
 
-# 监视模式
+# Watch mode
 bun run watch
 ```
 
-### 测试
+### Testing
 
 ```bash
-# 运行所有测试
+# Run all tests
 bun run test
 
-# 运行特定测试
+# Run specific test
 bun run test src/tests/specific.test.ts
 
-# 监视模式运行测试
+# Run tests in watch mode
 bun run test --watch
 
-# 生成覆盖率报告
+# Generate coverage report
 bun run test --coverage
 ```
 
-### 代码质量
+### Code Quality
 
 ```bash
-# 运行 ESLint
+# Run ESLint
 bun run lint
 
-# 修复代码风格
+# Fix code style
 bun run format
 
-# 类型检查
+# Type checking
 bun run typecheck
 
-# 所有检查
+# All checks
 bun run check
 ```
 
-### 文档
+### Documentation
 
 ```bash
-# 本地预览文档
+# Preview documentation locally
 mkdocs serve
 
-# 构建文档
+# Build documentation
 mkdocs build
 
-# 部署文档到 GitHub Pages
+# Deploy documentation to GitHub Pages
 mkdocs gh-deploy
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 open-claude-code/
 ├── src/
-│   ├── components/         # React 组件
-│   ├── screens/           # TUI 屏幕
-│   ├── commands/          # 命令实现
-│   ├── services/          # 业务逻辑层
-│   ├── tools/             # 工具实现
-│   ├── types/             # TypeScript 类型
-│   ├── utils/             # 工具函数
-│   └── main.tsx           # 入口文件
+│   ├── components/         # React components
+│   ├── screens/           # TUI screens
+│   ├── commands/          # Command implementations
+│   ├── services/          # Business logic layer
+│   ├── tools/             # Tool implementations
+│   ├── types/             # TypeScript types
+│   ├── utils/             # Utility functions
+│   └── main.tsx           # Entry point
 ├── tests/
-│   ├── unit/              # 单元测试
-│   ├── integration/       # 集成测试
-│   └── e2e/               # 端到端测试
-├── docs/                  # 文档目录
+│   ├── unit/              # Unit tests
+│   ├── integration/       # Integration tests
+│   └── e2e/               # End-to-end tests
+├── docs/                  # Documentation directory
 ├── .github/
 │   └── workflows/         # GitHub Actions
-├── .vscode/              # VS Code 配置
-├── mkdocs.yml            # 文档配置
-├── tsconfig.json         # TypeScript 配置
-├── bunfig.toml          # Bun 配置
-├── package.json          # 依赖配置
-└── README.md             # 项目说明
+├── .vscode/              # VS Code configuration
+├── mkdocs.yml            # Documentation configuration
+├── tsconfig.json         # TypeScript configuration
+├── bunfig.toml          # Bun configuration
+├── package.json          # Dependency configuration
+└── README.md             # Project description
 ```
 
-## 工作流程
+## Workflow
 
-### 创建新功能
+### Creating New Feature
 
-1. **创建分支**
+1. **Create branch**
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-2. **开发代码**
+2. **Develop code**
    ```bash
    bun run dev
    ```
 
-3. **运行测试**
+3. **Run tests**
    ```bash
    bun run test
    ```
 
-4. **代码检查**
+4. **Code checks**
    ```bash
    bun run lint
    bun run format
    bun run typecheck
    ```
 
-5. **提交代码**
+5. **Commit code**
    ```bash
    git add .
    git commit -m "feat: add your feature"
    git push origin feature/your-feature-name
    ```
 
-6. **创建 Pull Request**
-   - 在 GitHub 上创建 PR
-   - 等待 CI/CD 检查通过
-   - 等待代码审查
+6. **Create Pull Request**
+   - Create PR on GitHub
+   - Wait for CI/CD checks
+   - Wait for code review
 
-### 修复 Bug
+### Bug Fixing
 
-1. **创建分支**
+1. **Create branch**
    ```bash
    git checkout -b fix/bug-name
    ```
 
-2. **定位问题**
+2. **Locate issue**
    ```bash
-   # 启用调试模式
+   # Enable debug mode
    DEBUG=* bun run dev
    ```
 
-3. **编写测试**
-   - 先写测试复现 bug
-   - 然后修复代码
+3. **Write test**
+   - Write test to reproduce bug
+   - Then fix code
 
-4. **验证修复**
+4. **Verify fix**
    ```bash
    bun run test
    bun run lint
    ```
 
-5. **提交 PR**
+5. **Submit PR**
 
-## 调试技巧
+## Debug Tips
 
-### 启用详细日志
+### Enable Verbose Logging
 
 ```bash
 DEBUG=* bun run dev
 ```
 
-### 调试特定模块
+### Debug Specific Module
 
 ```bash
 DEBUG=open-claude-code:* bun run dev
 ```
 
-### VS Code 调试
+### VS Code Debugging
 
-在 `.vscode/launch.json` 中配置：
+Configure in `.vscode/launch.json`:
 
 ```json
 {
@@ -289,9 +289,9 @@ DEBUG=open-claude-code:* bun run dev
 }
 ```
 
-## 常见问题
+## FAQ
 
-### Q: 如何清理构建缓存？
+### Q: How to clean build cache?
 
 **A**:
 ```bash
@@ -300,71 +300,71 @@ rm -rf .bun dist build node_modules
 bun install
 ```
 
-### Q: TypeScript 报错但代码可以运行？
+### Q: TypeScript error but code runs?
 
 **A**:
 ```bash
-# 更新 TypeScript
+# Update TypeScript
 bun update typescript
 
-# 重新生成类型定义
+# Regenerate type definitions
 bun run typecheck
 ```
 
-### Q: 如何处理依赖冲突？
+### Q: How to handle dependency conflicts?
 
 **A**:
 ```bash
-# 更新所有依赖
+# Update all dependencies
 bun update
 
-# 或特定依赖
+# Or specific dependency
 bun update @types/node
 ```
 
-### Q: 热重载不工作？
+### Q: Hot reload not working?
 
 **A**:
 ```bash
-# 重启开发服务器
-# Ctrl+C 停止，然后
+# Restart development server
+# Press Ctrl+C to stop, then
 bun run dev
 ```
 
-## 性能优化
+## Performance Optimization
 
-### 依赖优化
+### Dependency Optimization
 
 ```bash
-# 分析依赖大小
+# Analyze dependency size
 bun run analyze
 
-# 移除未使用的依赖
+# Remove unused dependencies
 bun audit
 ```
 
-### 构建优化
+### Build Optimization
 
 ```bash
-# 使用 --minify 标志
+# Use --minify flag
 bun build src/main.tsx --minify
 
-# 生成 source maps
+# Generate source maps
 bun build src/main.tsx --sourcemap
 ```
 
-## CI/CD 集成
+## CI/CD Integration
 
-项目使用 GitHub Actions 进行自动化测试和部署。查看 `.github/workflows/` 了解详情。
+Project uses GitHub Actions for automated testing and deployment. See `.github/workflows/` for details.
 
-## 获取帮助
+## Get Help
 
-- 查看 [贡献指南](contributing.md) 了解社区规范
-- 提交 [Issue](https://github.com/your-username/open-claude-code/issues)
-- 参与 [讨论](https://github.com/your-username/open-claude-code/discussions)
+- See [Contributing Guide](contributing.md) for community standards
+- Submit [Issue](https://github.com/your-username/open-claude-code/issues)
+- Participate in [Discussions](https://github.com/your-username/open-claude-code/discussions)
 
-## 下一步
+## Next Steps
 
-- 阅读 [贡献指南](contributing.md)
-- 查看 [架构文档](../architecture/overview.md)
-- 浏览 [代码示例](../api/tools.md)
+- Read [Contributing Guide](contributing.md)
+- Check [Architecture Documentation](../architecture/overview.md)
+- Browse [Code Examples](../api/tools.md)

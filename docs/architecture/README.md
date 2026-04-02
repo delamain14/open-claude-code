@@ -1,14 +1,14 @@
-# Claude Code 架构文档
+# Claude Code Architecture Documentation
 
-本目录包含 Claude Code 各模块的详细功能文档。
+This directory contains detailed documentation for each module of Claude Code.
 
-| 文档 | 内容 |
-|------|------|
-| [overview.md](overview.md) | 整体架构概览、启动流程、核心数据流 |
-| [entrypoints.md](entrypoints.md) | 入口点与启动流程 |
-| [services.md](services.md) | 服务层（API、MCP、OAuth、分析等） |
-| [tools.md](tools.md) | 工具系统（50+ 工具的分类与说明） |
-| [commands.md](commands.md) | 命令系统（88+ 命令的分类与说明） |
-| [ui.md](ui.md) | UI 层（Ink 渲染器、React 组件、屏幕） |
-| [types.md](types.md) | 核心数据结构与类型定义 |
-| [utils.md](utils.md) | 工具函数库（200+ 文件的分类索引） |
+| Document | Content |
+|----------|---------|
+| [overview.md](overview.md) | Overall architecture overview, startup process, core data flow |
+| [entrypoints.md](entrypoints.md) | Entry points and startup process |
+| [services.md](services.md) | Service layer (API, MCP, OAuth, analytics, etc.) |
+| [tools.md](tools.md) | Tool system (classification and description of 50+ tools) |
+| [commands.md](commands.md) | Command system (classification and description of 88+ commands) |
+| [ui.md](ui.md) | UI layer (Ink renderer, React components, screens) |
+| [types.md](types.md) | Core data structures and type definitions |
+| [utils.md](utils.md) | Utility function library (classification index of 200+ files) |
