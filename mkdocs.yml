@@ -54,6 +54,7 @@ plugins:
             Getting Started: 快速开始
             Installation: 安装指南
             Configuration: 配置指南
+            Multi-Provider Support: 多提供商支持
             The Agent Loop: Agent 循环
             Architecture & Execution: 架构与执行
             Architecture Overview: 架构概览
@@ -71,12 +72,12 @@ plugins:
             Context Compact: 上下文压缩
             Compression & Budgeting: 压缩与预算
             Tasks: 任务
+            TodoWrite + Task System: TodoWrite + 任务系统
             Task Management: 任务管理
             Background Tasks: 后台任务
             Async Execution: 异步执行
-            Agent Teams: Agent 团队
+            Agent Teams: Agent Teams
             Team Structure & Coordination: 团队结构与协调
-            Team Protocols: 团队协议
             Communication Standards: 通信标准
             Autonomous Agents: 自主 Agent
             Self-Directed Execution: 自主执行
@@ -98,6 +99,7 @@ nav:
   - Getting Started:
     - Installation: getting-started/installation.md
     - Configuration: getting-started/configuration.md
+    - Multi-Provider Support: getting-started/MULTI_PROVIDER.md
   - The Agent Loop:
     - Architecture & Execution: core/agent-loop.md
     - Architecture Overview: architecture/overview.md
@@ -105,7 +107,7 @@ nav:
   - Tool Use:
     - Tool System: core/tool-use.md
     - Tools API: api/tools.md
-  - TodoWrite:
+  - TodoWrite + Task System:
     - V2 Task System: core/todowrite.md
     - Commands API: api/commands.md
   - Subagents:
@@ -114,13 +116,12 @@ nav:
     - Skill System: concepts/skills.md
   - Context Compact:
     - Compression & Budgeting: concepts/context-compact.md
-  - Tasks:
-    - Task Management: core/todowrite.md
+  # - Tasks:
+  #   - Task Management: core/todowrite.md
   - Background Tasks:
     - Async Execution: tasks/background-tasks.md
   - Agent Teams:
     - Team Structure & Coordination: agents/agent-teams.md
-  - Team Protocols:
     - Communication Standards: agents/team-protocols.md
   - Autonomous Agents:
     - Self-Directed Execution: agents/autonomous-agents.md

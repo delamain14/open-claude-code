@@ -1,33 +1,33 @@
-# Multi-Provider LLM Support
+# 多提供商支持
 
-Open Claude Code 支持多种 LLM 提供商，不仅限于 Anthropic Claude，还包括 OpenAI、DeepSeek、Qwen、Kimi、GLM、MiniMax 等 OpenAI 兼容的提供商。
+Open Claude Code 支持多种 LLM 提供商，不仅限于 Anthropic Claude，还包括 OpenAI、DeepSeek、Qwen、Kimi、GLM、MiniMax、OpenRouter 等 OpenAI 兼容的提供商。
 
 ## 架构概览
 
 ```
                          ┌─────────────────────────────────────┐
-                         │         Agent Loop (query.ts)        │
-                         │   tool_use / tool_result (Anthropic) │
+                         │         Agent Loop (query.ts)       │
+                         │   tool_use / tool_result (Anthropic)│
                          └──────────────┬──────────────────────┘
                                         │
                          ┌──────────────▼──────────────────────┐
-                         │    queryModelWithStreaming (claude.ts)│
+                         │  queryModelWithStreaming (claude.ts)│
                          └──┬───────────────────────────────┬──┘
                             │                               │
-              ┌─────────────▼──────────┐     ┌──────────────▼──────────┐
+              ┌─────────────▼──────────┐     ┌──────────────▼───────────┐
               │   Anthropic API Path   │     │   OpenAI-Compatible Path │
-              │   (原生 Claude 格式)    │     │   (openaiQuery.ts)       │
+              │ (Native Claude format) │     │   (openaiQuery.ts)       │
               │                        │     │                          │
               │  tool_use blocks       │     │  Anthropic ↔ OpenAI      │
-              │  input_json_delta      │     │  双向格式转换              │
+              │  input_json_delta      │     │  Format conversion       │
               │  tool_result blocks    │     │                          │
               └────────────────────────┘     └──────────────────────────┘
                                                         │
-                                    ┌───────────────────┼───────────────┐
-                                    │                   │               │
-                               ┌────▼───┐        ┌─────▼──┐     ┌─────▼──┐
-                               │ OpenAI  │        │DeepSeek│     │  Qwen  │ ...
-                               └────────┘        └────────┘     └────────┘
+                                    ┌───────────────────┼──────────────┐
+                                    │                   │              │
+                               ┌────▼───┐         ┌─────▼──┐     ┌─────▼──┐
+                               │ OpenAI │         │DeepSeek│     │  Qwen  │ ...
+                               └────────┘         └────────┘     └────────┘
 ```
 
 核心设计原则：**在 OpenAI 路径做格式翻译，上层 agent loop 完全不需要改动**。

@@ -1,33 +1,33 @@
 # Multi-Provider LLM Support
 
-Open Claude Code supports multiple LLM providers, not limited to Anthropic Claude, but also including OpenAI, DeepSeek, Qwen, Kimi, GLM, MiniMax, and other OpenAI-compatible providers.
+Open Claude Code supports multiple LLM providers, not limited to Anthropic Claude, but also including OpenAI, DeepSeek, Qwen, Kimi, GLM, MiniMax, OpenRouter, and other OpenAI-compatible providers.
 
 ## Architecture Overview
 
 ```
                          ┌─────────────────────────────────────┐
-                         │         Agent Loop (query.ts)        │
-                         │   tool_use / tool_result (Anthropic) │
+                         │         Agent Loop (query.ts)       │
+                         │   tool_use / tool_result (Anthropic)│
                          └──────────────┬──────────────────────┘
                                         │
                          ┌──────────────▼──────────────────────┐
-                         │    queryModelWithStreaming (claude.ts)│
+                         │  queryModelWithStreaming (claude.ts)│
                          └──┬───────────────────────────────┬──┘
                             │                               │
               ┌─────────────▼──────────┐     ┌──────────────▼──────────┐
-              │   Anthropic API Path   │     │   OpenAI-Compatible Path │
-              │   (Native Claude format)│     │   (openaiQuery.ts)       │
-              │                        │     │                          │
-              │  tool_use blocks       │     │  Anthropic ↔ OpenAI      │
-              │  input_json_delta      │     │  Bidirectional format    │
-              │  tool_result blocks    │     │  conversion              │
-              └────────────────────────┘     └──────────────────────────┘
+              │   Anthropic API Path   │     │   OpenAI-Compatible Path│
+              │  (Native Claude format)│     │   (openaiQuery.ts)      │
+              │                        │     │                         │
+              │  tool_use blocks       │     │  Anthropic ↔ OpenAI     │
+              │  input_json_delta      │     │  Format conversion      │
+              │  tool_result blocks    │     │                         │
+              └────────────────────────┘     └─────────────────────────┘
                                                         │
                                     ┌───────────────────┼───────────────┐
                                     │                   │               │
-                               ┌────▼───┐        ┌─────▼──┐     ┌─────▼──┐
-                               │ OpenAI  │        │DeepSeek│     │  Qwen  │ ...
-                               └────────┘        └────────┘     └────────┘
+                               ┌────▼───┐         ┌─────▼──┐      ┌─────▼──┐
+                               │ OpenAI │         │DeepSeek│      │  Qwen  │ ...
+                               └────────┘         └────────┘      └────────┘
 ```
 
 Core Design Principle: **Format translation is done in the OpenAI path, the upper-layer agent loop requires no changes**.
