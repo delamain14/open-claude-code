@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/development/setup/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#development-environment-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/development/setup/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2260,22 +2290,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#system-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统要求
+        System Requirements
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="系统要求">
+    <nav class="md-nav" aria-label="System Requirements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#required-software" class="md-nav__link">
     <span class="md-ellipsis">
       
-        必需软件
+        Required Software
       
     </span>
   </a>
@@ -2283,10 +2313,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#optional-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可选工具
+        Optional Tools
       
     </span>
   </a>
@@ -2299,22 +2329,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速启动
+        Quick Start
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="快速启动">
+    <nav class="md-nav" aria-label="Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-clone-and-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 克隆并安装
+        1. Clone and Install
       
     </span>
   </a>
@@ -2322,10 +2352,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-configure-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 配置环境
+        2. Configure Environment
       
     </span>
   </a>
@@ -2333,10 +2363,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-start-development-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 启动开发服务器
+        3. Start Development Server
       
     </span>
   </a>
@@ -2349,15 +2379,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#development-tools-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        开发工具设置
+        Development Tools Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="开发工具设置">
+    <nav class="md-nav" aria-label="Development Tools Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2373,10 +2403,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#recommended-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        推荐扩展
+        Recommended Extensions
       
     </span>
   </a>
@@ -2384,10 +2414,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vs-code" class="md-nav__link">
+  <a href="#vs-code-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VS Code 设置
+        VS Code Settings
       
     </span>
   </a>
@@ -2400,15 +2430,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#code-quality-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代码质量工具
+        Code Quality Tools
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="代码质量工具">
+    <nav class="md-nav" aria-label="Code Quality Tools">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2434,10 +2464,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#typescript" class="md-nav__link">
+  <a href="#typescript-check" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TypeScript 检查
+        TypeScript Check
       
     </span>
   </a>
@@ -2455,22 +2485,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#common-development-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常用开发命令
+        Common Development Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常用开发命令">
+    <nav class="md-nav" aria-label="Common Development Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#build-and-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        构建和运行
+        Build and Run
       
     </span>
   </a>
@@ -2478,10 +2508,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#testing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        测试
+        Testing
       
     </span>
   </a>
@@ -2489,10 +2519,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#code-quality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代码质量
+        Code Quality
       
     </span>
   </a>
@@ -2500,10 +2530,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档
+        Documentation
       
     </span>
   </a>
@@ -2516,10 +2546,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        项目结构
+        Project Structure
       
     </span>
   </a>
@@ -2527,22 +2557,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工作流程
+        Workflow
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="工作流程">
+    <nav class="md-nav" aria-label="Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#creating-new-feature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        创建新功能
+        Creating New Feature
       
     </span>
   </a>
@@ -2550,10 +2580,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bug" class="md-nav__link">
+  <a href="#bug-fixing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        修复 Bug
+        Bug Fixing
       
     </span>
   </a>
@@ -2566,22 +2596,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#debug-tips" class="md-nav__link">
     <span class="md-ellipsis">
       
-        调试技巧
+        Debug Tips
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="调试技巧">
+    <nav class="md-nav" aria-label="Debug Tips">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#enable-verbose-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        启用详细日志
+        Enable Verbose Logging
       
     </span>
   </a>
@@ -2589,10 +2619,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#debug-specific-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        调试特定模块
+        Debug Specific Module
       
     </span>
   </a>
@@ -2600,10 +2630,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vs-code_1" class="md-nav__link">
+  <a href="#vs-code-debugging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VS Code 调试
+        VS Code Debugging
       
     </span>
   </a>
@@ -2616,22 +2646,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#faq" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常见问题
+        FAQ
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常见问题">
+    <nav class="md-nav" aria-label="FAQ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#q" class="md-nav__link">
+  <a href="#q-how-to-clean-build-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: 如何清理构建缓存？
+        Q: How to clean build cache?
       
     </span>
   </a>
@@ -2639,10 +2669,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q-typescript" class="md-nav__link">
+  <a href="#q-typescript-error-but-code-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: TypeScript 报错但代码可以运行？
+        Q: TypeScript error but code runs?
       
     </span>
   </a>
@@ -2650,10 +2680,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q_1" class="md-nav__link">
+  <a href="#q-how-to-handle-dependency-conflicts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: 如何处理依赖冲突？
+        Q: How to handle dependency conflicts?
       
     </span>
   </a>
@@ -2661,10 +2691,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q_2" class="md-nav__link">
+  <a href="#q-hot-reload-not-working" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: 热重载不工作？
+        Q: Hot reload not working?
       
     </span>
   </a>
@@ -2677,22 +2707,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#performance-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        性能优化
+        Performance Optimization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="性能优化">
+    <nav class="md-nav" aria-label="Performance Optimization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#dependency-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        依赖优化
+        Dependency Optimization
       
     </span>
   </a>
@@ -2700,10 +2730,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#build-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        构建优化
+        Build Optimization
       
     </span>
   </a>
@@ -2716,10 +2746,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cicd" class="md-nav__link">
+  <a href="#cicd-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CI/CD 集成
+        CI/CD Integration
       
     </span>
   </a>
@@ -2727,10 +2757,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#get-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        获取帮助
+        Get Help
       
     </span>
   </a>
@@ -2738,10 +2768,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        下一步
+        Next Steps
       
     </span>
   </a>
@@ -2819,22 +2849,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#system-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系统要求
+        System Requirements
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="系统要求">
+    <nav class="md-nav" aria-label="System Requirements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#required-software" class="md-nav__link">
     <span class="md-ellipsis">
       
-        必需软件
+        Required Software
       
     </span>
   </a>
@@ -2842,10 +2872,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#optional-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可选工具
+        Optional Tools
       
     </span>
   </a>
@@ -2858,22 +2888,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速启动
+        Quick Start
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="快速启动">
+    <nav class="md-nav" aria-label="Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-clone-and-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 克隆并安装
+        1. Clone and Install
       
     </span>
   </a>
@@ -2881,10 +2911,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-configure-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 配置环境
+        2. Configure Environment
       
     </span>
   </a>
@@ -2892,10 +2922,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-start-development-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 启动开发服务器
+        3. Start Development Server
       
     </span>
   </a>
@@ -2908,15 +2938,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#development-tools-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        开发工具设置
+        Development Tools Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="开发工具设置">
+    <nav class="md-nav" aria-label="Development Tools Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2932,10 +2962,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#recommended-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        推荐扩展
+        Recommended Extensions
       
     </span>
   </a>
@@ -2943,10 +2973,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vs-code" class="md-nav__link">
+  <a href="#vs-code-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VS Code 设置
+        VS Code Settings
       
     </span>
   </a>
@@ -2959,15 +2989,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#code-quality-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代码质量工具
+        Code Quality Tools
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="代码质量工具">
+    <nav class="md-nav" aria-label="Code Quality Tools">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2993,10 +3023,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#typescript" class="md-nav__link">
+  <a href="#typescript-check" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TypeScript 检查
+        TypeScript Check
       
     </span>
   </a>
@@ -3014,22 +3044,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#common-development-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常用开发命令
+        Common Development Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常用开发命令">
+    <nav class="md-nav" aria-label="Common Development Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#build-and-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        构建和运行
+        Build and Run
       
     </span>
   </a>
@@ -3037,10 +3067,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#testing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        测试
+        Testing
       
     </span>
   </a>
@@ -3048,10 +3078,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#code-quality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代码质量
+        Code Quality
       
     </span>
   </a>
@@ -3059,10 +3089,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文档
+        Documentation
       
     </span>
   </a>
@@ -3075,10 +3105,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        项目结构
+        Project Structure
       
     </span>
   </a>
@@ -3086,22 +3116,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工作流程
+        Workflow
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="工作流程">
+    <nav class="md-nav" aria-label="Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#creating-new-feature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        创建新功能
+        Creating New Feature
       
     </span>
   </a>
@@ -3109,10 +3139,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bug" class="md-nav__link">
+  <a href="#bug-fixing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        修复 Bug
+        Bug Fixing
       
     </span>
   </a>
@@ -3125,22 +3155,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#debug-tips" class="md-nav__link">
     <span class="md-ellipsis">
       
-        调试技巧
+        Debug Tips
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="调试技巧">
+    <nav class="md-nav" aria-label="Debug Tips">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#enable-verbose-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        启用详细日志
+        Enable Verbose Logging
       
     </span>
   </a>
@@ -3148,10 +3178,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#debug-specific-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        调试特定模块
+        Debug Specific Module
       
     </span>
   </a>
@@ -3159,10 +3189,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vs-code_1" class="md-nav__link">
+  <a href="#vs-code-debugging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VS Code 调试
+        VS Code Debugging
       
     </span>
   </a>
@@ -3175,22 +3205,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#faq" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常见问题
+        FAQ
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常见问题">
+    <nav class="md-nav" aria-label="FAQ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#q" class="md-nav__link">
+  <a href="#q-how-to-clean-build-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: 如何清理构建缓存？
+        Q: How to clean build cache?
       
     </span>
   </a>
@@ -3198,10 +3228,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q-typescript" class="md-nav__link">
+  <a href="#q-typescript-error-but-code-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: TypeScript 报错但代码可以运行？
+        Q: TypeScript error but code runs?
       
     </span>
   </a>
@@ -3209,10 +3239,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q_1" class="md-nav__link">
+  <a href="#q-how-to-handle-dependency-conflicts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: 如何处理依赖冲突？
+        Q: How to handle dependency conflicts?
       
     </span>
   </a>
@@ -3220,10 +3250,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q_2" class="md-nav__link">
+  <a href="#q-hot-reload-not-working" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q: 热重载不工作？
+        Q: Hot reload not working?
       
     </span>
   </a>
@@ -3236,22 +3266,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#performance-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        性能优化
+        Performance Optimization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="性能优化">
+    <nav class="md-nav" aria-label="Performance Optimization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#dependency-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        依赖优化
+        Dependency Optimization
       
     </span>
   </a>
@@ -3259,10 +3289,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#build-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        构建优化
+        Build Optimization
       
     </span>
   </a>
@@ -3275,10 +3305,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cicd" class="md-nav__link">
+  <a href="#cicd-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CI/CD 集成
+        CI/CD Integration
       
     </span>
   </a>
@@ -3286,10 +3316,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#get-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        获取帮助
+        Get Help
       
     </span>
   </a>
@@ -3297,10 +3327,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        下一步
+        Next Steps
       
     </span>
   </a>
@@ -3332,22 +3362,22 @@
   
 
 
-<h1 id="_1">开发环境设置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">系统要求<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">必需软件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h1 id="development-environment-setup">Development Environment Setup<a class="headerlink" href="#development-environment-setup" title="Permanent link">&para;</a></h1>
+<h2 id="system-requirements">System Requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="required-software">Required Software<a class="headerlink" href="#required-software" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>工具</th>
-<th>最低版本</th>
-<th>推荐版本</th>
+<th>Tool</th>
+<th>Minimum Version</th>
+<th>Recommended Version</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Bun</td>
 <td>1.0.0</td>
-<td>最新</td>
+<td>Latest</td>
 </tr>
 <tr>
 <td>Node.js</td>
@@ -3357,12 +3387,12 @@
 <tr>
 <td>TypeScript</td>
 <td>5.0.0</td>
-<td>最新</td>
+<td>Latest</td>
 </tr>
 <tr>
 <td>Git</td>
 <td>2.0.0</td>
-<td>最新</td>
+<td>Latest</td>
 </tr>
 <tr>
 <td>Python</td>
@@ -3371,28 +3401,28 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_4">可选工具<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="optional-tools">Optional Tools<a class="headerlink" href="#optional-tools" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Visual Studio Code</strong> - 推荐的代码编辑器</li>
-<li><strong>Docker</strong> - 用于容器化部署</li>
-<li><strong>PostgreSQL</strong> - 如果需要数据库支持</li>
+<li><strong>Visual Studio Code</strong> - Recommended code editor</li>
+<li><strong>Docker</strong> - For containerized deployment</li>
+<li><strong>PostgreSQL</strong> - For database support if needed</li>
 </ul>
-<h2 id="_5">快速启动<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. 克隆并安装<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<h3 id="1-clone-and-install">1. Clone and Install<a class="headerlink" href="#1-clone-and-install" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/open-claude-code.git
 <span class="nb">cd</span><span class="w"> </span>open-claude-code
 bun<span class="w"> </span>install
 </code></pre></div>
-<h3 id="2">2. 配置环境<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h3 id="2-configure-environment">2. Configure Environment<a class="headerlink" href="#2-configure-environment" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
-<span class="c1"># 编辑 .env，添加你的 API 密钥</span>
+<span class="c1"># Edit .env, add your API keys</span>
 </code></pre></div>
-<h3 id="3">3. 启动开发服务器<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h3 id="3-start-development-server">3. Start Development Server<a class="headerlink" href="#3-start-development-server" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div>
-<h2 id="_6">开发工具设置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="development-tools-setup">Development Tools Setup<a class="headerlink" href="#development-tools-setup" title="Permanent link">&para;</a></h2>
 <h3 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">&para;</a></h3>
-<h4 id="_7">推荐扩展<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<h4 id="recommended-extensions">Recommended Extensions<a class="headerlink" href="#recommended-extensions" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;recommendations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;dbaeumer.vscode-eslint&quot;</span><span class="p">,</span>
@@ -3405,8 +3435,8 @@ bun<span class="w"> </span>install
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="vs-code">VS Code 设置<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h4>
-<p>创建 <code>.vscode/settings.json</code>：</p>
+<h4 id="vs-code-settings">VS Code Settings<a class="headerlink" href="#vs-code-settings" title="Permanent link">&para;</a></h4>
+<p>Create <code>.vscode/settings.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;esbenp.prettier-vscode&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -3421,169 +3451,169 @@ bun<span class="w"> </span>install
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_8">代码质量工具<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="code-quality-tools">Code Quality Tools<a class="headerlink" href="#code-quality-tools" title="Permanent link">&para;</a></h3>
 <h4 id="eslint">ESLint<a class="headerlink" href="#eslint" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>lint
 </code></pre></div>
 <h4 id="prettier">Prettier<a class="headerlink" href="#prettier" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>format
 </code></pre></div>
-<h4 id="typescript">TypeScript 检查<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h4>
+<h4 id="typescript-check">TypeScript Check<a class="headerlink" href="#typescript-check" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>typecheck
 </code></pre></div>
-<h2 id="_9">常用开发命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<h3 id="_10">构建和运行<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 开发模式（带热重载）</span>
+<h2 id="common-development-commands">Common Development Commands<a class="headerlink" href="#common-development-commands" title="Permanent link">&para;</a></h2>
+<h3 id="build-and-run">Build and Run<a class="headerlink" href="#build-and-run" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Development mode (with hot reload)</span>
 bun<span class="w"> </span>run<span class="w"> </span>dev
 
-<span class="c1"># 生产构建</span>
+<span class="c1"># Production build</span>
 bun<span class="w"> </span>run<span class="w"> </span>build
 
-<span class="c1"># 运行构建后的代码</span>
+<span class="c1"># Run built code</span>
 bun<span class="w"> </span>run<span class="w"> </span>start
 
-<span class="c1"># 监视模式</span>
+<span class="c1"># Watch mode</span>
 bun<span class="w"> </span>run<span class="w"> </span>watch
 </code></pre></div>
-<h3 id="_11">测试<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 运行所有测试</span>
+<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run all tests</span>
 bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
 
-<span class="c1"># 运行特定测试</span>
+<span class="c1"># Run specific test</span>
 bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>src/tests/specific.test.ts
 
-<span class="c1"># 监视模式运行测试</span>
+<span class="c1"># Run tests in watch mode</span>
 bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--watch
 
-<span class="c1"># 生成覆盖率报告</span>
+<span class="c1"># Generate coverage report</span>
 bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--coverage
 </code></pre></div>
-<h3 id="_12">代码质量<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 运行 ESLint</span>
+<h3 id="code-quality">Code Quality<a class="headerlink" href="#code-quality" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run ESLint</span>
 bun<span class="w"> </span>run<span class="w"> </span>lint
 
-<span class="c1"># 修复代码风格</span>
+<span class="c1"># Fix code style</span>
 bun<span class="w"> </span>run<span class="w"> </span>format
 
-<span class="c1"># 类型检查</span>
+<span class="c1"># Type checking</span>
 bun<span class="w"> </span>run<span class="w"> </span>typecheck
 
-<span class="c1"># 所有检查</span>
+<span class="c1"># All checks</span>
 bun<span class="w"> </span>run<span class="w"> </span>check
 </code></pre></div>
-<h3 id="_13">文档<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 本地预览文档</span>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Preview documentation locally</span>
 mkdocs<span class="w"> </span>serve
 
-<span class="c1"># 构建文档</span>
+<span class="c1"># Build documentation</span>
 mkdocs<span class="w"> </span>build
 
-<span class="c1"># 部署文档到 GitHub Pages</span>
+<span class="c1"># Deploy documentation to GitHub Pages</span>
 mkdocs<span class="w"> </span>gh-deploy
 </code></pre></div>
-<h2 id="_14">项目结构<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>open-claude-code/
 ├── src/
-│   ├── components/         # React 组件
-│   ├── screens/           # TUI 屏幕
-│   ├── commands/          # 命令实现
-│   ├── services/          # 业务逻辑层
-│   ├── tools/             # 工具实现
-│   ├── types/             # TypeScript 类型
-│   ├── utils/             # 工具函数
-│   └── main.tsx           # 入口文件
+│   ├── components/         # React components
+│   ├── screens/           # TUI screens
+│   ├── commands/          # Command implementations
+│   ├── services/          # Business logic layer
+│   ├── tools/             # Tool implementations
+│   ├── types/             # TypeScript types
+│   ├── utils/             # Utility functions
+│   └── main.tsx           # Entry point
 ├── tests/
-│   ├── unit/              # 单元测试
-│   ├── integration/       # 集成测试
-│   └── e2e/               # 端到端测试
-├── docs/                  # 文档目录
+│   ├── unit/              # Unit tests
+│   ├── integration/       # Integration tests
+│   └── e2e/               # End-to-end tests
+├── docs/                  # Documentation directory
 ├── .github/
 │   └── workflows/         # GitHub Actions
-├── .vscode/              # VS Code 配置
-├── mkdocs.yml            # 文档配置
-├── tsconfig.json         # TypeScript 配置
-├── bunfig.toml          # Bun 配置
-├── package.json          # 依赖配置
-└── README.md             # 项目说明
+├── .vscode/              # VS Code configuration
+├── mkdocs.yml            # Documentation configuration
+├── tsconfig.json         # TypeScript configuration
+├── bunfig.toml          # Bun configuration
+├── package.json          # Dependency configuration
+└── README.md             # Project description
 </code></pre></div>
-<h2 id="_15">工作流程<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
-<h3 id="_16">创建新功能<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<h3 id="creating-new-feature">Creating New Feature<a class="headerlink" href="#creating-new-feature" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>创建分支</strong>
+<p><strong>Create branch</strong>
    <div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>开发代码</strong>
+<p><strong>Develop code</strong>
    <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>运行测试</strong>
+<p><strong>Run tests</strong>
    <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>代码检查</strong>
+<p><strong>Code checks</strong>
    <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span>lint
 bun<span class="w"> </span>run<span class="w"> </span>format
 bun<span class="w"> </span>run<span class="w"> </span>typecheck
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>提交代码</strong>
+<p><strong>Commit code</strong>
    <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add your feature&quot;</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>创建 Pull Request</strong></p>
+<p><strong>Create Pull Request</strong></p>
 </li>
-<li>在 GitHub 上创建 PR</li>
-<li>等待 CI/CD 检查通过</li>
-<li>等待代码审查</li>
+<li>Create PR on GitHub</li>
+<li>Wait for CI/CD checks</li>
+<li>Wait for code review</li>
 </ol>
-<h3 id="bug">修复 Bug<a class="headerlink" href="#bug" title="Permanent link">&para;</a></h3>
+<h3 id="bug-fixing">Bug Fixing<a class="headerlink" href="#bug-fixing" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>创建分支</strong>
+<p><strong>Create branch</strong>
    <div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/bug-name
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>定位问题</strong>
-   <div class="highlight"><pre><span></span><code><span class="c1"># 启用调试模式</span>
+<p><strong>Locate issue</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Enable debug mode</span>
 <span class="nv">DEBUG</span><span class="o">=</span>*<span class="w"> </span>bun<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>编写测试</strong></p>
+<p><strong>Write test</strong></p>
 </li>
-<li>先写测试复现 bug</li>
+<li>Write test to reproduce bug</li>
 <li>
-<p>然后修复代码</p>
+<p>Then fix code</p>
 </li>
 <li>
-<p><strong>验证修复</strong>
+<p><strong>Verify fix</strong>
    <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
 bun<span class="w"> </span>run<span class="w"> </span>lint
 </code></pre></div></p>
 </li>
 <li>
-<p><strong>提交 PR</strong></p>
+<p><strong>Submit PR</strong></p>
 </li>
 </ol>
-<h2 id="_17">调试技巧<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
-<h3 id="_18">启用详细日志<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h2 id="debug-tips">Debug Tips<a class="headerlink" href="#debug-tips" title="Permanent link">&para;</a></h2>
+<h3 id="enable-verbose-logging">Enable Verbose Logging<a class="headerlink" href="#enable-verbose-logging" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nv">DEBUG</span><span class="o">=</span>*<span class="w"> </span>bun<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div>
-<h3 id="_19">调试特定模块<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="debug-specific-module">Debug Specific Module<a class="headerlink" href="#debug-specific-module" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nv">DEBUG</span><span class="o">=</span>open-claude-code:*<span class="w"> </span>bun<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div>
-<h3 id="vs-code_1">VS Code 调试<a class="headerlink" href="#vs-code_1" title="Permanent link">&para;</a></h3>
-<p>在 <code>.vscode/launch.json</code> 中配置：</p>
+<h3 id="vs-code-debugging">VS Code Debugging<a class="headerlink" href="#vs-code-debugging" title="Permanent link">&para;</a></h3>
+<p>Configure in <code>.vscode/launch.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -3598,63 +3628,63 @@ bun<span class="w"> </span>run<span class="w"> </span>lint
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_20">常见问题<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
-<h3 id="q">Q: 如何清理构建缓存？<a class="headerlink" href="#q" title="Permanent link">&para;</a></h3>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="q-how-to-clean-build-cache">Q: How to clean build cache?<a class="headerlink" href="#q-how-to-clean-build-cache" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong>:
 <div class="highlight"><pre><span></span><code>bun<span class="w"> </span>cache<span class="w"> </span>clean
 rm<span class="w"> </span>-rf<span class="w"> </span>.bun<span class="w"> </span>dist<span class="w"> </span>build<span class="w"> </span>node_modules
 bun<span class="w"> </span>install
 </code></pre></div></p>
-<h3 id="q-typescript">Q: TypeScript 报错但代码可以运行？<a class="headerlink" href="#q-typescript" title="Permanent link">&para;</a></h3>
+<h3 id="q-typescript-error-but-code-runs">Q: TypeScript error but code runs?<a class="headerlink" href="#q-typescript-error-but-code-runs" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># 更新 TypeScript</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Update TypeScript</span>
 bun<span class="w"> </span>update<span class="w"> </span>typescript
 
-<span class="c1"># 重新生成类型定义</span>
+<span class="c1"># Regenerate type definitions</span>
 bun<span class="w"> </span>run<span class="w"> </span>typecheck
 </code></pre></div></p>
-<h3 id="q_1">Q: 如何处理依赖冲突？<a class="headerlink" href="#q_1" title="Permanent link">&para;</a></h3>
+<h3 id="q-how-to-handle-dependency-conflicts">Q: How to handle dependency conflicts?<a class="headerlink" href="#q-how-to-handle-dependency-conflicts" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># 更新所有依赖</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Update all dependencies</span>
 bun<span class="w"> </span>update
 
-<span class="c1"># 或特定依赖</span>
+<span class="c1"># Or specific dependency</span>
 bun<span class="w"> </span>update<span class="w"> </span>@types/node
 </code></pre></div></p>
-<h3 id="q_2">Q: 热重载不工作？<a class="headerlink" href="#q_2" title="Permanent link">&para;</a></h3>
+<h3 id="q-hot-reload-not-working">Q: Hot reload not working?<a class="headerlink" href="#q-hot-reload-not-working" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># 重启开发服务器</span>
-<span class="c1"># Ctrl+C 停止，然后</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Restart development server</span>
+<span class="c1"># Press Ctrl+C to stop, then</span>
 bun<span class="w"> </span>run<span class="w"> </span>dev
 </code></pre></div></p>
-<h2 id="_21">性能优化<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
-<h3 id="_22">依赖优化<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 分析依赖大小</span>
+<h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="dependency-optimization">Dependency Optimization<a class="headerlink" href="#dependency-optimization" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Analyze dependency size</span>
 bun<span class="w"> </span>run<span class="w"> </span>analyze
 
-<span class="c1"># 移除未使用的依赖</span>
+<span class="c1"># Remove unused dependencies</span>
 bun<span class="w"> </span>audit
 </code></pre></div>
-<h3 id="_23">构建优化<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 使用 --minify 标志</span>
+<h3 id="build-optimization">Build Optimization<a class="headerlink" href="#build-optimization" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use --minify flag</span>
 bun<span class="w"> </span>build<span class="w"> </span>src/main.tsx<span class="w"> </span>--minify
 
-<span class="c1"># 生成 source maps</span>
+<span class="c1"># Generate source maps</span>
 bun<span class="w"> </span>build<span class="w"> </span>src/main.tsx<span class="w"> </span>--sourcemap
 </code></pre></div>
-<h2 id="cicd">CI/CD 集成<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h2>
-<p>项目使用 GitHub Actions 进行自动化测试和部署。查看 <code>.github/workflows/</code> 了解详情。</p>
-<h2 id="_24">获取帮助<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h2 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h2>
+<p>Project uses GitHub Actions for automated testing and deployment. See <code>.github/workflows/</code> for details.</p>
+<h2 id="get-help">Get Help<a class="headerlink" href="#get-help" title="Permanent link">&para;</a></h2>
 <ul>
-<li>查看 <a href="../contributing/">贡献指南</a> 了解社区规范</li>
-<li>提交 <a href="https://github.com/your-username/open-claude-code/issues">Issue</a></li>
-<li>参与 <a href="https://github.com/your-username/open-claude-code/discussions">讨论</a></li>
+<li>See <a href="../contributing/">Contributing Guide</a> for community standards</li>
+<li>Submit <a href="https://github.com/your-username/open-claude-code/issues">Issue</a></li>
+<li>Participate in <a href="https://github.com/your-username/open-claude-code/discussions">Discussions</a></li>
 </ul>
-<h2 id="_25">下一步<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
-<li>阅读 <a href="../contributing/">贡献指南</a></li>
-<li>查看 <a href="../../architecture/overview/">架构文档</a></li>
-<li>浏览 <a href="../../api/tools/">代码示例</a></li>
+<li>Read <a href="../contributing/">Contributing Guide</a></li>
+<li>Check <a href="../../architecture/overview/">Architecture Documentation</a></li>
+<li>Browse <a href="../../api/tools/">Code Examples</a></li>
 </ul>
 
 

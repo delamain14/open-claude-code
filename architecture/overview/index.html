@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/overview/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#overall-architecture-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/overview/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -879,10 +909,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#code-scale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代码规模
+        Code Scale
       
     </span>
   </a>
@@ -890,10 +920,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#architecture-layers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        架构层次
+        Architecture Layers
       
     </span>
   </a>
@@ -901,10 +931,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#startup-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        启动流程
+        Startup Flow
       
     </span>
   </a>
@@ -912,22 +942,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#core-data-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心数据流
+        Core Data Flow
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="核心数据流">
+    <nav class="md-nav" aria-label="Core Data Flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#user-query-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        用户查询处理
+        User Query Processing
       
     </span>
   </a>
@@ -935,10 +965,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#permission-check-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        权限检查流程
+        Permission Check Flow
       
     </span>
   </a>
@@ -946,10 +976,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#session-compaction-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        会话压缩流程
+        Session Compaction Flow
       
     </span>
   </a>
@@ -962,10 +992,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#key-design-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键设计模式
+        Key Design Patterns
       
     </span>
   </a>
@@ -2424,10 +2454,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#code-scale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代码规模
+        Code Scale
       
     </span>
   </a>
@@ -2435,10 +2465,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#architecture-layers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        架构层次
+        Architecture Layers
       
     </span>
   </a>
@@ -2446,10 +2476,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#startup-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        启动流程
+        Startup Flow
       
     </span>
   </a>
@@ -2457,22 +2487,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#core-data-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心数据流
+        Core Data Flow
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="核心数据流">
+    <nav class="md-nav" aria-label="Core Data Flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#user-query-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        用户查询处理
+        User Query Processing
       
     </span>
   </a>
@@ -2480,10 +2510,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#permission-check-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        权限检查流程
+        Permission Check Flow
       
     </span>
   </a>
@@ -2491,10 +2521,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#session-compaction-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        会话压缩流程
+        Session Compaction Flow
       
     </span>
   </a>
@@ -2507,10 +2537,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#key-design-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键设计模式
+        Key Design Patterns
       
     </span>
   </a>
@@ -2542,188 +2572,188 @@
   
 
 
-<h1 id="_1">整体架构概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">代码规模<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="overall-architecture-overview">Overall Architecture Overview<a class="headerlink" href="#overall-architecture-overview" title="Permanent link">&para;</a></h1>
+<h2 id="code-scale">Code Scale<a class="headerlink" href="#code-scale" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>总行数</strong>: ~206,000 行 TypeScript/TSX</li>
-<li><strong>核心组件</strong>: 140+ 个 React 组件</li>
-<li><strong>工具</strong>: 50+ 个工具实现</li>
-<li><strong>命令</strong>: 88+ 个斜杠命令</li>
-<li><strong>工具函数</strong>: 200+ 个文件（33 个子目录）</li>
+<li><strong>Total Lines</strong>: ~206,000 lines of TypeScript/TSX</li>
+<li><strong>Core Components</strong>: 140+ React components</li>
+<li><strong>Tools</strong>: 50+ tool implementations</li>
+<li><strong>Commands</strong>: 88+ slash commands</li>
+<li><strong>Utility Functions</strong>: 200+ files (33 subdirectories)</li>
 </ul>
-<h2 id="_3">架构层次<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="architecture-layers">Architecture Layers<a class="headerlink" href="#architecture-layers" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────┐
-│                    CLI 入口                         │
+│                    CLI Entry                        │
 │           entrypoints/cli.tsx → main.tsx            │
 ├────────────────────────────────────────────────────┤
-│                    命令层                           │
-│       commands.ts (注册表) + commands/ (实现)       │
+│                  Command Layer                      │
+│       commands.ts (registry) + commands/ (impl)     │
 ├────────────────────────────────────────────────────┤
-│                    查询引擎                         │
+│                   Query Engine                      │
 │         query.ts + QueryEngine.ts                  │
-│       消息处理 → API 调用 → 工具执行 → 压缩        │
+│    Message Processing → API Call → Tool Exec → Compact│
 ├────────────────────────────────────────────────────┤
-│                    工具层                           │
-│      Tool.ts (基类) + tools.ts (组装) + tools/     │
+│                    Tool Layer                       │
+│      Tool.ts (base) + tools.ts (assembly) + tools/ │
 │   Bash | Edit | Read | Write | Grep | Agent | ...  │
 ├──────────────────────┬─────────────────────────────┤
-│      UI 层           │        服务层                │
-│  ink/ (自定义渲染器)  │   services/api/ (API 客户端) │
-│  components/ (组件)  │   services/mcp/ (MCP 协议)   │
-│  screens/ (屏幕)     │   services/analytics/ (分析)  │
-│  state/ (状态管理)   │   services/oauth/ (认证)      │
+│      UI Layer        │      Service Layer           │
+│  ink/ (custom render)│   services/api/ (API client) │
+│  components/         │   services/mcp/ (MCP)        │
+│  screens/            │   services/analytics/        │
+│  state/              │   services/oauth/            │
 ├──────────────────────┴─────────────────────────────┤
-│                   基础设施                          │
+│                  Infrastructure                     │
 │  utils/ | constants/ | types/ | bootstrap/         │
-│  skills/ | plugins/ | keybindings/ | hooks/         │
+│  skills/ | plugins/ | keybindings/ | hooks/        │
 └────────────────────────────────────────────────────┘
 </code></pre></div>
-<h2 id="_4">启动流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="startup-flow">Startup Flow<a class="headerlink" href="#startup-flow" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>entrypoints/cli.tsx
   │
-  ├─ --version → 直接输出版本号（零导入）
-  ├─ --help → 加载 main.tsx → Commander 帮助
-  ├─ 特殊模式 → bridge / daemon / bg sessions / templates
+  ├─ --version → Output version directly (zero imports)
+  ├─ --help → Load main.tsx → Commander help
+  ├─ Special modes → bridge / daemon / bg sessions / templates
   │
-  └─ 默认路径
+  └─ Default path
       │
       main.tsx::main()
         │
-        ├─ 并行预取: MDM 设置 + macOS 钥匙链
+        ├─ Parallel prefetch: MDM settings + macOS Keychain
         │
-        ├─ run() → 创建 Commander 程序
+        ├─ run() → Create Commander program
         │   │
-        │   ├─ preAction 钩子:
-        │   │   ├─ 等待 MDM + 钥匙链加载
-        │   │   ├─ init() → 配置、网络、代理、TLS
-        │   │   ├─ 初始化日志 sinks
-        │   │   ├─ 加载远程设置 + 策略限制
-        │   │   └─ 运行迁移
+        │   ├─ preAction hook:
+        │   │   ├─ Wait for MDM + Keychain load
+        │   │   ├─ init() → Config, network, proxy, TLS
+        │   │   ├─ Initialize log sinks
+        │   │   ├─ Load remote settings + policy limits
+        │   │   └─ Run migrations
         │   │
-        │   └─ 注册 100+ 命令行选项和子命令
+        │   └─ Register 100+ CLI options and subcommands
         │
-        ├─ setup() → 会话初始化
-        │   ├─ UDS 消息传递
-        │   ├─ 终端备份恢复
-        │   ├─ Git 仓库初始化
-        │   └─ 文件监视器 + 钩子快照
+        ├─ setup() → Session initialization
+        │   ├─ UDS messaging
+        │   ├─ Terminal backup/restore
+        │   ├─ Git repo initialization
+        │   └─ File watcher + hook snapshot
         │
-        ├─ 加载命令 + 工具 + MCP 配置
+        ├─ Load commands + tools + MCP config
         │
-        └─ 分支:
-            ├─ 非交互 (-p) → print.ts → runHeadless()
-            └─ 交互模式 → showSetupScreens() → launchRepl()
+        └─ Branch:
+            ├─ Non-interactive (-p) → print.ts → runHeadless()
+            └─ Interactive → showSetupScreens() → launchRepl()
                              │
-                             ├─ API Key 确认对话框
-                             ├─ 权限模式确认
-                             └─ 渲染 &lt;App&gt;&lt;REPL/&gt;&lt;/App&gt;
+                             ├─ API Key confirmation dialog
+                             ├─ Permission mode confirmation
+                             └─ Render &lt;App&gt;&lt;REPL/&gt;&lt;/App&gt;
 </code></pre></div>
-<h2 id="_5">核心数据流<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="_6">用户查询处理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>用户输入
+<h2 id="core-data-flow">Core Data Flow<a class="headerlink" href="#core-data-flow" title="Permanent link">&para;</a></h2>
+<h3 id="user-query-processing">User Query Processing<a class="headerlink" href="#user-query-processing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>User Input
   ↓
-命令解析（/ 开头 → 命令分发，否则 → 查询）
+Command parsing (/ prefix → command dispatch, else → query)
   ↓
-QueryEngine 配置
-  ├─ 系统提示构建（context.ts）
-  ├─ 消息历史规范化
-  ├─ 工具列表组装
-  └─ Token 预算计算
+QueryEngine configuration
+  ├─ System prompt construction (context.ts)
+  ├─ Message history normalization
+  ├─ Tool list assembly
+  └─ Token budget calculation
   ↓
-API 调用（services/api/claude.ts）
-  ├─ 流式响应处理
-  ├─ 工具调用检测
-  └─ 成本追踪
+API call (services/api/claude.ts)
+  ├─ Streaming response handling
+  ├─ Tool call detection
+  └─ Cost tracking
   ↓
-工具执行（如 BashTool、FileEditTool）
-  ├─ 输入验证
-  ├─ 权限检查 → 用户确认（如需）
-  ├─ 执行操作
-  └─ 结果格式化
+Tool execution (e.g., BashTool, FileEditTool)
+  ├─ Input validation
+  ├─ Permission check → User confirmation (if needed)
+  ├─ Execute operation
+  └─ Result formatting
   ↓
-结果回传 → 下一轮 API 调用（多轮循环）
+Result return → Next API call (multi-turn loop)
   ↓
-最终响应 → UI 渲染
+Final response → UI rendering
   ↓
-可选: 自动压缩（Token 超过阈值时）
+Optional: Auto-compact (when tokens exceed threshold)
 </code></pre></div>
-<h3 id="_7">权限检查流程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>工具调用请求
+<h3 id="permission-check-flow">Permission Check Flow<a class="headerlink" href="#permission-check-flow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Tool call request
   ↓
-输入 Schema 验证（Zod）
+Input Schema validation (Zod)
   ↓
-权限规则匹配
-  ├─ alwaysAllowRules → 直接通过
-  ├─ alwaysDenyRules → 直接拒绝
-  └─ 默认 → 询问用户
+Permission rule matching
+  ├─ alwaysAllowRules → Direct pass
+  ├─ alwaysDenyRules → Direct deny
+  └─ Default → Ask user
   ↓
-权限模式判断
-  ├─ bypassPermissions → 跳过所有检查
-  ├─ plan → 只读操作自动通过
-  ├─ acceptEdits → 编辑自动通过
-  └─ default → 按规则处理
+Permission mode check
+  ├─ bypassPermissions → Skip all checks
+  ├─ plan → Read-only ops auto-pass
+  ├─ acceptEdits → Edits auto-pass
+  └─ default → Follow rules
   ↓
-用户确认对话框（如需）
+User confirmation dialog (if needed)
   ↓
-执行工具
+Execute tool
 </code></pre></div>
-<h3 id="_8">会话压缩流程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>监控 Token 使用量
+<h3 id="session-compaction-flow">Session Compaction Flow<a class="headerlink" href="#session-compaction-flow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Monitor token usage
   ↓
-达到阈值（~70% 上下文窗口）
+Reach threshold (~70% of context window)
   ↓
-执行 preCompaction 钩子
+Execute preCompaction hooks
   ↓
-分析消息历史 → 选择压缩边界
+Analyze message history → Select compaction boundary
   ↓
-创建子查询生成摘要
+Create sub-query to generate summary
   ↓
-插入 CompactBoundaryMessage
+Insert CompactBoundaryMessage
   ↓
-替换旧消息 + 保留边界后的消息
+Replace old messages + keep messages after boundary
   ↓
-执行 postCompaction 钩子
+Execute postCompaction hooks
 </code></pre></div>
-<h2 id="_9">关键设计模式<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="key-design-patterns">Key Design Patterns<a class="headerlink" href="#key-design-patterns" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>模式</th>
-<th>应用场景</th>
+<th>Pattern</th>
+<th>Application</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Memoization</strong></td>
-<td>命令加载、上下文构建、技能索引</td>
+<td>Command loading, context building, skill indexing</td>
 </tr>
 <tr>
 <td><strong>Feature Gates</strong></td>
-<td><code>feature()</code> 条件编译（KAIROS、BRIDGE_MODE 等）</td>
+<td><code>feature()</code> conditional compilation (KAIROS, BRIDGE_MODE, etc.)</td>
 </tr>
 <tr>
-<td><strong>权限上下文</strong></td>
-<td>工具执行前的多层权限验证</td>
+<td><strong>Permission Context</strong></td>
+<td>Multi-layer permission validation before tool execution</td>
 </tr>
 <tr>
-<td><strong>流式处理</strong></td>
-<td>API 响应、JSON 输出、工具进度</td>
+<td><strong>Streaming</strong></td>
+<td>API responses, JSON output, tool progress</td>
 </tr>
 <tr>
-<td><strong>优雅关闭</strong></td>
-<td>清理注册表、资源释放</td>
+<td><strong>Graceful Shutdown</strong></td>
+<td>Cleanup registry, resource release</td>
 </tr>
 <tr>
-<td><strong>并行预取</strong></td>
-<td>启动时并行加载（MDM、钥匙链、API 预连接）</td>
+<td><strong>Parallel Prefetch</strong></td>
+<td>Parallel loading at startup (MDM, Keychain, API pre-connect)</td>
 </tr>
 <tr>
-<td><strong>故障打开</strong></td>
-<td>策略限制、远程设置获取失败时继续运行</td>
+<td><strong>Fail Open</strong></td>
+<td>Continue running when policy limits, remote settings fetch fails</td>
 </tr>
 <tr>
-<td><strong>延迟导入</strong></td>
-<td>大模块按需加载（print.ts、REPL.js）</td>
+<td><strong>Lazy Import</strong></td>
+<td>Large modules loaded on-demand (print.ts, REPL.js)</td>
 </tr>
 </tbody>
 </table>

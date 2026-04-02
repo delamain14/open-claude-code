@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/ui/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ui" class="md-skip">
+        <a href="#ui-layer" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/ui/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2115,22 +2145,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ink-srcink" class="md-nav__link">
+  <a href="#custom-ink-renderer-srcink" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自定义 Ink 渲染器 (src/ink/)
+        Custom Ink Renderer (src/ink/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="自定义 Ink 渲染器 (src/ink/)">
+    <nav class="md-nav" aria-label="Custom Ink Renderer (src/ink/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#core-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心架构
+        Core Architecture
       
     </span>
   </a>
@@ -2138,10 +2168,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#directory-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目录结构
+        Directory Structure
       
     </span>
   </a>
@@ -2149,10 +2179,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#yoga" class="md-nav__link">
+  <a href="#yoga-layout-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Yoga 布局引擎
+        Yoga Layout Engine
       
     </span>
   </a>
@@ -2165,10 +2195,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inkts-api" class="md-nav__link">
+  <a href="#inkts-public-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ink.ts — 公共 API
+        ink.ts — Public API
       
     </span>
   </a>
@@ -2176,22 +2206,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#react-srccomponents" class="md-nav__link">
+  <a href="#react-component-hierarchy-srccomponents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        React 组件层次 (src/components/)
+        React Component Hierarchy (src/components/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="React 组件层次 (src/components/)">
+    <nav class="md-nav" aria-label="React Component Hierarchy (src/components/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#key-components" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键组件
+        Key Components
       
     </span>
   </a>
@@ -2199,10 +2229,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#component-subdirectories" class="md-nav__link">
     <span class="md-ellipsis">
       
-        组件子目录
+        Component Subdirectories
       
     </span>
   </a>
@@ -2215,10 +2245,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#srcstate" class="md-nav__link">
+  <a href="#state-management-srcstate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        状态管理 (src/state/)
+        State Management (src/state/)
       
     </span>
   </a>
@@ -2226,10 +2256,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#srckeybindings" class="md-nav__link">
+  <a href="#keyboard-shortcuts-srckeybindings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        键盘快捷键 (src/keybindings/)
+        Keyboard Shortcuts (src/keybindings/)
       
     </span>
   </a>
@@ -2452,22 +2482,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ink-srcink" class="md-nav__link">
+  <a href="#custom-ink-renderer-srcink" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自定义 Ink 渲染器 (src/ink/)
+        Custom Ink Renderer (src/ink/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="自定义 Ink 渲染器 (src/ink/)">
+    <nav class="md-nav" aria-label="Custom Ink Renderer (src/ink/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#core-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心架构
+        Core Architecture
       
     </span>
   </a>
@@ -2475,10 +2505,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#directory-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目录结构
+        Directory Structure
       
     </span>
   </a>
@@ -2486,10 +2516,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#yoga" class="md-nav__link">
+  <a href="#yoga-layout-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Yoga 布局引擎
+        Yoga Layout Engine
       
     </span>
   </a>
@@ -2502,10 +2532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inkts-api" class="md-nav__link">
+  <a href="#inkts-public-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ink.ts — 公共 API
+        ink.ts — Public API
       
     </span>
   </a>
@@ -2513,22 +2543,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#react-srccomponents" class="md-nav__link">
+  <a href="#react-component-hierarchy-srccomponents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        React 组件层次 (src/components/)
+        React Component Hierarchy (src/components/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="React 组件层次 (src/components/)">
+    <nav class="md-nav" aria-label="React Component Hierarchy (src/components/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#key-components" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键组件
+        Key Components
       
     </span>
   </a>
@@ -2536,10 +2566,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#component-subdirectories" class="md-nav__link">
     <span class="md-ellipsis">
       
-        组件子目录
+        Component Subdirectories
       
     </span>
   </a>
@@ -2552,10 +2582,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#srcstate" class="md-nav__link">
+  <a href="#state-management-srcstate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        状态管理 (src/state/)
+        State Management (src/state/)
       
     </span>
   </a>
@@ -2563,10 +2593,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#srckeybindings" class="md-nav__link">
+  <a href="#keyboard-shortcuts-srckeybindings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        键盘快捷键 (src/keybindings/)
+        Keyboard Shortcuts (src/keybindings/)
       
     </span>
   </a>
@@ -2598,179 +2628,179 @@
   
 
 
-<h1 id="ui">UI 层<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h1>
-<h2 id="ink-srcink">自定义 Ink 渲染器 (<code>src/ink/</code>)<a class="headerlink" href="#ink-srcink" title="Permanent link">&para;</a></h2>
-<p>Claude Code 使用自定义的 React-to-Terminal 渲染引擎，<strong>不依赖 npm 的 <code>ink</code> 包</strong>。</p>
-<h3 id="_1">核心架构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>React 组件树
+<h1 id="ui-layer">UI Layer<a class="headerlink" href="#ui-layer" title="Permanent link">&para;</a></h1>
+<h2 id="custom-ink-renderer-srcink">Custom Ink Renderer (<code>src/ink/</code>)<a class="headerlink" href="#custom-ink-renderer-srcink" title="Permanent link">&para;</a></h2>
+<p>Claude Code uses a custom React-to-Terminal rendering engine that <strong>does not depend on npm's <code>ink</code> package</strong>.</p>
+<h3 id="core-architecture">Core Architecture<a class="headerlink" href="#core-architecture" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>React Component Tree
   ↓
 React Reconciler (react-reconciler)
   ↓
-虚拟 DOM 树 (dom.ts)
+Virtual DOM Tree (dom.ts)
   ↓
-Yoga 布局计算 (layout/yoga.ts) — 纯 TS 实现
+Yoga Layout Calculation (layout/yoga.ts) — Pure TypeScript implementation
   ↓
-渲染节点到输出 (render-node-to-output.ts)
+Render Nodes to Output (render-node-to-output.ts)
   ↓
-虚拟屏幕 (screen.ts) — 差分渲染
+Virtual Screen (screen.ts) — Differential rendering
   ↓
-ANSI 转义序列 → 终端输出
+ANSI Escape Sequences → Terminal Output
 </code></pre></div>
-<h3 id="_2">目录结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>src/ink/
-├── ink.tsx              # 核心 Ink 类（251KB）—— 生命周期、渲染循环
-├── reconciler.ts        # React Reconciler 配置
-├── renderer.ts          # 渲染管道
-├── dom.ts               # 虚拟 DOM 节点管理
-├── screen.ts            # 虚拟屏幕 + 差分渲染
-├── output.ts            # 输出缓冲管理
-├── selection.ts         # 文本选择逻辑
-├── styles.ts            # ANSI 样式处理
-├── render-node-to-output.ts  # 节点→输出转换
-├── Ansi.tsx             # ANSI 代码处理
+├── ink.tsx              # Core Ink class (251KB) — lifecycle, render loop
+├── reconciler.ts        # React Reconciler configuration
+├── renderer.ts          # Rendering pipeline
+├── dom.ts               # Virtual DOM node management
+├── screen.ts            # Virtual screen + differential rendering
+├── output.ts            # Output buffer management
+├── selection.ts         # Text selection logic
+├── styles.ts            # ANSI style handling
+├── render-node-to-output.ts  # Node → output conversion
+├── Ansi.tsx             # ANSI code handling
 │
-├── components/          # 内置组件
-│   ├── App.tsx          # 根组件（98KB）
-│   ├── Box.tsx          # 布局容器（Yoga flexbox）
-│   ├── Text.tsx         # 文本元素
-│   ├── ScrollBox.tsx    # 可滚动容器
-│   ├── Button.tsx       # 交互按钮
-│   ├── Link.tsx         # 超链接（OSC 8）
-│   ├── RawAnsi.tsx      # 原始 ANSI 输出
-│   ├── NoSelect.tsx     # 不可选择区域
-│   └── ErrorOverview.tsx # 错误展示
+├── components/          # Built-in components
+│   ├── App.tsx          # Root component (98KB)
+│   ├── Box.tsx          # Layout container (Yoga flexbox)
+│   ├── Text.tsx         # Text element
+│   ├── ScrollBox.tsx    # Scrollable container
+│   ├── Button.tsx       # Interactive button
+│   ├── Link.tsx         # Hyperlink (OSC 8)
+│   ├── RawAnsi.tsx      # Raw ANSI output
+│   ├── NoSelect.tsx     # Non-selectable area
+│   └── ErrorOverview.tsx # Error display
 │
-├── hooks/               # 自定义 Hooks
-│   ├── use-input.ts     # 键盘输入（支持方向键、修饰键）
-│   ├── use-stdin.ts     # stdin 原始流
-│   ├── use-app.ts       # 应用上下文
-│   ├── use-animation-frame.ts  # 动画帧
-│   ├── use-selection.ts # 文本选择
-│   ├── use-tab-status.ts # Tab 焦点状态
-│   └── use-terminal-viewport.ts # 视口尺寸
+├── hooks/               # Custom Hooks
+│   ├── use-input.ts     # Keyboard input (supports arrow keys, modifiers)
+│   ├── use-stdin.ts     # stdin raw stream
+│   ├── use-app.ts       # App context
+│   ├── use-animation-frame.ts  # Animation frame
+│   ├── use-selection.ts # Text selection
+│   ├── use-tab-status.ts # Tab focus status
+│   └── use-terminal-viewport.ts # Viewport size
 │
-├── layout/              # 布局引擎
-│   ├── yoga.ts          # Yoga 接口适配
-│   ├── engine.ts        # 布局计算引擎
-│   ├── node.ts          # 布局节点
-│   └── geometry.ts      # 几何计算
+├── layout/              # Layout engine
+│   ├── yoga.ts          # Yoga interface adapter
+│   ├── engine.ts        # Layout calculation engine
+│   ├── node.ts          # Layout node
+│   └── geometry.ts      # Geometry calculations
 │
-└── termio/              # 终端 I/O
-    ├── parser.ts        # 输入解析
-    ├── csi.ts           # CSI 控制序列
-    ├── dec.ts           # DEC 私有序列
-    ├── osc.ts           # OSC 操作系统命令
-    └── sgr.ts           # SGR 样式参数
+└── termio/              # Terminal I/O
+    ├── parser.ts        # Input parsing
+    ├── csi.ts           # CSI control sequences
+    ├── dec.ts           # DEC private sequences
+    ├── osc.ts           # OSC operating system commands
+    └── sgr.ts           # SGR style parameters
 </code></pre></div>
-<h3 id="yoga">Yoga 布局引擎<a class="headerlink" href="#yoga" title="Permanent link">&para;</a></h3>
-<p>使用 <code>src/native-ts/yoga-layout/</code> 的纯 TypeScript 实现（非 C++ 绑定），支持：
-- flex-direction（row/column/reverse）
+<h3 id="yoga-layout-engine">Yoga Layout Engine<a class="headerlink" href="#yoga-layout-engine" title="Permanent link">&para;</a></h3>
+<p>Uses pure TypeScript implementation from <code>src/native-ts/yoga-layout/</code> (not C++ bindings), supports:
+- flex-direction (row/column/reverse)
 - flex-grow / flex-shrink / flex-basis
 - align-items / justify-content
 - margin / padding / border / gap
-- position（relative/absolute）
-- display（flex/none/contents）
-- flex-wrap（wrap/wrap-reverse）
-- 自定义 measure 函数（文本节点宽度测量）</p>
-<h2 id="inkts-api">ink.ts — 公共 API<a class="headerlink" href="#inkts-api" title="Permanent link">&para;</a></h2>
+- position (relative/absolute)
+- display (flex/none/contents)
+- flex-wrap (wrap/wrap-reverse)
+- Custom measure function (text node width measurement)</p>
+<h2 id="inkts-public-api">ink.ts — Public API<a class="headerlink" href="#inkts-public-api" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">ReactNode</span><span class="p">,</span><span class="w"> </span><span class="nx">options?</span><span class="o">:</span><span class="w"> </span><span class="kt">RenderOptions</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">createRoot</span><span class="p">(</span><span class="nx">options?</span><span class="o">:</span><span class="w"> </span><span class="kt">RenderOptions</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Root</span><span class="o">&gt;</span>
 
-<span class="c1">// 主题感知组件（自动继承当前主题）</span>
+<span class="c1">// Theme-aware components (auto-inherit current theme)</span>
 <span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Box</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// ThemedBox</span>
 <span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Text</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// ThemedText</span>
 
-<span class="c1">// 基础组件</span>
+<span class="c1">// Base components</span>
 <span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BaseBox</span><span class="p">,</span><span class="w"> </span><span class="nx">Button</span><span class="p">,</span><span class="w"> </span><span class="nx">Link</span><span class="p">,</span><span class="w"> </span><span class="nx">Spacer</span><span class="p">,</span><span class="w"> </span><span class="nx">BaseText</span><span class="p">,</span><span class="w"> </span><span class="nx">Ansi</span><span class="p">,</span><span class="w"> </span><span class="nx">RawAnsi</span><span class="p">,</span><span class="w"> </span><span class="nx">NoSelect</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">// Hooks</span>
 <span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useInput</span><span class="p">,</span><span class="w"> </span><span class="nx">useStdin</span><span class="p">,</span><span class="w"> </span><span class="nx">useApp</span><span class="p">,</span><span class="w"> </span><span class="nx">useAnimation</span><span class="p">,</span><span class="w"> </span><span class="nx">useInterval</span><span class="p">,</span><span class="w"> </span><span class="nx">useSelection</span><span class="w"> </span><span class="p">}</span>
 <span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useTerminalViewport</span><span class="p">,</span><span class="w"> </span><span class="nx">useTerminalTitle</span><span class="p">,</span><span class="w"> </span><span class="nx">useTerminalFocus</span><span class="p">,</span><span class="w"> </span><span class="nx">useTabStatus</span><span class="w"> </span><span class="p">}</span>
 
-<span class="c1">// 事件</span>
+<span class="c1">// Events</span>
 <span class="k">export</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">InputEvent</span><span class="p">,</span><span class="w"> </span><span class="nx">Event</span><span class="p">,</span><span class="w"> </span><span class="nx">ClickEvent</span><span class="p">,</span><span class="w"> </span><span class="nx">FocusManager</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<p>所有渲染自动包裹 <code>ThemeProvider</code>。</p>
-<h2 id="react-srccomponents">React 组件层次 (<code>src/components/</code>)<a class="headerlink" href="#react-srccomponents" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>App.tsx                      # 顶层包装器（FPS、Stats、AppState）
-├── REPL.tsx (screens/)      # 主交互屏幕（895KB）
-│   ├── Messages.tsx         # 消息列表容器
-│   │   └── MessageRow.tsx   # 单条消息
-│   │       └── Message.tsx  # 消息内容渲染
+<p>All rendering automatically wraps with <code>ThemeProvider</code>.</p>
+<h2 id="react-component-hierarchy-srccomponents">React Component Hierarchy (<code>src/components/</code>)<a class="headerlink" href="#react-component-hierarchy-srccomponents" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>App.tsx                      # Top-level wrapper (FPS, Stats, AppState)
+├── REPL.tsx (screens/)      # Main interaction screen (895KB)
+│   ├── Messages.tsx         # Message list container
+│   │   └── MessageRow.tsx   # Single message
+│   │       └── Message.tsx  # Message content rendering
 │   │           ├── messages/UserTextMessage
 │   │           ├── messages/AssistantTextMessage
 │   │           ├── messages/AssistantThinkingMessage
 │   │           ├── messages/AssistantToolUseMessage
 │   │           ├── messages/SystemTextMessage
-│   │           └── ...（20+ 消息类型组件）
-│   ├── PromptInput/         # 输入框组件
-│   ├── Spinner.tsx          # 加载/思考指示器
-│   ├── StatusLine.tsx       # 底部状态栏
-│   └── StructuredDiff/      # 代码差异渲染
-├── Doctor.tsx (screens/)    # 健康检查屏幕
-└── ResumeConversation.tsx   # 会话恢复屏幕
+│   │           └── ...(20+ message type components)
+│   ├── PromptInput/         # Input box component
+│   ├── Spinner.tsx          # Loading/thinking indicator
+│   ├── StatusLine.tsx       # Bottom status bar
+│   └── StructuredDiff/      # Code diff rendering
+├── Doctor.tsx (screens/)    # Health check screen
+└── ResumeConversation.tsx   # Session recovery screen
 </code></pre></div>
-<h3 id="_3">关键组件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>组件</th>
-<th>大小</th>
-<th>功能</th>
+<th>Component</th>
+<th>Size</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>REPL.tsx</strong></td>
 <td>895KB</td>
-<td>主循环：输入处理、消息管理、工具调用、MCP、会话持久化</td>
+<td>Main loop: input handling, message management, tool invocation, MCP, session persistence</td>
 </tr>
 <tr>
 <td><strong>App.tsx</strong></td>
 <td>98KB</td>
-<td>Ink 根组件：状态提供、错误边界、全局事件</td>
+<td>Ink root component: state provision, error boundary, global events</td>
 </tr>
 <tr>
 <td><strong>Messages.tsx</strong></td>
 <td>147KB</td>
-<td>消息列表：虚拟滚动、消息分组、折叠</td>
+<td>Message list: virtual scrolling, message grouping, collapsing</td>
 </tr>
 <tr>
 <td><strong>Spinner.tsx</strong></td>
 <td>87KB</td>
-<td>进度指示：thinking、responding、tool use</td>
+<td>Progress indicator: thinking, responding, tool use</td>
 </tr>
 <tr>
 <td><strong>Message.tsx</strong></td>
 <td>34KB</td>
-<td>消息渲染分发：根据类型选择渲染组件</td>
+<td>Message rendering dispatch: select render component by type</td>
 </tr>
 <tr>
 <td><strong>StatusLine.tsx</strong></td>
 <td>49KB</td>
-<td>状态栏：模型、Token、成本、Vim 模式</td>
+<td>Status bar: model, tokens, cost, Vim mode</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_4">组件子目录<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="component-subdirectories">Component Subdirectories<a class="headerlink" href="#component-subdirectories" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>components/
-├── agents/              # Agent 相关 UI
-├── design-system/       # UI 设计系统
-├── diff/                # Diff 渲染
-├── mcp/                 # MCP 服务器管理 UI
-├── messages/            # 消息类型组件（20+）
-├── permissions/         # 权限对话框（17 个子目录）
-├── settings/            # 设置编辑 UI
-├── tasks/               # 任务列表 UI
-├── PromptInput/         # 输入框
-├── StructuredDiff/      # 结构化差异
-├── FeedbackSurvey/      # 反馈调查
-├── wizard/              # 向导流程
+├── agents/              # Agent-related UI
+├── design-system/       # UI design system
+├── diff/                # Diff rendering
+├── mcp/                 # MCP server management UI
+├── messages/            # Message type components (20+)
+├── permissions/         # Permission dialogs (17 subdirectories)
+├── settings/            # Settings editing UI
+├── tasks/               # Task list UI
+├── PromptInput/         # Input box
+├── StructuredDiff/      # Structured diff
+├── FeedbackSurvey/      # Feedback survey
+├── wizard/              # Wizard flow
 └── ...
 </code></pre></div>
-<h2 id="srcstate">状态管理 (<code>src/state/</code>)<a class="headerlink" href="#srcstate" title="Permanent link">&para;</a></h2>
-<p>使用 <strong>Zustand</strong> 状态存储 + <strong>React Context</strong>。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// AppState 核心字段</span>
+<h2 id="state-management-srcstate">State Management (<code>src/state/</code>)<a class="headerlink" href="#state-management-srcstate" title="Permanent link">&para;</a></h2>
+<p>Uses <strong>Zustand</strong> state store + <strong>React Context</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// AppState core fields</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">AppState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="kt">Message</span><span class="p">[]</span>
 <span class="w">  </span><span class="nx">toolPermissionContext</span><span class="o">:</span><span class="w"> </span><span class="kt">ToolPermissionContext</span>
@@ -2779,75 +2809,75 @@ ANSI 转义序列 → 终端输出
 <span class="w">  </span><span class="nx">effortValue</span><span class="o">:</span><span class="w"> </span><span class="kt">EffortValue</span>
 <span class="w">  </span><span class="nx">fastMode</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">thinkingEnabled</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
-<span class="w">  </span><span class="c1">// ... 更多字段</span>
+<span class="w">  </span><span class="c1">// ... more fields</span>
 <span class="p">}</span>
 </code></pre></div>
 <table>
 <thead>
 <tr>
-<th>文件</th>
-<th>功能</th>
+<th>File</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>AppState.tsx</code></td>
-<td>状态 Provider + useAppState hook</td>
+<td>State Provider + useAppState hook</td>
 </tr>
 <tr>
 <td><code>AppStateStore.ts</code></td>
-<td>Zustand store 定义 + 操作函数</td>
+<td>Zustand store definition + operation functions</td>
 </tr>
 <tr>
 <td><code>onChangeAppState.ts</code></td>
-<td>状态变更监听</td>
+<td>State change listener</td>
 </tr>
 <tr>
 <td><code>selectors.ts</code></td>
-<td>选择器函数</td>
+<td>Selector functions</td>
 </tr>
 </tbody>
 </table>
-<h2 id="srckeybindings">键盘快捷键 (<code>src/keybindings/</code>)<a class="headerlink" href="#srckeybindings" title="Permanent link">&para;</a></h2>
+<h2 id="keyboard-shortcuts-srckeybindings">Keyboard Shortcuts (<code>src/keybindings/</code>)<a class="headerlink" href="#keyboard-shortcuts-srckeybindings" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>文件</th>
-<th>功能</th>
+<th>File</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>defaultBindings.ts</code></td>
-<td>默认快捷键定义</td>
+<td>Default shortcut definitions</td>
 </tr>
 <tr>
 <td><code>loadUserBindings.ts</code></td>
-<td>用户自定义加载（<code>~/.claude/keybindings.json</code>）</td>
+<td>User custom loading (<code>~/.claude/keybindings.json</code>)</td>
 </tr>
 <tr>
 <td><code>KeybindingContext.tsx</code></td>
-<td>快捷键上下文 Provider</td>
+<td>Shortcut context Provider</td>
 </tr>
 <tr>
 <td><code>resolver.ts</code></td>
-<td>快捷键解析器</td>
+<td>Shortcut resolver</td>
 </tr>
 <tr>
 <td><code>parser.ts</code></td>
-<td>按键序列解析</td>
+<td>Key sequence parsing</td>
 </tr>
 <tr>
 <td><code>match.ts</code></td>
-<td>匹配算法</td>
+<td>Matching algorithm</td>
 </tr>
 <tr>
 <td><code>validate.ts</code></td>
-<td>配置验证</td>
+<td>Configuration validation</td>
 </tr>
 </tbody>
 </table>
-<p>支持 chord 快捷键（如 <code>Ctrl+K Ctrl+S</code>）和上下文绑定（不同场景不同快捷键）。</p>
+<p>Supports chord shortcuts (e.g., <code>Ctrl+K Ctrl+S</code>) and context bindings (different shortcuts in different scenarios).</p>
 
 
 

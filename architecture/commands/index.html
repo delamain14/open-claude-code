@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/commands/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#command-system" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/commands/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2087,10 +2117,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#command-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        命令类型
+        Command Types
       
     </span>
   </a>
@@ -2098,10 +2128,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#command-loading-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        命令加载流程
+        Command Loading Flow
       
     </span>
   </a>
@@ -2109,22 +2139,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#command-categories" class="md-nav__link">
     <span class="md-ellipsis">
       
-        命令分类
+        Command Categories
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="命令分类">
+    <nav class="md-nav" aria-label="Command Categories">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#session-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        会话管理
+        Session Management
       
     </span>
   </a>
@@ -2132,10 +2162,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#development-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        开发工具
+        Development Tools
       
     </span>
   </a>
@@ -2143,10 +2173,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#configuration-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置与设置
+        Configuration &amp; Settings
       
     </span>
   </a>
@@ -2154,10 +2184,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#extension-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        扩展管理
+        Extension Management
       
     </span>
   </a>
@@ -2165,10 +2195,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#planning-tasks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        计划与任务
+        Planning &amp; Tasks
       
     </span>
   </a>
@@ -2176,10 +2206,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        认证
+        Authentication
       
     </span>
   </a>
@@ -2187,10 +2217,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#information" class="md-nav__link">
     <span class="md-ellipsis">
       
-        信息
+        Information
       
     </span>
   </a>
@@ -2198,10 +2228,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       
-        其他
+        Other
       
     </span>
   </a>
@@ -2209,10 +2239,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#anthropic" class="md-nav__link">
+  <a href="#internal-commands-anthropic-employees-only" class="md-nav__link">
     <span class="md-ellipsis">
       
-        内部命令（仅 Anthropic 员工）
+        Internal Commands (Anthropic employees only)
       
     </span>
   </a>
@@ -2220,10 +2250,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#feature-gated" class="md-nav__link">
+  <a href="#feature-gated-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature-Gated 命令
+        Feature-Gated Commands
       
     </span>
   </a>
@@ -2236,15 +2266,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#special-command-collections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        特殊命令集合
+        Special Command Collections
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="特殊命令集合">
+    <nav class="md-nav" aria-label="Special Command Collections">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2518,10 +2548,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#command-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        命令类型
+        Command Types
       
     </span>
   </a>
@@ -2529,10 +2559,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#command-loading-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        命令加载流程
+        Command Loading Flow
       
     </span>
   </a>
@@ -2540,22 +2570,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#command-categories" class="md-nav__link">
     <span class="md-ellipsis">
       
-        命令分类
+        Command Categories
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="命令分类">
+    <nav class="md-nav" aria-label="Command Categories">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#session-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        会话管理
+        Session Management
       
     </span>
   </a>
@@ -2563,10 +2593,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#development-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        开发工具
+        Development Tools
       
     </span>
   </a>
@@ -2574,10 +2604,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#configuration-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置与设置
+        Configuration &amp; Settings
       
     </span>
   </a>
@@ -2585,10 +2615,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#extension-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        扩展管理
+        Extension Management
       
     </span>
   </a>
@@ -2596,10 +2626,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#planning-tasks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        计划与任务
+        Planning &amp; Tasks
       
     </span>
   </a>
@@ -2607,10 +2637,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        认证
+        Authentication
       
     </span>
   </a>
@@ -2618,10 +2648,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#information" class="md-nav__link">
     <span class="md-ellipsis">
       
-        信息
+        Information
       
     </span>
   </a>
@@ -2629,10 +2659,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
       
-        其他
+        Other
       
     </span>
   </a>
@@ -2640,10 +2670,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#anthropic" class="md-nav__link">
+  <a href="#internal-commands-anthropic-employees-only" class="md-nav__link">
     <span class="md-ellipsis">
       
-        内部命令（仅 Anthropic 员工）
+        Internal Commands (Anthropic employees only)
       
     </span>
   </a>
@@ -2651,10 +2681,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#feature-gated" class="md-nav__link">
+  <a href="#feature-gated-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature-Gated 命令
+        Feature-Gated Commands
       
     </span>
   </a>
@@ -2667,15 +2697,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#special-command-collections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        特殊命令集合
+        Special Command Collections
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="特殊命令集合">
+    <nav class="md-nav" aria-label="Special Command Collections">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2730,11 +2760,11 @@
   
 
 
-<h1 id="_1">命令系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">命令类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="command-system">Command System<a class="headerlink" href="#command-system" title="Permanent link">&para;</a></h1>
+<h2 id="command-types">Command Types<a class="headerlink" href="#command-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">Command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">CommandBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">PromptCommand</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">LocalCommand</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">LocalJSXCommand</span><span class="p">)</span>
 
-<span class="c1">// 提示型：生成提示文本交给模型处理</span>
+<span class="c1">// Prompt: Generate prompt text for model processing</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">PromptCommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;prompt&#39;</span>
 <span class="w">  </span><span class="nx">getPromptForCommand</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ContentBlockParam</span><span class="p">[]</span><span class="o">&gt;</span>
@@ -2743,400 +2773,400 @@
 <span class="w">  </span><span class="nx">allowedTools?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span>
 <span class="p">}</span>
 
-<span class="c1">// 本地命令：直接执行并返回文本结果</span>
+<span class="c1">// Local command: Execute directly and return text result</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">LocalCommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;local&#39;</span>
 <span class="w">  </span><span class="nx">supportsNonInteractive</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">load</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="p">{</span><span class="w"> </span><span class="nx">call</span><span class="o">:</span><span class="w"> </span><span class="kt">LocalCommandCall</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span>
 <span class="p">}</span>
 
-<span class="c1">// 本地 JSX 命令：渲染 React 组件</span>
+<span class="c1">// Local JSX command: Render React component</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">LocalJSXCommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;local-jsx&#39;</span>
 <span class="w">  </span><span class="nx">load</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="p">{</span><span class="w"> </span><span class="nx">call</span><span class="o">:</span><span class="w"> </span><span class="kt">LocalJSXCommandCall</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_3">命令加载流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="command-loading-flow">Command Loading Flow<a class="headerlink" href="#command-loading-flow" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>getCommands(cwd)
   ↓
 loadAllCommands(cwd)  [memoized]
-  ├─ getBundledSkills()          # 内置技能
-  ├─ getBuiltinPluginSkillCommands()  # 内置插件技能
-  ├─ getSkillDirCommands(cwd)    # 技能目录
-  ├─ getWorkflowCommands(cwd)    # 工作流命令
-  ├─ getPluginCommands()         # 插件命令
-  ├─ getPluginSkills()           # 插件技能
-  └─ COMMANDS()                  # 内置命令
+  ├─ getBundledSkills()          # Built-in skills
+  ├─ getBuiltinPluginSkillCommands()  # Built-in plugin skills
+  ├─ getSkillDirCommands(cwd)    # Skill directory
+  ├─ getWorkflowCommands(cwd)    # Workflow commands
+  ├─ getPluginCommands()         # Plugin commands
+  ├─ getPluginSkills()           # Plugin skills
+  └─ COMMANDS()                  # Built-in commands
   ↓
-过滤: meetsAvailabilityRequirement() + isCommandEnabled()
+Filter: meetsAvailabilityRequirement() + isCommandEnabled()
   ↓
-合并动态技能: getDynamicSkills()
+Merge dynamic skills: getDynamicSkills()
 </code></pre></div>
-<h2 id="_4">命令分类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">会话管理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h2 id="command-categories">Command Categories<a class="headerlink" href="#command-categories" title="Permanent link">&para;</a></h2>
+<h3 id="session-management">Session Management<a class="headerlink" href="#session-management" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/help</code></td>
 <td>local</td>
-<td>显示帮助信息</td>
+<td>Show help information</td>
 </tr>
 <tr>
 <td><code>/clear</code></td>
 <td>local</td>
-<td>清除屏幕</td>
+<td>Clear screen</td>
 </tr>
 <tr>
 <td><code>/compact</code></td>
 <td>local</td>
-<td>手动压缩上下文</td>
+<td>Manually compact context</td>
 </tr>
 <tr>
 <td><code>/exit</code></td>
 <td>local</td>
-<td>退出 CLI</td>
+<td>Exit CLI</td>
 </tr>
 <tr>
 <td><code>/resume</code></td>
 <td>local-jsx</td>
-<td>恢复历史会话</td>
+<td>Resume history session</td>
 </tr>
 <tr>
 <td><code>/session</code></td>
 <td>local-jsx</td>
-<td>会话管理（QR码、URL）</td>
+<td>Session management (QR code, URL)</td>
 </tr>
 <tr>
 <td><code>/status</code></td>
 <td>local</td>
-<td>显示当前状态</td>
+<td>Show current status</td>
 </tr>
 <tr>
 <td><code>/cost</code></td>
 <td>local</td>
-<td>显示 API 成本</td>
+<td>Show API cost</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_6">开发工具<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="development-tools">Development Tools<a class="headerlink" href="#development-tools" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/commit</code></td>
 <td>prompt</td>
-<td>引导式 Git 提交</td>
+<td>Guided Git commit</td>
 </tr>
 <tr>
 <td><code>/diff</code></td>
 <td>local</td>
-<td>显示代码差异</td>
+<td>Show code differences</td>
 </tr>
 <tr>
 <td><code>/branch</code></td>
 <td>local-jsx</td>
-<td>分支管理</td>
+<td>Branch management</td>
 </tr>
 <tr>
 <td><code>/review</code></td>
 <td>prompt</td>
-<td>代码审查</td>
+<td>Code review</td>
 </tr>
 <tr>
 <td><code>/pr_comments</code></td>
 <td>prompt</td>
-<td>PR 评论处理</td>
+<td>PR comment handling</td>
 </tr>
 <tr>
 <td><code>/files</code></td>
 <td>local</td>
-<td>列出追踪的文件</td>
+<td>List tracked files</td>
 </tr>
 <tr>
 <td><code>/rewind</code></td>
 <td>local-jsx</td>
-<td>撤销更改</td>
+<td>Undo changes</td>
 </tr>
 <tr>
 <td><code>/init</code></td>
 <td>prompt</td>
-<td>初始化项目</td>
+<td>Initialize project</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_7">配置与设置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="configuration-settings">Configuration &amp; Settings<a class="headerlink" href="#configuration-settings" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/config</code></td>
 <td>local-jsx</td>
-<td>编辑设置</td>
+<td>Edit settings</td>
 </tr>
 <tr>
 <td><code>/model</code></td>
 <td>local-jsx</td>
-<td>选择模型</td>
+<td>Select model</td>
 </tr>
 <tr>
 <td><code>/theme</code></td>
 <td>local-jsx</td>
-<td>选择主题</td>
+<td>Select theme</td>
 </tr>
 <tr>
 <td><code>/color</code></td>
 <td>local-jsx</td>
-<td>选择 agent 颜色</td>
+<td>Select agent color</td>
 </tr>
 <tr>
 <td><code>/keybindings</code></td>
 <td>local-jsx</td>
-<td>键盘快捷键</td>
+<td>Keyboard shortcuts</td>
 </tr>
 <tr>
 <td><code>/permissions</code></td>
 <td>local-jsx</td>
-<td>权限管理</td>
+<td>Permission management</td>
 </tr>
 <tr>
 <td><code>/vim</code></td>
 <td>local</td>
-<td>切换 Vim 模式</td>
+<td>Toggle Vim mode</td>
 </tr>
 <tr>
 <td><code>/effort</code></td>
 <td>local</td>
-<td>调整努力级别</td>
+<td>Adjust effort level</td>
 </tr>
 <tr>
 <td><code>/output-style</code></td>
 <td>local-jsx</td>
-<td>输出样式</td>
+<td>Output style</td>
 </tr>
 <tr>
 <td><code>/statusline</code></td>
 <td>local</td>
-<td>状态栏开关</td>
+<td>Status line toggle</td>
 </tr>
 <tr>
 <td><code>/fast</code></td>
 <td>local</td>
-<td>快速模式开关</td>
+<td>Fast mode toggle</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_8">扩展管理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="extension-management">Extension Management<a class="headerlink" href="#extension-management" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/mcp</code></td>
 <td>local-jsx</td>
-<td>MCP 服务器管理</td>
+<td>MCP server management</td>
 </tr>
 <tr>
 <td><code>/plugin</code></td>
 <td>local-jsx</td>
-<td>插件管理</td>
+<td>Plugin management</td>
 </tr>
 <tr>
 <td><code>/skills</code></td>
 <td>local-jsx</td>
-<td>技能浏览</td>
+<td>Browse skills</td>
 </tr>
 <tr>
 <td><code>/reload-plugins</code></td>
 <td>local</td>
-<td>重新加载插件</td>
+<td>Reload plugins</td>
 </tr>
 <tr>
 <td><code>/agents</code></td>
 <td>local</td>
-<td>列出 agent</td>
+<td>List agents</td>
 </tr>
 <tr>
 <td><code>/hooks</code></td>
 <td>local-jsx</td>
-<td>钩子管理</td>
+<td>Hook management</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_9">计划与任务<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="planning-tasks">Planning &amp; Tasks<a class="headerlink" href="#planning-tasks" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/plan</code></td>
 <td>local</td>
-<td>计划模式开关</td>
+<td>Plan mode toggle</td>
 </tr>
 <tr>
 <td><code>/tasks</code></td>
 <td>local-jsx</td>
-<td>任务列表管理</td>
+<td>Task list management</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_10">认证<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/login</code></td>
 <td>local-jsx</td>
-<td>OAuth/API Key 登录</td>
+<td>OAuth/API Key login</td>
 </tr>
 <tr>
 <td><code>/logout</code></td>
 <td>local</td>
-<td>注销</td>
+<td>Logout</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_11">信息<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="information">Information<a class="headerlink" href="#information" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/usage</code></td>
 <td>local</td>
-<td>Token 使用统计</td>
+<td>Token usage statistics</td>
 </tr>
 <tr>
 <td><code>/doctor</code></td>
 <td>local-jsx</td>
-<td>健康检查</td>
+<td>Health check</td>
 </tr>
 <tr>
 <td><code>/upgrade</code></td>
 <td>local</td>
-<td>检查更新</td>
+<td>Check for updates</td>
 </tr>
 <tr>
 <td><code>/release-notes</code></td>
 <td>local</td>
-<td>显示更新日志</td>
+<td>Show release notes</td>
 </tr>
 <tr>
 <td><code>/feedback</code></td>
 <td>prompt</td>
-<td>发送反馈</td>
+<td>Send feedback</td>
 </tr>
 <tr>
 <td><code>/copy</code></td>
 <td>local</td>
-<td>复制上一条消息</td>
+<td>Copy last message</td>
 </tr>
 <tr>
 <td><code>/stats</code></td>
 <td>local-jsx</td>
-<td>会话统计图表</td>
+<td>Session statistics chart</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_12">其他<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>类型</th>
-<th>功能</th>
+<th>Command</th>
+<th>Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/memory</code></td>
 <td>prompt</td>
-<td>管理记忆</td>
+<td>Manage memory</td>
 </tr>
 <tr>
 <td><code>/context</code></td>
 <td>local-jsx</td>
-<td>上下文管理</td>
+<td>Context management</td>
 </tr>
 <tr>
 <td><code>/add-dir</code></td>
 <td>local</td>
-<td>添加工作目录</td>
+<td>Add working directory</td>
 </tr>
 <tr>
 <td><code>/desktop</code></td>
 <td>local</td>
-<td>桌面应用集成</td>
+<td>Desktop app integration</td>
 </tr>
 <tr>
 <td><code>/mobile</code></td>
 <td>local-jsx</td>
-<td>移动端 QR 码</td>
+<td>Mobile QR code</td>
 </tr>
 <tr>
 <td><code>/ide</code></td>
 <td>local-jsx</td>
-<td>IDE 集成</td>
+<td>IDE integration</td>
 </tr>
 <tr>
 <td><code>/export</code></td>
 <td>local</td>
-<td>导出会话</td>
+<td>Export session</td>
 </tr>
 <tr>
 <td><code>/tag</code></td>
 <td>local</td>
-<td>会话标签</td>
+<td>Session tags</td>
 </tr>
 </tbody>
 </table>
-<h3 id="anthropic">内部命令（仅 Anthropic 员工）<a class="headerlink" href="#anthropic" title="Permanent link">&para;</a></h3>
+<h3 id="internal-commands-anthropic-employees-only">Internal Commands (Anthropic employees only)<a class="headerlink" href="#internal-commands-anthropic-employees-only" title="Permanent link">&para;</a></h3>
 <p><code>ant-trace</code>, <code>autofix-pr</code>, <code>backfill-sessions</code>, <code>break-cache</code>, <code>bughunter</code>, <code>ctx_viz</code>, <code>debug-tool-call</code>, <code>env</code>, <code>good-claude</code>, <code>issue</code>, <code>mock-limits</code>, <code>oauth-refresh</code>, <code>onboarding</code>, <code>perf-issue</code>, <code>reset-limits</code>, <code>share</code>, <code>summary</code>, <code>teleport</code></p>
-<p>在恢复版中这些命令返回"不可用"提示。</p>
-<h3 id="feature-gated">Feature-Gated 命令<a class="headerlink" href="#feature-gated" title="Permanent link">&para;</a></h3>
+<p>In the restored version, these commands return "unavailable" messages.</p>
+<h3 id="feature-gated-commands">Feature-Gated Commands<a class="headerlink" href="#feature-gated-commands" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>命令</th>
+<th>Command</th>
 <th>Feature Gate</th>
 </tr>
 </thead>
@@ -3195,11 +3225,11 @@ loadAllCommands(cwd)  [memoized]
 </tr>
 </tbody>
 </table>
-<h2 id="_13">特殊命令集合<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h2 id="special-command-collections">Special Command Collections<a class="headerlink" href="#special-command-collections" title="Permanent link">&para;</a></h2>
 <h3 id="remote_safe_commands">REMOTE_SAFE_COMMANDS<a class="headerlink" href="#remote_safe_commands" title="Permanent link">&para;</a></h3>
-<p>远程模式（CCR）下安全的命令：<code>session</code>, <code>exit</code>, <code>clear</code>, <code>help</code>, <code>theme</code>, <code>color</code>, <code>vim</code>, <code>cost</code>, <code>usage</code>, <code>copy</code>, <code>btw</code>, <code>feedback</code>, <code>plan</code>, <code>keybindings</code>, <code>statusline</code>, <code>stickers</code>, <code>mobile</code></p>
+<p>Safe commands in remote mode (CCR): <code>session</code>, <code>exit</code>, <code>clear</code>, <code>help</code>, <code>theme</code>, <code>color</code>, <code>vim</code>, <code>cost</code>, <code>usage</code>, <code>copy</code>, <code>btw</code>, <code>feedback</code>, <code>plan</code>, <code>keybindings</code>, <code>statusline</code>, <code>stickers</code>, <code>mobile</code></p>
 <h3 id="bridge_safe_commands">BRIDGE_SAFE_COMMANDS<a class="headerlink" href="#bridge_safe_commands" title="Permanent link">&para;</a></h3>
-<p>移动/网络客户端可执行的命令：<code>compact</code>, <code>clear</code>, <code>cost</code>, <code>summary</code>, <code>release-notes</code>, <code>files</code></p>
+<p>Commands executable from mobile/web clients: <code>compact</code>, <code>clear</code>, <code>cost</code>, <code>summary</code>, <code>release-notes</code>, <code>files</code></p>
 
 
 

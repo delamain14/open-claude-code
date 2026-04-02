@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/entrypoints/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#entry-points-and-startup-process" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/entrypoints/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -907,10 +937,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#file-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件结构
+        File Structure
       
     </span>
   </a>
@@ -918,22 +948,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clitsx-cli" class="md-nav__link">
+  <a href="#clitsx-cli-main-entry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        cli.tsx — CLI 主入口
+        cli.tsx — CLI Main Entry
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="cli.tsx — CLI 主入口">
+    <nav class="md-nav" aria-label="cli.tsx — CLI Main Entry">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#fast-paths-zerominimal-imports" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速路径（零/最小导入）
+        Fast Paths (Zero/Minimal Imports)
       
     </span>
   </a>
@@ -941,10 +971,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#default-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        默认路径
+        Default Path
       
     </span>
   </a>
@@ -957,22 +987,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#initts" class="md-nav__link">
+  <a href="#initts-application-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        init.ts — 应用初始化
+        init.ts — Application Initialization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="init.ts — 应用初始化">
+    <nav class="md-nav" aria-label="init.ts — Application Initialization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#initialization-sequence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        初始化顺序
+        Initialization Sequence
       
     </span>
   </a>
@@ -996,22 +1026,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcpts-mcp" class="md-nav__link">
+  <a href="#mcpts-mcp-server-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        mcp.ts — MCP 服务器模式
+        mcp.ts — MCP Server Mode
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="mcp.ts — MCP 服务器模式">
+    <nav class="md-nav" aria-label="mcp.ts — MCP Server Mode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#handlers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        处理器
+        Handlers
       
     </span>
   </a>
@@ -1019,10 +1049,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#schema" class="md-nav__link">
+  <a href="#tool-schema-conversion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工具 Schema 转换
+        Tool Schema Conversion
       
     </span>
   </a>
@@ -1035,22 +1065,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maintsx-4694" class="md-nav__link">
+  <a href="#maintsx-main-application-4694-lines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        main.tsx — 主应用（4694 行）
+        main.tsx — Main Application (4694 lines)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="main.tsx — 主应用（4694 行）">
+    <nav class="md-nav" aria-label="main.tsx — Main Application (4694 lines)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#main-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        主要函数
+        Main Functions
       
     </span>
   </a>
@@ -1058,10 +1088,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#interactive-mode-core-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        交互模式核心路径
+        Interactive Mode Core Path
       
     </span>
   </a>
@@ -1074,22 +1104,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setupts" class="md-nav__link">
+  <a href="#setupts-session-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setup.ts — 会话初始化
+        setup.ts — Session Initialization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="setup.ts — 会话初始化">
+    <nav class="md-nav" aria-label="setup.ts — Session Initialization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#processing-order" class="md-nav__link">
     <span class="md-ellipsis">
       
-        处理顺序
+        Processing Order
       
     </span>
   </a>
@@ -1102,10 +1132,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#repllaunchertsx-repl" class="md-nav__link">
+  <a href="#repllaunchertsx-repl-launcher" class="md-nav__link">
     <span class="md-ellipsis">
       
-        replLauncher.tsx — REPL 启动器
+        replLauncher.tsx — REPL Launcher
       
     </span>
   </a>
@@ -2536,10 +2566,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#file-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件结构
+        File Structure
       
     </span>
   </a>
@@ -2547,22 +2577,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clitsx-cli" class="md-nav__link">
+  <a href="#clitsx-cli-main-entry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        cli.tsx — CLI 主入口
+        cli.tsx — CLI Main Entry
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="cli.tsx — CLI 主入口">
+    <nav class="md-nav" aria-label="cli.tsx — CLI Main Entry">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#fast-paths-zerominimal-imports" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速路径（零/最小导入）
+        Fast Paths (Zero/Minimal Imports)
       
     </span>
   </a>
@@ -2570,10 +2600,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#default-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        默认路径
+        Default Path
       
     </span>
   </a>
@@ -2586,22 +2616,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#initts" class="md-nav__link">
+  <a href="#initts-application-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        init.ts — 应用初始化
+        init.ts — Application Initialization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="init.ts — 应用初始化">
+    <nav class="md-nav" aria-label="init.ts — Application Initialization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#initialization-sequence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        初始化顺序
+        Initialization Sequence
       
     </span>
   </a>
@@ -2625,22 +2655,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcpts-mcp" class="md-nav__link">
+  <a href="#mcpts-mcp-server-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        mcp.ts — MCP 服务器模式
+        mcp.ts — MCP Server Mode
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="mcp.ts — MCP 服务器模式">
+    <nav class="md-nav" aria-label="mcp.ts — MCP Server Mode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#handlers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        处理器
+        Handlers
       
     </span>
   </a>
@@ -2648,10 +2678,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#schema" class="md-nav__link">
+  <a href="#tool-schema-conversion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工具 Schema 转换
+        Tool Schema Conversion
       
     </span>
   </a>
@@ -2664,22 +2694,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maintsx-4694" class="md-nav__link">
+  <a href="#maintsx-main-application-4694-lines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        main.tsx — 主应用（4694 行）
+        main.tsx — Main Application (4694 lines)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="main.tsx — 主应用（4694 行）">
+    <nav class="md-nav" aria-label="main.tsx — Main Application (4694 lines)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#main-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        主要函数
+        Main Functions
       
     </span>
   </a>
@@ -2687,10 +2717,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#interactive-mode-core-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        交互模式核心路径
+        Interactive Mode Core Path
       
     </span>
   </a>
@@ -2703,22 +2733,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setupts" class="md-nav__link">
+  <a href="#setupts-session-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setup.ts — 会话初始化
+        setup.ts — Session Initialization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="setup.ts — 会话初始化">
+    <nav class="md-nav" aria-label="setup.ts — Session Initialization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#processing-order" class="md-nav__link">
     <span class="md-ellipsis">
       
-        处理顺序
+        Processing Order
       
     </span>
   </a>
@@ -2731,10 +2761,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#repllaunchertsx-repl" class="md-nav__link">
+  <a href="#repllaunchertsx-repl-launcher" class="md-nav__link">
     <span class="md-ellipsis">
       
-        replLauncher.tsx — REPL 启动器
+        replLauncher.tsx — REPL Launcher
       
     </span>
   </a>
@@ -2766,15 +2796,15 @@
   
 
 
-<h1 id="_1">入口点与启动流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">文件结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="entry-points-and-startup-process">Entry Points and Startup Process<a class="headerlink" href="#entry-points-and-startup-process" title="Permanent link">&para;</a></h1>
+<h2 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>src/entrypoints/
-├── cli.tsx          # CLI 主入口（被 bun 直接执行）
-├── init.ts          # 应用初始化（配置、网络、代理）
-├── mcp.ts           # MCP 服务器模式入口
-├── agentSdkTypes.ts # Agent SDK 类型定义
-├── sandboxTypes.ts  # 沙箱类型定义
-└── sdk/             # SDK 相关类型
+├── cli.tsx          # CLI main entry (directly executed by bun)
+├── init.ts          # Application initialization (config, network, proxy)
+├── mcp.ts           # MCP server mode entry
+├── agentSdkTypes.ts # Agent SDK type definitions
+├── sandboxTypes.ts  # Sandbox type definitions
+└── sdk/             # SDK-related types
     ├── controlTypes.ts
     ├── coreSchemas.ts
     ├── coreTypes.generated.ts
@@ -2783,214 +2813,214 @@
     ├── settingsTypes.generated.ts
     └── toolTypes.ts
 </code></pre></div>
-<h2 id="clitsx-cli">cli.tsx — CLI 主入口<a class="headerlink" href="#clitsx-cli" title="Permanent link">&para;</a></h2>
-<p>被 <code>bun src/entrypoints/cli.tsx</code> 直接执行的文件。设计为最小化初始加载——大部分功能通过动态 <code>import()</code> 按需加载。</p>
-<h3 id="_3">快速路径（零/最小导入）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h2 id="clitsx-cli-main-entry">cli.tsx — CLI Main Entry<a class="headerlink" href="#clitsx-cli-main-entry" title="Permanent link">&para;</a></h2>
+<p>File directly executed by <code>bun src/entrypoints/cli.tsx</code>. Designed to minimize initial load — most functionality loaded on-demand via dynamic <code>import()</code>.</p>
+<h3 id="fast-paths-zerominimal-imports">Fast Paths (Zero/Minimal Imports)<a class="headerlink" href="#fast-paths-zerominimal-imports" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>路径</th>
-<th>条件</th>
-<th>行为</th>
+<th>Path</th>
+<th>Condition</th>
+<th>Behavior</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>--version</code></td>
-<td>参数匹配</td>
-<td>输出 <code>MACRO.VERSION</code>，无任何 import</td>
+<td>Parameter match</td>
+<td>Output <code>MACRO.VERSION</code>, no imports</td>
 </tr>
 <tr>
 <td><code>--dump-system-prompt</code></td>
 <td>feature gate</td>
-<td>输出系统提示文本</td>
+<td>Output system prompt text</td>
 </tr>
 <tr>
 <td><code>--claude-in-chrome-mcp</code></td>
-<td>参数匹配</td>
-<td>启动 Chrome MCP 服务器</td>
+<td>Parameter match</td>
+<td>Start Chrome MCP server</td>
 </tr>
 <tr>
 <td><code>remote-control</code></td>
 <td>feature(BRIDGE_MODE)</td>
-<td>启动 Bridge 模式</td>
+<td>Start Bridge mode</td>
 </tr>
 <tr>
 <td><code>daemon</code></td>
 <td>feature(DAEMON)</td>
-<td>启动守护进程</td>
+<td>Start daemon process</td>
 </tr>
 <tr>
 <td><code>ps/logs/attach/kill</code></td>
 <td>feature(BG_SESSIONS)</td>
-<td>后台会话管理</td>
+<td>Background session management</td>
 </tr>
 <tr>
 <td><code>--tmux --worktree</code></td>
-<td>参数匹配</td>
-<td>exec 进入 tmux 工作树</td>
+<td>Parameter match</td>
+<td>exec into tmux worktree</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_4">默认路径<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="default-path">Default Path<a class="headerlink" href="#default-path" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// 1. 环境变量预设（COREPACK、CCR heap size、ablation）</span>
-<span class="w">  </span><span class="c1">// 2. 快速路径检测</span>
-<span class="w">  </span><span class="c1">// 3. 捕获早期输入 → startCapturingEarlyInput()</span>
-<span class="w">  </span><span class="c1">// 4. 动态导入 main.tsx → cliMain()</span>
+<span class="w">  </span><span class="c1">// 1. Environment variable presets (COREPACK, CCR heap size, ablation)</span>
+<span class="w">  </span><span class="c1">// 2. Fast path detection</span>
+<span class="w">  </span><span class="c1">// 3. Capture early input → startCapturingEarlyInput()</span>
+<span class="w">  </span><span class="c1">// 4. Dynamic import main.tsx → cliMain()</span>
 <span class="p">}</span>
 
-<span class="ow">void</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w">  </span><span class="c1">// 顶层执行</span>
+<span class="ow">void</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w">  </span><span class="c1">// Top-level execution</span>
 </code></pre></div>
-<h2 id="initts">init.ts — 应用初始化<a class="headerlink" href="#initts" title="Permanent link">&para;</a></h2>
-<p>由 <code>main.tsx</code> 的 <code>preAction</code> 钩子调用，执行一次性初始化（memoized）。</p>
-<h3 id="_5">初始化顺序<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>enableConfigs()                    # 配置系统启用
+<h2 id="initts-application-initialization">init.ts — Application Initialization<a class="headerlink" href="#initts-application-initialization" title="Permanent link">&para;</a></h2>
+<p>Called by <code>main.tsx</code>'s <code>preAction</code> hook, performs one-time initialization (memoized).</p>
+<h3 id="initialization-sequence">Initialization Sequence<a class="headerlink" href="#initialization-sequence" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>enableConfigs()                    # Enable config system
   ↓
-applySafeConfigEnvironmentVariables()  # 安全环境变量
+applySafeConfigEnvironmentVariables()  # Safe environment variables
   ↓
-applyExtraCACertsFromConfig()      # TLS CA 证书
+applyExtraCACertsFromConfig()      # TLS CA certificates
   ↓
-setupGracefulShutdown()            # 优雅关闭注册
+setupGracefulShutdown()            # Graceful shutdown registration
   ↓
-initialize1PEventLogging()         # 第一方事件日志（异步）
+initialize1PEventLogging()         # First-party event logging (async)
   ↓
-populateOAuthAccountInfoIfNeeded() # OAuth 信息填充（异步）
+populateOAuthAccountInfoIfNeeded() # OAuth info population (async)
   ↓
-initJetBrainsDetection()           # JetBrains IDE 检测（异步）
+initJetBrainsDetection()           # JetBrains IDE detection (async)
   ↓
-detectCurrentRepository()          # Git 仓库检测（异步）
+detectCurrentRepository()          # Git repository detection (async)
   ↓
-initializeRemoteManagedSettingsLoadingPromise()  # 远程设置
+initializeRemoteManagedSettingsLoadingPromise()  # Remote settings
   ↓
-initializePolicyLimitsLoadingPromise()           # 策略限制
+initializePolicyLimitsLoadingPromise()           # Policy limits
   ↓
-recordFirstStartTime()             # 首次启动时间
+recordFirstStartTime()             # First start time
   ↓
-configureGlobalMTLS()              # mTLS 配置
+configureGlobalMTLS()              # mTLS configuration
   ↓
-configureGlobalAgents()            # HTTP 代理配置
+configureGlobalAgents()            # HTTP proxy configuration
   ↓
-preconnectAnthropicApi()           # API TCP+TLS 预连接（异步）
+preconnectAnthropicApi()           # API TCP+TLS pre-connect (async)
   ↓
-setShellIfWindows()                # Windows shell 设置
+setShellIfWindows()                # Windows shell setup
   ↓
-registerCleanup(...)               # 清理函数注册（LSP、团队）
+registerCleanup(...)               # Cleanup function registration (LSP, teams)
   ↓
-ensureScratchpadDir()              # 沙箱目录（如启用）
+ensureScratchpadDir()              # Sandbox directory (if enabled)
 </code></pre></div>
 <h3 id="initializetelemetryaftertrust">initializeTelemetryAfterTrust()<a class="headerlink" href="#initializetelemetryaftertrust" title="Permanent link">&para;</a></h3>
-<p>信任建立后调用，初始化 OpenTelemetry 遥测：
-- 远程设置用户：等待设置加载 → 重新应用环境变量 → 初始化
-- 非远程设置用户：直接初始化</p>
-<h2 id="mcpts-mcp">mcp.ts — MCP 服务器模式<a class="headerlink" href="#mcpts-mcp" title="Permanent link">&para;</a></h2>
-<p>将 Claude Code 作为 MCP 服务器运行，向外部 MCP 客户端暴露工具。</p>
+<p>Called after trust is established, initializes OpenTelemetry telemetry:
+- Remote settings users: Wait for settings load → Reapply env vars → Initialize
+- Non-remote settings users: Initialize directly</p>
+<h2 id="mcpts-mcp-server-mode">mcp.ts — MCP Server Mode<a class="headerlink" href="#mcpts-mcp-server-mode" title="Permanent link">&para;</a></h2>
+<p>Runs Claude Code as an MCP server, exposing tools to external MCP clients.</p>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">startMCPServer</span><span class="p">(</span><span class="nx">cwd</span><span class="p">,</span><span class="w"> </span><span class="nx">debug</span><span class="p">,</span><span class="w"> </span><span class="nx">verbose</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span>
 </code></pre></div>
-<h3 id="_6">处理器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="handlers">Handlers<a class="headerlink" href="#handlers" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>请求类型</th>
-<th>行为</th>
+<th>Request Type</th>
+<th>Behavior</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>ListToolsRequest</code></td>
-<td>返回所有工具的名称、描述、JSON Schema</td>
+<td>Return all tool names, descriptions, JSON Schema</td>
 </tr>
 <tr>
 <td><code>CallToolRequest</code></td>
-<td>验证工具 → 验证输入 → 执行 → 返回结果</td>
+<td>Validate tool → Validate input → Execute → Return result</td>
 </tr>
 </tbody>
 </table>
-<h3 id="schema">工具 Schema 转换<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Zod Schema → zodToJsonSchema() → 过滤不兼容字段 → MCP Tool Schema
+<h3 id="tool-schema-conversion">Tool Schema Conversion<a class="headerlink" href="#tool-schema-conversion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Zod Schema → zodToJsonSchema() → Filter incompatible fields → MCP Tool Schema
 </code></pre></div>
-<h2 id="maintsx-4694">main.tsx — 主应用（4694 行）<a class="headerlink" href="#maintsx-4694" title="Permanent link">&para;</a></h2>
-<p>应用的核心编排器，包含命令行配置、会话管理、REPL 启动。</p>
-<h3 id="_7">主要函数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h2 id="maintsx-main-application-4694-lines">main.tsx — Main Application (4694 lines)<a class="headerlink" href="#maintsx-main-application-4694-lines" title="Permanent link">&para;</a></h2>
+<p>Core application orchestrator, includes CLI configuration, session management, REPL launch.</p>
+<h3 id="main-functions">Main Functions<a class="headerlink" href="#main-functions" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>函数</th>
-<th>用途</th>
+<th>Function</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>main()</code></td>
-<td>应用入口，处理 URL schema、SSH、子命令</td>
+<td>Application entry, handles URL schema, SSH, subcommands</td>
 </tr>
 <tr>
 <td><code>run()</code></td>
-<td>创建 Commander 程序，注册 100+ 选项</td>
+<td>Create Commander program, register 100+ options</td>
 </tr>
 <tr>
 <td><code>getInputPrompt()</code></td>
-<td>解析 stdin 输入（text / stream-json）</td>
+<td>Parse stdin input (text / stream-json)</td>
 </tr>
 <tr>
 <td><code>startDeferredPrefetches()</code></td>
-<td>启动延迟预取（技能索引、MCP、模型成本）</td>
+<td>Start deferred prefetches (skill index, MCP, model cost)</td>
 </tr>
 <tr>
 <td><code>logSessionTelemetry()</code></td>
-<td>记录会话遥测</td>
+<td>Record session telemetry</td>
 </tr>
 <tr>
 <td><code>runMigrations()</code></td>
-<td>执行模型字符串迁移</td>
+<td>Execute model string migrations</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_8">交互模式核心路径<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>run() 的 action handler
+<h3 id="interactive-mode-core-path">Interactive Mode Core Path<a class="headerlink" href="#interactive-mode-core-path" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>run()&#39;s action handler
   ↓
-setup() → 会话初始化
+setup() → Session initialization
   ↓
-加载命令 (commands.ts)
-加载工具 (tools.ts)
-加载 MCP 配置
+Load commands (commands.ts)
+Load tools (tools.ts)
+Load MCP config
   ↓
-createRoot() → Ink 根实例
+createRoot() → Ink root instance
   ↓
 showSetupScreens()
-  ├─ trust 对话框
-  ├─ API key 确认
-  ├─ 权限模式确认
-  └─ 入职引导
+  ├─ trust dialog
+  ├─ API key confirmation
+  ├─ Permission mode confirmation
+  └─ Onboarding
   ↓
 validateForceLoginOrg()
   ↓
 initializeLspServerManager()
   ↓
-initializeVersionedPlugins()（异步）
+initializeVersionedPlugins() (async)
   ↓
-launchRepl() → 渲染 &lt;App&gt;&lt;REPL/&gt;&lt;/App&gt;
+launchRepl() → Render &lt;App&gt;&lt;REPL/&gt;&lt;/App&gt;
 </code></pre></div>
-<h2 id="setupts">setup.ts — 会话初始化<a class="headerlink" href="#setupts" title="Permanent link">&para;</a></h2>
+<h2 id="setupts-session-initialization">setup.ts — Session Initialization<a class="headerlink" href="#setupts-session-initialization" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">(</span>
 <span class="w">  </span><span class="nx">cwd</span><span class="p">,</span><span class="w"> </span><span class="nx">permissionMode</span><span class="p">,</span><span class="w"> </span><span class="nx">allowDangerouslySkipPermissions</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">worktreeEnabled</span><span class="p">,</span><span class="w"> </span><span class="nx">worktreeName</span><span class="p">,</span><span class="w"> </span><span class="nx">tmuxEnabled</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">customSessionId</span><span class="o">?</span><span class="p">,</span><span class="w"> </span><span class="nx">worktreePRNumber</span><span class="o">?</span><span class="p">,</span><span class="w"> </span><span class="nx">messagingSocketPath</span><span class="o">?</span><span class="p">,</span>
 <span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span>
 </code></pre></div>
-<h3 id="_9">处理顺序<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="processing-order">Processing Order<a class="headerlink" href="#processing-order" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Node.js 版本检查（≥ 18）</li>
-<li>自定义会话 ID 设置</li>
-<li>UDS 消息传递初始化（agent swarms）</li>
-<li>队友快照捕获</li>
-<li>终端备份恢复（iTerm2 / Terminal.app）</li>
-<li>Git 仓库初始化</li>
-<li>文件变更监视器</li>
-<li>钩子配置快照</li>
-<li>Worktree 创建 + tmux 会话</li>
+<li>Node.js version check (≥ 18)</li>
+<li>Custom session ID setup</li>
+<li>UDS messaging initialization (agent swarms)</li>
+<li>Teammate snapshot capture</li>
+<li>Terminal backup/restore (iTerm2 / Terminal.app)</li>
+<li>Git repository initialization</li>
+<li>File change watcher</li>
+<li>Hook configuration snapshot</li>
+<li>Worktree creation + tmux session</li>
 </ol>
-<h2 id="repllaunchertsx-repl">replLauncher.tsx — REPL 启动器<a class="headerlink" href="#repllaunchertsx-repl" title="Permanent link">&para;</a></h2>
+<h2 id="repllaunchertsx-repl-launcher">replLauncher.tsx — REPL Launcher<a class="headerlink" href="#repllaunchertsx-repl-launcher" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">launchRepl</span><span class="p">(</span>
 <span class="w">  </span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kt">Root</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">appProps</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getFpsMetrics</span><span class="p">,</span><span class="w"> </span><span class="nx">stats</span><span class="p">,</span><span class="w"> </span><span class="nx">initialState</span><span class="w"> </span><span class="p">},</span>
@@ -3002,7 +3032,7 @@ launchRepl() → 渲染 &lt;App&gt;&lt;REPL/&gt;&lt;/App&gt;
 <span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">renderAndRun</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="p">{...</span><span class="nx">appProps</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="nx">REPL</span><span class="w"> </span><span class="p">{...</span><span class="nx">replProps</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;&lt;</span><span class="err">/App&gt;)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>动态导入 App 和 REPL 以减少初始加载时间。<code>renderAndRun</code> 由 <code>interactiveHelpers.tsx</code> 提供，渲染 UI 并等待用户退出。</p>
+<p>Dynamically imports App and REPL to reduce initial load time. <code>renderAndRun</code> provided by <code>interactiveHelpers.tsx</code>, renders UI and waits for user exit.</p>
 
 
 

@@ -14,6 +14,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../zh/MULTI_PROVIDER/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -142,6 +146,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../zh/MULTI_PROVIDER/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2274,10 +2304,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#architecture-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        架构概览
+        Architecture Overview
       
     </span>
   </a>
@@ -2285,22 +2315,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#configuration-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置方式
+        Configuration Methods
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="配置方式">
+    <nav class="md-nav" aria-label="Configuration Methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#method-1-environment-variables-simplest" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式一：环境变量（最简单）
+        Method 1: Environment Variables (Simplest)
       
     </span>
   </a>
@@ -2308,10 +2338,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#login" class="md-nav__link">
+  <a href="#method-2-interactive-login-login" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式二：交互式登录 (/login)
+        Method 2: Interactive Login (/login)
       
     </span>
   </a>
@@ -2319,10 +2349,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#claudesettingsjson" class="md-nav__link">
+  <a href="#method-3-manual-edit-of-claudesettingsjson" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式三：手动编辑 ~/.claude/settings.json
+        Method 3: Manual Edit of ~/.claude/settings.json
       
     </span>
   </a>
@@ -2330,10 +2360,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#configuration-priority" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置优先级
+        Configuration Priority
       
     </span>
   </a>
@@ -2346,10 +2376,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#supported-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        支持的提供商
+        Supported Providers
       
     </span>
   </a>
@@ -2357,10 +2387,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#feature-support-matrix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        功能支持矩阵
+        Feature Support Matrix
       
     </span>
   </a>
@@ -2368,22 +2398,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#tool-calling-implementation-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工具调用实现细节
+        Tool Calling Implementation Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="工具调用实现细节">
+    <nav class="md-nav" aria-label="Tool Calling Implementation Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anthropic-openai" class="md-nav__link">
+  <a href="#request-direction-anthropic-openai" class="md-nav__link">
     <span class="md-ellipsis">
       
-        请求方向（Anthropic → OpenAI）
+        Request Direction (Anthropic → OpenAI)
       
     </span>
   </a>
@@ -2391,10 +2421,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#openai-anthropic" class="md-nav__link">
+  <a href="#response-direction-openai-anthropic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        响应方向（OpenAI → Anthropic）
+        Response Direction (OpenAI → Anthropic)
       
     </span>
   </a>
@@ -2407,10 +2437,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#key-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键文件
+        Key Files
       
     </span>
   </a>
@@ -2443,8 +2473,8 @@
 
 
 <h1 id="multi-provider-llm-support">Multi-Provider LLM Support<a class="headerlink" href="#multi-provider-llm-support" title="Permanent link">&para;</a></h1>
-<p>Open Claude Code 支持多种 LLM 提供商，不仅限于 Anthropic Claude，还包括 OpenAI、DeepSeek、Qwen、Kimi、GLM、MiniMax 等 OpenAI 兼容的提供商。</p>
-<h2 id="_1">架构概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Open Claude Code supports multiple LLM providers, not limited to Anthropic Claude, but also including OpenAI, DeepSeek, Qwen, Kimi, GLM, MiniMax, and other OpenAI-compatible providers.</p>
+<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>                         ┌─────────────────────────────────────┐
                          │         Agent Loop (query.ts)        │
                          │   tool_use / tool_result (Anthropic) │
@@ -2456,11 +2486,11 @@
                             │                               │
               ┌─────────────▼──────────┐     ┌──────────────▼──────────┐
               │   Anthropic API Path   │     │   OpenAI-Compatible Path │
-              │   (原生 Claude 格式)    │     │   (openaiQuery.ts)       │
+              │   (Native Claude format)│     │   (openaiQuery.ts)       │
               │                        │     │                          │
               │  tool_use blocks       │     │  Anthropic ↔ OpenAI      │
-              │  input_json_delta      │     │  双向格式转换              │
-              │  tool_result blocks    │     │                          │
+              │  input_json_delta      │     │  Bidirectional format    │
+              │  tool_result blocks    │     │  conversion              │
               └────────────────────────┘     └──────────────────────────┘
                                                         │
                                     ┌───────────────────┼───────────────┐
@@ -2469,47 +2499,47 @@
                                │ OpenAI  │        │DeepSeek│     │  Qwen  │ ...
                                └────────┘        └────────┘     └────────┘
 </code></pre></div>
-<p>核心设计原则：<strong>在 OpenAI 路径做格式翻译，上层 agent loop 完全不需要改动</strong>。</p>
-<h2 id="_2">配置方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>支持三种配置方式（优先级从低到高）：</p>
-<h3 id="_3">方式一：环境变量（最简单）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>设置对应提供商的 API Key 环境变量即可，无需 <code>/login</code> 或编辑配置文件：</p>
+<p>Core Design Principle: <strong>Format translation is done in the OpenAI path, the upper-layer agent loop requires no changes</strong>.</p>
+<h2 id="configuration-methods">Configuration Methods<a class="headerlink" href="#configuration-methods" title="Permanent link">&para;</a></h2>
+<p>Three configuration methods are supported (priority from low to high):</p>
+<h3 id="method-1-environment-variables-simplest">Method 1: Environment Variables (Simplest)<a class="headerlink" href="#method-1-environment-variables-simplest" title="Permanent link">&para;</a></h3>
+<p>Set the corresponding provider's API Key environment variable, no need for <code>/login</code> or editing configuration files:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># OpenAI</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>sk-xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_MODEL</span><span class="o">=</span>gpt-4o<span class="w">          </span><span class="c1"># 可选，默认 gpt-4o</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_BASE_URL</span><span class="o">=</span>https://...<span class="w">  </span><span class="c1"># 可选，默认 https://api.openai.com/v1</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_MODEL</span><span class="o">=</span>gpt-4o<span class="w">          </span><span class="c1"># Optional, default gpt-4o</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_BASE_URL</span><span class="o">=</span>https://...<span class="w">  </span><span class="c1"># Optional, default https://api.openai.com/v1</span>
 
 <span class="c1"># DeepSeek</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">DEEPSEEK_API_KEY</span><span class="o">=</span>sk-xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">DEEPSEEK_MODEL</span><span class="o">=</span>deepseek-chat<span class="w">  </span><span class="c1"># 可选</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DEEPSEEK_MODEL</span><span class="o">=</span>deepseek-chat<span class="w">  </span><span class="c1"># Optional</span>
 
-<span class="c1"># Qwen (通义千问)</span>
+<span class="c1"># Qwen</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">QWEN_API_KEY</span><span class="o">=</span>sk-xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">QWEN_MODEL</span><span class="o">=</span>qwen-plus<span class="w">          </span><span class="c1"># 可选</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">QWEN_MODEL</span><span class="o">=</span>qwen-plus<span class="w">          </span><span class="c1"># Optional</span>
 
 <span class="c1"># MiniMax</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MINIMAX_API_KEY</span><span class="o">=</span>xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">MINIMAX_MODEL</span><span class="o">=</span>MiniMax-M1<span class="w">      </span><span class="c1"># 可选</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MINIMAX_MODEL</span><span class="o">=</span>MiniMax-M1<span class="w">      </span><span class="c1"># Optional</span>
 
 <span class="c1"># Kimi (Moonshot)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">MOONSHOT_API_KEY</span><span class="o">=</span>sk-xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">MOONSHOT_MODEL</span><span class="o">=</span>moonshot-v1-auto<span class="w">  </span><span class="c1"># 可选</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MOONSHOT_MODEL</span><span class="o">=</span>moonshot-v1-auto<span class="w">  </span><span class="c1"># Optional</span>
 
-<span class="c1"># GLM (智谱)</span>
+<span class="c1"># GLM</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GLM_API_KEY</span><span class="o">=</span>xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">GLM_MODEL</span><span class="o">=</span>glm-4-plus<span class="w">          </span><span class="c1"># 可选</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GLM_MODEL</span><span class="o">=</span>glm-4-plus<span class="w">          </span><span class="c1"># Optional</span>
 </code></pre></div>
-<p>设置后直接运行，自动检测并注册提供商。如果同时设置了多个提供商的 Key，第一个检测到的作为默认。</p>
-<h3 id="login">方式二：交互式登录 (<code>/login</code>)<a class="headerlink" href="#login" title="Permanent link">&para;</a></h3>
-<p>运行后在交互界面中使用 <code>/login</code> 命令：</p>
+<p>After setting, run directly and providers will be automatically detected and registered. If multiple provider keys are set simultaneously, the first one detected becomes the default.</p>
+<h3 id="method-2-interactive-login-login">Method 2: Interactive Login (<code>/login</code>)<a class="headerlink" href="#method-2-interactive-login-login" title="Permanent link">&para;</a></h3>
+<p>After running, use the <code>/login</code> command in the interactive interface:</p>
 <ol>
-<li>选择 Provider（上下箭头选择，Enter 确认）</li>
-<li>输入 API Key</li>
-<li>确认 Base URL（回车使用默认值）</li>
-<li>确认 Model ID（回车使用默认值）</li>
+<li>Select Provider (use arrow keys, confirm with Enter)</li>
+<li>Enter API Key</li>
+<li>Confirm Base URL (press Enter to use default)</li>
+<li>Confirm Model ID (press Enter to use default)</li>
 </ol>
-<p>配置保存到 <code>~/.claude/settings.json</code>。</p>
-<h3 id="claudesettingsjson">方式三：手动编辑 <code>~/.claude/settings.json</code><a class="headerlink" href="#claudesettingsjson" title="Permanent link">&para;</a></h3>
+<p>Configuration is saved to <code>~/.claude/settings.json</code>.</p>
+<h3 id="method-3-manual-edit-of-claudesettingsjson">Method 3: Manual Edit of <code>~/.claude/settings.json</code><a class="headerlink" href="#method-3-manual-edit-of-claudesettingsjson" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;llm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -2529,7 +2559,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>支持 <code>${ENV_VAR}</code> 语法引用环境变量：</p>
+<p>Supports <code>${ENV_VAR}</code> syntax to reference environment variables:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;llm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -2542,18 +2572,18 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_4">配置优先级<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>环境变量（最低） → ~/.claude/settings.json → .claude/settings.json（项目级，最高）
+<h3 id="configuration-priority">Configuration Priority<a class="headerlink" href="#configuration-priority" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Environment Variables (lowest) → ~/.claude/settings.json → .claude/settings.json (project-level, highest)
 </code></pre></div>
-<h2 id="_5">支持的提供商<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="supported-providers">Supported Providers<a class="headerlink" href="#supported-providers" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>提供商</th>
+<th>Provider</th>
 <th>sourceType</th>
-<th>默认 Base URL</th>
-<th>默认模型</th>
-<th>环境变量</th>
+<th>Default Base URL</th>
+<th>Default Model</th>
+<th>Environment Variable</th>
 </tr>
 </thead>
 <tbody>
@@ -2611,61 +2641,61 @@
 <td><code>bedrock</code></td>
 <td>—</td>
 <td>—</td>
-<td>通过 AWS 凭证</td>
+<td>Via AWS credentials</td>
 </tr>
 <tr>
 <td>Google Vertex</td>
 <td><code>vertex</code></td>
 <td>—</td>
 <td>—</td>
-<td>通过 GCP 凭证</td>
+<td>Via GCP credentials</td>
 </tr>
 <tr>
 <td>Azure</td>
 <td><code>azure</code></td>
 <td>—</td>
 <td>—</td>
-<td>通过 Azure 凭证</td>
+<td>Via Azure credentials</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_6">功能支持矩阵<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="feature-support-matrix">Feature Support Matrix<a class="headerlink" href="#feature-support-matrix" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>功能</th>
+<th>Feature</th>
 <th>Anthropic</th>
-<th>OpenAI 兼容</th>
+<th>OpenAI Compatible</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>文本对话</td>
+<td>Text Conversation</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
 <tr>
-<td>流式输出</td>
+<td>Streaming Output</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
 <tr>
-<td>工具调用 (Function Calling)</td>
+<td>Tool Calling (Function Calling)</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
 <tr>
-<td>多轮工具调用</td>
+<td>Multi-turn Tool Calling</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
 <tr>
-<td>Agent 工作流</td>
+<td>Agent Workflow</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
 <tr>
-<td><code>/model</code> 模型切换</td>
+<td><code>/model</code> Model Switching</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
@@ -2675,7 +2705,7 @@
 <td>❌</td>
 </tr>
 <tr>
-<td>1M 上下文</td>
+<td>1M Context</td>
 <td>✅</td>
 <td>❌</td>
 </tr>
@@ -2685,7 +2715,7 @@
 <td>❌</td>
 </tr>
 <tr>
-<td>Effort 级别</td>
+<td>Effort Level</td>
 <td>✅</td>
 <td>❌</td>
 </tr>
@@ -2696,14 +2726,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_7">工具调用实现细节<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>OpenAI 兼容提供商的工具调用通过格式转换实现，上层 agent loop 无感知：</p>
-<h3 id="anthropic-openai">请求方向（Anthropic → OpenAI）<a class="headerlink" href="#anthropic-openai" title="Permanent link">&para;</a></h3>
+<h2 id="tool-calling-implementation-details">Tool Calling Implementation Details<a class="headerlink" href="#tool-calling-implementation-details" title="Permanent link">&para;</a></h2>
+<p>Tool calling for OpenAI-compatible providers is implemented through format conversion, transparent to the upper-layer agent loop:</p>
+<h3 id="request-direction-anthropic-openai">Request Direction (Anthropic → OpenAI)<a class="headerlink" href="#request-direction-anthropic-openai" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Anthropic 格式</th>
-<th>OpenAI 格式</th>
+<th>Anthropic Format</th>
+<th>OpenAI Format</th>
 </tr>
 </thead>
 <tbody>
@@ -2712,21 +2742,21 @@
 <td><code>{ type: "function", function: { name, description, parameters } }</code></td>
 </tr>
 <tr>
-<td>assistant 消息中的 <code>tool_use</code> 块</td>
-<td>assistant 消息的 <code>tool_calls</code> 数组</td>
+<td><code>tool_use</code> blocks in assistant messages</td>
+<td><code>tool_calls</code> array in assistant messages</td>
 </tr>
 <tr>
-<td>user 消息中的 <code>tool_result</code> 块</td>
-<td><code>role: "tool"</code> 消息</td>
+<td><code>tool_result</code> blocks in user messages</td>
+<td><code>role: "tool"</code> messages</td>
 </tr>
 </tbody>
 </table>
-<h3 id="openai-anthropic">响应方向（OpenAI → Anthropic）<a class="headerlink" href="#openai-anthropic" title="Permanent link">&para;</a></h3>
+<h3 id="response-direction-openai-anthropic">Response Direction (OpenAI → Anthropic)<a class="headerlink" href="#response-direction-openai-anthropic" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>OpenAI 格式</th>
-<th>Anthropic 格式</th>
+<th>OpenAI Format</th>
+<th>Anthropic Format</th>
 </tr>
 </thead>
 <tbody>
@@ -2735,7 +2765,7 @@
 <td><code>content_block_start { type: "tool_use", id, name }</code></td>
 </tr>
 <tr>
-<td><code>delta.tool_calls[].function.arguments</code> (流式)</td>
+<td><code>delta.tool_calls[].function.arguments</code> (streaming)</td>
 <td><code>content_block_delta { type: "input_json_delta", partial_json }</code></td>
 </tr>
 <tr>
@@ -2744,54 +2774,54 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_8">关键文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>文件</th>
-<th>说明</th>
+<th>File</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>src/services/llm/types.ts</code></td>
-<td>Provider / Model 配置 Schema</td>
+<td>Provider / Model configuration Schema</td>
 </tr>
 <tr>
 <td><code>src/services/llm/registry.ts</code></td>
-<td>Provider 注册与管理</td>
+<td>Provider registration and management</td>
 </tr>
 <tr>
 <td><code>src/services/llm/configLoader.ts</code></td>
-<td>配置加载、环境变量检测、深度合并</td>
+<td>Configuration loading, environment variable detection, deep merge</td>
 </tr>
 <tr>
 <td><code>src/services/llm/index.ts</code></td>
-<td>全局单例 Registry</td>
+<td>Global singleton Registry</td>
 </tr>
 <tr>
 <td><code>src/services/llm/providers/openai.ts</code></td>
-<td>OpenAI 兼容提供商实现 + 类型</td>
+<td>OpenAI-compatible provider implementation + types</td>
 </tr>
 <tr>
 <td><code>src/services/api/openaiQuery.ts</code></td>
-<td>OpenAI 查询路径 + 工具格式双向转换</td>
+<td>OpenAI query path + bidirectional tool format conversion</td>
 </tr>
 <tr>
 <td><code>src/services/api/claude.ts</code></td>
-<td>主查询入口，OpenAI 路径拦截</td>
+<td>Main query entry, OpenAI path interception</td>
 </tr>
 <tr>
 <td><code>src/components/ConsoleOAuthFlow.tsx</code></td>
-<td><code>/login</code> 交互式配置</td>
+<td><code>/login</code> interactive configuration</td>
 </tr>
 <tr>
 <td><code>src/utils/model/modelOptions.ts</code></td>
-<td><code>/model</code> 选择器适配</td>
+<td><code>/model</code> selector adaptation</td>
 </tr>
 <tr>
 <td><code>src/hooks/useApiKeyVerification.ts</code></td>
-<td>登录状态检测</td>
+<td>Login status detection</td>
 </tr>
 </tbody>
 </table>

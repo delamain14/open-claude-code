@@ -14,6 +14,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../zh/architecture/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -21,7 +25,7 @@
     
     
       
-        <title>Claude Code 架构文档 - Open Claude Code</title>
+        <title>Claude Code Architecture Documentation - Open Claude Code</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#claude-code" class="md-skip">
+        <a href="#claude-code-architecture-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Claude Code 架构文档
+              Claude Code Architecture Documentation
             
           </span>
         </div>
@@ -142,6 +146,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../zh/architecture/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2290,47 +2320,47 @@
   
 
 
-<h1 id="claude-code">Claude Code 架构文档<a class="headerlink" href="#claude-code" title="Permanent link">&para;</a></h1>
-<p>本目录包含 Claude Code 各模块的详细功能文档。</p>
+<h1 id="claude-code-architecture-documentation">Claude Code Architecture Documentation<a class="headerlink" href="#claude-code-architecture-documentation" title="Permanent link">&para;</a></h1>
+<p>This directory contains detailed documentation for each module of Claude Code.</p>
 <table>
 <thead>
 <tr>
-<th>文档</th>
-<th>内容</th>
+<th>Document</th>
+<th>Content</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="overview/">overview.md</a></td>
-<td>整体架构概览、启动流程、核心数据流</td>
+<td>Overall architecture overview, startup process, core data flow</td>
 </tr>
 <tr>
 <td><a href="entrypoints/">entrypoints.md</a></td>
-<td>入口点与启动流程</td>
+<td>Entry points and startup process</td>
 </tr>
 <tr>
 <td><a href="services/">services.md</a></td>
-<td>服务层（API、MCP、OAuth、分析等）</td>
+<td>Service layer (API, MCP, OAuth, analytics, etc.)</td>
 </tr>
 <tr>
 <td><a href="tools/">tools.md</a></td>
-<td>工具系统（50+ 工具的分类与说明）</td>
+<td>Tool system (classification and description of 50+ tools)</td>
 </tr>
 <tr>
 <td><a href="commands/">commands.md</a></td>
-<td>命令系统（88+ 命令的分类与说明）</td>
+<td>Command system (classification and description of 88+ commands)</td>
 </tr>
 <tr>
 <td><a href="ui/">ui.md</a></td>
-<td>UI 层（Ink 渲染器、React 组件、屏幕）</td>
+<td>UI layer (Ink renderer, React components, screens)</td>
 </tr>
 <tr>
 <td><a href="types/">types.md</a></td>
-<td>核心数据结构与类型定义</td>
+<td>Core data structures and type definitions</td>
 </tr>
 <tr>
 <td><a href="utils/">utils.md</a></td>
-<td>工具函数库（200+ 文件的分类索引）</td>
+<td>Utility function library (classification index of 200+ files)</td>
 </tr>
 </tbody>
 </table>

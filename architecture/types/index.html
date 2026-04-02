@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/types/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#core-data-structures-and-type-definitions" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/types/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2143,22 +2173,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#message" class="md-nav__link">
+  <a href="#message-message-type-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Message — 消息类型体系
+        Message — Message Type System
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Message — 消息类型体系">
+    <nav class="md-nav" aria-label="Message — Message Type System">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ui" class="md-nav__link">
+  <a href="#normalized-messages-for-ui-rendering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        规范化消息（UI 渲染用）
+        Normalized Messages (for UI rendering)
       
     </span>
   </a>
@@ -2171,10 +2201,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command" class="md-nav__link">
+  <a href="#command-command-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Command — 命令类型
+        Command — Command Types
       
     </span>
   </a>
@@ -2182,22 +2212,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tool" class="md-nav__link">
+  <a href="#tool-related-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tool 相关类型
+        Tool-Related Types
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tool 相关类型">
+    <nav class="md-nav" aria-label="Tool-Related Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#toolpermissioncontext" class="md-nav__link">
+  <a href="#toolpermissioncontext-permission-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ToolPermissionContext — 权限上下文
+        ToolPermissionContext — Permission Context
       
     </span>
   </a>
@@ -2205,10 +2235,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#toolprogressdata" class="md-nav__link">
+  <a href="#toolprogressdata-tool-progress" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ToolProgressData — 工具进度
+        ToolProgressData — Tool Progress
       
     </span>
   </a>
@@ -2221,10 +2251,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task" class="md-nav__link">
+  <a href="#task-task-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task — 任务类型
+        Task — Task Types
       
     </span>
   </a>
@@ -2232,10 +2262,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#appstate" class="md-nav__link">
+  <a href="#appstate-application-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        AppState — 应用状态
+        AppState — Application State
       
     </span>
   </a>
@@ -2243,10 +2273,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#querysource" class="md-nav__link">
+  <a href="#querysource-query-source" class="md-nav__link">
     <span class="md-ellipsis">
       
-        QuerySource — 查询来源
+        QuerySource — Query Source
       
     </span>
   </a>
@@ -2254,10 +2284,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth" class="md-nav__link">
+  <a href="#oauth-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OAuth 类型
+        OAuth Types
       
     </span>
   </a>
@@ -2265,10 +2295,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcp" class="md-nav__link">
+  <a href="#mcp-configuration-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP 配置类型
+        MCP Configuration Types
       
     </span>
   </a>
@@ -2276,10 +2306,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hook" class="md-nav__link">
+  <a href="#hook-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hook 类型
+        Hook Types
       
     </span>
   </a>
@@ -2287,10 +2317,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#file-related-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件相关类型
+        File-Related Types
       
     </span>
   </a>
@@ -2485,22 +2515,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#message" class="md-nav__link">
+  <a href="#message-message-type-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Message — 消息类型体系
+        Message — Message Type System
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Message — 消息类型体系">
+    <nav class="md-nav" aria-label="Message — Message Type System">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ui" class="md-nav__link">
+  <a href="#normalized-messages-for-ui-rendering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        规范化消息（UI 渲染用）
+        Normalized Messages (for UI rendering)
       
     </span>
   </a>
@@ -2513,10 +2543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command" class="md-nav__link">
+  <a href="#command-command-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Command — 命令类型
+        Command — Command Types
       
     </span>
   </a>
@@ -2524,22 +2554,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tool" class="md-nav__link">
+  <a href="#tool-related-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tool 相关类型
+        Tool-Related Types
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tool 相关类型">
+    <nav class="md-nav" aria-label="Tool-Related Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#toolpermissioncontext" class="md-nav__link">
+  <a href="#toolpermissioncontext-permission-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ToolPermissionContext — 权限上下文
+        ToolPermissionContext — Permission Context
       
     </span>
   </a>
@@ -2547,10 +2577,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#toolprogressdata" class="md-nav__link">
+  <a href="#toolprogressdata-tool-progress" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ToolProgressData — 工具进度
+        ToolProgressData — Tool Progress
       
     </span>
   </a>
@@ -2563,10 +2593,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task" class="md-nav__link">
+  <a href="#task-task-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task — 任务类型
+        Task — Task Types
       
     </span>
   </a>
@@ -2574,10 +2604,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#appstate" class="md-nav__link">
+  <a href="#appstate-application-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        AppState — 应用状态
+        AppState — Application State
       
     </span>
   </a>
@@ -2585,10 +2615,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#querysource" class="md-nav__link">
+  <a href="#querysource-query-source" class="md-nav__link">
     <span class="md-ellipsis">
       
-        QuerySource — 查询来源
+        QuerySource — Query Source
       
     </span>
   </a>
@@ -2596,10 +2626,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth" class="md-nav__link">
+  <a href="#oauth-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OAuth 类型
+        OAuth Types
       
     </span>
   </a>
@@ -2607,10 +2637,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcp" class="md-nav__link">
+  <a href="#mcp-configuration-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP 配置类型
+        MCP Configuration Types
       
     </span>
   </a>
@@ -2618,10 +2648,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hook" class="md-nav__link">
+  <a href="#hook-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hook 类型
+        Hook Types
       
     </span>
   </a>
@@ -2629,10 +2659,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#file-related-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件相关类型
+        File-Related Types
       
     </span>
   </a>
@@ -2664,9 +2694,9 @@
   
 
 
-<h1 id="_1">核心数据结构与类型定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="message">Message — 消息类型体系<a class="headerlink" href="#message" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1">// 顶层联合类型</span>
+<h1 id="core-data-structures-and-type-definitions">Core Data Structures and Type Definitions<a class="headerlink" href="#core-data-structures-and-type-definitions" title="Permanent link">&para;</a></h1>
+<h2 id="message-message-type-system">Message — Message Type System<a class="headerlink" href="#message-message-type-system" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1">// Top-level union type</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">Message</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">UserMessage</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">AssistantMessage</span>
@@ -2674,21 +2704,21 @@
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">ProgressMessage</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">SystemMessage</span>
 
-<span class="c1">// ---------- 用户消息 ----------</span>
+<span class="c1">// ---------- User Message ----------</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">UserMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user&#39;</span>
 <span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">ContentBlockParam</span><span class="p">[]</span>
 <span class="w">  </span><span class="nx">origin?</span><span class="o">:</span><span class="w"> </span><span class="kt">MessageOrigin</span><span class="w">        </span><span class="c1">// &#39;user&#39; | &#39;tool_result&#39; | &#39;hook&#39; | ...</span>
 <span class="w">  </span><span class="nx">permissionMode?</span><span class="o">:</span><span class="w"> </span><span class="kt">PermissionMode</span>
 <span class="w">  </span><span class="nx">summarizeMetadata?</span><span class="o">:</span><span class="w"> </span><span class="kt">CompactMetadata</span>
-<span class="w">  </span><span class="nx">isMeta?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">              </span><span class="c1">// 对模型可见但 UI 隐藏</span>
+<span class="w">  </span><span class="nx">isMeta?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">              </span><span class="c1">// Visible to model but hidden in UI</span>
 <span class="w">  </span><span class="nx">isVirtual?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="p">}</span>
 
-<span class="c1">// ---------- 助手消息 ----------</span>
+<span class="c1">// ---------- Assistant Message ----------</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">AssistantMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;assistant&#39;</span>
-<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">BetaMessage</span><span class="w">          </span><span class="c1">// Anthropic SDK 原始响应</span>
+<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">BetaMessage</span><span class="w">          </span><span class="c1">// Raw response from Anthropic SDK</span>
 <span class="w">  </span><span class="nx">requestId?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">apiError?</span><span class="o">:</span><span class="w"> </span><span class="kt">SDKAssistantMessageError</span>
 <span class="w">  </span><span class="nx">isVirtual?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
@@ -2696,48 +2726,48 @@
 <span class="w">  </span><span class="nx">durationMs?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
 <span class="p">}</span>
 
-<span class="c1">// ---------- 系统消息（15 种子类型）----------</span>
+<span class="c1">// ---------- System Message (15 subtypes) ----------</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">SystemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;system&#39;</span>
 <span class="w">  </span><span class="nx">subtype</span><span class="o">:</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;informational&#39;</span><span class="w">           </span><span class="c1">// 一般通知</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;permission_retry&#39;</span><span class="w">        </span><span class="c1">// 权限重试</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;bridge_status&#39;</span><span class="w">           </span><span class="c1">// Bridge 状态</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;scheduled_task_fire&#39;</span><span class="w">     </span><span class="c1">// 定时任务触发</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;stop_hook_summary&#39;</span><span class="w">       </span><span class="c1">// 停止钩子摘要</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;turn_duration&#39;</span><span class="w">           </span><span class="c1">// 轮次耗时</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;away_summary&#39;</span><span class="w">            </span><span class="c1">// 离开摘要</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;memory_saved&#39;</span><span class="w">            </span><span class="c1">// 记忆保存</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;agents_killed&#39;</span><span class="w">           </span><span class="c1">// Agent 终止</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;api_metrics&#39;</span><span class="w">             </span><span class="c1">// API 指标</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;local_command&#39;</span><span class="w">           </span><span class="c1">// 本地命令结果</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;compact_boundary&#39;</span><span class="w">        </span><span class="c1">// 压缩边界</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;microcompact_boundary&#39;</span><span class="w">   </span><span class="c1">// 微压缩边界</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;api_error&#39;</span><span class="w">               </span><span class="c1">// API 错误</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;thinking&#39;</span><span class="w">                </span><span class="c1">// 思考消息</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;file_snapshot&#39;</span><span class="w">           </span><span class="c1">// 文件快照</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;informational&#39;</span><span class="w">           </span><span class="c1">// General notification</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;permission_retry&#39;</span><span class="w">        </span><span class="c1">// Permission retry</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;bridge_status&#39;</span><span class="w">           </span><span class="c1">// Bridge status</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;scheduled_task_fire&#39;</span><span class="w">     </span><span class="c1">// Scheduled task triggered</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;stop_hook_summary&#39;</span><span class="w">       </span><span class="c1">// Stop hook summary</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;turn_duration&#39;</span><span class="w">           </span><span class="c1">// Turn duration</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;away_summary&#39;</span><span class="w">            </span><span class="c1">// Away summary</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;memory_saved&#39;</span><span class="w">            </span><span class="c1">// Memory saved</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;agents_killed&#39;</span><span class="w">           </span><span class="c1">// Agent terminated</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;api_metrics&#39;</span><span class="w">             </span><span class="c1">// API metrics</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;local_command&#39;</span><span class="w">           </span><span class="c1">// Local command result</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;compact_boundary&#39;</span><span class="w">        </span><span class="c1">// Compaction boundary</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;microcompact_boundary&#39;</span><span class="w">   </span><span class="c1">// Micro compaction boundary</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;api_error&#39;</span><span class="w">               </span><span class="c1">// API error</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;thinking&#39;</span><span class="w">                </span><span class="c1">// Thinking message</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;file_snapshot&#39;</span><span class="w">           </span><span class="c1">// File snapshot</span>
 <span class="w">  </span><span class="nx">level</span><span class="o">?:</span><span class="w"> </span><span class="s1">&#39;info&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;warning&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;error&#39;</span>
 <span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="p">}</span>
 
-<span class="c1">// ---------- 附件消息 ----------</span>
+<span class="c1">// ---------- Attachment Message ----------</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">AttachmentMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;attachment&#39;</span>
-<span class="w">  </span><span class="nx">attachment</span><span class="o">:</span><span class="w"> </span><span class="kt">Attachment</span><span class="w">        </span><span class="c1">// 文件、目录、钩子上下文等</span>
+<span class="w">  </span><span class="nx">attachment</span><span class="o">:</span><span class="w"> </span><span class="kt">Attachment</span><span class="w">        </span><span class="c1">// Files, directories, hook context, etc.</span>
 <span class="p">}</span>
 
-<span class="c1">// ---------- 进度消息 ----------</span>
+<span class="c1">// ---------- Progress Message ----------</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">ProgressMessage</span><span class="o">&lt;</span><span class="nx">P</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;progress&#39;</span>
 <span class="w">  </span><span class="nx">toolUseID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
-<span class="w">  </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">P</span><span class="w">                       </span><span class="c1">// 工具特定的进度数据</span>
+<span class="w">  </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">P</span><span class="w">                       </span><span class="c1">// Tool-specific progress data</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="ui">规范化消息（UI 渲染用）<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// 每个 content block 一个消息</span>
+<h3 id="normalized-messages-for-ui-rendering">Normalized Messages (for UI rendering)<a class="headerlink" href="#normalized-messages-for-ui-rendering" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// One message per content block</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">NormalizedAssistantMessage</span><span class="o">&lt;</span><span class="nx">C</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;assistant&#39;</span>
-<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">C</span><span class="w">                    </span><span class="c1">// 单个 content block</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">C</span><span class="w">                    </span><span class="c1">// Single content block</span>
 <span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">BetaMessage</span>
 <span class="w">  </span><span class="nx">costUSD?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
 <span class="p">}</span>
@@ -2750,7 +2780,7 @@
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">SystemMessage</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">AttachmentMessage</span>
 </code></pre></div>
-<h2 id="command">Command — 命令类型<a class="headerlink" href="#command" title="Permanent link">&para;</a></h2>
+<h2 id="command-command-types">Command — Command Types<a class="headerlink" href="#command-command-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">CommandBase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
@@ -2758,19 +2788,19 @@
 <span class="w">  </span><span class="nx">isHidden?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">isEnabled</span><span class="o">?:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">availability</span><span class="o">?:</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;claude-ai&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;console&#39;</span><span class="p">)[]</span>
-<span class="w">  </span><span class="nx">whenToUse?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">            </span><span class="c1">// 模型调用时的场景描述</span>
+<span class="w">  </span><span class="nx">whenToUse?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">            </span><span class="c1">// Description of usage scenarios for models</span>
 <span class="w">  </span><span class="nx">disableModelInvocation?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">userInvocable?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">loadedFrom</span><span class="o">?:</span><span class="w"> </span><span class="s1">&#39;commands_DEPRECATED&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;skills&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;plugin&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;managed&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;bundled&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;mcp&#39;</span>
 <span class="w">  </span><span class="nx">kind</span><span class="o">?:</span><span class="w"> </span><span class="s1">&#39;workflow&#39;</span>
-<span class="w">  </span><span class="nx">immediate?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">           </span><span class="c1">// 跳过排队，立即执行</span>
-<span class="w">  </span><span class="nx">isSensitive?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">         </span><span class="c1">// 参数脱敏</span>
+<span class="w">  </span><span class="nx">immediate?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">           </span><span class="c1">// Skip queue, execute immediately</span>
+<span class="w">  </span><span class="nx">isSensitive?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">         </span><span class="c1">// Parameter redaction</span>
 <span class="p">}</span>
 
 <span class="kr">type</span><span class="w"> </span><span class="nx">Command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">CommandBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">PromptCommand</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">LocalCommand</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">LocalJSXCommand</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="tool">Tool 相关类型<a class="headerlink" href="#tool" title="Permanent link">&para;</a></h2>
-<h3 id="toolpermissioncontext">ToolPermissionContext — 权限上下文<a class="headerlink" href="#toolpermissioncontext" title="Permanent link">&para;</a></h3>
+<h2 id="tool-related-types">Tool-Related Types<a class="headerlink" href="#tool-related-types" title="Permanent link">&para;</a></h2>
+<h3 id="toolpermissioncontext-permission-context">ToolPermissionContext — Permission Context<a class="headerlink" href="#toolpermissioncontext-permission-context" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">ToolPermissionContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DeepImmutable</span><span class="o">&lt;</span><span class="p">{</span>
 <span class="w">  </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="kt">PermissionMode</span>
 <span class="w">  </span><span class="nx">additionalWorkingDirectories</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">AdditionalWorkingDirectory</span><span class="o">&gt;</span>
@@ -2784,12 +2814,12 @@
 
 <span class="kr">type</span><span class="w"> </span><span class="nx">PermissionMode</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;default&#39;</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;plan&#39;</span><span class="w">              </span><span class="c1">// 只读操作自动通过</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;acceptEdits&#39;</span><span class="w">       </span><span class="c1">// 编辑操作自动通过</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;bypassPermissions&#39;</span><span class="w"> </span><span class="c1">// 跳过所有权限检查</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;auto&#39;</span><span class="w">              </span><span class="c1">// 自动模式（分类器判断）</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;plan&#39;</span><span class="w">              </span><span class="c1">// Read-only operations auto-allow</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;acceptEdits&#39;</span><span class="w">       </span><span class="c1">// Edit operations auto-allow</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;bypassPermissions&#39;</span><span class="w"> </span><span class="c1">// Skip all permission checks</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;auto&#39;</span><span class="w">              </span><span class="c1">// Auto mode (classifier decides)</span>
 </code></pre></div>
-<h3 id="toolprogressdata">ToolProgressData — 工具进度<a class="headerlink" href="#toolprogressdata" title="Permanent link">&para;</a></h3>
+<h3 id="toolprogressdata-tool-progress">ToolProgressData — Tool Progress<a class="headerlink" href="#toolprogressdata-tool-progress" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">ToolProgressData</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">BashProgress</span><span class="w">          </span><span class="c1">// { type: &#39;bash&#39;, output: string }</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">ShellProgress</span>
@@ -2800,7 +2830,7 @@
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">SkillToolProgress</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="nx">TaskOutputProgress</span>
 </code></pre></div>
-<h2 id="task">Task — 任务类型<a class="headerlink" href="#task" title="Permanent link">&para;</a></h2>
+<h2 id="task-task-types">Task — Task Types<a class="headerlink" href="#task-task-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TaskType</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;local_bash&#39;</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;local_agent&#39;</span>
@@ -2813,7 +2843,7 @@
 <span class="kr">type</span><span class="w"> </span><span class="nx">TaskStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pending&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;running&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;completed&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;failed&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;killed&#39;</span>
 
 <span class="kr">type</span><span class="w"> </span><span class="nx">TaskStateBase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">               </span><span class="c1">// 前缀+8字符（b=bash, a=agent, r=remote...）</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">               </span><span class="c1">// Prefix + 8 characters (b=bash, a=agent, r=remote...)</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskType</span>
 <span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskStatus</span>
 <span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
@@ -2824,7 +2854,7 @@
 <span class="w">  </span><span class="nx">notified</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="appstate">AppState — 应用状态<a class="headerlink" href="#appstate" title="Permanent link">&para;</a></h2>
+<h2 id="appstate-application-state">AppState — Application State<a class="headerlink" href="#appstate-application-state" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">AppState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="kt">Message</span><span class="p">[]</span>
 <span class="w">  </span><span class="nx">toolPermissionContext</span><span class="o">:</span><span class="w"> </span><span class="kt">ToolPermissionContext</span>
@@ -2839,22 +2869,22 @@
 <span class="w">  </span><span class="nx">fastMode</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">thinkingEnabled</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="w">  </span><span class="nx">kairosEnabled?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
-<span class="w">  </span><span class="c1">// ... 更多字段</span>
+<span class="w">  </span><span class="c1">// ... more fields</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="querysource">QuerySource — 查询来源<a class="headerlink" href="#querysource" title="Permanent link">&para;</a></h2>
+<h2 id="querysource-query-source">QuerySource — Query Source<a class="headerlink" href="#querysource-query-source" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">QuerySource</span><span class="w"> </span><span class="o">=</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;repl_main_thread&#39;</span><span class="w">       </span><span class="c1">// 主交互循环</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;compact&#39;</span><span class="w">                </span><span class="c1">// 压缩查询</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;session_memory&#39;</span><span class="w">         </span><span class="c1">// 会话记忆</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;sdk&#39;</span><span class="w">                    </span><span class="c1">// SDK 调用</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;hook_agent&#39;</span><span class="w">             </span><span class="c1">// 钩子 agent</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;verification_agent&#39;</span><span class="w">     </span><span class="c1">// 验证 agent</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;web_search_tool&#39;</span><span class="w">        </span><span class="c1">// 网络搜索</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;dream&#39;</span><span class="w">                  </span><span class="c1">// 后台思考</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{})</span><span class="w">            </span><span class="c1">// 可扩展</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;repl_main_thread&#39;</span><span class="w">       </span><span class="c1">// Main interaction loop</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;compact&#39;</span><span class="w">                </span><span class="c1">// Compaction query</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;session_memory&#39;</span><span class="w">         </span><span class="c1">// Session memory</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;sdk&#39;</span><span class="w">                    </span><span class="c1">// SDK invocation</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;hook_agent&#39;</span><span class="w">             </span><span class="c1">// Hook agent</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;verification_agent&#39;</span><span class="w">     </span><span class="c1">// Verification agent</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;web_search_tool&#39;</span><span class="w">        </span><span class="c1">// Web search</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;dream&#39;</span><span class="w">                  </span><span class="c1">// Background thinking</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{})</span><span class="w">            </span><span class="c1">// Extensible</span>
 </code></pre></div>
-<h2 id="oauth">OAuth 类型<a class="headerlink" href="#oauth" title="Permanent link">&para;</a></h2>
+<h2 id="oauth-types">OAuth Types<a class="headerlink" href="#oauth-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">OAuthTokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">accessToken</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">refreshToken?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
@@ -2865,15 +2895,15 @@
 <span class="kr">type</span><span class="w"> </span><span class="nx">BillingType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;free&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;pro&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;max&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;team&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;enterprise&#39;</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">RateLimitTier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;standard&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;high&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;unlimited&#39;</span>
 </code></pre></div>
-<h2 id="mcp">MCP 配置类型<a class="headerlink" href="#mcp" title="Permanent link">&para;</a></h2>
+<h2 id="mcp-configuration-types">MCP Configuration Types<a class="headerlink" href="#mcp-configuration-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">ScopedMcpServerConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;stdio&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;sse&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;http&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;ws&#39;</span>
-<span class="w">  </span><span class="nx">command?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// stdio 命令</span>
+<span class="w">  </span><span class="nx">command?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// stdio command</span>
 <span class="w">  </span><span class="nx">args?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span>
 <span class="w">  </span><span class="nx">url?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                 </span><span class="c1">// HTTP/SSE/WS URL</span>
 <span class="w">  </span><span class="nx">env?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">ConfigScope</span>
-<span class="w">  </span><span class="c1">// ... OAuth、headers 等</span>
+<span class="w">  </span><span class="c1">// ... OAuth, headers, etc.</span>
 <span class="p">}</span>
 
 <span class="kr">type</span><span class="w"> </span><span class="nx">ConfigScope</span><span class="w"> </span><span class="o">=</span>
@@ -2881,7 +2911,7 @@
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;enterprise&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;managed&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;claudeai&#39;</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;dynamic&#39;</span>
 </code></pre></div>
-<h2 id="hook">Hook 类型<a class="headerlink" href="#hook" title="Permanent link">&para;</a></h2>
+<h2 id="hook-types">Hook Types<a class="headerlink" href="#hook-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">HookEvent</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;PreToolUse&#39;</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;PostToolUse&#39;</span>
@@ -2896,13 +2926,13 @@
 <span class="w">  </span><span class="nx">stdout</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">stderr</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
-<span class="w">  </span><span class="c1">// 结构化输出（JSON）</span>
+<span class="w">  </span><span class="c1">// Structured output (JSON)</span>
 <span class="w">  </span><span class="nx">decision</span><span class="o">?:</span><span class="w"> </span><span class="s1">&#39;approve&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;deny&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;skip&#39;</span>
 <span class="w">  </span><span class="nx">reason?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">additionalContext?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_2">文件相关类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="file-related-types">File-Related Types<a class="headerlink" href="#file-related-types" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">FilePersistenceOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">encoding?</span><span class="o">:</span><span class="w"> </span><span class="kt">BufferEncoding</span><span class="w"> </span><span class="p">}</span>
 <span class="kr">type</span><span class="w"> </span><span class="nx">FilePersistenceResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"> </span><span class="nx">error?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">}</span>
 

@@ -18,6 +18,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/services/" hreflang="zh">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#service-layer" class="md-skip">
           Skip to content
         </a>
       
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/services/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -2031,10 +2061,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#directory-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目录结构
+        Directory Structure
       
     </span>
   </a>
@@ -2042,22 +2072,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-servicesapi" class="md-nav__link">
+  <a href="#api-service-servicesapi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API 服务 (services/api/)
+        API Service (services/api/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="API 服务 (services/api/)">
+    <nav class="md-nav" aria-label="API Service (services/api/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clientts-api" class="md-nav__link">
+  <a href="#clientts-api-client-factory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        client.ts — API 客户端工厂
+        client.ts — API Client Factory
       
     </span>
   </a>
@@ -2065,10 +2095,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#claudets-api" class="md-nav__link">
+  <a href="#claudets-api-message-processing-core" class="md-nav__link">
     <span class="md-ellipsis">
       
-        claude.ts — API 消息处理核心
+        claude.ts — API Message Processing Core
       
     </span>
   </a>
@@ -2076,10 +2106,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#errorsts-api" class="md-nav__link">
+  <a href="#errorsts-api-error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        errors.ts — API 错误处理
+        errors.ts — API Error Handling
       
     </span>
   </a>
@@ -2087,10 +2117,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#loggingts-api" class="md-nav__link">
+  <a href="#loggingts-api-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        logging.ts — API 日志记录
+        logging.ts — API Logging
       
     </span>
   </a>
@@ -2103,22 +2133,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicesanalytics" class="md-nav__link">
+  <a href="#analytics-service-servicesanalytics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分析服务 (services/analytics/)
+        Analytics Service (services/analytics/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="分析服务 (services/analytics/)">
+    <nav class="md-nav" aria-label="Analytics Service (services/analytics/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#indexts" class="md-nav__link">
+  <a href="#indexts-event-queue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        index.ts — 事件队列
+        index.ts — Event Queue
       
     </span>
   </a>
@@ -2126,10 +2156,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#growthbookts" class="md-nav__link">
+  <a href="#growthbookts-feature-flags" class="md-nav__link">
     <span class="md-ellipsis">
       
-        growthbook.ts — 特性开关
+        growthbook.ts — Feature Flags
       
     </span>
   </a>
@@ -2142,22 +2172,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcp-servicesmcp" class="md-nav__link">
+  <a href="#mcp-service-servicesmcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP 服务 (services/mcp/)
+        MCP Service (services/mcp/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MCP 服务 (services/mcp/)">
+    <nav class="md-nav" aria-label="MCP Service (services/mcp/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clientts-mcp" class="md-nav__link">
+  <a href="#clientts-mcp-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        client.ts — MCP 客户端
+        client.ts — MCP Client
       
     </span>
   </a>
@@ -2170,22 +2200,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-servicesoauth" class="md-nav__link">
+  <a href="#oauth-service-servicesoauth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OAuth 服务 (services/oauth/)
+        OAuth Service (services/oauth/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OAuth 服务 (services/oauth/)">
+    <nav class="md-nav" aria-label="OAuth Service (services/oauth/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clientts-oauth" class="md-nav__link">
+  <a href="#clientts-oauth-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        client.ts — OAuth 流程
+        client.ts — OAuth Flow
       
     </span>
   </a>
@@ -2193,10 +2223,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#core-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心类型
+        Core Types
       
     </span>
   </a>
@@ -2209,22 +2239,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicescompact" class="md-nav__link">
+  <a href="#session-compaction-servicescompact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        会话压缩 (services/compact/)
+        Session Compaction (services/compact/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="会话压缩 (services/compact/)">
+    <nav class="md-nav" aria-label="Session Compaction (services/compact/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#compactts" class="md-nav__link">
+  <a href="#compactts-compaction-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        compact.ts — 压缩引擎
+        compact.ts — Compaction Engine
       
     </span>
   </a>
@@ -2237,22 +2267,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lsp-serviceslsp" class="md-nav__link">
+  <a href="#lsp-service-serviceslsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LSP 服务 (services/lsp/)
+        LSP Service (services/lsp/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="LSP 服务 (services/lsp/)">
+    <nav class="md-nav" aria-label="LSP Service (services/lsp/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#managerts-lsp" class="md-nav__link">
+  <a href="#managerts-lsp-server-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        manager.ts — LSP 服务器管理
+        manager.ts — LSP Server Management
       
     </span>
   </a>
@@ -2265,10 +2295,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicespolicylimits" class="md-nav__link">
+  <a href="#policy-limits-servicespolicylimits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        策略限制 (services/policyLimits/)
+        Policy Limits (services/policyLimits/)
       
     </span>
   </a>
@@ -2276,10 +2306,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicesremotemanagedsettings" class="md-nav__link">
+  <a href="#remote-managed-settings-servicesremotemanagedsettings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        远程托管设置 (services/remoteManagedSettings/)
+        Remote Managed Settings (services/remoteManagedSettings/)
       
     </span>
   </a>
@@ -2287,22 +2317,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicesplugins" class="md-nav__link">
+  <a href="#plugin-service-servicesplugins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        插件服务 (services/plugins/)
+        Plugin Service (services/plugins/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="插件服务 (services/plugins/)">
+    <nav class="md-nav" aria-label="Plugin Service (services/plugins/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pluginoperationsts" class="md-nav__link">
+  <a href="#pluginoperationsts-pure-library-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pluginOperations.ts — 纯库函数
+        pluginOperations.ts — Pure Library Functions
       
     </span>
   </a>
@@ -2315,10 +2345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#other-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        其他服务
+        Other Services
       
     </span>
   </a>
@@ -2625,10 +2655,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#directory-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        目录结构
+        Directory Structure
       
     </span>
   </a>
@@ -2636,22 +2666,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-servicesapi" class="md-nav__link">
+  <a href="#api-service-servicesapi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API 服务 (services/api/)
+        API Service (services/api/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="API 服务 (services/api/)">
+    <nav class="md-nav" aria-label="API Service (services/api/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clientts-api" class="md-nav__link">
+  <a href="#clientts-api-client-factory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        client.ts — API 客户端工厂
+        client.ts — API Client Factory
       
     </span>
   </a>
@@ -2659,10 +2689,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#claudets-api" class="md-nav__link">
+  <a href="#claudets-api-message-processing-core" class="md-nav__link">
     <span class="md-ellipsis">
       
-        claude.ts — API 消息处理核心
+        claude.ts — API Message Processing Core
       
     </span>
   </a>
@@ -2670,10 +2700,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#errorsts-api" class="md-nav__link">
+  <a href="#errorsts-api-error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        errors.ts — API 错误处理
+        errors.ts — API Error Handling
       
     </span>
   </a>
@@ -2681,10 +2711,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#loggingts-api" class="md-nav__link">
+  <a href="#loggingts-api-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        logging.ts — API 日志记录
+        logging.ts — API Logging
       
     </span>
   </a>
@@ -2697,22 +2727,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicesanalytics" class="md-nav__link">
+  <a href="#analytics-service-servicesanalytics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分析服务 (services/analytics/)
+        Analytics Service (services/analytics/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="分析服务 (services/analytics/)">
+    <nav class="md-nav" aria-label="Analytics Service (services/analytics/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#indexts" class="md-nav__link">
+  <a href="#indexts-event-queue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        index.ts — 事件队列
+        index.ts — Event Queue
       
     </span>
   </a>
@@ -2720,10 +2750,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#growthbookts" class="md-nav__link">
+  <a href="#growthbookts-feature-flags" class="md-nav__link">
     <span class="md-ellipsis">
       
-        growthbook.ts — 特性开关
+        growthbook.ts — Feature Flags
       
     </span>
   </a>
@@ -2736,22 +2766,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcp-servicesmcp" class="md-nav__link">
+  <a href="#mcp-service-servicesmcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP 服务 (services/mcp/)
+        MCP Service (services/mcp/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MCP 服务 (services/mcp/)">
+    <nav class="md-nav" aria-label="MCP Service (services/mcp/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clientts-mcp" class="md-nav__link">
+  <a href="#clientts-mcp-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        client.ts — MCP 客户端
+        client.ts — MCP Client
       
     </span>
   </a>
@@ -2764,22 +2794,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth-servicesoauth" class="md-nav__link">
+  <a href="#oauth-service-servicesoauth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OAuth 服务 (services/oauth/)
+        OAuth Service (services/oauth/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OAuth 服务 (services/oauth/)">
+    <nav class="md-nav" aria-label="OAuth Service (services/oauth/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clientts-oauth" class="md-nav__link">
+  <a href="#clientts-oauth-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        client.ts — OAuth 流程
+        client.ts — OAuth Flow
       
     </span>
   </a>
@@ -2787,10 +2817,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#core-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心类型
+        Core Types
       
     </span>
   </a>
@@ -2803,22 +2833,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicescompact" class="md-nav__link">
+  <a href="#session-compaction-servicescompact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        会话压缩 (services/compact/)
+        Session Compaction (services/compact/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="会话压缩 (services/compact/)">
+    <nav class="md-nav" aria-label="Session Compaction (services/compact/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#compactts" class="md-nav__link">
+  <a href="#compactts-compaction-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        compact.ts — 压缩引擎
+        compact.ts — Compaction Engine
       
     </span>
   </a>
@@ -2831,22 +2861,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lsp-serviceslsp" class="md-nav__link">
+  <a href="#lsp-service-serviceslsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LSP 服务 (services/lsp/)
+        LSP Service (services/lsp/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="LSP 服务 (services/lsp/)">
+    <nav class="md-nav" aria-label="LSP Service (services/lsp/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#managerts-lsp" class="md-nav__link">
+  <a href="#managerts-lsp-server-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        manager.ts — LSP 服务器管理
+        manager.ts — LSP Server Management
       
     </span>
   </a>
@@ -2859,10 +2889,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicespolicylimits" class="md-nav__link">
+  <a href="#policy-limits-servicespolicylimits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        策略限制 (services/policyLimits/)
+        Policy Limits (services/policyLimits/)
       
     </span>
   </a>
@@ -2870,10 +2900,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicesremotemanagedsettings" class="md-nav__link">
+  <a href="#remote-managed-settings-servicesremotemanagedsettings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        远程托管设置 (services/remoteManagedSettings/)
+        Remote Managed Settings (services/remoteManagedSettings/)
       
     </span>
   </a>
@@ -2881,22 +2911,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servicesplugins" class="md-nav__link">
+  <a href="#plugin-service-servicesplugins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        插件服务 (services/plugins/)
+        Plugin Service (services/plugins/)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="插件服务 (services/plugins/)">
+    <nav class="md-nav" aria-label="Plugin Service (services/plugins/)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pluginoperationsts" class="md-nav__link">
+  <a href="#pluginoperationsts-pure-library-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pluginOperations.ts — 纯库函数
+        pluginOperations.ts — Pure Library Functions
       
     </span>
   </a>
@@ -2909,10 +2939,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#other-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        其他服务
+        Other Services
       
     </span>
   </a>
@@ -2944,44 +2974,44 @@
   
 
 
-<h1 id="_1">服务层<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">目录结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="service-layer">Service Layer<a class="headerlink" href="#service-layer" title="Permanent link">&para;</a></h1>
+<h2 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>src/services/
-├── api/                  # Anthropic API 客户端
-├── analytics/            # 分析与特性开关
-├── mcp/                  # MCP 协议客户端
-├── oauth/                # OAuth 认证
-├── compact/              # 会话压缩
-├── lsp/                  # LSP 语言服务器
-├── policyLimits/         # 企业策略限制
-├── remoteManagedSettings/ # 远程托管设置
-├── plugins/              # 插件管理
-├── SessionMemory/        # 会话记忆
-├── MagicDocs/            # 文档自动加载
-├── settingsSync/         # 设置同步
-├── skillSearch/          # 技能搜索
-├── tips/                 # 提示系统
-├── voice.ts              # 语音录制
-├── voiceStreamSTT.ts     # 语音转文字
-├── awaySummary.ts        # 离开摘要
-├── claudeAiLimits.ts     # Claude.ai 限速
-├── rateLimitMessages.ts  # 限速消息
-├── tokenEstimation.ts    # Token 估算
-└── vcr.ts                # HTTP 录制/回放（测试）
+├── api/                  # Anthropic API client
+├── analytics/            # Analytics and feature flags
+├── mcp/                  # MCP protocol client
+├── oauth/                # OAuth authentication
+├── compact/              # Session compaction
+├── lsp/                  # LSP language server
+├── policyLimits/         # Enterprise policy limits
+├── remoteManagedSettings/ # Remote managed settings
+├── plugins/              # Plugin management
+├── SessionMemory/        # Session memory
+├── MagicDocs/            # Document auto-loading
+├── settingsSync/         # Settings synchronization
+├── skillSearch/          # Skill search
+├── tips/                 # Tips system
+├── voice.ts              # Voice recording
+├── voiceStreamSTT.ts     # Voice-to-text
+├── awaySummary.ts        # Away summary
+├── claudeAiLimits.ts     # Claude.ai rate limits
+├── rateLimitMessages.ts  # Rate limit messages
+├── tokenEstimation.ts    # Token estimation
+└── vcr.ts                # HTTP record/replay (testing)
 </code></pre></div>
-<h2 id="api-servicesapi">API 服务 (<code>services/api/</code>)<a class="headerlink" href="#api-servicesapi" title="Permanent link">&para;</a></h2>
-<h3 id="clientts-api">client.ts — API 客户端工厂<a class="headerlink" href="#clientts-api" title="Permanent link">&para;</a></h3>
+<h2 id="api-service-servicesapi">API Service (<code>services/api/</code>)<a class="headerlink" href="#api-service-servicesapi" title="Permanent link">&para;</a></h2>
+<h3 id="clientts-api-client-factory">client.ts — API Client Factory<a class="headerlink" href="#clientts-api-client-factory" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getAnthropicClient</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">source</span><span class="p">,</span><span class="w"> </span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
 <span class="p">})</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Anthropic</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>支持的 Provider</strong>:</p>
+<p><strong>Supported Providers</strong>:</p>
 <table>
 <thead>
 <tr>
 <th>Provider</th>
-<th>认证方式</th>
-<th>客户端类型</th>
+<th>Authentication</th>
+<th>Client Type</th>
 </tr>
 </thead>
 <tbody>
@@ -3007,105 +3037,105 @@
 </tr>
 </tbody>
 </table>
-<p><strong>配置来源</strong>: <code>ANTHROPIC_API_KEY</code>、<code>ANTHROPIC_BASE_URL</code>、OAuth tokens、AWS/GCP 凭证</p>
-<h3 id="claudets-api">claude.ts — API 消息处理核心<a class="headerlink" href="#claudets-api" title="Permanent link">&para;</a></h3>
+<p><strong>Configuration Source</strong>: <code>ANTHROPIC_API_KEY</code>, <code>ANTHROPIC_BASE_URL</code>, OAuth tokens, AWS/GCP credentials</p>
+<h3 id="claudets-api-message-processing-core">claude.ts — API Message Processing Core<a class="headerlink" href="#claudets-api-message-processing-core" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryModelWithStreaming</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">AsyncGenerator</span><span class="o">&lt;</span><span class="nx">StreamEvent</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>核心功能</strong>:
-- 内部消息格式 → API 格式转换
-- 流式响应处理（SSE）
-- 工具调用检测与序列化
-- Prompt caching 支持
-- Token 统计（输入/输出/缓存命中）
-- 重试逻辑（含 fallback 模型）</p>
-<p><strong>数据流</strong>:
-<div class="highlight"><pre><span></span><code>messages → normalizeForAPI() → API 请求 → 流式响应
-  → 解析 content blocks → 工具调用检测
-  → 生成 StreamEvent → 返回给 QueryEngine
+<p><strong>Core Features</strong>:
+- Internal message format → API format conversion
+- Streaming response handling (SSE)
+- Tool call detection and serialization
+- Prompt caching support
+- Token statistics (input/output/cache hits)
+- Retry logic (with fallback model)</p>
+<p><strong>Data Flow</strong>:
+<div class="highlight"><pre><span></span><code>messages → normalizeForAPI() → API request → Streaming response
+  → Parse content blocks → Tool call detection
+  → Generate StreamEvent → Return to QueryEngine
 </code></pre></div></p>
-<h3 id="errorsts-api">errors.ts — API 错误处理<a class="headerlink" href="#errorsts-api" title="Permanent link">&para;</a></h3>
+<h3 id="errorsts-api-error-handling">errors.ts — API Error Handling<a class="headerlink" href="#errorsts-api-error-handling" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">categorizeRetryableAPIError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">RetryCategory</span>
 </code></pre></div>
-<p><strong>错误分类</strong>:</p>
+<p><strong>Error Categories</strong>:</p>
 <table>
 <thead>
 <tr>
-<th>类别</th>
-<th>处理方式</th>
+<th>Category</th>
+<th>Handling</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>overloaded</code></td>
-<td>指数退避重试</td>
+<td>Exponential backoff retry</td>
 </tr>
 <tr>
 <td><code>rate_limited</code></td>
-<td>等待 + 重试</td>
+<td>Wait + retry</td>
 </tr>
 <tr>
 <td><code>authentication</code></td>
-<td>提示用户检查 key</td>
+<td>Prompt user to check key</td>
 </tr>
 <tr>
 <td><code>invalid_request</code></td>
-<td>不重试，报错</td>
+<td>No retry, report error</td>
 </tr>
 <tr>
 <td><code>network</code></td>
-<td>重试</td>
+<td>Retry</td>
 </tr>
 <tr>
 <td><code>context_length</code></td>
-<td>触发压缩</td>
+<td>Trigger compaction</td>
 </tr>
 </tbody>
 </table>
-<h3 id="loggingts-api">logging.ts — API 日志记录<a class="headerlink" href="#loggingts-api" title="Permanent link">&para;</a></h3>
-<p>记录每次 API 调用的详细元数据：模型、Token 使用、缓存命中率、延迟等。</p>
+<h3 id="loggingts-api-logging">logging.ts — API Logging<a class="headerlink" href="#loggingts-api-logging" title="Permanent link">&para;</a></h3>
+<p>Records detailed metadata for each API call: model, token usage, cache hit rate, latency, etc.</p>
 <hr />
-<h2 id="servicesanalytics">分析服务 (<code>services/analytics/</code>)<a class="headerlink" href="#servicesanalytics" title="Permanent link">&para;</a></h2>
-<h3 id="indexts">index.ts — 事件队列<a class="headerlink" href="#indexts" title="Permanent link">&para;</a></h3>
+<h2 id="analytics-service-servicesanalytics">Analytics Service (<code>services/analytics/</code>)<a class="headerlink" href="#analytics-service-servicesanalytics" title="Permanent link">&para;</a></h2>
+<h3 id="indexts-event-queue">index.ts — Event Queue<a class="headerlink" href="#indexts-event-queue" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">logEvent</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">metadata?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">attachAnalyticsSink</span><span class="p">(</span><span class="nx">sink</span><span class="o">:</span><span class="w"> </span><span class="kt">AnalyticsSink</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
-<p><strong>设计</strong>: 事件在 sink 附加前排队，避免导入循环。所有元数据字段需经 <code>AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS</code> 类型验证。</p>
-<h3 id="growthbookts">growthbook.ts — 特性开关<a class="headerlink" href="#growthbookts" title="Permanent link">&para;</a></h3>
+<p><strong>Design</strong>: Events are queued before sink attachment to avoid import cycles. All metadata fields require <code>AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS</code> type validation.</p>
+<h3 id="growthbookts-feature-flags">growthbook.ts — Feature Flags<a class="headerlink" href="#growthbookts-feature-flags" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getFeatureValue_CACHED_MAY_BE_STALE</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="k">default</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">T</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getFeatureValue_DEPRECATED</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="k">default</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getDynamicConfig_BLOCKS_ON_INIT</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">config</span><span class="p">,</span><span class="w"> </span><span class="k">default</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>机制</strong>:
-- GrowthBook SDK 集成
-- 用户属性：ID、deviceID、订阅类型、API provider
-- 本地磁盘缓存 + 后台刷新（1 小时）
-- 支持环境变量覆盖</p>
+<p><strong>Mechanism</strong>:
+- GrowthBook SDK integration
+- User attributes: ID, deviceID, subscription type, API provider
+- Local disk cache + background refresh (1 hour)
+- Environment variable override support</p>
 <hr />
-<h2 id="mcp-servicesmcp">MCP 服务 (<code>services/mcp/</code>)<a class="headerlink" href="#mcp-servicesmcp" title="Permanent link">&para;</a></h2>
-<h3 id="clientts-mcp">client.ts — MCP 客户端<a class="headerlink" href="#clientts-mcp" title="Permanent link">&para;</a></h3>
+<h2 id="mcp-service-servicesmcp">MCP Service (<code>services/mcp/</code>)<a class="headerlink" href="#mcp-service-servicesmcp" title="Permanent link">&para;</a></h2>
+<h3 id="clientts-mcp-client">client.ts — MCP Client<a class="headerlink" href="#clientts-mcp-client" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">initializeMcpClient</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">MCPClient</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">callMcpTool</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">toolName</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ToolResult</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">listMcpResources</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Resource</span><span class="p">[]</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>支持的传输类型</strong>:</p>
+<p><strong>Supported Transport Types</strong>:</p>
 <table>
 <thead>
 <tr>
-<th>类型</th>
-<th>协议</th>
-<th>使用场景</th>
+<th>Type</th>
+<th>Protocol</th>
+<th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>stdio</code></td>
-<td>子进程 stdin/stdout</td>
-<td>本地 MCP 服务器</td>
+<td>Child process stdin/stdout</td>
+<td>Local MCP server</td>
 </tr>
 <tr>
 <td><code>sse</code></td>
 <td>Server-Sent Events</td>
-<td>远程 MCP 服务器</td>
+<td>Remote MCP server</td>
 </tr>
 <tr>
 <td><code>http</code></td>
@@ -3115,30 +3145,30 @@
 <tr>
 <td><code>ws</code></td>
 <td>WebSocket</td>
-<td>实时双向</td>
+<td>Real-time bidirectional</td>
 </tr>
 </tbody>
 </table>
-<p><strong>OAuth 支持</strong>: XAA（跨应用访问）认证流程</p>
-<p><strong>配置范围</strong> (<code>ConfigScope</code>):
-- <code>local</code> / <code>user</code> / <code>project</code> — 本地配置
-- <code>enterprise</code> / <code>managed</code> — 企业管理
-- <code>claudeai</code> — Claude.ai 内置连接器
-- <code>dynamic</code> — SDK 动态注入</p>
+<p><strong>OAuth Support</strong>: XAA (Cross-Application Access) authentication flow</p>
+<p><strong>Configuration Scope</strong> (<code>ConfigScope</code>):
+- <code>local</code> / <code>user</code> / <code>project</code> — Local configuration
+- <code>enterprise</code> / <code>managed</code> — Enterprise management
+- <code>claudeai</code> — Claude.ai built-in connectors
+- <code>dynamic</code> — SDK dynamic injection</p>
 <hr />
-<h2 id="oauth-servicesoauth">OAuth 服务 (<code>services/oauth/</code>)<a class="headerlink" href="#oauth-servicesoauth" title="Permanent link">&para;</a></h2>
-<h3 id="clientts-oauth">client.ts — OAuth 流程<a class="headerlink" href="#clientts-oauth" title="Permanent link">&para;</a></h3>
+<h2 id="oauth-service-servicesoauth">OAuth Service (<code>services/oauth/</code>)<a class="headerlink" href="#oauth-service-servicesoauth" title="Permanent link">&para;</a></h2>
+<h3 id="clientts-oauth-flow">client.ts — OAuth Flow<a class="headerlink" href="#clientts-oauth-flow" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">buildAuthUrl</span><span class="p">(</span><span class="nx">provider</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">exchangeAuthCode</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">OAuthTokenExchangeResponse</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">refreshOAuthToken</span><span class="p">(</span><span class="nx">refreshToken</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">OAuthTokens</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>支持</strong>:
-- Claude.ai OAuth（Pro/Max/Team/Enterprise）
+<p><strong>Support</strong>:
+- Claude.ai OAuth (Pro/Max/Team/Enterprise)
 - Console OAuth
-- PKCE 认证码流程
-- 本地回调服务器（<code>auth-code-listener.ts</code>）
-- Token 自动刷新</p>
-<h3 id="_3">核心类型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+- PKCE authorization code flow
+- Local callback server (<code>auth-code-listener.ts</code>)
+- Automatic token refresh</p>
+<h3 id="core-types">Core Types<a class="headerlink" href="#core-types" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">OAuthTokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">accessToken</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">refreshToken?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
@@ -3149,102 +3179,102 @@
 <span class="kr">type</span><span class="w"> </span><span class="nx">RateLimitTier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;standard&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;high&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;unlimited&#39;</span>
 </code></pre></div>
 <hr />
-<h2 id="servicescompact">会话压缩 (<code>services/compact/</code>)<a class="headerlink" href="#servicescompact" title="Permanent link">&para;</a></h2>
-<h3 id="compactts">compact.ts — 压缩引擎<a class="headerlink" href="#compactts" title="Permanent link">&para;</a></h3>
+<h2 id="session-compaction-servicescompact">Session Compaction (<code>services/compact/</code>)<a class="headerlink" href="#session-compaction-servicescompact" title="Permanent link">&para;</a></h2>
+<h3 id="compactts-compaction-engine">compact.ts — Compaction Engine<a class="headerlink" href="#compactts-compaction-engine" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">compactMessagesIfNeeded</span><span class="p">(</span><span class="nx">messages</span><span class="p">,</span><span class="w"> </span><span class="nx">config</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">CompactionResult</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>压缩策略</strong>:
-- <strong>autoCompact</strong>: Token 超过阈值时自动触发
-- <strong>microCompact</strong>: 轻量级增量压缩
-- <strong>sessionMemoryCompact</strong>: 结合会话记忆的压缩</p>
-<p><strong>压缩结果</strong>:
+<p><strong>Compaction Strategies</strong>:
+- <strong>autoCompact</strong>: Automatically triggered when tokens exceed threshold
+- <strong>microCompact</strong>: Lightweight incremental compaction
+- <strong>sessionMemoryCompact</strong>: Compaction combined with session memory</p>
+<p><strong>Compaction Result</strong>:
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">CompactionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="kt">Message</span><span class="p">[]</span><span class="w">          </span><span class="c1">// 压缩后的消息</span>
-<span class="w">  </span><span class="nx">compactedCount</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">       </span><span class="c1">// 被压缩的消息数</span>
-<span class="w">  </span><span class="nx">summaryTokens</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// 摘要 token 数</span>
-<span class="w">  </span><span class="nx">savedTokens</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">          </span><span class="c1">// 节省的 token 数</span>
+<span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="kt">Message</span><span class="p">[]</span><span class="w">          </span><span class="c1">// Compacted messages</span>
+<span class="w">  </span><span class="nx">compactedCount</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">       </span><span class="c1">// Number of messages compacted</span>
+<span class="w">  </span><span class="nx">summaryTokens</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// Summary token count</span>
+<span class="w">  </span><span class="nx">savedTokens</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">          </span><span class="c1">// Tokens saved</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
-<h2 id="lsp-serviceslsp">LSP 服务 (<code>services/lsp/</code>)<a class="headerlink" href="#lsp-serviceslsp" title="Permanent link">&para;</a></h2>
-<h3 id="managerts-lsp">manager.ts — LSP 服务器管理<a class="headerlink" href="#managerts-lsp" title="Permanent link">&para;</a></h3>
+<h2 id="lsp-service-serviceslsp">LSP Service (<code>services/lsp/</code>)<a class="headerlink" href="#lsp-service-serviceslsp" title="Permanent link">&para;</a></h2>
+<h3 id="managerts-lsp-server-management">manager.ts — LSP Server Management<a class="headerlink" href="#managerts-lsp-server-management" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">initializeLspServerManager</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getLspServerManager</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">LSPServerManager</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span>
 </code></pre></div>
-<p><strong>状态</strong>: <code>not-started</code> → <code>pending</code> → <code>success</code> / <code>failed</code></p>
-<p><strong>功能</strong>: 管理多个 LSP 服务器连接，聚合诊断信息，支持代码导航</p>
+<p><strong>States</strong>: <code>not-started</code> → <code>pending</code> → <code>success</code> / <code>failed</code></p>
+<p><strong>Features</strong>: Manages multiple LSP server connections, aggregates diagnostic information, supports code navigation</p>
 <hr />
-<h2 id="servicespolicylimits">策略限制 (<code>services/policyLimits/</code>)<a class="headerlink" href="#servicespolicylimits" title="Permanent link">&para;</a></h2>
+<h2 id="policy-limits-servicespolicylimits">Policy Limits (<code>services/policyLimits/</code>)<a class="headerlink" href="#policy-limits-servicespolicylimits" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">isPolicyAllowed</span><span class="p">(</span><span class="nx">feature</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">waitForPolicyLimitsToLoad</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>特性</strong>:
-- Console API Key 用户（全部）+ OAuth 用户（Team/Enterprise）
-- 故障打开（non-blocking）
-- ETag 缓存 + 后台轮询（1 小时）</p>
+<p><strong>Features</strong>:
+- Console API Key users (all) + OAuth users (Team/Enterprise)
+- Fail-open (non-blocking)
+- ETag caching + background polling (1 hour)</p>
 <hr />
-<h2 id="servicesremotemanagedsettings">远程托管设置 (<code>services/remoteManagedSettings/</code>)<a class="headerlink" href="#servicesremotemanagedsettings" title="Permanent link">&para;</a></h2>
+<h2 id="remote-managed-settings-servicesremotemanagedsettings">Remote Managed Settings (<code>services/remoteManagedSettings/</code>)<a class="headerlink" href="#remote-managed-settings-servicesremotemanagedsettings" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">waitForRemoteManagedSettingsToLoad</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>同步机制</strong>:
-- Checksum 验证最小化网络流量
-- 文件缓存：<code>~/.claude/managed-settings.json</code>
-- 支持插件允许列表、设置覆盖、安全检查</p>
+<p><strong>Sync Mechanism</strong>:
+- Checksum verification minimizes network traffic
+- File cache: <code>~/.claude/managed-settings.json</code>
+- Supports plugin allow list, setting overrides, security checks</p>
 <hr />
-<h2 id="servicesplugins">插件服务 (<code>services/plugins/</code>)<a class="headerlink" href="#servicesplugins" title="Permanent link">&para;</a></h2>
-<h3 id="pluginoperationsts">pluginOperations.ts — 纯库函数<a class="headerlink" href="#pluginoperationsts" title="Permanent link">&para;</a></h3>
+<h2 id="plugin-service-servicesplugins">Plugin Service (<code>services/plugins/</code>)<a class="headerlink" href="#plugin-service-servicesplugins" title="Permanent link">&para;</a></h2>
+<h3 id="pluginoperationsts-pure-library-functions">pluginOperations.ts — Pure Library Functions<a class="headerlink" href="#pluginoperationsts-pure-library-functions" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">installPlugin</span><span class="p">(</span><span class="nx">spec</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">PluginResult</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">uninstallPlugin</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">PluginResult</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">updatePlugin</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">PluginResult</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">enablePlugin</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">PluginResult</span><span class="o">&gt;</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">disablePlugin</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">PluginResult</span><span class="o">&gt;</span>
 </code></pre></div>
-<p><strong>设计原则</strong>: 不调用 <code>process.exit()</code>，不写控制台，返回结果对象。</p>
+<p><strong>Design Principles</strong>: No <code>process.exit()</code> calls, no console writes, returns result objects.</p>
 <hr />
-<h2 id="_4">其他服务<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="other-services">Other Services<a class="headerlink" href="#other-services" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>服务</th>
-<th>文件</th>
-<th>功能</th>
+<th>Service</th>
+<th>File</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>claudeAiLimits</strong></td>
 <td>claudeAiLimits.ts</td>
-<td>Claude.ai 用户限速检查和警告</td>
+<td>Claude.ai user rate limit checks and warnings</td>
 </tr>
 <tr>
 <td><strong>tokenEstimation</strong></td>
 <td>tokenEstimation.ts</td>
-<td>消息 Token 计数估算</td>
+<td>Message token count estimation</td>
 </tr>
 <tr>
 <td><strong>voice</strong></td>
 <td>voice.ts</td>
-<td>麦克风录音（CPAL / SoX）</td>
+<td>Microphone recording (CPAL / SoX)</td>
 </tr>
 <tr>
 <td><strong>voiceStreamSTT</strong></td>
 <td>voiceStreamSTT.ts</td>
-<td>音频流语音转文字（OpenAI Whisper）</td>
+<td>Audio stream voice-to-text (OpenAI Whisper)</td>
 </tr>
 <tr>
 <td><strong>SessionMemory</strong></td>
 <td>SessionMemory/</td>
-<td>会话记忆持久化</td>
+<td>Session memory persistence</td>
 </tr>
 <tr>
 <td><strong>settingsSync</strong></td>
 <td>settingsSync/</td>
-<td>用户设置云同步</td>
+<td>User settings cloud sync</td>
 </tr>
 <tr>
 <td><strong>vcr</strong></td>
 <td>vcr.ts</td>
-<td>HTTP 录制/回放（测试用）</td>
+<td>HTTP record/replay (testing)</td>
 </tr>
 </tbody>
 </table>

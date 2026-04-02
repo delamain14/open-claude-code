@@ -1,3 +1,395 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/"/>
+    </url>
+    <url>
+        <loc>NoneMULTI_PROVIDER/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="NoneMULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/MULTI_PROVIDER/"/>
+    </url>
+    <url>
+        <loc>Noneadvanced/worktree-isolation/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneadvanced/worktree-isolation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/advanced/worktree-isolation/"/>
+    </url>
+    <url>
+        <loc>Noneagents/agent-teams/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/agent-teams/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/agent-teams/"/>
+    </url>
+    <url>
+        <loc>Noneagents/autonomous-agents/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/autonomous-agents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/autonomous-agents/"/>
+    </url>
+    <url>
+        <loc>Noneagents/team-protocols/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/team-protocols/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/team-protocols/"/>
+    </url>
+    <url>
+        <loc>Noneapi/commands/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/commands/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/commands/"/>
+    </url>
+    <url>
+        <loc>Noneapi/tools/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/tools/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/commands/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/commands/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/commands/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/entrypoints/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/entrypoints/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/entrypoints/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/overview/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/overview/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/services/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/services/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/services/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/tools/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/tools/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/types/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/types/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/types/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/ui/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/ui/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/ui/"/>
+    </url>
+    <url>
+        <loc>Nonearchitecture/utils/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/utils/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/utils/"/>
+    </url>
+    <url>
+        <loc>Noneconcepts/context-compact/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/context-compact/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/context-compact/"/>
+    </url>
+    <url>
+        <loc>Noneconcepts/skills/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/skills/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/skills/"/>
+    </url>
+    <url>
+        <loc>Noneconcepts/subagents/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/subagents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/subagents/"/>
+    </url>
+    <url>
+        <loc>Nonecore/agent-loop/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/agent-loop/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/agent-loop/"/>
+    </url>
+    <url>
+        <loc>Nonecore/todowrite/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/todowrite/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/todowrite/"/>
+    </url>
+    <url>
+        <loc>Nonecore/tool-use/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/tool-use/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/tool-use/"/>
+    </url>
+    <url>
+        <loc>Nonedevelopment/contributing/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/contributing/"/>
+    </url>
+    <url>
+        <loc>Nonedevelopment/setup/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/setup/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/setup/"/>
+    </url>
+    <url>
+        <loc>Nonegetting-started/configuration/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/configuration/"/>
+    </url>
+    <url>
+        <loc>Nonegetting-started/installation/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/installation/"/>
+    </url>
+    <url>
+        <loc>Nonetasks/background-tasks/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonetasks/background-tasks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/tasks/background-tasks/"/>
+    </url>
+    <url>
+        <loc>Nonezh/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+    </url>
+    <url>
+        <loc>Nonezh/MULTI_PROVIDER/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/MULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="NoneMULTI_PROVIDER/"/>
+    </url>
+    <url>
+        <loc>Nonezh/advanced/worktree-isolation/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/advanced/worktree-isolation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneadvanced/worktree-isolation/"/>
+    </url>
+    <url>
+        <loc>Nonezh/agents/agent-teams/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/agent-teams/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/agent-teams/"/>
+    </url>
+    <url>
+        <loc>Nonezh/agents/autonomous-agents/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/autonomous-agents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/autonomous-agents/"/>
+    </url>
+    <url>
+        <loc>Nonezh/agents/team-protocols/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/team-protocols/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/team-protocols/"/>
+    </url>
+    <url>
+        <loc>Nonezh/api/commands/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/commands/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/commands/"/>
+    </url>
+    <url>
+        <loc>Nonezh/api/tools/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/tools/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/commands/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/commands/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/commands/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/entrypoints/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/entrypoints/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/entrypoints/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/overview/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/overview/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/services/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/services/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/services/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/tools/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/tools/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/types/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/types/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/types/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/ui/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/ui/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/ui/"/>
+    </url>
+    <url>
+        <loc>Nonezh/architecture/utils/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/utils/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/utils/"/>
+    </url>
+    <url>
+        <loc>Nonezh/concepts/context-compact/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/context-compact/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/context-compact/"/>
+    </url>
+    <url>
+        <loc>Nonezh/concepts/skills/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/skills/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/skills/"/>
+    </url>
+    <url>
+        <loc>Nonezh/concepts/subagents/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/subagents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/subagents/"/>
+    </url>
+    <url>
+        <loc>Nonezh/core/agent-loop/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/agent-loop/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/agent-loop/"/>
+    </url>
+    <url>
+        <loc>Nonezh/core/todowrite/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/todowrite/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/todowrite/"/>
+    </url>
+    <url>
+        <loc>Nonezh/core/tool-use/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/tool-use/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/tool-use/"/>
+    </url>
+    <url>
+        <loc>Nonezh/development/contributing/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/contributing/"/>
+    </url>
+    <url>
+        <loc>Nonezh/development/setup/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/setup/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/setup/"/>
+    </url>
+    <url>
+        <loc>Nonezh/getting-started/configuration/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/configuration/"/>
+    </url>
+    <url>
+        <loc>Nonezh/getting-started/installation/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/installation/"/>
+    </url>
+    <url>
+        <loc>Nonezh/tasks/background-tasks/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/tasks/background-tasks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonetasks/background-tasks/"/>
+    </url>
 </urlset>
