@@ -340,7 +340,7 @@
           
   
   
-  任务系统
+  TodoWrite + 任务系统
 
         </a>
       </li>
@@ -418,26 +418,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../core/todowrite/" class="md-tabs__link">
-          
-  
-  
-  任务
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../tasks/background-tasks/" class="md-tabs__link">
           
   
@@ -462,27 +442,7 @@
           
   
   
-  Agent 团队
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../agents/team-protocols/" class="md-tabs__link">
-          
-  
-  
-  团队协议
+  Agent Teams
 
         </a>
       </li>
@@ -739,6 +699,34 @@
     
   
     配置指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/MULTI_PROVIDER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多提供商支持
   
 
     
@@ -1053,7 +1041,7 @@
   <span class="md-ellipsis">
     
   
-    任务系统
+    TodoWrite + 任务系统
   
 
     
@@ -1069,7 +1057,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    任务系统
+    TodoWrite + 任务系统
   
 
           </label>
@@ -1365,6 +1353,445 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 文件格式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 文件格式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontmatter 字段
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 来源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 来源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-skills-claudeskills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 用户 Skills (~/.claude/skills/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-skills-claude_skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 项目 Skills (./claude_skills/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 捆绑的 Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mcp-server-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MCP Server Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Tool 接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 执行流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 执行流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Skill 发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 参数注入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-subagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Subagent 执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 结果聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#superpowers-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置 Superpowers Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内置 Superpowers Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#superpower-skill-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superpower Skill: TDD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建自定义 Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建自定义 Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础 Skill 模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级: 带 MCP 服务的 Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 发现与搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 发现与搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本地发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forked-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非 Forked Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 组合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数与变量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数与变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模板变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 权限
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skills-prompt-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 中的 Prompt Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 重用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用场景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 调试工作流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 代码审查清单
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 功能规划
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         关键文件
       
     </span>
@@ -1373,7 +1800,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -1520,7 +1947,7 @@
   <span class="md-ellipsis">
     
   
-    任务
+    后台任务
   
 
     
@@ -1533,95 +1960,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    任务
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/todowrite/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    V2 任务系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    后台任务
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1688,17 +2026,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Agent 团队
+    Agent Teams
   
 
     
@@ -1709,12 +2047,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Agent 团队
+    Agent Teams
   
 
           </label>
@@ -1747,67 +2085,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
-        
-          
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    团队协议
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    团队协议
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1866,10 +2143,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
             
   
   
@@ -1887,8 +2164,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1955,10 +2232,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
             
   
   
@@ -1976,8 +2253,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2044,10 +2321,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -2065,8 +2342,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2273,10 +2550,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
             
   
   
@@ -2294,8 +2571,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2409,6 +2686,445 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 文件格式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 文件格式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontmatter 字段
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 来源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 来源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-skills-claudeskills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 用户 Skills (~/.claude/skills/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-skills-claude_skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 项目 Skills (./claude_skills/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 捆绑的 Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mcp-server-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MCP Server Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Tool 接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 执行流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 执行流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Skill 发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 参数注入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-subagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Subagent 执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 结果聚合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#superpowers-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置 Superpowers Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内置 Superpowers Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#superpower-skill-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superpower Skill: TDD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建自定义 Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建自定义 Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础 Skill 模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级: 带 MCP 服务的 Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 发现与搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill 发现与搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本地发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forked-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非 Forked Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 组合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数与变量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数与变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模板变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 权限
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skills-prompt-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills 中的 Prompt Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill 重用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用场景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 调试工作流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 代码审查清单
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 功能规划
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         关键文件
       
     </span>
@@ -2417,7 +3133,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -2462,12 +3178,533 @@
 <li>在隔离的 subagent 上下文中执行</li>
 <li>与主代码分开维护</li>
 </ul>
-<h2 id="_2">关键文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>用户/Claude 请求
+        ↓
+┌───────────────────────┐
+│  Skill Tool 被调用    │
+│  skill=&quot;write-tests&quot;  │
+│  args={ file: &quot;...&quot; } │
+└───────┬───────────────┘
+        ↓
+┌─────────────────────────────┐
+│ Skill 发现                  │
+│ • 检查本地 ~/.claude/       │
+│ • 检查项目 ./skills/        │
+│ • 检查 MCP 服务器           │
+└───────┬─────────────────────┘
+        ↓
+┌─────────────────────────────┐
+│ 加载 Skill .md 文件         │
+│ 解析 YAML frontmatter       │
+│ 提取 prompt 内容            │
+└───────┬─────────────────────┘
+        ↓
+┌─────────────────────────────────┐
+│ 创建 Subagent 上下文            │
+│ (如果未禁用 forked 模式)        │
+│ 继承父级的能力                  │
+└───────┬─────────────────────────┘
+        ↓
+┌─────────────────────────────┐
+│ 在 Subagent 中执行          │
+│ • Skill prompt 作为系统提示 │
+│ • Args 作为消息注入         │
+│ • 运行完整的 agent 循环     │
+└───────┬─────────────────────┘
+        ↓
+┌─────────────────────────────┐
+│ 将结果返回给调用者          │
+│ Skill 输出/发现             │
+└─────────────────────────────┘
+</code></pre></div>
+<h2 id="skill">Skill 文件格式<a class="headerlink" href="#skill" title="Permanent link">&para;</a></h2>
+<p>Skills 存储为带有 YAML frontmatter 的 Markdown 文件:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;write-unit-tests&quot;</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Generate</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">tests</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">given</span><span class="nv"> </span><span class="s">file&quot;</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prompt&quot;</span>
+<span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user&quot;</span>
+<span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;file&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;test_framework&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">keywords</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;testing&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;jest&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;unit-tests&quot;</span><span class="p p-Indicator">]</span>
+<span class="nn">---</span>
+
+<span class="c1"># Your Skill Prompt Here</span>
+
+<span class="nt">You are an expert test writer. Your job is to</span><span class="p">:</span>
+<span class="l l-Scalar l-Scalar-Plain">1. Read the provided file</span>
+<span class="l l-Scalar l-Scalar-Plain">2. Understand its functionality</span>
+<span class="l l-Scalar l-Scalar-Plain">3. Write comprehensive unit tests</span>
+
+<span class="nt">Focus on</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Edge cases</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Error conditions</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Integration points</span>
+
+<span class="nt">The user will provide</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File path ({{ file }})</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test framework ({{ test_framework }})</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Start by reading the file and analyzing its structure.</span>
+</code></pre></div>
+<h3 id="frontmatter">Frontmatter 字段<a class="headerlink" href="#frontmatter" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>目的</th>
+<th>字段</th>
+<th>类型</th>
+<th>必需</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>✅</td>
+<td>唯一的 skill 标识符</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>✅</td>
+<td>人类可读的描述</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>✅</td>
+<td>"prompt" (其他类型未来支持)</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>string</td>
+<td></td>
+<td>"bundled", "project", "user", "mcp"</td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td>array</td>
+<td></td>
+<td>要注入的参数名称</td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>array</td>
+<td></td>
+<td>搜索标签</td>
+</tr>
+<tr>
+<td><code>mcpServers</code></td>
+<td>array</td>
+<td></td>
+<td>要启用的 MCP 服务器</td>
+</tr>
+<tr>
+<td><code>forked</code></td>
+<td>boolean</td>
+<td></td>
+<td>在 subagent 中运行? (默认: true)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="skill_1">Skill 来源<a class="headerlink" href="#skill_1" title="Permanent link">&para;</a></h2>
+<h3 id="1-skills-claudeskills">1. 用户 Skills (<code>~/.claude/skills/</code>)<a class="headerlink" href="#1-skills-claudeskills" title="Permanent link">&para;</a></h3>
+<p>用户创建的本地存储的 skills:</p>
+<div class="highlight"><pre><span></span><code>~/.claude/skills/
+├── write-unit-tests.md
+├── refactor-function.md
+├── debug-api.md
+└── analyze-performance.md
+</code></pre></div>
+<h3 id="2-skills-claude_skills">2. 项目 Skills (<code>./claude_skills/</code>)<a class="headerlink" href="#2-skills-claude_skills" title="Permanent link">&para;</a></h3>
+<p>项目特定的 skills,提交到代码仓库:</p>
+<div class="highlight"><pre><span></span><code>./claude_skills/
+├── setup-db.md
+├── run-tests.md
+├── deploy.md
+└── code-review.md
+</code></pre></div>
+<h3 id="3-skills">3. 捆绑的 Skills<a class="headerlink" href="#3-skills" title="Permanent link">&para;</a></h3>
+<p>Claude Code 自带的 skills (内置):</p>
+<div class="highlight"><pre><span></span><code>src/tools/SkillTool/built-in/
+├── tdd.md
+├── systematic-debugging.md
+├── brainstorming.md
+└── ...
+</code></pre></div>
+<h3 id="4-mcp-server-skills">4. MCP Server Skills<a class="headerlink" href="#4-mcp-server-skills" title="Permanent link">&para;</a></h3>
+<p>由 Model Context Protocol 服务器提供的 skills:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// MCP 服务器通过 ListPrompts RPC 暴露 skills:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;analyze-logs&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze application logs&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">arguments</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;log_file&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Path to log&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="skill-tool">Skill Tool 接口<a class="headerlink" href="#skill-tool" title="Permanent link">&para;</a></h2>
+<p><code>Skill</code> tool 执行 skills:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 输入 schema</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">skill</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                    </span><span class="c1">// Skill 名称</span>
+<span class="w">  </span><span class="nx">args?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w">   </span><span class="c1">// 可选参数</span>
+<span class="p">}</span>
+
+<span class="c1">// 示例</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">Skill</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">skill</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;write-unit-tests&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;src/api.ts&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">test_framework</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jest&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">// 返回</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Generated tests...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// 完整的 subagent 执行详情</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="skill_2">Skill 执行流程<a class="headerlink" href="#skill_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-skill">1. Skill 发现<a class="headerlink" href="#1-skill" title="Permanent link">&para;</a></h3>
+<p>系统按以下顺序搜索 skill:
+1. <strong>捆绑的 skills</strong> - Claude Code 内置
+2. <strong>项目 skills</strong> - <code>./claude_skills/*.md</code>
+3. <strong>用户 skills</strong> - <code>~/.claude/skills/*.md</code>
+4. <strong>MCP skills</strong> - 已连接的服务器 (通过 ListPrompts)</p>
+<p>第一个匹配的获胜。项目可以覆盖内置 skills。</p>
+<h3 id="2">2. 参数注入<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>参数被注入到 skill prompt 中:</p>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;write-tests&quot;
+<span class="gu">args: [&quot;file&quot;, &quot;framework&quot;]</span>
+<span class="gu">---</span>
+
+Write tests for: {{ file }}
+Using framework: {{ framework }}
+</code></pre></div>
+<p>当使用以下参数调用时:
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">Skill</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">skill</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;write-tests&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app.ts&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">framework</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vitest&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<p>prompt 变成:
+<div class="highlight"><pre><span></span><code>Write tests for: app.ts
+Using framework: vitest
+</code></pre></div></p>
+<h3 id="3-subagent">3. Subagent 执行<a class="headerlink" href="#3-subagent" title="Permanent link">&para;</a></h3>
+<p>默认情况下,skills 在隔离的 subagents 中运行:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 内部实现 (如果 forked=true):</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">subagent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSubagent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;write-tests-skill&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="kt">skillContent</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentBudget</span><span class="o">:</span><span class="w"> </span><span class="kt">currentBudget</span>
+<span class="p">})</span>
+
+<span class="k">await</span><span class="w"> </span><span class="nx">subagent</span><span class="p">.</span><span class="nx">query</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">systemPrompt</span><span class="o">:</span><span class="w"> </span><span class="kt">skillContent</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Run this skill with args: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="4">4. 结果聚合<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Subagent 完成,返回结果:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sidechain</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[...],</span><span class="w">      </span><span class="c1">// 完整对话</span>
+<span class="w">    </span><span class="nx">tokenUsage</span><span class="o">:</span><span class="w"> </span><span class="p">{...}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="superpowers-skills">内置 Superpowers Skills<a class="headerlink" href="#superpowers-skills" title="Permanent link">&para;</a></h2>
+<p>Claude Code 包含可通过 <code>/skill</code> 访问的专门 skills:</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>用途</th>
+<th>调用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>brainstorming</code></td>
+<td>在实现前探索设计</td>
+<td><code>/skill brainstorming</code></td>
+</tr>
+<tr>
+<td><code>systematic-debugging</code></td>
+<td>结构化调试流程</td>
+<td><code>/skill systematic-debugging</code></td>
+</tr>
+<tr>
+<td><code>test-driven-development</code></td>
+<td>TDD 工作流,先写测试</td>
+<td><code>/skill test-driven-development</code></td>
+</tr>
+<tr>
+<td><code>code-review</code></td>
+<td>代码审查清单</td>
+<td><code>/skill code-review</code></td>
+</tr>
+<tr>
+<td><code>writing-plans</code></td>
+<td>创建详细的实现计划</td>
+<td><code>/skill writing-plans</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="superpower-skill-tdd">Superpower Skill: TDD<a class="headerlink" href="#superpower-skill-tdd" title="Permanent link">&para;</a></h3>
+<p>TDD skill 指导测试驱动开发:</p>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;test-driven-development&quot;
+description: &quot;Write tests first, then implementation&quot;
+<span class="gu">type: &quot;prompt&quot;</span>
+<span class="gu">---</span>
+
+<span class="gh"># Test-Driven Development Workflow</span>
+
+<span class="gu">## Phase 1: Write Failing Tests</span>
+<span class="k">1.</span> Understand requirements
+<span class="k">2.</span> Write minimal test that fails
+<span class="k">3.</span> Verify test fails for right reason
+
+<span class="gu">## Phase 2: Write Minimal Implementation</span>
+<span class="k">1.</span> Write simplest code to pass test
+<span class="k">2.</span> No over-engineering
+<span class="k">3.</span> Code passes test
+
+<span class="gu">## Phase 3: Refactor</span>
+<span class="k">1.</span> Improve code quality
+<span class="k">2.</span> Don&#39;t change behavior
+<span class="k">3.</span> Tests still pass
+
+<span class="gu">## Phase 4: Repeat</span>
+For each new feature, repeat phases 1-3
+</code></pre></div>
+<h2 id="skills">创建自定义 Skills<a class="headerlink" href="#skills" title="Permanent link">&para;</a></h2>
+<h3 id="skill_3">基础 Skill 模板<a class="headerlink" href="#skill_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;my-skill&quot;
+description: &quot;What this skill does&quot;
+type: &quot;prompt&quot;
+args: [&quot;arg1&quot;, &quot;arg2&quot;]
+<span class="gu">keywords: [&quot;keyword1&quot;, &quot;keyword2&quot;]</span>
+<span class="gu">---</span>
+
+<span class="gh"># My Custom Skill</span>
+
+You are a specialist in [domain].
+
+Your task is to [goal].
+
+The user will provide:
+<span class="k">-</span><span class="w"> </span>arg1 ({{ arg1 }})
+<span class="k">-</span><span class="w"> </span>arg2 ({{ arg2 }})
+
+<span class="gu">## Process</span>
+
+<span class="k">1.</span> First step: [...]
+<span class="k">2.</span> Second step: [...]
+<span class="k">3.</span> Final step: [...]
+
+<span class="gu">## Deliverables</span>
+
+You should produce:
+<span class="k">-</span><span class="w"> </span>[output1]
+<span class="k">-</span><span class="w"> </span>[output2]
+</code></pre></div>
+<h3 id="mcp-skill">高级: 带 MCP 服务的 Skill<a class="headerlink" href="#mcp-skill" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;database-analyzer&quot;
+description: &quot;Analyze database performance&quot;
+mcpServers: [&quot;database-inspector&quot;]
+<span class="gu">args: [&quot;database_url&quot;, &quot;query&quot;]</span>
+<span class="gu">---</span>
+
+<span class="gh"># Database Performance Analysis</span>
+
+Using the database-inspector MCP service, analyze the provided query.
+
+Database: {{ database_url }}
+Query: {{ query }}
+
+Steps:
+<span class="k">1.</span> Connect to database (via MCP)
+<span class="k">2.</span> Explain execution plan
+<span class="k">3.</span> Identify bottlenecks
+<span class="k">4.</span> Suggest optimizations
+</code></pre></div>
+<h2 id="skill_4">Skill 发现与搜索<a class="headerlink" href="#skill_4" title="Permanent link">&para;</a></h2>
+<h3 id="_3">本地发现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>自动发现本地 skills:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 启动时扫描:</span>
+<span class="c1">// 1. ~/.claude/skills/*.md</span>
+<span class="c1">// 2. ./claude_skills/*.md</span>
+<span class="c1">// 3. 内置 skills</span>
+
+<span class="c1">// 结果: 可用的 skills 暴露给 Claude</span>
+</code></pre></div>
+<h3 id="_4">目录配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>控制 skill 搜索路径:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 环境变量</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_SKILL_DIRS</span><span class="o">=</span><span class="s2">&quot;~/.claude/skills:./my-skills:./src/prompts&quot;</span>
+
+<span class="c1"># 按顺序搜索,第一个匹配的获胜</span>
+</code></pre></div>
+<h2 id="forked-skills">非 Forked Skills<a class="headerlink" href="#forked-skills" title="Permanent link">&para;</a></h2>
+<p>默认情况下,skills 在 subagent 上下文中运行 (forked=true)。要在父上下文中运行:</p>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;quick-calc&quot;
+<span class="gu">forked: false</span>
+<span class="gu">---</span>
+
+Simple calculation skill that runs inline.
+</code></pre></div>
+<p><strong>何时使用 forked=false:</strong>
+- ❌ 简单、快速的操作 (开销不值得)
+- ❌ 需要修改父级状态
+- ✅ 大多数 skills 应该是 forked 的 (隔离)</p>
+<h2 id="skill_5">Skill 组合<a class="headerlink" href="#skill_5" title="Permanent link">&para;</a></h2>
+<p>Skills 可以调用其他 skills:</p>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;full-feature&quot;
+<span class="gu">description: &quot;Implement complete feature&quot;</span>
+<span class="gu">---</span>
+
+<span class="gh"># Full Feature Implementation</span>
+
+<span class="k">1.</span> First, run the planning skill:
+   Invoke skill &quot;writing-plans&quot; with feature requirements
+
+<span class="k">2.</span> Then, implement using TDD:
+   Invoke skill &quot;test-driven-development&quot;
+
+<span class="k">3.</span> Finally, get code review:
+   Invoke skill &quot;superpowers:code-review&quot;
+
+Combine results into final feature.
+</code></pre></div>
+<h2 id="_5">参数与变量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">模板变量<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>使用 <code>{{ variableName }}</code> 进行参数注入:</p>
+<div class="highlight"><pre><span></span><code>Fix the bug in {{ file }} with error: {{ error_message }}
+
+The issue is: {{ issue_description }}
+</code></pre></div>
+<h3 id="_7">可选参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>对可选参数使用条件部分:</p>
+<div class="highlight"><pre><span></span><code>{{#if testFramework}}
+Write tests using: {{ testFramework }}
+{{else}}
+Choose an appropriate testing framework
+{{/if}}
+</code></pre></div>
+<h2 id="skill_6">Skill 权限<a class="headerlink" href="#skill_6" title="Permanent link">&para;</a></h2>
+<p>Skills 继承父 agent 的权限:</p>
+<div class="highlight"><pre><span></span><code>用户授予权限给 Agent A
+    ↓
+Agent A 生成 Skill B
+    ↓
+Skill B 继承 Agent A 的权限
+    ↓
+Skill 可以访问 Agent A 能访问的内容
+</code></pre></div>
+<p><strong>注意:</strong> 每个在 subagent 上下文中的 skill 都是隔离的,但继承权限上下文。</p>
+<h2 id="_8">性能优化<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="skills-prompt-caching">Skills 中的 Prompt Caching<a class="headerlink" href="#skills-prompt-caching" title="Permanent link">&para;</a></h3>
+<p>Skills 受益于 prompt caching:</p>
+<div class="highlight"><pre><span></span><code>第一次 skill 执行:
+  父系统 prompt: 2000 tokens
+  Skill 系统 prompt: 1500 tokens
+  总计: 3500 tokens
+
+第二次 skill 执行:
+  父 cache: 重用 (0 tokens)
+  Skill cache: 重用 (0 tokens)
+  额外: 仅新内容
+  总计: ~400 tokens (节省 88%!)
+</code></pre></div>
+<h3 id="skill_7">Skill 重用<a class="headerlink" href="#skill_7" title="Permanent link">&para;</a></h3>
+<p>定义一次,多次使用:</p>
+<div class="highlight"><pre><span></span><code>write-tests skill:
+  - 用于 Python 文件
+  - 用于 JavaScript 文件
+  - 用于 Go 文件
+
+相同的 skill 模板,不同的 args → 高效
+</code></pre></div>
+<h2 id="_9">使用场景<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 调试工作流<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>---
+<span class="gu">name: &quot;systematic-debug&quot;</span>
+<span class="gu">---</span>
+
+<span class="gh"># Systematic Debugging Process</span>
+
+<span class="k">1.</span> Understand the error
+<span class="k">2.</span> Reproduce the issue
+<span class="k">3.</span> Narrow down the problem
+<span class="k">4.</span> Identify root cause
+<span class="k">5.</span> Verify fix
+<span class="k">6.</span> Ensure no regressions
+</code></pre></div>
+<h3 id="2_1">2. 代码审查清单<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;code-review&quot;
+<span class="gu">args: [&quot;pr_url&quot;]</span>
+<span class="gu">---</span>
+
+<span class="gh"># Code Review Process</span>
+
+Reviewing: {{ pr_url }}
+
+<span class="k">- [ ]</span> Code style consistent?
+<span class="k">- [ ]</span> Tests present and passing?
+<span class="k">- [ ]</span> Documentation updated?
+<span class="k">- [ ]</span> No security issues?
+<span class="k">- [ ]</span> Performance acceptable?
+</code></pre></div>
+<h3 id="3">3. 功能规划<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>---
+name: &quot;feature-plan&quot;
+<span class="gu">args: [&quot;feature_description&quot;]</span>
+<span class="gu">---</span>
+
+<span class="gh"># Feature Planning Workflow</span>
+
+Feature: {{ feature_description }}
+
+<span class="gu">## Requirements Analysis</span>
+<span class="k">-</span><span class="w"> </span>Parse requirements
+<span class="k">-</span><span class="w"> </span>Identify scope
+<span class="k">-</span><span class="w"> </span>List acceptance criteria
+
+<span class="gu">## Architecture Design</span>
+<span class="k">-</span><span class="w"> </span>Design data model
+<span class="k">-</span><span class="w"> </span>Design API endpoints
+<span class="k">-</span><span class="w"> </span>Design UI components
+
+<span class="gu">## Implementation Plan</span>
+<span class="k">-</span><span class="w"> </span>Break into tasks
+<span class="k">-</span><span class="w"> </span>Estimate effort
+<span class="k">-</span><span class="w"> </span>Order by dependency
+</code></pre></div>
+<h2 id="_10">关键文件<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>用途</th>
 </tr>
 </thead>
 <tbody>
@@ -2485,7 +3722,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">另请参阅<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_11">另请参阅<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../subagents/">Subagents</a> - Skills 在 subagents 中运行</li>
 <li><a href="../../core/agent-loop/">Agent Loop</a> - Skills 如何集成</li>

@@ -8,13 +8,6 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/"/>
     </url>
     <url>
-        <loc>https://delamain14.github.io/open-claude-code/MULTI_PROVIDER/</loc>
-        <lastmod>2026-04-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/MULTI_PROVIDER/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/"/>
-    </url>
-    <url>
         <loc>https://delamain14.github.io/open-claude-code/advanced/worktree-isolation/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
@@ -176,6 +169,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/development/setup/"/>
     </url>
     <url>
+        <loc>https://delamain14.github.io/open-claude-code/getting-started/MULTI_PROVIDER/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/getting-started/MULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/getting-started/MULTI_PROVIDER/"/>
+    </url>
+    <url>
         <loc>https://delamain14.github.io/open-claude-code/getting-started/configuration/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
@@ -202,13 +202,6 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/"/>
-    </url>
-    <url>
-        <loc>https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/</loc>
-        <lastmod>2026-04-02</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/MULTI_PROVIDER/"/>
     </url>
     <url>
         <loc>https://delamain14.github.io/open-claude-code/zh/advanced/worktree-isolation/</loc>
@@ -370,6 +363,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/development/setup/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/development/setup/"/>
+    </url>
+    <url>
+        <loc>https://delamain14.github.io/open-claude-code/zh/getting-started/MULTI_PROVIDER/</loc>
+        <lastmod>2026-04-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/getting-started/MULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/getting-started/MULTI_PROVIDER/"/>
     </url>
     <url>
         <loc>https://delamain14.github.io/open-claude-code/zh/getting-started/configuration/</loc>

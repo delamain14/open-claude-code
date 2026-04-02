@@ -16,7 +16,7 @@
         <link rel="prev" href="../skills/">
       
       
-        <link rel="next" href="../../core/todowrite/">
+        <link rel="next" href="../../tasks/background-tasks/">
       
       
         
@@ -340,7 +340,7 @@
           
   
   
-  任务系统
+  TodoWrite + 任务系统
 
         </a>
       </li>
@@ -418,26 +418,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../core/todowrite/" class="md-tabs__link">
-          
-  
-  
-  任务
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../tasks/background-tasks/" class="md-tabs__link">
           
   
@@ -462,27 +442,7 @@
           
   
   
-  Agent 团队
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../agents/team-protocols/" class="md-tabs__link">
-          
-  
-  
-  团队协议
+  Agent Teams
 
         </a>
       </li>
@@ -739,6 +699,34 @@
     
   
     配置指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/MULTI_PROVIDER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多提供商支持
   
 
     
@@ -1053,7 +1041,7 @@
   <span class="md-ellipsis">
     
   
-    任务系统
+    TodoWrite + 任务系统
   
 
     
@@ -1069,7 +1057,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    任务系统
+    TodoWrite + 任务系统
   
 
           </label>
@@ -1473,7 +1461,390 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动 Compaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自动 Compaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        触发条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compaction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compaction_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compaction 示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compaction_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 之前
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compaction_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compaction_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 之后
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保留的信息
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="保留的信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Task 状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission 规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 关键决策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 最近的上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compaction_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动 Compaction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-collapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Collapse（实验性）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reactive Compaction（实验性）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compaction-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 事件和 Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Compact 设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-compact_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        禁用 Auto-Compact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能特征
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compaction_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token 回收
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对 Loop 的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        边缘情况
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="边缘情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小型对话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最近消息较多的对话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环 Tool 调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-task_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 清晰的 Task 描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Checkpoint 完成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 为长任务使用 Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         关键文件
@@ -1484,7 +1855,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -1542,7 +1913,7 @@
   <span class="md-ellipsis">
     
   
-    任务
+    后台任务
   
 
     
@@ -1555,95 +1926,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    任务
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/todowrite/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    V2 任务系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    后台任务
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1710,17 +1992,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Agent 团队
+    Agent Teams
   
 
     
@@ -1731,12 +2013,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Agent 团队
+    Agent Teams
   
 
           </label>
@@ -1769,67 +2051,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
-        
-          
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    团队协议
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    团队协议
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1888,10 +2109,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
             
   
   
@@ -1909,8 +2130,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1977,10 +2198,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
             
   
   
@@ -1998,8 +2219,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2066,10 +2287,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -2087,8 +2308,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2295,10 +2516,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
             
   
   
@@ -2316,8 +2537,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2450,7 +2671,390 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动 Compaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自动 Compaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        触发条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compaction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compaction_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compaction 示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compaction_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 之前
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compaction_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compaction_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 之后
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保留的信息
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="保留的信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Task 状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Permission 规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 关键决策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 最近的上下文
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compaction_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动 Compaction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-collapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Collapse（实验性）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reactive Compaction（实验性）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compaction-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 事件和 Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Compact 设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-compact_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        禁用 Auto-Compact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能特征
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compaction_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compaction 时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token 回收
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对 Loop 的影响
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        边缘情况
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="边缘情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小型对话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最近消息较多的对话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环 Tool 调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-task_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 清晰的 Task 描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Checkpoint 完成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 为长任务使用 Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         关键文件
@@ -2461,7 +3065,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -2498,9 +3102,9 @@
 
 <h1 id="context-compaction">Context Compaction: 管理对话历史<a class="headerlink" href="#context-compaction" title="Permanent link">&para;</a></h1>
 <h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Context Compaction 是对话历史的自动压缩,防止超过 token 预算限制。它允许通过智能总结已完成的工作,同时保留最近的上下文和任务状态来实现无限的对话长度。</p>
+<p>Context Compaction 是对话历史的自动压缩，防止超过 token 预算限制。它允许通过智能总结已完成的工作，同时保留最近的上下文和任务状态来实现无限的对话长度。</p>
 <h2 id="token">问题: Token 预算限制<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
-<p>Agent 循环在 token 预算内运行(通常 100k-200k tokens):</p>
+<p>Agent 循环在 token 预算内运行（通常 100k-200k tokens）:</p>
 <div class="highlight"><pre><span></span><code>Budget: 100,000 tokens
 ├─ System prompt: ~2,000 tokens
 ├─ Current iteration API response: ~5,000 tokens
@@ -2522,7 +3126,333 @@ WARNING            80-95%         Auto-compact if enabled
 CRITICAL           &gt; 95%          May force truncation
 EXHAUSTED          &gt;= 100%        Loop terminates
 </code></pre></div>
-<h2 id="_2">关键文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>系统实时跟踪 tokens 并相应调整行为。</p>
+<h2 id="compaction">自动 Compaction<a class="headerlink" href="#compaction" title="Permanent link">&para;</a></h2>
+<h3 id="_2">触发条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>自动 compaction 在以下情况发生：</p>
+<ol>
+<li><strong>Token 使用进入 WARNING 状态</strong>（预算的 80%+）
+   并且</li>
+<li><strong>Auto-compact 已启用</strong>（默认：是）</li>
+</ol>
+<p>示例：
+<div class="highlight"><pre><span></span><code>Budget: 100,000 tokens
+Current usage: 84,000 tokens (84%)
+→ WARNING state → autoCompact() triggered
+→ Compress old messages
+→ Reclaim 40,000 tokens
+→ Continue with 44,000 tokens available
+</code></pre></div></p>
+<h3 id="compaction_1">Compaction 算法<a class="headerlink" href="#compaction_1" title="Permanent link">&para;</a></h3>
+<p><code>compact()</code> 函数应用以下策略：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">compact</span><span class="p">(</span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="kt">Message</span><span class="p">[],</span><span class="w"> </span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="kt">CompactConfig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Step 1: Find compaction boundary</span>
+<span class="w">  </span><span class="c1">// Skip recent messages, start from older ones</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">boundaryIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">findCompactionBoundary</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">messages</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">keepRecentMessages</span><span class="o">:</span><span class="w"> </span><span class="kt">5</span><span class="p">,</span><span class="w">  </span><span class="c1">// Always keep 5 recent</span>
+<span class="w">    </span><span class="nx">minCompactSize</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="w">   </span><span class="c1">// Need at least 10k tokens to compact</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">// Step 2: Build pre-compact messages (unchanged)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">preCompactMessages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">messages</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">boundaryIndex</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">// Step 3: Generate summary</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">generateCompactSummary</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">preCompactMessages</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">includeToolUse</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">includeReasons</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">preserveState</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;tasks&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;permissions&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">// Step 4: Create boundary message</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">boundaryMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SystemCompactBoundaryMessage&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">summary</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="kt">Date.now</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">tokensReclaimed</span><span class="o">:</span><span class="w"> </span><span class="kt">preCompactTokens</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">summaryTokens</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Step 5: Build post-compact messages</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">postCompactMessages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">boundaryMessage</span><span class="p">,</span><span class="w">  </span><span class="c1">// Synthetic message marking compaction point</span>
+<span class="w">    </span><span class="p">...</span><span class="nx">messages</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">boundaryIndex</span><span class="p">)</span><span class="w">  </span><span class="c1">// Recent messages unchanged</span>
+<span class="w">  </span><span class="p">]</span>
+
+<span class="w">  </span><span class="c1">// Step 6: Return compressed messages</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">postCompactMessages</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="compaction_2">Compaction 示例<a class="headerlink" href="#compaction_2" title="Permanent link">&para;</a></h2>
+<h3 id="compaction_3">Compaction 之前<a class="headerlink" href="#compaction_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Message 1:  User: &quot;Analyze this bug&quot;
+            [50 tokens]
+Message 2:  Assistant: &quot;I&#39;ll investigate...&quot;
+            [100 tokens]
+Message 3:  ToolUse: Read src/main.ts
+            [50 tokens]
+Message 4:  ToolResult: [file contents - 500 tokens]
+            [500 tokens]
+Message 5:  Assistant: &quot;I found the bug...&quot;
+            [200 tokens]
+Message 6:  ToolUse: Edit src/main.ts (fix)
+            [100 tokens]
+Message 7:  ToolResult: Success [50 tokens]
+            [50 tokens]
+... 50+ more messages ...
+Message 60: [3000 tokens]
+Message 61: [Current user query - 200 tokens]
+
+Total: 87,000 tokens (87% of budget) → WARNING
+</code></pre></div>
+<h3 id="compaction_4">Compaction 策略<a class="headerlink" href="#compaction_4" title="Permanent link">&para;</a></h3>
+<p>保留消息 58-61（最近的），总结 1-57（旧的）：</p>
+<div class="highlight"><pre><span></span><code>Summary:
+&quot;The user asked to analyze a bug in src/main.ts.
+After investigation, found memory leak in loop variable.
+Fixed with variable initialization on line 42.
+User then asked for testing. Created 5 new unit tests
+covering edge cases. All tests passing.&quot;
+
+[300 tokens]
+</code></pre></div>
+<h3 id="compaction_5">Compaction 之后<a class="headerlink" href="#compaction_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>SystemCompactBoundaryMessage (generated):
+  &quot;Previous conversation: Analyzed bug in src/main.ts,
+   found memory leak, applied fix (line 42), wrote tests.&quot;
+  [300 tokens]
+
+Message 58: User: &quot;...&quot;
+            [1000 tokens]
+Message 59: Assistant: &quot;...&quot;
+            [1200 tokens]
+Message 60: ToolUse: &quot;...&quot;
+            [100 tokens]
+Message 61: User: &quot;...&quot;
+            [200 tokens]
+
+Total: 2,800 tokens (2.8% of budget) → NORMAL
+Tokens reclaimed: ~84,200 tokens
+</code></pre></div>
+<h2 id="_3">保留的信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Compaction 保留关键状态：</p>
+<h3 id="1-task">1. Task 状态<a class="headerlink" href="#1-task" title="Permanent link">&para;</a></h3>
+<p>所有 task 信息都被保留：
+- 当前 tasks 和状态
+- 依赖关系（blockedBy, blocks）
+- 分配的 agents
+- Task metadata</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Tasks extracted and preserved in summary</span>
+<span class="s2">&quot;Active tasks:</span>
+<span class="s2">  - Task 1 (in_progress): Fix API endpoint</span>
+<span class="s2">  - Task 2 (pending): Write tests (blocked by Task 1)</span>
+<span class="s2">  - Task 3 (completed): Database migration&quot;</span>
+</code></pre></div>
+<h3 id="2-permission">2. Permission 规则<a class="headerlink" href="#2-permission" title="Permanent link">&para;</a></h3>
+<p>所有 permission 上下文都被保留：
+- 允许/拒绝的路径
+- Tool 访问级别
+- Permission 模式</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Permissions:</span>
+<span class="s2">  - Can edit: src/**, tests/**</span>
+<span class="s2">  - Can execute: npm test, npm run build</span>
+<span class="s2">  - Cannot execute: rm, destructive commands&quot;</span>
+</code></pre></div>
+<h3 id="3">3. 关键决策<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>重要的决策和发现：
+- 为什么选择某些方法
+- 已知问题或约束
+- API keys 或配置（如果适当）</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;Decided: Use React for UI (not Vue) due to existing</span>
+<span class="s2">codebase. Constraint: Cannot modify database schema</span>
+<span class="s2">until migration complete.&quot;</span>
+</code></pre></div>
+<h3 id="4">4. 最近的上下文<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>始终保持原样：
+- 最后 N 条消息（用户可配置，默认：5）
+- 当前状态
+- 活动操作</p>
+<h2 id="compaction_6">手动 Compaction<a class="headerlink" href="#compaction_6" title="Permanent link">&para;</a></h2>
+<p>用户可以手动触发 compaction：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Interactive command</span>
+&gt;<span class="w"> </span>/compact
+
+<span class="c1"># Initiates:</span>
+//<span class="w"> </span><span class="m">1</span>.<span class="w"> </span>Display<span class="w"> </span>token<span class="w"> </span>usage
+//<span class="w"> </span><span class="m">2</span>.<span class="w"> </span>Show<span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>summarized
+//<span class="w"> </span><span class="m">3</span>.<span class="w"> </span>Execute<span class="w"> </span>compaction
+//<span class="w"> </span><span class="m">4</span>.<span class="w"> </span>Display<span class="w"> </span>tokens<span class="w"> </span>reclaimed
+</code></pre></div>
+<h2 id="context-collapse">Context Collapse（实验性）<a class="headerlink" href="#context-collapse" title="Permanent link">&para;</a></h2>
+<p>高级功能，可以积极地折叠上下文：</p>
+<p><strong>启用时：</strong> 通过以下方式进一步压缩：
+- 合并冗余消息
+- 总结 tool 链
+- 删除中间步骤</p>
+<p>示例：
+<div class="highlight"><pre><span></span><code>Before collapse:
+  Tool: Read file A
+  Result: contents
+  Tool: Read file B
+  Result: contents
+  Tool: Grep pattern
+  Result: matches
+
+After collapse:
+  Summary: Searched pattern across files A and B,
+           found N matches in file A, 0 in file B
+</code></pre></div></p>
+<h2 id="reactive-compaction">Reactive Compaction（实验性）<a class="headerlink" href="#reactive-compaction" title="Permanent link">&para;</a></h2>
+<p>在 WARNING 状态之前主动 compaction：</p>
+<div class="highlight"><pre><span></span><code>Normal operation: &lt; 80% used
+→ Reactive compaction triggers at 70%
+→ Preemptively compresses
+→ Maintains larger buffer for next iteration
+→ Smoother operation, fewer stalls
+</code></pre></div>
+<h2 id="compaction-hooks">Compaction 事件和 Hooks<a class="headerlink" href="#compaction-hooks" title="Permanent link">&para;</a></h2>
+<p>系统在 compaction 期间发出事件：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Hook: pre_compact</span>
+<span class="c1">// Called before compaction starts</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hooks_start&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">hookType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pre_compact&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tokensUsed</span><span class="o">:</span><span class="w"> </span><span class="kt">84000</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tokenBudget</span><span class="o">:</span><span class="w"> </span><span class="kt">100000</span>
+<span class="p">}</span>
+
+<span class="c1">// Compaction executes...</span>
+
+<span class="c1">// Hook: post_compact</span>
+<span class="c1">// Called after compaction completes</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hooks_end&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">hookType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;post_compact&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tokensBefore</span><span class="o">:</span><span class="w"> </span><span class="kt">84000</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tokensAfter</span><span class="o">:</span><span class="w"> </span><span class="kt">2800</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tokensReclaimed</span><span class="o">:</span><span class="w"> </span><span class="kt">81200</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_4">配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="auto-compact">Auto-Compact 设置<a class="headerlink" href="#auto-compact" title="Permanent link">&para;</a></h3>
+<p>控制 compaction 行为：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// In config</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">compactConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w">                      </span><span class="c1">// Enable auto-compact</span>
+<span class="w">  </span><span class="nx">triggerThreshold</span><span class="o">:</span><span class="w"> </span><span class="kt">0.80</span><span class="p">,</span><span class="w">             </span><span class="c1">// 80% budget = trigger</span>
+<span class="w">  </span><span class="nx">keepRecentMessages</span><span class="o">:</span><span class="w"> </span><span class="kt">5</span><span class="p">,</span><span class="w">              </span><span class="c1">// Always preserve 5 recent</span>
+<span class="w">  </span><span class="nx">minCompactSize</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="p">,</span><span class="w">              </span><span class="c1">// Need 10k+ to compact</span>
+<span class="w">  </span><span class="nx">maxCompactSize</span><span class="o">:</span><span class="w"> </span><span class="kt">50000</span><span class="p">,</span><span class="w">              </span><span class="c1">// Compact max 50k per round</span>
+<span class="w">  </span><span class="nx">enableReactiveCompact</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span><span class="w">       </span><span class="c1">// (experimental)</span>
+<span class="w">  </span><span class="nx">enableContextCollapse</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="w">        </span><span class="c1">// (experimental)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="auto-compact_1">禁用 Auto-Compact<a class="headerlink" href="#auto-compact_1" title="Permanent link">&para;</a></h3>
+<p>用于开发或特定工作流：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_AUTO_COMPACT</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="c1"># Now manual /compact only</span>
+</code></pre></div>
+<h2 id="_5">性能特征<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="compaction_7">Compaction 时间<a class="headerlink" href="#compaction_7" title="Permanent link">&para;</a></h3>
+<p>典型的 compaction 需要 1-5 秒：</p>
+<div class="highlight"><pre><span></span><code>Time Breakdown:
+  Parse old messages:        0.5s
+  Generate summary (API):    2-3s
+  Build new message list:    0.5s
+  Write to disk:             0.1s
+  ─────────────────────────────
+  Total:                     3-4s
+</code></pre></div>
+<h3 id="token_2">Token 回收<a class="headerlink" href="#token_2" title="Permanent link">&para;</a></h3>
+<p>典型回收：压缩消息的 80-90%</p>
+<div class="highlight"><pre><span></span><code>Messages to compact: 50,000 tokens
+Summary generated: 300-500 tokens
+Net reclamation: ~49,500 tokens (99% savings!)
+</code></pre></div>
+<h3 id="loop">对 Loop 的影响<a class="headerlink" href="#loop" title="Permanent link">&para;</a></h3>
+<p>Compaction 暂停 agent loop：</p>
+<div class="highlight"><pre><span></span><code>Loop iteration N:
+  API call, tool results, etc.
+  Check tokens: 85% used → WARNING
+
+→ Trigger compaction (user notified)
+→ Pause for 3-4 seconds
+→ Reclaim 50,000 tokens
+
+Loop iteration N+1:
+  Continue with 32% usage (refreshed!)
+</code></pre></div>
+<h2 id="_6">边缘情况<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">小型对话<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>如果压缩内容太少，则跳过 compaction：</p>
+<div class="highlight"><pre><span></span><code>Messages: 5, total tokens: 3,000
+→ All under minCompactSize threshold
+→ Compaction skipped
+→ No benefit from compacting so little
+</code></pre></div>
+<h3 id="_8">最近消息较多的对话<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>如果许多最近的消息无法压缩：</p>
+<div class="highlight"><pre><span></span><code>Recent 10 messages: 70,000 tokens (protected)
+Older messages: 18,000 tokens (compactible)
+
+→ Compaction only targets 18,000
+→ Maybe not enough to drop below WARNING
+→ Might need to terminate loop
+</code></pre></div>
+<h3 id="tool">循环 Tool 调用<a class="headerlink" href="#tool" title="Permanent link">&para;</a></h3>
+<p>重复的 tool 调用（循环）：</p>
+<div class="highlight"><pre><span></span><code>Iteration 1: Call Grep
+Iteration 2: Call Grep (similar query)
+Iteration 3: Call Grep (similar query)
+
+Summary: &quot;Executed similar grep queries N times
+          with results: ...&quot;
+</code></pre></div>
+<h2 id="_9">最佳实践<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="1-task_1">1. 清晰的 Task 描述<a class="headerlink" href="#1-task_1" title="Permanent link">&para;</a></h3>
+<p>帮助 compaction 保留重要上下文：</p>
+<p>✅ 好：
+<div class="highlight"><pre><span></span><code>Task: &quot;Fix critical security vulnerability in JWT validation.
+       Tokens currently don&#39;t verify algorithm field.
+       See CVE-2023-1234 for details.&quot;
+</code></pre></div></p>
+<p>❌ 差：
+<div class="highlight"><pre><span></span><code>Task: &quot;Fix security bug&quot;
+</code></pre></div></p>
+<h3 id="2-checkpoint">2. Checkpoint 完成<a class="headerlink" href="#2-checkpoint" title="Permanent link">&para;</a></h3>
+<p>将 tasks/milestones 标记为完成：</p>
+<p>✅ 好：
+<div class="highlight"><pre><span></span><code>// Periodically:
+TaskUpdate(task, status=&quot;completed&quot;)  // Clear checkpoint
+
+// New task:
+TaskCreate(task)  // Start fresh
+</code></pre></div></p>
+<p>❌ 差：
+<div class="highlight"><pre><span></span><code>// One massive conversation:
+User: &quot;Do everything...&quot;
+// 200+ messages accumulate
+// Hard to compact meaningfully
+</code></pre></div></p>
+<h3 id="3-subagents">3. 为长任务使用 Subagents<a class="headerlink" href="#3-subagents" title="Permanent link">&para;</a></h3>
+<p>委托给 subagents 以保持父 loop 清洁：</p>
+<p>✅ 好：
+<div class="highlight"><pre><span></span><code>Parent spawns:
+  Subagent-1: &quot;Analyze API&quot;
+  Subagent-2: &quot;Analyze Database&quot;
+
+Parent compacts between spawns
+Each subagent has fresh budget
+</code></pre></div></p>
+<p>❌ 差：
+<div class="highlight"><pre><span></span><code>Single agent does everything
+Message history grows unbounded
+Compaction becomes very lossy
+</code></pre></div></p>
+<h2 id="_10">关键文件<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2557,7 +3487,7 @@ EXHAUSTED          &gt;= 100%        Loop terminates
 </tr>
 </tbody>
 </table>
-<h2 id="_3">另请参阅<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_11">另请参阅<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../core/agent-loop/">Agent Loop</a> - 触发 compaction 的地方</li>
 <li><a href="../../core/todowrite/">Tasks</a> - Compaction 期间的任务保存</li>

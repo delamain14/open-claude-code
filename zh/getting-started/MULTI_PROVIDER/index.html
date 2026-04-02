@@ -10,31 +10,35 @@
       
       
       
-        <link rel="canonical" href="https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/">
+        <link rel="canonical" href="https://delamain14.github.io/open-claude-code/zh/getting-started/MULTI_PROVIDER/">
       
       
+        <link rel="prev" href="../configuration/">
+      
+      
+        <link rel="next" href="../../core/agent-loop/">
       
       
         
-          <link rel="alternate" href="../../MULTI_PROVIDER/" hreflang="en">
+          <link rel="alternate" href="../../../getting-started/MULTI_PROVIDER/" hreflang="en">
         
           <link rel="alternate" href="./" hreflang="zh">
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Multi-Provider LLM Support - Open Claude Code</title>
+        <title>多提供商支持 - Open Claude Code</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +57,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multi-provider-llm-support" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -92,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../" title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+    <a href="../../" title="Open Claude Code" class="md-header__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multi-Provider LLM Support
+              多提供商支持
             
           </span>
         </div>
@@ -159,7 +163,7 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../MULTI_PROVIDER/" hreflang="en" class="md-select__link">
+            <a href="../../../getting-started/MULTI_PROVIDER/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
@@ -251,7 +255,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link">
         
   
   
@@ -268,11 +272,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../getting-started/installation/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../installation/" class="md-tabs__link">
           
   
   
@@ -292,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../core/agent-loop/" class="md-tabs__link">
+        <a href="../../core/agent-loop/" class="md-tabs__link">
           
   
   
@@ -312,7 +318,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../core/tool-use/" class="md-tabs__link">
+        <a href="../../core/tool-use/" class="md-tabs__link">
           
   
   
@@ -332,11 +338,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../core/todowrite/" class="md-tabs__link">
+        <a href="../../core/todowrite/" class="md-tabs__link">
           
   
   
-  任务系统
+  TodoWrite + 任务系统
 
         </a>
       </li>
@@ -352,7 +358,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../concepts/subagents/" class="md-tabs__link">
+        <a href="../../concepts/subagents/" class="md-tabs__link">
           
   
   
@@ -372,7 +378,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../concepts/skills/" class="md-tabs__link">
+        <a href="../../concepts/skills/" class="md-tabs__link">
           
   
   
@@ -392,7 +398,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../concepts/context-compact/" class="md-tabs__link">
+        <a href="../../concepts/context-compact/" class="md-tabs__link">
           
   
   
@@ -412,27 +418,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../core/todowrite/" class="md-tabs__link">
-          
-  
-  
-  任务
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../tasks/background-tasks/" class="md-tabs__link">
+        <a href="../../tasks/background-tasks/" class="md-tabs__link">
           
   
   
@@ -452,11 +438,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../agents/agent-teams/" class="md-tabs__link">
+        <a href="../../agents/agent-teams/" class="md-tabs__link">
           
   
   
-  Agent 团队
+  Agent Teams
 
         </a>
       </li>
@@ -472,27 +458,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../agents/team-protocols/" class="md-tabs__link">
-          
-  
-  
-  团队协议
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../agents/autonomous-agents/" class="md-tabs__link">
+        <a href="../../agents/autonomous-agents/" class="md-tabs__link">
           
   
   
@@ -512,7 +478,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../advanced/worktree-isolation/" class="md-tabs__link">
+        <a href="../../advanced/worktree-isolation/" class="md-tabs__link">
           
   
   
@@ -532,7 +498,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../architecture/services/" class="md-tabs__link">
+        <a href="../../architecture/services/" class="md-tabs__link">
           
   
   
@@ -552,7 +518,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../development/setup/" class="md-tabs__link">
+        <a href="../../development/setup/" class="md-tabs__link">
           
   
   
@@ -586,7 +552,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
+    <a href="../../" title="Open Claude Code" class="md-nav__button md-logo" aria-label="Open Claude Code" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -616,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -640,28 +606,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -679,7 +648,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -697,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -725,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -741,6 +710,225 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多提供商支持
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多提供商支持
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架构概览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方式一：环境变量（最简单）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方式二：交互式登录 (/login)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudesettingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方式三：手动编辑 ~/.claude/settings.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置优先级
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支持的提供商
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        功能支持矩阵
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具调用实现细节
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具调用实现细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        请求方向（Anthropic → OpenAI）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        响应方向（OpenAI → Anthropic）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -814,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/agent-loop/" class="md-nav__link">
+      <a href="../../core/agent-loop/" class="md-nav__link">
         
   
   
@@ -842,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/overview/" class="md-nav__link">
+      <a href="../../architecture/overview/" class="md-nav__link">
         
   
   
@@ -870,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/entrypoints/" class="md-nav__link">
+      <a href="../../architecture/entrypoints/" class="md-nav__link">
         
   
   
@@ -959,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/tool-use/" class="md-nav__link">
+      <a href="../../core/tool-use/" class="md-nav__link">
         
   
   
@@ -987,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/tools/" class="md-nav__link">
+      <a href="../../api/tools/" class="md-nav__link">
         
   
   
@@ -1047,7 +1235,7 @@
   <span class="md-ellipsis">
     
   
-    任务系统
+    TodoWrite + 任务系统
   
 
     
@@ -1063,7 +1251,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    任务系统
+    TodoWrite + 任务系统
   
 
           </label>
@@ -1076,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/todowrite/" class="md-nav__link">
+      <a href="../../core/todowrite/" class="md-nav__link">
         
   
   
@@ -1104,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/commands/" class="md-nav__link">
+      <a href="../../api/commands/" class="md-nav__link">
         
   
   
@@ -1193,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/subagents/" class="md-nav__link">
+      <a href="../../concepts/subagents/" class="md-nav__link">
         
   
   
@@ -1282,7 +1470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/skills/" class="md-nav__link">
+      <a href="../../concepts/skills/" class="md-nav__link">
         
   
   
@@ -1371,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/context-compact/" class="md-nav__link">
+      <a href="../../concepts/context-compact/" class="md-nav__link">
         
   
   
@@ -1431,7 +1619,7 @@
   <span class="md-ellipsis">
     
   
-    任务
+    后台任务
   
 
     
@@ -1447,7 +1635,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    任务
+    后台任务
   
 
           </label>
@@ -1460,14 +1648,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/todowrite/" class="md-nav__link">
+      <a href="../../tasks/background-tasks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    V2 任务系统
+    异步执行
   
 
     
@@ -1520,7 +1708,7 @@
   <span class="md-ellipsis">
     
   
-    后台任务
+    Agent Teams
   
 
     
@@ -1536,7 +1724,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    后台任务
+    Agent Teams
   
 
           </label>
@@ -1549,14 +1737,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../tasks/background-tasks/" class="md-nav__link">
+      <a href="../../agents/agent-teams/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    异步执行
+    团队结构与协调
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agents/team-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    通信标准
   
 
     
@@ -1609,7 +1825,7 @@
   <span class="md-ellipsis">
     
   
-    Agent 团队
+    自主 Agent
   
 
     
@@ -1625,7 +1841,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Agent 团队
+    自主 Agent
   
 
           </label>
@@ -1638,14 +1854,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/agent-teams/" class="md-nav__link">
+      <a href="../../agents/autonomous-agents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    团队结构与协调
+    自主执行
   
 
     
@@ -1698,7 +1914,7 @@
   <span class="md-ellipsis">
     
   
-    团队协议
+    工作树与任务隔离
   
 
     
@@ -1714,7 +1930,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    团队协议
+    工作树与任务隔离
   
 
           </label>
@@ -1727,14 +1943,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/team-protocols/" class="md-nav__link">
+      <a href="../../advanced/worktree-isolation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    通信标准
+    Git 隔离
   
 
     
@@ -1787,7 +2003,7 @@
   <span class="md-ellipsis">
     
   
-    自主 Agent
+    架构
   
 
     
@@ -1803,7 +2019,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    自主 Agent
+    架构
   
 
           </label>
@@ -1816,14 +2032,154 @@
   
   
     <li class="md-nav__item">
-      <a href="../agents/autonomous-agents/" class="md-nav__link">
+      <a href="../../architecture/services/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    自主执行
+    服务层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    命令系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    类型定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具函数
   
 
     
@@ -1876,7 +2232,7 @@
   <span class="md-ellipsis">
     
   
-    工作树与任务隔离
+    开发
   
 
     
@@ -1892,324 +2248,6 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    工作树与任务隔离
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../advanced/worktree-isolation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Git 隔离
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
-        
-          
-          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    架构
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    架构
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    服务层
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    工具系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/commands/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    命令系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/ui/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UI 层
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/types/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    类型定义
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/utils/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    工具函数
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
-        
-          
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    开发
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
     开发
   
 
@@ -2223,7 +2261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/setup/" class="md-nav__link">
+      <a href="../../development/setup/" class="md-nav__link">
         
   
   
@@ -2251,7 +2289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/contributing/" class="md-nav__link">
+      <a href="../../development/contributing/" class="md-nav__link">
         
   
   
@@ -2306,7 +2344,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         架构概览
@@ -2317,7 +2355,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         配置方式
@@ -2329,7 +2367,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         方式一：环境变量（最简单）
@@ -2362,7 +2400,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         配置优先级
@@ -2378,7 +2416,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         支持的提供商
@@ -2389,7 +2427,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         功能支持矩阵
@@ -2400,7 +2438,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         工具调用实现细节
@@ -2439,7 +2477,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         关键文件
@@ -2466,7 +2504,7 @@
 
 
   
-    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/MULTI_PROVIDER.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/delamain14/open-claude-code/edit/main/docs/getting-started/MULTI_PROVIDER.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2474,37 +2512,37 @@
   
 
 
-<h1 id="multi-provider-llm-support">Multi-Provider LLM Support<a class="headerlink" href="#multi-provider-llm-support" title="Permanent link">&para;</a></h1>
-<p>Open Claude Code 支持多种 LLM 提供商，不仅限于 Anthropic Claude，还包括 OpenAI、DeepSeek、Qwen、Kimi、GLM、MiniMax 等 OpenAI 兼容的提供商。</p>
-<h2 id="_1">架构概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="_1">多提供商支持<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Open Claude Code 支持多种 LLM 提供商，不仅限于 Anthropic Claude，还包括 OpenAI、DeepSeek、Qwen、Kimi、GLM、MiniMax、OpenRouter 等 OpenAI 兼容的提供商。</p>
+<h2 id="_2">架构概览<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>                         ┌─────────────────────────────────────┐
-                         │         Agent Loop (query.ts)        │
-                         │   tool_use / tool_result (Anthropic) │
+                         │         Agent Loop (query.ts)       │
+                         │   tool_use / tool_result (Anthropic)│
                          └──────────────┬──────────────────────┘
                                         │
                          ┌──────────────▼──────────────────────┐
-                         │    queryModelWithStreaming (claude.ts)│
+                         │  queryModelWithStreaming (claude.ts)│
                          └──┬───────────────────────────────┬──┘
                             │                               │
-              ┌─────────────▼──────────┐     ┌──────────────▼──────────┐
+              ┌─────────────▼──────────┐     ┌──────────────▼───────────┐
               │   Anthropic API Path   │     │   OpenAI-Compatible Path │
-              │   (原生 Claude 格式)    │     │   (openaiQuery.ts)       │
+              │ (Native Claude format) │     │   (openaiQuery.ts)       │
               │                        │     │                          │
               │  tool_use blocks       │     │  Anthropic ↔ OpenAI      │
-              │  input_json_delta      │     │  双向格式转换              │
+              │  input_json_delta      │     │  Format conversion       │
               │  tool_result blocks    │     │                          │
               └────────────────────────┘     └──────────────────────────┘
                                                         │
-                                    ┌───────────────────┼───────────────┐
-                                    │                   │               │
-                               ┌────▼───┐        ┌─────▼──┐     ┌─────▼──┐
-                               │ OpenAI  │        │DeepSeek│     │  Qwen  │ ...
-                               └────────┘        └────────┘     └────────┘
+                                    ┌───────────────────┼──────────────┐
+                                    │                   │              │
+                               ┌────▼───┐         ┌─────▼──┐     ┌─────▼──┐
+                               │ OpenAI │         │DeepSeek│     │  Qwen  │ ...
+                               └────────┘         └────────┘     └────────┘
 </code></pre></div>
 <p>核心设计原则：<strong>在 OpenAI 路径做格式翻译，上层 agent loop 完全不需要改动</strong>。</p>
-<h2 id="_2">配置方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">配置方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>支持三种配置方式（优先级从低到高）：</p>
-<h3 id="_3">方式一：环境变量（最简单）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">方式一：环境变量（最简单）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>设置对应提供商的 API Key 环境变量即可，无需 <code>/login</code> 或编辑配置文件：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># OpenAI</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>sk-xxx
@@ -2574,10 +2612,10 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_4">配置优先级<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_5">配置优先级<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>环境变量（最低） → ~/.claude/settings.json → .claude/settings.json（项目级，最高）
 </code></pre></div>
-<h2 id="_5">支持的提供商<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">支持的提供商<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2661,7 +2699,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_6">功能支持矩阵<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">功能支持矩阵<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2728,7 +2766,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_7">工具调用实现细节<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">工具调用实现细节<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>OpenAI 兼容提供商的工具调用通过格式转换实现，上层 agent loop 无感知：</p>
 <h3 id="anthropic-openai">请求方向（Anthropic → OpenAI）<a class="headerlink" href="#anthropic-openai" title="Permanent link">&para;</a></h3>
 <table>
@@ -2776,7 +2814,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_8">关键文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">关键文件<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2882,10 +2920,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

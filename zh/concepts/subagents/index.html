@@ -340,7 +340,7 @@
           
   
   
-  任务系统
+  TodoWrite + 任务系统
 
         </a>
       </li>
@@ -418,26 +418,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../core/todowrite/" class="md-tabs__link">
-          
-  
-  
-  任务
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../tasks/background-tasks/" class="md-tabs__link">
           
   
@@ -462,27 +442,7 @@
           
   
   
-  Agent 团队
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../agents/team-protocols/" class="md-tabs__link">
-          
-  
-  
-  团队协议
+  Agent Teams
 
         </a>
       </li>
@@ -739,6 +699,34 @@
     
   
     配置指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/MULTI_PROVIDER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多提供商支持
   
 
     
@@ -1053,7 +1041,7 @@
   <span class="md-ellipsis">
     
   
-    任务系统
+    TodoWrite + 任务系统
   
 
     
@@ -1069,7 +1057,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    任务系统
+    TodoWrite + 任务系统
   
 
           </label>
@@ -1276,6 +1264,383 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent Contexts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynclocalstorage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLocalStorage 隔离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context 隔离的好处
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生成 Subagents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成 Subagents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool (主要机制)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置 Subagent 类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 Subagent 类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent 生命周期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent 生命周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 创建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 完成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 可选的恢复
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Caching (优化)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File State 隔离
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-history-sidechain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message History Sidechain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagents_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌套 Subagents (无限深度)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents 之间的通信
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agents 之间的通信">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagent-parent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent 到 Parent (返回)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagents_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        恢复 Subagents (消息发送)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-subagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parent 到 Subagent (任务描述)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用场景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 并行研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 分而治之的实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 验证与测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 专门分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagents_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget 管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名与描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         关键文件
       
     </span>
@@ -1284,7 +1649,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -1520,7 +1885,7 @@
   <span class="md-ellipsis">
     
   
-    任务
+    后台任务
   
 
     
@@ -1533,95 +1898,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    任务
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/todowrite/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    V2 任务系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    后台任务
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1688,17 +1964,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Agent 团队
+    Agent Teams
   
 
     
@@ -1709,12 +1985,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Agent 团队
+    Agent Teams
   
 
           </label>
@@ -1747,67 +2023,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
-        
-          
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    团队协议
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    团队协议
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1866,10 +2081,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
             
   
   
@@ -1887,8 +2102,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1955,10 +2170,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
             
   
   
@@ -1976,8 +2191,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2044,10 +2259,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -2065,8 +2280,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2273,10 +2488,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
             
   
   
@@ -2294,8 +2509,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2409,6 +2624,383 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent Contexts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynclocalstorage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLocalStorage 隔离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context 隔离的好处
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生成 Subagents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成 Subagents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool (主要机制)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置 Subagent 类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 Subagent 类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagent_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent 生命周期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subagent 生命周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 创建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 完成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 可选的恢复
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Caching (优化)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File State 隔离
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-history-sidechain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message History Sidechain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subagents_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌套 Subagents (无限深度)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents 之间的通信
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agents 之间的通信">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagent-parent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagent 到 Parent (返回)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagents_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        恢复 Subagents (消息发送)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-subagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parent 到 Subagent (任务描述)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用场景
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 并行研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 分而治之的实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 验证与测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 专门分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagents_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何时使用 Subagents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget 管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名与描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         关键文件
       
     </span>
@@ -2417,7 +3009,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -2463,7 +3055,467 @@
 <li>可以通过 <code>SendMessage</code> 恢复</li>
 <li>可以生成更多 subagents(无限嵌套)</li>
 </ul>
-<h2 id="_2">关键文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────┐
+│     Parent Agent (Main Loop)        │
+│                                     │
+│  1. User: &quot;Analyze this bug&quot;       │
+│  2. API: spawn research subagent   │
+│  3. Tool Call: Agent(type=explore) │
+└────────────┬────────────────────────┘
+             │ Create subagent context
+             ↓
+┌─────────────────────────────────────┐
+│  Subagent #1 (Isolated Context)     │
+│                                     │
+│  - Unique agentId                   │
+│  - Own message history              │
+│  - Own token budget (from parent)   │
+│  - Same prompt cache (shared)       │
+│  - Can spawn subagent #2            │
+│                                     │
+│  1. Analyzes code structure         │
+│  2. Calls Grep, Read tools          │
+│  3. Returns findings                │
+└────────────┬────────────────────────┘
+             │ Complete, return results
+             ↓
+┌─────────────────────────────────────┐
+│     Parent Agent (Resumed)          │
+│                                     │
+│  4. Receive task notification       │
+│  5. Synthesize findings             │
+│  6. Generate response               │
+└─────────────────────────────────────┘
+</code></pre></div>
+<h2 id="subagent-contexts">Subagent Contexts<a class="headerlink" href="#subagent-contexts" title="Permanent link">&para;</a></h2>
+<h3 id="asynclocalstorage">AsyncLocalStorage 隔离<a class="headerlink" href="#asynclocalstorage" title="Permanent link">&para;</a></h3>
+<p>Subagents 使用 <code>AsyncLocalStorage</code> 来维护隔离的上下文,而不共享状态:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent agent context</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;parent-uuid&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentSessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">undefined</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">agentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagentName</span><span class="o">:</span><span class="w"> </span><span class="kt">undefined</span>
+<span class="p">}</span>
+
+<span class="c1">// Subagent context (automatically set)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-uuid-1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentSessionId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;parent-uuid&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">agentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;subagent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagentName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">invokingRequestId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool-use-id-123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">invocationKind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;spawn&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// Nested subagent context</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-uuid-2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">parentSessionId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-uuid-1&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Parent is itself a subagent!</span>
+<span class="w">  </span><span class="nx">agentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;subagent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagentName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">invocationKind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;spawn&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="context">Context 隔离的好处<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>无共享状态</strong>: 每个 agent 都有自己的消息缓冲区、文件缓存</li>
+<li><strong>并发安全</strong>: 多个 agents 运行时互不干扰</li>
+<li><strong>清晰分离</strong>: 上下文之间没有交叉污染</li>
+<li><strong>自动清理</strong>: 当 agent 退出时,context 被销毁</li>
+</ul>
+<h2 id="subagents">生成 Subagents<a class="headerlink" href="#subagents" title="Permanent link">&para;</a></h2>
+<h3 id="agent-tool">Agent Tool (主要机制)<a class="headerlink" href="#agent-tool" title="Permanent link">&para;</a></h3>
+<p><code>Agent</code> tool 用于生成 subagents:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Input schema</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">              </span><span class="c1">// What to do</span>
+<span class="w">  </span><span class="nx">subagent_type?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// &#39;general-purpose&#39;, &#39;explorer&#39;, etc.</span>
+<span class="w">  </span><span class="nx">prompt?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                 </span><span class="c1">// Custom system prompt</span>
+<span class="w">  </span><span class="nx">max_turns?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">              </span><span class="c1">// Iteration limit</span>
+<span class="p">}</span>
+
+<span class="c1">// Example</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all database query optimization opportunities&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;You are a performance optimization specialist...&quot;</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="subagent">内置 Subagent 类型<a class="headerlink" href="#subagent" title="Permanent link">&para;</a></h3>
+<p>Claude Code 提供 5 种专门的 subagent 类型:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>目的</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>general-purpose</code></td>
+<td>通用任务助手</td>
+<td>重构、编写代码、分析</td>
+</tr>
+<tr>
+<td><code>explorer</code></td>
+<td>代码研究专家</td>
+<td>查找文件、理解结构</td>
+</tr>
+<tr>
+<td><code>verifier</code></td>
+<td>测试与验证</td>
+<td>运行测试、验证实现</td>
+</tr>
+<tr>
+<td><code>plan-agent</code></td>
+<td>规划专家</td>
+<td>创建详细计划</td>
+</tr>
+<tr>
+<td><code>claude-code-guide</code></td>
+<td>文档参考</td>
+<td>回答 Claude Code 问题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="subagent_1">自定义 Subagent 类型<a class="headerlink" href="#subagent_1" title="Permanent link">&para;</a></h3>
+<p>项目可以定义自定义 subagent 类型:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ~/.claude/agents/my-analyzer.md</span>
+<span class="o">---</span>
+<span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;my-analyzer&quot;</span>
+<span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyzes code for specific patterns&quot;</span>
+<span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;subagent&quot;</span>
+<span class="o">---</span>
+
+<span class="nx">You</span><span class="w"> </span><span class="nx">are</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="nx">pattern</span><span class="w"> </span><span class="nx">analyzer</span><span class="p">.</span><span class="w"> </span><span class="nx">Your</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span>
+<span class="kt">1.</span><span class="w"> </span><span class="nx">Find</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">occurrences</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">pattern</span>
+<span class="mf">2.</span><span class="w"> </span><span class="nx">Analyze</span><span class="w"> </span><span class="nx">their</span><span class="w"> </span><span class="nx">context</span>
+<span class="mf">3.</span><span class="w"> </span><span class="nx">Report</span><span class="w"> </span><span class="nx">findings</span>
+</code></pre></div>
+<p>然后生成:
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all singleton patterns&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;my-analyzer&quot;</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<h2 id="subagent_2">Subagent 生命周期<a class="headerlink" href="#subagent_2" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 创建<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent calls Agent tool</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Do something&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Internally:</span>
+<span class="c1">// 1. Generate UUID: &quot;sub-abc123&quot;</span>
+<span class="c1">// 2. Create agentContext (AsyncLocalStorage)</span>
+<span class="c1">// 3. Clone FileStateCache (isolated file state)</span>
+<span class="c1">// 4. Prepare CacheSafeParams (shared safe data)</span>
+</code></pre></div>
+<h3 id="2">2. 初始化<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Subagent starts its own query loop</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">subagentConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">systemPrompt</span><span class="o">:</span><span class="w"> </span><span class="kt">parentPrompt</span><span class="p">,</span><span class="w">           </span><span class="c1">// Inherit parent&#39;s prompt</span>
+<span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">userMessage</span><span class="p">(</span><span class="nx">description</span><span class="p">),</span><span class="w">           </span><span class="c1">// Task description</span>
+<span class="w">    </span><span class="p">...</span><span class="nx">parentSidechain</span><span class="p">.</span><span class="nx">messages</span><span class="w">        </span><span class="c1">// Parent&#39;s conversation so far</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">budget</span><span class="o">:</span><span class="w"> </span><span class="kt">parentBudget</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">          </span><span class="c1">// Get portion of parent&#39;s budget</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="c1">// Start query loop for subagent</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">query</span><span class="p">(</span><span class="nx">subagentConfig</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3">3. 执行<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>Subagent 运行自己完整的 agent 循环:
+- 构建自己的 system prompt
+- 进行 API 调用(使用父级的 prompt cache)
+- 在自己的 context 中执行 tools
+- 管理自己的 token budget
+- 累积自己的消息历史</p>
+<div class="highlight"><pre><span></span><code>Subagent Query Loop:
+  Iteration 1: API call → tool calls (Read, Grep)
+  Iteration 2: Tool results → synthesis → API call
+  Iteration 3: Final analysis → stop
+</code></pre></div>
+<h3 id="4">4. 完成<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// When subagent stops (end_turn or budget exhausted):</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;findings or error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sidechain</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[...],</span><span class="w">        </span><span class="c1">// Full conversation history</span>
+<span class="w">    </span><span class="nx">tokenUsage</span><span class="o">:</span><span class="w"> </span><span class="p">{...}</span><span class="w">       </span><span class="c1">// Token stats</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Parent receives: &lt;task-notification&gt;</span>
+<span class="c1">// Parent can:</span>
+<span class="c1">// - Synthesize findings</span>
+<span class="c1">// - Spawn more subagents</span>
+<span class="c1">// - Continue main loop</span>
+</code></pre></div>
+<h3 id="5">5. 可选的恢复<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>已完成的 subagent 可以被恢复:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent can send follow-up message</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">SendMessage</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="kt">subagentId</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Can you investigate X further?&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Subagent resumes execution:</span>
+<span class="c1">// - Retains message history</span>
+<span class="c1">// - Continues from last point</span>
+<span class="c1">// - Uses remaining budget</span>
+<span class="c1">// - Can spawn more agents</span>
+</code></pre></div>
+<h2 id="prompt-caching">Prompt Caching (优化)<a class="headerlink" href="#prompt-caching" title="Permanent link">&para;</a></h2>
+<p>Subagents 与父级共享 prompt cache 以降低 token 成本:</p>
+<div class="highlight"><pre><span></span><code>Parent Agent:
+  1. First API call: sends full system prompt
+     → Creates cache entry
+     → Returns cache_creation_input_tokens (expensive)
+
+Subagent:
+  1. First API call: sends same system prompt
+     → Claude recognizes: &quot;I&#39;ve seen this before&quot;
+     → Uses cache instead
+     → Returns cache_read_input_tokens (90% cheaper!)
+
+Multiple subagents:
+  All share same cache → exponential savings on large trees
+</code></pre></div>
+<p><strong>Token 节省示例:</strong>
+<div class="highlight"><pre><span></span><code>Without caching:
+  Parent: 2000 tokens (prompt) × 1 = 2000
+  Sub-1:  2000 tokens (prompt) × 1 = 2000
+  Sub-2:  2000 tokens (prompt) × 1 = 2000
+  Total: 6000 tokens
+
+With caching:
+  Parent: 2000 tokens (prompt creation)
+  Sub-1:  200 tokens (cache read)
+  Sub-2:  200 tokens (cache read)
+  Total: 2400 tokens (60% savings!)
+</code></pre></div></p>
+<h2 id="file-state">File State 隔离<a class="headerlink" href="#file-state" title="Permanent link">&para;</a></h2>
+<p>每个 subagent 都获得一个克隆的 file state cache:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent&#39;s file cache</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;/src/main.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;file contents&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;/src/utils.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cached&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// When spawning subagent:</span>
+<span class="c1">// Clone to isolated copy</span>
+<span class="nx">subagentFileCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;/src/main.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;file contents&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Same data</span>
+<span class="w">  </span><span class="s2">&quot;/src/utils.ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cached&quot;</span><span class="w">          </span><span class="c1">// Same data</span>
+<span class="p">}</span>
+
+<span class="c1">// Operations:</span>
+<span class="c1">// Parent edits: /src/main.ts</span>
+<span class="c1">// Subagent still sees old version (until refreshed)</span>
+<span class="c1">// This is often desired to avoid inconsistent state</span>
+</code></pre></div>
+<h2 id="message-history-sidechain">Message History Sidechain<a class="headerlink" href="#message-history-sidechain" title="Permanent link">&para;</a></h2>
+<p>每个 subagent 维护自己的 message sidechain:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent&#39;s conversation</span>
+<span class="p">[</span>
+<span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze this bug&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">assistant</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&#39;ll spawn a research agent...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use</span><span class="o">:</span><span class="w"> </span><span class="kt">Agent</span><span class="p">(...)</span>
+<span class="p">]</span>
+
+<span class="c1">// Subagent&#39;s sidechain</span>
+<span class="p">[</span>
+<span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all database query optimization opportunities&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">assistant</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Searching for N+1 problems...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use</span><span class="o">:</span><span class="w"> </span><span class="kt">Grep</span><span class="p">(...),</span>
+<span class="w">  </span><span class="nx">tool_result</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Found 5 locations...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">assistant</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyzing patterns...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use</span><span class="o">:</span><span class="w"> </span><span class="kt">Read</span><span class="p">(...),</span>
+<span class="w">  </span><span class="c1">// ... many more messages</span>
+<span class="p">]</span>
+
+<span class="c1">// Subagent result returned to parent as single tool result:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Completed analysis with findings: ...&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="subagents_1">嵌套 Subagents (无限深度)<a class="headerlink" href="#subagents_1" title="Permanent link">&para;</a></h2>
+<p>Subagents 可以生成其他 subagents:</p>
+<div class="highlight"><pre><span></span><code>Level 0 (Main Agent)
+  └─ Level 1 (Subagent #1: &quot;explorer&quot;)
+      ├─ Level 2 (Subagent #1.1: &quot;general-purpose&quot;)
+      │   └─ Level 3 (Subagent #1.1.1: &quot;verifier&quot;)
+      │       └─ Level 4 (Subagent #1.1.1.1: custom)
+      │           └─ ... (unlimited nesting)
+      └─ Level 2 (Subagent #1.2: &quot;general-purpose&quot;)
+</code></pre></div>
+<p><strong>约束:</strong>
+- 共享的父级 budget 被分割
+- 嵌套越深 = 每个 agent 的 budget 越少
+- 深度没有硬性限制
+- 实际限制: ~5-7 层(budget 耗尽)</p>
+<p><strong>级联示例:</strong>
+<div class="highlight"><pre><span></span><code>Main Agent (100k tokens):
+  1. Spawns researcher (50k)
+     └─ Spawns analyzer (25k)
+        └─ Spawns verifier (12.5k)
+           └─ Uses remaining budget for testing
+</code></pre></div></p>
+<h2 id="agents">Agents 之间的通信<a class="headerlink" href="#agents" title="Permanent link">&para;</a></h2>
+<h3 id="subagent-parent">Subagent 到 Parent (返回)<a class="headerlink" href="#subagent-parent" title="Permanent link">&para;</a></h3>
+<p>Subagent 结果作为 tool result 返回:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Tool result contains entire subagent output</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tool_result&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">tool_use_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent-call-id&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Subagent findings: ... (detailed results)&quot;</span>
+<span class="w">  </span><span class="p">}]</span>
+<span class="p">}</span>
+
+<span class="c1">// Parent sees this in next loop iteration</span>
+<span class="c1">// Can synthesize findings or spawn more agents</span>
+</code></pre></div>
+<h3 id="subagents_2">恢复 Subagents (消息发送)<a class="headerlink" href="#subagents_2" title="Permanent link">&para;</a></h3>
+<p>向 subagents 发送后续消息:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parent continues subagent conversation</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">SendMessage</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sub-abc123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Based on your findings, please investigate X&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Subagent resumes:</span>
+<span class="c1">// - Receives new message</span>
+<span class="c1">// - Adds to its message history</span>
+<span class="c1">// - Continues its agent loop</span>
+<span class="c1">// - Returns new findings</span>
+</code></pre></div>
+<h3 id="parent-subagent">Parent 到 Subagent (任务描述)<a class="headerlink" href="#parent-subagent" title="Permanent link">&para;</a></h3>
+<p>通过任务描述进行初始指导:</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all Python files that import tensorflow&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Subagent receives as user message in its loop</span>
+</code></pre></div>
+<h2 id="_3">使用场景<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1. 并行研究<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Task: Refactor authentication module</span>
+<span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Research current auth patterns in codebase&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Research industry best practices for JWT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;claude-code-guide&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find similar refactoring PRs in history&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">])</span>
+
+<span class="c1">// All run in parallel, results synthesized</span>
+</code></pre></div>
+<h3 id="2_1">2. 分而治之的实现<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Task: Implement complex feature in 3 components</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Implement API layer (REST endpoints)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Implement database layer (migrations)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Implement UI layer (React components)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;general-purpose&quot;</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">])</span>
+
+<span class="c1">// Combine: components[0] + components[1] + components[2]</span>
+</code></pre></div>
+<h3 id="3_1">3. 验证与测试<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Main agent writes code</span>
+<span class="c1">// Then verify it:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Write the sort function&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Spawn verifier</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Write comprehensive tests for the sort function&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;verifier&quot;</span>
+<span class="p">})</span>
+
+<span class="c1">// Verify tests pass</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Run the tests and report results&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;verifier&quot;</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="4_1">4. 专门分析<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Create custom subagent for domain-specific task</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze SQL queries for N+1 problems&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;performance-analyzer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="sb">`You are a database performance specialist.</span>
+<span class="sb">           Look for N+1 queries, missing indices, etc.`</span>
+<span class="p">})</span>
+</code></pre></div>
+<h2 id="_4">最佳实践<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="subagents_3">何时使用 Subagents<a class="headerlink" href="#subagents_3" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>好的使用场景:</strong>
+- 并行独立任务
+- 专门的子任务(explore、verify)
+- 长时间运行的研究
+- 隔离风险操作
+- 分而治之的方法</p>
+<p>❌ <strong>不好的使用场景:</strong>
+- 单个顺序任务(开销不值得)
+- 简单的一次性 tools
+- 紧密循环(在循环中生成 agents)</p>
+<h3 id="budget">Budget 管理<a class="headerlink" href="#budget" title="Permanent link">&para;</a></h3>
+<p>始终注意 budget 约束:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ❌ Bad: Multiple deep trees waste budget</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze file...&quot;</span><span class="w"> </span><span class="p">})</span><span class="w">  </span><span class="c1">// 100 agents!</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ Good: Batch and use careful spawning</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze files 1-10&quot;</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze files 11-20&quot;</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">  </span><span class="nx">Agent</span><span class="p">({</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Analyze files 21-30&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="p">])</span>
+</code></pre></div>
+<h3 id="_5">命名与描述<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>明确 subagent 的目的:</p>
+<p>✅ 好的:
+<div class="highlight"><pre><span></span><code><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Find all TypeScript files that import React hooks&quot;</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<p>❌ 不好的:
+<div class="highlight"><pre><span></span><code><span class="nx">Agent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Look at stuff&quot;</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<h2 id="_6">关键文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2498,7 +3550,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">另请参阅<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_7">另请参阅<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../core/agent-loop/">Agent Loop</a> - 主执行循环</li>
 <li><a href="../skills/">Skills</a> - 可重用 skill 执行</li>

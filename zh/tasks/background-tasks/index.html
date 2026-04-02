@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://delamain14.github.io/open-claude-code/zh/tasks/background-tasks/">
       
       
-        <link rel="prev" href="../../core/todowrite/">
+        <link rel="prev" href="../../concepts/context-compact/">
       
       
         <link rel="next" href="../../agents/agent-teams/">
@@ -340,7 +340,7 @@
           
   
   
-  任务系统
+  TodoWrite + 任务系统
 
         </a>
       </li>
@@ -412,26 +412,6 @@
   
   
   
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../core/todowrite/" class="md-tabs__link">
-          
-  
-  
-  任务
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
     
   
   
@@ -462,27 +442,7 @@
           
   
   
-  Agent 团队
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../agents/team-protocols/" class="md-tabs__link">
-          
-  
-  
-  团队协议
+  Agent Teams
 
         </a>
       </li>
@@ -739,6 +699,34 @@
     
   
     配置指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/MULTI_PROVIDER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多提供商支持
   
 
     
@@ -1053,7 +1041,7 @@
   <span class="md-ellipsis">
     
   
-    任务系统
+    TodoWrite + 任务系统
   
 
     
@@ -1069,7 +1057,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    任务系统
+    TodoWrite + 任务系统
   
 
           </label>
@@ -1409,95 +1397,6 @@
       
   
   
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    任务
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    任务
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/todowrite/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    V2 任务系统
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -1519,10 +1418,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
             
   
   
@@ -1540,8 +1439,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1632,6 +1531,433 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 状态模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-bash-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Bash Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Bash Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建 Bash Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-task_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash Task 执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例: 测试执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-agent-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Agent Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Agent Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建 Agent Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-process-teammate-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Process Teammate Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出流式传输
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="输出流式传输">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出文件格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        流式传输 vs. 轮询
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 生命周期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 生命周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状态转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建 Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跟踪 Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        终止 Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后台清理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长时间运行的操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长时间运行的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题: 卡住的 Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决方案: 后台执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与 Agent Loop 集成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worktree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worktree 集成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 用于长时间操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 监控重要任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 完成后清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 测试执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 长时间分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 部署
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 团队成员任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         关键文件
       
     </span>
@@ -1640,7 +1966,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -1688,17 +2014,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Agent 团队
+    Agent Teams
   
 
     
@@ -1709,12 +2035,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Agent 团队
+    Agent Teams
   
 
           </label>
@@ -1747,67 +2073,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
-        
-          
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    团队协议
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    团队协议
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1866,10 +2131,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
             
   
   
@@ -1887,8 +2152,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1955,10 +2220,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
             
   
   
@@ -1976,8 +2241,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2044,10 +2309,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -2065,8 +2330,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2273,10 +2538,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
             
   
   
@@ -2294,8 +2559,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2409,6 +2674,433 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        架构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 状态模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-bash-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Bash Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Bash Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建 Bash Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-task_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash Task 执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例: 测试执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-agent-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Agent Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Agent Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建 Agent Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-process-teammate-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Process Teammate Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出流式传输
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="输出流式传输">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出文件格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        流式传输 vs. 轮询
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 生命周期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 生命周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状态转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建 Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跟踪 Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        终止 Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后台清理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长时间运行的操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长时间运行的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题: 卡住的 Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决方案: 后台执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与 Agent Loop 集成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worktree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worktree 集成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 用于长时间操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 监控重要任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 完成后清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 测试执行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 长时间分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 部署
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 团队成员任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         关键文件
       
     </span>
@@ -2417,7 +3109,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         另请参阅
@@ -2454,14 +3146,393 @@
 
 <h1 id="background-tasks">Background Tasks: 异步操作执行<a class="headerlink" href="#background-tasks" title="Permanent link">&para;</a></h1>
 <h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Background Tasks 允许长时间运行的操作执行而不阻止主 agent。用户可以:</p>
+<p>Background Tasks 允许长时间运行的操作执行而不阻塞主 agent。用户可以:</p>
 <ul>
 <li>使用 Ctrl+B 生成任务</li>
 <li>继续在新会话中工作</li>
 <li>监控任务进度</li>
 <li>准备就绪时检索结果</li>
 </ul>
-<h2 id="_2">关键文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>主会话 (前台)
+    ↓
+[用户生成任务: Ctrl+B]
+    ↓
+┌─────────────────────────────┐
+│ 创建 Background Task        │
+│ - 生成 taskId               │
+│ - 初始化状态                │
+│ - 设置初始状态              │
+└────────┬────────────────────┘
+         ↓
+┌─────────────────────────────────┐
+│ 保存任务状态                    │
+│ ~/.claude/tasks/{sessionId}/    │
+│ {taskId}.state.json             │
+└────────┬────────────────────────┘
+         ↓
+┌─────────────────────────────────────────┐
+│ 生成后台进程                            │
+│ • 分离的会话                            │
+│ • 独立终端 (tmux/iTerm2)               │
+│ • 重定向 I/O (输出文件)                │
+└────────┬────────────────────────────────┘
+         ↓
+主会话继续
+(用户可以创建新会话或在其他地方工作)
+         ↓
+┌─────────────────────────────────┐
+│ Background Task 执行            │
+│ • 运行 bash 命令                │
+│ • 或生成 subagent               │
+│ • 流式输出到文件                │
+│ • 更新状态: pending→running     │
+└────────┬───────────────────────┘
+         ↓
+┌─────────────────────────────────────────┐
+│ 任务完成/失败                           │
+│ • 完成输出文件                          │
+│ • 更新状态: completed/failed            │
+│ • 设置 endTime                          │
+│ • 存储结果                              │
+└─────────────────────────────────────────┘
+         ↓
+用户稍后可以:
+  • TaskOutput 检索结果
+  • 如果仍在运行则终止任务
+  • 在任务列表中检查状态
+</code></pre></div>
+<h2 id="task">Task 类型<a class="headerlink" href="#task" title="Permanent link">&para;</a></h2>
+<p>Background tasks 支持多种执行类型:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TaskType</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;local_bash&quot;</span><span class="w">              </span><span class="c1">// 执行 bash 命令</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;local_agent&quot;</span><span class="w">             </span><span class="c1">// 生成本地 subagent</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;remote_agent&quot;</span><span class="w">            </span><span class="c1">// SSH 到远程，生成 agent</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;in_process_teammate&quot;</span><span class="w">     </span><span class="c1">// 同一进程中的团队成员</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;local_workflow&quot;</span><span class="w">          </span><span class="c1">// 执行 workflow 脚本</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;monitor_mcp&quot;</span><span class="w">             </span><span class="c1">// 监控 MCP server</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;dream&quot;</span><span class="w">                   </span><span class="c1">// Dream 模式 (特殊)</span>
+</code></pre></div>
+<h2 id="task_1">Task 状态模型<a class="headerlink" href="#task_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">                  </span><span class="c1">// b{8chars} 格式</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskType</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskStatus</span><span class="w">          </span><span class="c1">// pending|running|completed|failed|killed</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">         </span><span class="c1">// 人类可读</span>
+
+<span class="w">  </span><span class="nx">toolUseId?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// 创建它的工具调用</span>
+<span class="w">  </span><span class="nx">startTime</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">           </span><span class="c1">// Unix 时间戳 (ms)</span>
+<span class="w">  </span><span class="nx">endTime?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">            </span><span class="c1">// Unix 时间戳 (ms)</span>
+<span class="w">  </span><span class="nx">totalPausedMs?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">      </span><span class="c1">// 暂停持续时间</span>
+
+<span class="w">  </span><span class="c1">// 输出处理</span>
+<span class="w">  </span><span class="nx">outputFile</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">          </span><span class="c1">// 输出文件路径</span>
+<span class="w">  </span><span class="nx">outputOffset</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w">        </span><span class="c1">// 当前读取位置</span>
+
+<span class="w">  </span><span class="c1">// 通知</span>
+<span class="w">  </span><span class="nx">notified</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w">           </span><span class="c1">// 用户已被通知?</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">TaskStatus</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="w">                 </span><span class="c1">// 已创建，未启动</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="w">                 </span><span class="c1">// 活动执行</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w">               </span><span class="c1">// 成功</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="w">                  </span><span class="c1">// 错误</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;killed&quot;</span><span class="w">                  </span><span class="c1">// 用户终止</span>
+</code></pre></div>
+<h2 id="background-bash-tasks">Background Bash Tasks<a class="headerlink" href="#background-bash-tasks" title="Permanent link">&para;</a></h2>
+<h3 id="bash-task">创建 Bash Task<a class="headerlink" href="#bash-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用户在 agent 执行期间按 Ctrl+B</span>
+<span class="c1"># 系统提示输入要在后台运行的命令</span>
+
+输入命令:<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>tests
+</code></pre></div>
+<h3 id="bash-task_1">Bash Task 执行<a class="headerlink" href="#bash-task_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">BashTaskState</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;local_bash&quot;</span>
+<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">cwd</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">  </span><span class="nx">env?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="c1">// 执行:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">spawn</span><span class="p">(</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">command</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">detached</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w">  </span><span class="c1">// 从父进程分离</span>
+<span class="w">  </span><span class="nx">stdio</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">outputFile</span><span class="p">,</span><span class="w"> </span><span class="nx">outputFile</span><span class="p">],</span><span class="w">  </span><span class="c1">// 重定向到文件</span>
+<span class="w">  </span><span class="nx">cwd</span><span class="o">:</span><span class="w"> </span><span class="kt">cwd</span>
+<span class="p">})</span>
+
+<span class="c1">// 即使父进程退出，子进程也会继续</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">kill</span><span class="p">(</span><span class="o">-</span><span class="nx">child</span><span class="p">.</span><span class="nx">pid</span><span class="p">)</span><span class="w">  </span><span class="c1">// 如果稍后需要，终止进程组</span>
+</code></pre></div>
+<h3 id="_3">示例: 测试执行<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>用户正在处理代码
+按下 Ctrl+B → 生成后台任务
+
+命令: npm run test
+输出文件: ~/.claude/tasks/{sessionId}/b12345678.out
+
+主会话:
+  ↓ 在新会话中继续工作
+
+后台进程:
+  → npm run test
+  → 流式输出到文件
+  → 状态: running
+
+30 秒后:
+  → 测试完成
+  → 状态: completed
+  → 输出可通过 TaskOutput 获取
+</code></pre></div>
+<h2 id="background-agent-tasks">Background Agent Tasks<a class="headerlink" href="#background-agent-tasks" title="Permanent link">&para;</a></h2>
+<h3 id="agent-task">创建 Agent Task<a class="headerlink" href="#agent-task" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Agent 工具可以生成后台 subagent:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">run_in_background</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;长时间运行的分析任务&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">subagent_type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;explorer&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// 系统:</span>
+<span class="c1">// 1. 创建 BashTaskState</span>
+<span class="c1">// 2. 生成子进程</span>
+<span class="c1">// 3. 子进程运行 agent 循环</span>
+<span class="c1">// 4. 输出流式传输到文件</span>
+<span class="c1">// 5. 立即返回 taskId</span>
+</code></pre></div>
+<h3 id="in-process-teammate-tasks">In-Process Teammate Tasks<a class="headerlink" href="#in-process-teammate-tasks" title="Permanent link">&para;</a></h3>
+<p>对于 Agent Teams，teammates 作为后台任务运行:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">InProcessTeammateTask</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;in_process_teammate&quot;</span>
+<span class="w">  </span><span class="nx">agentId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">             </span><span class="c1">// 团队成员 ID</span>
+<span class="w">  </span><span class="nx">sessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w">           </span><span class="c1">// 团队成员会话</span>
+
+<span class="w">  </span><span class="c1">// 进程管理</span>
+<span class="w">  </span><span class="nx">subprocess?</span><span class="o">:</span><span class="w"> </span><span class="kt">ChildProcess</span>
+<span class="p">}</span>
+
+<span class="c1">// 执行:</span>
+<span class="c1">// 1. 创建运行 teammate 的子进程</span>
+<span class="c1">// 2. 通过 pipes/sockets 通信</span>
+<span class="c1">// 3. 维护消息队列 (mailbox)</span>
+<span class="c1">// 4. 流式输出</span>
+<span class="c1">// 5. 跟踪状态</span>
+</code></pre></div>
+<h2 id="_4">输出流式传输<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">输出文件格式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Background tasks 以特定格式写入文件:</p>
+<div class="highlight"><pre><span></span><code>~/.claude/tasks/{sessionId}/
+├── b12345678.out            # 原始输出
+├── b12345678.state.json     # 状态元数据
+└── ...
+</code></pre></div>
+<h3 id="_6">读取输出<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 获取任务输出</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">TaskOutput</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">taskId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b12345678&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">block</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w">               </span><span class="c1">// 等待完成?</span>
+<span class="w">  </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="kt">30000</span><span class="w">            </span><span class="c1">// 最大等待时间 (ms)</span>
+<span class="p">})</span>
+
+<span class="c1">// 返回:</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;命令输出...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">exitCode</span><span class="o">:</span><span class="w"> </span><span class="kt">0</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="vs">流式传输 vs. 轮询<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<p>用户可以实时监控或稍后获取结果:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 实时监控</span>
+<span class="c1"># 终端监视输出文件并更新 UI</span>
+
+<span class="c1"># 稍后检索</span>
+&gt;<span class="w"> </span>TaskOutput<span class="w"> </span>b12345678
+<span class="c1"># 获取存储的输出</span>
+</code></pre></div>
+<h2 id="task_2">Task 生命周期<a class="headerlink" href="#task_2" title="Permanent link">&para;</a></h2>
+<h3 id="_7">状态转换<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pending → running → completed
+      ↘    ↗
+       failed
+      ↙ ↗
+      killed (终止状态)
+</code></pre></div>
+<h3 id="task_3">创建 Task<a class="headerlink" href="#task_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createTask</span><span class="p">(</span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskConfig</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateTaskId</span><span class="p">()</span><span class="w">  </span><span class="c1">// &quot;b&quot; + 8 个随机字符</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="p">,</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="kr">type</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">config.description</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputFile</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">tasksDir</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">.out`</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">outputOffset</span><span class="o">:</span><span class="w"> </span><span class="kt">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">startTime</span><span class="o">:</span><span class="w"> </span><span class="kt">Date.now</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">notified</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_8">开始执行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">startTask</span><span class="p">(</span><span class="nx">task</span><span class="o">:</span><span class="w"> </span><span class="kt">TaskState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 更新状态</span>
+<span class="w">  </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;running&quot;</span>
+<span class="w">  </span><span class="nx">task</span><span class="p">.</span><span class="nx">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+
+<span class="w">  </span><span class="c1">// 生成子进程</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">subprocess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">spawn</span><span class="p">(...)</span>
+
+<span class="w">  </span><span class="c1">// 流式输出</span>
+<span class="w">  </span><span class="nx">subprocess</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="nx">task</span><span class="p">.</span><span class="nx">outputFile</span><span class="p">))</span>
+
+<span class="w">  </span><span class="c1">// 监控完成</span>
+<span class="w">  </span><span class="nx">subprocess</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span>
+<span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">notifyUser</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tasks">跟踪 Tasks<a class="headerlink" href="#tasks" title="Permanent link">&para;</a></h3>
+<p>活动任务存储在 AppState 中:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">AppState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">taskId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="nx">TaskState</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// UI 显示任务列表:</span>
+<span class="s2">&quot;Background Tasks:</span>
+<span class="s2">  [●] b12345678  npm run tests      (running, 已运行 2m30s)</span>
+<span class="s2">  [✓] b87654321  npm run build      (completed, 1m12s)</span>
+<span class="s2">  [●] b11111111  agent research     (running, 已运行 45s)&quot;</span>
+</code></pre></div>
+<h2 id="tasks_1">终止 Tasks<a class="headerlink" href="#tasks_1" title="Permanent link">&para;</a></h2>
+<p>用户可以终止正在运行的任务:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// KillShell 工具</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nx">shell_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b12345678&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// 内部:</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">kill</span><span class="p">(</span><span class="o">-</span><span class="nx">taskProcess</span><span class="p">.</span><span class="nx">pid</span><span class="p">)</span><span class="w">  </span><span class="c1">// 终止进程组</span>
+<span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;killed&quot;</span>
+<span class="nx">task</span><span class="p">.</span><span class="nx">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="_9">后台清理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>系统定期清理任务:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">backgroundHousekeeping</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. 扫描 AppState 中的终止任务</span>
+<span class="w">  </span><span class="c1">// 2. 对于每个 completed/failed 任务:</span>
+<span class="w">  </span><span class="c1">//    - 完成输出文件</span>
+<span class="w">  </span><span class="c1">//    - 保留元数据 (用于历史记录)</span>
+<span class="w">  </span><span class="c1">//    - 从活动任务列表中删除</span>
+<span class="w">  </span><span class="c1">// 3. 清理旧的已完成任务 (&gt; 24 小时)</span>
+<span class="p">}</span>
+
+<span class="c1">// 运行频率: 每 30 秒</span>
+<span class="c1">// 非阻塞 (不中断主 agent)</span>
+</code></pre></div>
+<h2 id="_10">长时间运行的操作<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="agents">问题: 卡住的 Agents<a class="headerlink" href="#agents" title="Permanent link">&para;</a></h3>
+<p>没有后台处理，长时间操作会阻塞用户:</p>
+<div class="highlight"><pre><span></span><code>❌ 不好:
+用户: &quot;运行完整测试套件&quot;
+Agent 启动: pytest (30 分钟)
+用户被卡住等待 30 分钟
+没有反馈或停止能力
+</code></pre></div>
+<h3 id="_11">解决方案: 后台执行<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>✅ 好:
+用户: &quot;运行完整测试套件&quot;
+Agent: &quot;我将在后台运行测试&quot;
+[生成: pytest 在子进程中]
+立即返回 taskId: b12345678
+
+用户: 在新会话中继续
+  - 可以处理其他任务
+  - 检查进度: TaskOutput
+  - 如果需要可以终止: KillShell
+</code></pre></div>
+<h2 id="agent-loop">与 Agent Loop 集成<a class="headerlink" href="#agent-loop" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>查询循环迭代:
+  ...
+  工具: Agent (run_in_background=true)
+  → 系统创建任务
+  → 生成子进程
+  → 立即返回 taskId
+  → 循环继续
+
+用户可以:
+  → 检查任务列表: TaskList
+  → 监控输出: TaskOutput(taskId)
+  → 终止任务: KillShell(taskId)
+  → 使用新会话进行新工作
+</code></pre></div>
+<h2 id="worktree">Worktree 集成<a class="headerlink" href="#worktree" title="Permanent link">&para;</a></h2>
+<p>Background tasks 支持 worktree 隔离:</p>
+<div class="highlight"><pre><span></span><code>Background Task:
+  - 在 git worktree 中生成
+  - 与主分支隔离
+  - 干净状态
+  - 稍后可以合并回来
+</code></pre></div>
+<h2 id="_12">最佳实践<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 用于长时间操作<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>✅ 好:
+<div class="highlight"><pre><span></span><code><span class="c1"># 长时间运行</span>
+npm<span class="w"> </span>run<span class="w"> </span>tests
+npm<span class="w"> </span>run<span class="w"> </span>build
+npm<span class="w"> </span>run<span class="w"> </span>deploy
+agent<span class="w"> </span>research<span class="w"> </span><span class="o">(</span><span class="m">30</span>+<span class="w"> </span>分钟<span class="o">)</span>
+</code></pre></div></p>
+<p>❌ 不好:
+<div class="highlight"><pre><span></span><code><span class="c1"># 快速操作应该内联运行</span>
+cat<span class="w"> </span>file.txt
+ls<span class="w"> </span>directory
+<span class="nb">echo</span><span class="w"> </span>message
+</code></pre></div></p>
+<h3 id="2">2. 监控重要任务<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 检查关键任务状态</span>
+TaskOutput<span class="w"> </span>b12345678
+
+<span class="c1"># 实时监控</span>
+<span class="c1"># (UI 显示实时进度)</span>
+</code></pre></div>
+<h3 id="3">3. 完成后清理<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 工作完成后，清理旧任务</span>
+<span class="c1"># (自动: &gt; 24 小时)</span>
+</code></pre></div>
+<h2 id="_13">用例<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1. 测试执行<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>用户: &quot;运行完整测试套件&quot;
+→ 生成后台任务
+→ 测试运行 20 分钟
+→ 用户继续编码
+→ 结果可通过 TaskOutput 获取
+</code></pre></div>
+<h3 id="2_1">2. 长时间分析<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Agent: &quot;分析 1000 个文件的模式&quot;
+→ 作为后台 subagent 运行
+→ 流式传输可用结果
+→ 用户可以逐步审查
+</code></pre></div>
+<h3 id="3_1">3. 部署<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>用户: &quot;部署到生产环境&quot;
+→ 后台 bash 任务
+→ 构建 → 测试 → 部署
+→ 使用 TaskOutput 监控
+→ 用户保持响应
+</code></pre></div>
+<h3 id="4">4. 团队成员任务<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Team Lead: 生成 3 个 teammates
+→ 每个作为后台进程运行
+→ 任务并行执行
+→ 结果由 team lead 合并
+</code></pre></div>
+<h2 id="_14">关键文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2496,7 +3567,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">另请参阅<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_15">另请参阅<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../core/todowrite/">Tasks (V2 System)</a> - 任务管理</li>
 <li><a href="./agent-teams.md">Agent Teams</a> - 后台 teammate 执行</li>
