@@ -1,395 +1,395 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>None./</loc>
+        <loc>https://delamain14.github.io/open-claude-code/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="None"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/"/>
     </url>
     <url>
-        <loc>NoneMULTI_PROVIDER/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/MULTI_PROVIDER/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="NoneMULTI_PROVIDER/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/MULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/MULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/"/>
     </url>
     <url>
-        <loc>Noneadvanced/worktree-isolation/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/advanced/worktree-isolation/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneadvanced/worktree-isolation/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/advanced/worktree-isolation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/advanced/worktree-isolation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/advanced/worktree-isolation/"/>
     </url>
     <url>
-        <loc>Noneagents/agent-teams/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/agents/agent-teams/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/agent-teams/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/agent-teams/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/agents/agent-teams/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/agents/agent-teams/"/>
     </url>
     <url>
-        <loc>Noneagents/autonomous-agents/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/agents/autonomous-agents/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/autonomous-agents/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/autonomous-agents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/agents/autonomous-agents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/agents/autonomous-agents/"/>
     </url>
     <url>
-        <loc>Noneagents/team-protocols/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/agents/team-protocols/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/team-protocols/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/team-protocols/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/agents/team-protocols/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/agents/team-protocols/"/>
     </url>
     <url>
-        <loc>Noneapi/commands/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/api/commands/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/commands/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/commands/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/api/commands/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/api/commands/"/>
     </url>
     <url>
-        <loc>Noneapi/tools/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/api/tools/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/tools/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/api/tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/api/tools/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/commands/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/commands/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/commands/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/commands/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/commands/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/commands/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/entrypoints/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/entrypoints/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/entrypoints/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/entrypoints/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/entrypoints/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/entrypoints/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/overview/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/overview/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/overview/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/overview/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/services/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/services/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/services/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/services/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/services/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/services/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/tools/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/tools/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/tools/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/tools/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/types/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/types/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/types/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/types/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/types/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/types/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/ui/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/ui/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/ui/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/ui/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/ui/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/ui/"/>
     </url>
     <url>
-        <loc>Nonearchitecture/utils/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/architecture/utils/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/utils/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/utils/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/utils/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/utils/"/>
     </url>
     <url>
-        <loc>Noneconcepts/context-compact/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/concepts/context-compact/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/context-compact/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/context-compact/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/concepts/context-compact/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/concepts/context-compact/"/>
     </url>
     <url>
-        <loc>Noneconcepts/skills/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/concepts/skills/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/skills/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/skills/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/concepts/skills/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/concepts/skills/"/>
     </url>
     <url>
-        <loc>Noneconcepts/subagents/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/concepts/subagents/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/subagents/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/subagents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/concepts/subagents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/concepts/subagents/"/>
     </url>
     <url>
-        <loc>Nonecore/agent-loop/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/core/agent-loop/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/agent-loop/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/agent-loop/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/core/agent-loop/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/core/agent-loop/"/>
     </url>
     <url>
-        <loc>Nonecore/todowrite/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/core/todowrite/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/todowrite/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/todowrite/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/core/todowrite/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/core/todowrite/"/>
     </url>
     <url>
-        <loc>Nonecore/tool-use/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/core/tool-use/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/tool-use/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/tool-use/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/core/tool-use/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/core/tool-use/"/>
     </url>
     <url>
-        <loc>Nonedevelopment/contributing/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/development/contributing/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/contributing/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/development/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/development/contributing/"/>
     </url>
     <url>
-        <loc>Nonedevelopment/setup/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/development/setup/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/setup/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/setup/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/development/setup/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/development/setup/"/>
     </url>
     <url>
-        <loc>Nonegetting-started/configuration/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/getting-started/configuration/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/configuration/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/getting-started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/getting-started/configuration/"/>
     </url>
     <url>
-        <loc>Nonegetting-started/installation/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/getting-started/installation/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/installation/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/getting-started/installation/"/>
     </url>
     <url>
-        <loc>Nonetasks/background-tasks/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/tasks/background-tasks/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonetasks/background-tasks/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/tasks/background-tasks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/tasks/background-tasks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/tasks/background-tasks/"/>
     </url>
     <url>
-        <loc>Nonezh/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/"/>
     </url>
     <url>
-        <loc>Nonezh/MULTI_PROVIDER/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/MULTI_PROVIDER/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="NoneMULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/MULTI_PROVIDER/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/MULTI_PROVIDER/"/>
     </url>
     <url>
-        <loc>Nonezh/advanced/worktree-isolation/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/advanced/worktree-isolation/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/advanced/worktree-isolation/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneadvanced/worktree-isolation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/advanced/worktree-isolation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/advanced/worktree-isolation/"/>
     </url>
     <url>
-        <loc>Nonezh/agents/agent-teams/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/agents/agent-teams/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/agent-teams/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/agent-teams/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/agents/agent-teams/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/agents/agent-teams/"/>
     </url>
     <url>
-        <loc>Nonezh/agents/autonomous-agents/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/agents/autonomous-agents/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/autonomous-agents/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/autonomous-agents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/agents/autonomous-agents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/agents/autonomous-agents/"/>
     </url>
     <url>
-        <loc>Nonezh/agents/team-protocols/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/agents/team-protocols/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/agents/team-protocols/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneagents/team-protocols/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/agents/team-protocols/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/agents/team-protocols/"/>
     </url>
     <url>
-        <loc>Nonezh/api/commands/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/api/commands/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/commands/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/commands/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/api/commands/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/api/commands/"/>
     </url>
     <url>
-        <loc>Nonezh/api/tools/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/api/tools/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/api/tools/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneapi/tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/api/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/api/tools/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/commands/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/commands/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/commands/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/commands/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/commands/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/commands/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/entrypoints/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/entrypoints/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/entrypoints/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/entrypoints/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/entrypoints/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/entrypoints/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/overview/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/overview/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/overview/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/overview/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/services/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/services/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/services/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/services/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/services/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/services/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/tools/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/tools/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/tools/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/tools/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/types/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/types/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/types/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/types/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/types/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/types/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/ui/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/ui/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/ui/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/ui/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/ui/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/ui/"/>
     </url>
     <url>
-        <loc>Nonezh/architecture/utils/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/architecture/utils/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/architecture/utils/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonearchitecture/utils/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/architecture/utils/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/architecture/utils/"/>
     </url>
     <url>
-        <loc>Nonezh/concepts/context-compact/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/concepts/context-compact/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/context-compact/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/context-compact/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/concepts/context-compact/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/concepts/context-compact/"/>
     </url>
     <url>
-        <loc>Nonezh/concepts/skills/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/concepts/skills/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/skills/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/skills/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/concepts/skills/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/concepts/skills/"/>
     </url>
     <url>
-        <loc>Nonezh/concepts/subagents/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/concepts/subagents/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/concepts/subagents/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneconcepts/subagents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/concepts/subagents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/concepts/subagents/"/>
     </url>
     <url>
-        <loc>Nonezh/core/agent-loop/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/core/agent-loop/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/agent-loop/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/agent-loop/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/core/agent-loop/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/core/agent-loop/"/>
     </url>
     <url>
-        <loc>Nonezh/core/todowrite/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/core/todowrite/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/todowrite/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/todowrite/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/core/todowrite/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/core/todowrite/"/>
     </url>
     <url>
-        <loc>Nonezh/core/tool-use/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/core/tool-use/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/core/tool-use/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonecore/tool-use/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/core/tool-use/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/core/tool-use/"/>
     </url>
     <url>
-        <loc>Nonezh/development/contributing/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/development/contributing/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/contributing/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/development/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/development/contributing/"/>
     </url>
     <url>
-        <loc>Nonezh/development/setup/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/development/setup/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/development/setup/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonedevelopment/setup/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/development/setup/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/development/setup/"/>
     </url>
     <url>
-        <loc>Nonezh/getting-started/configuration/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/getting-started/configuration/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/configuration/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/getting-started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/getting-started/configuration/"/>
     </url>
     <url>
-        <loc>Nonezh/getting-started/installation/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/getting-started/installation/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/getting-started/installation/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonegetting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/getting-started/installation/"/>
     </url>
     <url>
-        <loc>Nonezh/tasks/background-tasks/</loc>
+        <loc>https://delamain14.github.io/open-claude-code/zh/tasks/background-tasks/</loc>
         <lastmod>2026-04-02</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="Nonezh/tasks/background-tasks/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="Nonetasks/background-tasks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://delamain14.github.io/open-claude-code/zh/tasks/background-tasks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://delamain14.github.io/open-claude-code/tasks/background-tasks/"/>
     </url>
 </urlset>
